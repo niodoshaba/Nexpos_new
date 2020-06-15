@@ -111,8 +111,8 @@ body{
                     border-radius: 20px;
                     background-color: #fff;
                 }
-             }
-         }
+            }
+        }
     }
 }
 
@@ -180,6 +180,46 @@ body{
             display: flex;
             justify-content: center;
             align-items: center;
+        }   
+        #orderPageItemDivAll{
+
+            width: 100%;
+            
+
+        }
+            .orderPageItemDiv{
+                display: inline-block;
+                width: 160px;
+                height: 160px;
+                position: relative;
+                border-radius: 20px;
+                overflow: hidden;
+                margin-top: 2.5%;
+
+
+
+
+                div{
+                    width: 100%;
+                    height: 20%;
+                    position: absolute;
+                    bottom: 0;
+                    background-color: rgba(0,0,0,.5);
+                    
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit:cover;
+                }
+                span{
+                    position: absolute;
+                    bottom: 0px;
+                    z-index: 1;
+                    color: white;
+                }
+                
+            
         }   
     }
 
