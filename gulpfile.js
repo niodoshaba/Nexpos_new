@@ -41,7 +41,7 @@ gulp.task('concat', ['sass'], function () {
     //do
     return gulp.src('./dev/css/*.css') //來源
         .pipe(concat('all.css'))//合併
-        .pipe(cleanCSS({ compatibility: 'ie8' }))//壓縮
+        // .pipe(cleanCSS({ compatibility: 'ie8' }))//壓縮
         .pipe(gulp.dest('./dest/css')) //目的地
 });
 

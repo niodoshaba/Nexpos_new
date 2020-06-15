@@ -1,0 +1,319 @@
+@mixin yellowBtn ($raidus){
+    border-style:none;
+    background-color: #F8C54E;
+    border-radius: $raidus;
+    color: white;
+    outline:none;
+}
+
+@mixin lightBlueBtn ($raidus){
+    border: 2px solid #B2DDEA;
+    border-radius: $raidus;
+    background-color: #fff;
+    color: #B2DDEA;
+    outline:none;
+}
+
+
+
+@mixin blueline ($blueheight){
+    border: 5px solid #28569A; 
+    width: 1px; 
+    height: $blueheight; 
+    border-radius: 10px;
+    display: inline-block; 
+    transform: translateY(25%);
+    margin-right: 20px;
+}
+
+body{
+    font-family:"jf-openhuninn-1.1";
+    font-size: 20px;
+    color:#959595
+}
+
+.container-fluid{
+    padding: 0;
+}
+
+#checkoutLeftside{
+    // border: 1px solid red;
+    height: 100vh;
+    img{
+        margin-left: -15px;
+    }
+}
+
+#checkoutLeftSideTop{
+    // border: 1px solid purple;y
+    font-size: 20px;
+    color:#959595;
+    margin-left: 20px;
+    input{
+        margin: 10px 0px;
+        border: 0;
+        border-bottom: 1px solid #959595;
+        outline:none;
+        height: 30px;
+    }
+    button{
+        @include yellowBtn(20px);
+        margin: 10px 10px;
+        padding: 0px 10px;
+    }
+    span{
+        margin: 10px 0px;
+    }
+}
+    
+#checkoutLeftSideMid{
+    font-size: 20px;
+    color:#959595;
+    .checkoutLeftSideMidItemTop{
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 20px;
+        // background-color: rgb(255, 255, 255);
+        border-radius: 5px;
+        transition: all 0.2s;
+        span{
+            margin: 10px 20px;
+        }
+    }
+    .checkoutLeftSideMidItemBottom{
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 20px;
+        
+        .checkoutLeftSideMidToppings{
+            line-height: 20px;
+            span{                
+                font-size: 10px;
+                box-shadow: 0px 1px 2px #959595;
+                padding: 5px 10px;
+                border-radius: 20px;
+            }
+        }
+    }
+}
+
+.-toblue{
+    background-color: rgba(178,221,234,.35);
+}
+
+.checkoutScrollbar
+{
+	height: 55vh;
+	width: 100%;
+	background: rgb(255, 255, 255);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#style-3::-webkit-scrollbar
+{
+	width: 10px; 
+	background-color: rgb(255, 255, 255);
+}
+
+#style-3::-webkit-scrollbar-thumb
+{
+  border-radius:50px;
+	background-color: #DDDDDD;
+}
+
+#checkoutLeftSideBottomTop{
+    margin: 20px 20px 10px 0px;
+    display: flex;
+    justify-content: flex-end;
+    div{
+        margin-right: 10px;
+        height: 15px;
+        width: 50px;
+        border-bottom: 1px solid #959595;       
+    }
+}
+
+#checkoutLeftSideBottomBottom{
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    button{
+        @include yellowBtn(30px);
+        margin: 20px 20px 0px 10px;
+        padding:10px 20px;
+    }
+}
+
+#checkoutMain{
+    // border: 1px solid blue;
+    height: 100vh;
+    #checkoutMainTop{
+        // border: 1px solid orange;
+        height: 55vh;
+        margin-top: 5vh;
+        button{
+            @include lightBlueBtn(30px);
+            padding:2.5px 10px;
+            margin-top: 20px;
+            margin-left: 10px;
+            transform: translateX(140px);
+        }
+    }
+    #checkoutMainBottom{
+        height: 35vh;
+    }
+
+    .checkoutBigLetter{
+        width: 350px;
+        display: inline-block;
+        flex-direction: column;
+        div{
+            font-size: 35px;
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0px 10px 0px;
+        }
+    }
+    .checkoutThreeLineText{
+        transform: translateY(15px);
+        width: 300px;
+        display: inline-block;
+        flex-direction: column;
+        div{
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0px 10px 0px;
+        }
+    }
+
+    #checkoutGetCash{
+        width: 100px;
+        border: 0;
+        border-bottom: 1px solid #959595;
+        outline:none;
+        height: 30px;
+    }
+}
+
+.checkoutMainBottomTop{
+    margin-left: 100px;
+    display: flex;
+    justify-content: flex-start;
+    div{
+        margin-left: 10px;
+        height: 15px;
+        width: 100px;
+        border-bottom: 1px solid #959595;       
+    }
+}
+
+#checkoutDiscount{
+    display: inline-block;
+    div{
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+        input{
+            width: 100px;
+            border: 0;
+            border-bottom: 1px solid #959595;
+            outline:none;
+            height: 30px;
+        }
+    }
+}
+
+#checkoutGetPoint{
+    width: 100px;
+    border: 0;
+    border-bottom: 1px solid #959595;
+    outline:none;
+    height: 30px;
+}
+
+#checkoutIfDiscount, #checkoutIfPoint, #checkoutIfEachCheck{
+    display: none;
+}
+
+.checkoutBlueLine1{
+    // margin-left: 120px;
+    margin-left: 20%;
+    margin-top: 55px;
+    @include blueline(30px);
+}
+.checkoutBlueLine2{
+    // margin-left: 120px;
+    margin-left: 20%;
+    margin-top: 30px;
+    @include blueline(53px);
+}
+.checkoutBlueLine3{
+    // margin-left: 120px;
+    margin-left: 20%;
+    margin-top: 30px;
+    @include blueline(120px);
+}
+
+#checkoutRightSide{
+    margin-right: -30px;
+    // border: 1px solid green;
+    background-color: #F9F9F9;
+    border-radius: 50px 0px 0px 0px;
+    box-shadow: -1px -1px 3px #e6e6e6;
+    height: 100vh;
+    #checkoutRightSideTop{
+        margin-top: 230px;
+        text-align: center;
+        button{
+            @include lightBlueBtn(30px);
+            padding: 5px 10px;
+            margin-left:10px;
+            margin-right:10px;
+        }
+        input{
+            background-color: #F9F9F9;
+            margin-top: 15px;
+            width: 200px;
+        }
+    }
+    #checkoutRightSideMid{
+        width: 70%;
+        margin: 15%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        button{
+            font-size: 35px;
+            color:#959595;
+            width: 90px;
+            height: 90px;
+            border: 0;
+            border-radius: 35px;
+            background-color: #fff;
+            box-shadow: 0px 2px 3px #cfcfcf;
+            margin: 20px 15px 0px 15px;
+            outline:none;
+        }
+        button:last-child{
+            width: 210px;
+        }
+    }
+    #checkoutRightSideBottom{
+        margin-top: 65%;
+
+        text-align: center;
+        #checkoutLastBtn{
+            width: 200px;
+            font-size: 40px;
+            color:#fff;
+            height: 90px;
+            border: 0;
+            border-radius: 35px;
+            background-color: #FF9F4B;
+            // margin: -10px 0px 0px 210px;
+            outline:none;
+        }
+    }
+}

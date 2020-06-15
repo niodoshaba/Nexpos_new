@@ -1,0 +1,228 @@
+body{
+    font-family:"jf-openhuninn-1.1";
+    font-size: 20px;
+    color:#959595
+}
+
+.container-fluid{
+    padding: 0;
+}
+
+#orderPageLeftSide{
+    // border: 1px solid red;
+    height: 100vh;
+    background-color: #F9F9F9;
+    // img:first-child{
+    //     margin-left: -15px;
+    // }
+    #orderPageLeftSideTop{
+        // border: 1px solid purple;
+        font-size: 20px;
+        color:#959595;
+        margin-left: 40px;
+        input{
+            width: 50px;
+            outline: none;
+            background-color: #f9f9f9;
+            border: 0;
+            border-bottom:1px solid gray ;
+        }
+        span{
+            margin: 10px 0px;
+        }
+        div{
+            width: 15px;
+            // margin-left: 15px;
+            font-weight: bolder;
+            // border: 1px solid gray;
+            display: inline-block;  
+            cursor: pointer;
+            img{
+                width: 100%;
+            }
+        }
+    }
+
+
+    #orderPageLeftSideUpLine{
+        margin-top: 20px;
+        margin-left: 7.5%;
+        background-color: #d6d6d6  ;
+        width: 85%;
+        height: 2px;
+    }
+
+    .orderPageScrollbar{
+	height: 65vh;
+	width: 100%;
+	background: #f9f9f9;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    }
+
+    #style-3::-webkit-scrollbar{
+        width: 10px; 
+        background-color: #f9f9f9;
+    }
+
+    #style-3::-webkit-scrollbar-thumb{
+    border-radius:50px;
+        background-color: #DDDDDD;
+    }
+}
+
+#orderPageLeftSideMid{
+    font-size: 20px;
+    color:#959595;
+    .orderPageLeftSideMidItemAll{
+        display: flex;
+        // align-items: center;
+        .orderPageLeftSideMidItemDelete{
+            margin-left:20px;
+            margin-top: 20px;
+        }
+        .orderPageLeftSideMidItem{
+            width: 90%;
+        }
+        .orderPageLeftSideMidItemTop{
+            background-color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 20px;
+            // background-color: rgb(255, 255, 255);
+            border-radius: 30px;
+            transition: all 0.2s;
+            span{
+                margin: 10px 20px;
+            }
+        }
+        .orderPageLeftSideMidItemBottom{
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 20px;
+            
+            .orderPageLeftSideMidToppings{
+                line-height: 20px;
+                span{                
+                    font-size: 10px;
+                    box-shadow: 0px 1px 2px #959595;
+                    padding: 5px 10px;
+                    border-radius: 20px;
+                    background-color: #fff;
+                }
+             }
+         }
+    }
+}
+
+#orderPageLeftSideBottom{
+    #orderPageLeftSideBottomTop{
+        margin: 20px 20px 10px 0px;
+        display: flex;
+        justify-content: center;
+        div{
+            margin-right: 15px;
+            margin-left: 15px;
+            height: 15px;
+            width: 75px;
+            border-bottom: 1px solid #959595;       
+        }
+    }
+    #orderPageLeftSideBottomBottom{
+        margin-top: 25px;
+    }
+}
+
+#orderPageRightside{
+    background-image: url("../img/bg_dots.png");
+    display: flex;
+    flex-direction: column;
+    #orderPageRightSideTop{
+        display: flex;
+        height: 10vh;
+        border: 1px solid blue;
+        div{
+            height: 100%;
+            border: 1px solid red;
+            ul{
+                height: 100%;
+                list-style-type: none;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                
+                li{
+                    font-size: 25px;
+                    margin-right: 20px;
+                    border-bottom: 3px solid #E98E89;
+                    border-radius: 5px;
+                }
+            }
+        }
+        .orderPageArrow{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    }
+
+    #orderPageRightSideMid{
+        display: flex;
+        height: 75vh;
+        border: 1px solid blue;
+        div{
+            height: 100%;
+            border: 1px solid red;
+        }
+        .orderPageArrow{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }   
+    }
+
+    #orderPageRightSideBottom{
+        display: flex;
+        height: 15vh;
+        border: 1px solid blue;
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            border: 1px solid red;
+
+            #orderPageRightSideBottomBtn1{
+                font-size: 25px;
+                border-style:none;
+                background-color: #F8C54E;
+                border-radius: 50px;
+                color: white;
+                outline:none;
+                padding: 20px 40px;
+            }
+
+            #orderPageRightSideBottomBtn2{
+                font-size: 20px;
+                border-style:none;
+                background-color: #E98E89;
+                border-radius: 50px;
+                color: white;
+                outline:none;
+                padding: 10px 15px;
+            }
+
+            #orderPageRightSideBottomBtn3{
+                font-size: 25px;
+                border-style:none;
+                background-color: #FE9F4B;
+                border-radius: 50px;
+                color: white;
+                outline:none;
+                padding: 20px 40px;
+            }
+        }
+    }
+}

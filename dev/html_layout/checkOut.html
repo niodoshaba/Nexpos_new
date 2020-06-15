@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/checkOut.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row no-gutters">
+
+            <div id="checkoutLeftside" class="col-4">
+                <img src="../img/checkout_back.png" alt="">
+                <div id="checkoutLeftSideTop" class="row no-gutters">
+                    <span class="col-7">訂單編號：{{單編號}}</span>
+                    <span class="col-5">{{內/外}}</span>
+                    <br>
+                    <span class="col-7">桌號：{{桌編號}}</span>
+                    <span class="col-5">人數：{{人數}}</span>
+                    <br>
+                    <span class="col-2">會員：</span>
+                    <input type="text" class="col-5">
+                    <button class="col-2" id="checkoutLeftSideTopBtn">輸入</button>
+                </div>
+
+                <div id="checkoutLeftSideMid">
+                    <div class="checkoutScrollbar" id="style-3">
+                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
+                        <div>
+                            <div class="checkoutLeftSideMidItemTop">
+                                <span>ITEM NAME</span>
+                                <span>1</span>
+                            </div>
+                            <div class="checkoutLeftSideMidItemBottom">
+                                <div class="checkoutLeftSideMidToppings">
+                                    <span>(加料1)</span>
+                                    <span>(加料2)</span>
+                                    <span>(加料2)</span>
+                                </div>
+                                <span class="">$300</span>
+                            </div>
+                        </div>
+                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
+
+                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
+                        <div>
+                            <div class="checkoutLeftSideMidItemTop">
+                                <span>ITEM NAME</span>
+                                <span>1</span>
+                            </div>
+                            <div class="checkoutLeftSideMidItemBottom">
+                                <div class="checkoutLeftSideMidToppings">
+                                    <span>(加料1)</span>
+                                    <span>(加料2)</span>
+                                    <span>(加料2)</span>
+                                </div>
+                                <span class="">$300</span>
+                            </div>
+                        </div>
+                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
+
+                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
+                        <div>
+                            <div class="checkoutLeftSideMidItemTop">
+                                <span>ITEM NAME</span>
+                                <span>1</span>
+                            </div>
+                            <div class="checkoutLeftSideMidItemBottom">
+                                <div class="checkoutLeftSideMidToppings">
+                                    <span>(加料1)</span>
+                                    <span>(加料2)</span>
+                                    <span>(加料2)</span>
+                                </div>
+                                <span class="">$300</span>
+                            </div>
+                        </div>
+                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
+
+                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
+                        <div>
+                            <div class="checkoutLeftSideMidItemTop">
+                                <span>ITEM NAME</span>
+                                <span>1</span>
+                            </div>
+                            <div class="checkoutLeftSideMidItemBottom">
+                                <div class="checkoutLeftSideMidToppings">
+                                    <span>(加料1)</span>
+                                    <span>(加料2)</span>
+                                    <span>(加料2)</span>
+                                </div>
+                                <span class="">$300</span>
+                            </div>
+                        </div>
+                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
+                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
+                        <div>
+                            <div class="checkoutLeftSideMidItemTop">
+                                <span>ITEM NAME</span>
+                                <span>1</span>
+                            </div>
+                            <div class="checkoutLeftSideMidItemBottom">
+                                <div class="checkoutLeftSideMidToppings">
+                                    <span>(加料1)</span>
+                                    <span>(加料2)</span>
+                                    <span>(加料2)</span>
+                                </div>
+                                <span class="">$300</span>
+                            </div>
+                        </div>
+                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
+                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
+                        <div>
+                            <div class="checkoutLeftSideMidItemTop">
+                                <span>ITEM NAME</span>
+                                <span>1</span>
+                            </div>
+                            <div class="checkoutLeftSideMidItemBottom">
+                                <div class="checkoutLeftSideMidToppings">
+                                    <span>(加料1)</span>
+                                    <span>(加料2)</span>
+                                    <span>(加料2)</span>
+                                </div>
+                                <span class="">$300</span>
+                            </div>
+                        </div>
+                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
+                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
+                        <div>
+                            <div class="checkoutLeftSideMidItemTop">
+                                <span>ITEM NAME</span>
+                                <span>1</span>
+                            </div>
+                            <div class="checkoutLeftSideMidItemBottom">
+                                <div class="checkoutLeftSideMidToppings">
+                                    <span>(加料1)</span>
+                                    <span>(加料2)</span>
+                                    <span>(加料2)</span>
+                                </div>
+                                <span class="">$300</span>
+                            </div>
+                        </div>
+                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
+                    </div>
+
+                </div>
+
+
+                <div id="checkoutLeftSideBottom">
+                    <div id="checkoutLeftSideBottomTop">
+                        <div></div><span>剩餘品項:{{count}}</span>
+                    </div>
+                    <div id="checkoutLeftSideBottomBottom">
+                        <button id="checkoutDiscountBtn">折扣</button>
+                        <button id="checkoutPointBtn">紅利折點</button>
+                        <button id="checkoutEachCheckBtn">拆單</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div id="checkoutMain" class="col-5">
+                <div id="checkoutMainTop">
+                    <div class="checkoutBlueLine1"></div>
+                    <span>支付方式：</span>
+                    <br>
+                    <button>現金</button>
+                    <button>信用卡</button>
+                    <button>電子支付</button>
+                    <br>
+
+                    <div class="checkoutBlueLine2"></div>
+                    <div class="checkoutBigLetter">
+                        <div id="checkoutTotal">
+                            <span>總計：</span> <span>${{Count}}</span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="checkoutBlueLine3"></div>
+                    <div class="checkoutThreeLineText">
+                        <div id="checkoutGetCashDiv">
+                            <span>收款金額：</span> <input type="text" id="checkoutGetCash">
+                        </div>
+                        <div id="checkoutChangeDiv">
+                            <span>找零：</span> <span>${{count}}</span>
+                        </div>
+                        <div id="checkoutDiscountDiv">
+                            <span>折扣總計：</span> <span>${{count}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="checkoutMainBottom">
+
+                    <!-- 這裡是拆單會出現的內容 -->
+                    <div id="checkoutIfEachCheck">
+                        <div class="checkoutMainBottomTop">
+                            <span>拆單子單</span>
+                            <div></div>
+                        </div>
+
+                        <div class="checkoutBlueLine2"></div>
+                        <div class="checkoutBigLetter">
+                            <div id="checkoutEachTotal">
+                                <span>拆單總計：</span> <span>${{count}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 這裡是拆單會出現的內容 -->
+
+                    <!-- 這裡是折扣會出現的內容 -->
+                    <div id="checkoutIfDiscount">
+                        <div class="checkoutMainBottomTop">
+                            <span>折扣</span>
+                            <div></div>
+                        </div>
+                        <div class="checkoutBlueLine1"></div>
+                        <div id="checkoutDiscount">
+                            <div>
+                                <span>折扣%數：</span> <input type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 這裡是折扣會出現的內容 -->
+
+                    <!-- 這裡是紅利折扣會出現的內容 -->
+                    <div id="checkoutIfPoint">
+                        <div class="checkoutMainBottomTop">
+                            <span>紅利折扣</span>
+                            <div></div>
+                        </div>
+                        <div class="checkoutBlueLine3"></div>
+                        <div class="checkoutThreeLineText">
+                            <div>
+                                <span>現有紅利：</span> <span>${{count}}</span>
+                            </div>
+                            <div>
+                                <span>折抵紅利：</span> <input type="text" id="checkoutGetPoint">
+                            </div>
+                            <div>
+                                <span>折抵金額：</span> <span>${{count}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 這裡是紅利折扣會出現的內容 -->
+                </div>
+            </div>
+
+            <div id='checkoutRightSide' class="col-3">
+                <div id="checkoutRightSideTop">
+                    <button>統一編號</button>
+                    <button>發票載具</button><br>
+                    <input type="text" id="checkoutGetPoint">
+                </div>
+                <!-- <div id="checkoutRightSideMid">
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>.</button>
+                <button>0</button>
+                <button>00</button>
+                <button>取消</button>
+                <button>確認</button>
+            </div> -->
+                <div id="checkoutRightSideBottom">
+                    <button id="checkoutLastBtn">結帳</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="../js/checkOut.js"></script>
+</body>
+
+</html>
