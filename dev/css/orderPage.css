@@ -51,9 +51,9 @@ body {
 #orderPageLeftSideMid {
   font-size: 20px;
   color: #959595; }
-  #orderPageLeftSideMid .orderPageLeftSideMidItem {
+  #orderPageLeftSideMid #orderPageLeftSideMidItem {
     width: 100%; }
-    #orderPageLeftSideMid .orderPageLeftSideMidItem .orderPageLeftSideMidItemTop {
+    #orderPageLeftSideMid #orderPageLeftSideMidItem .orderPageLeftSideMidItemTop {
       width: 85%;
       margin: 10px 0px 10px 50px;
       position: relative;
@@ -62,9 +62,9 @@ body {
       display: flex;
       justify-content: space-between;
       border-radius: 30px; }
-      #orderPageLeftSideMid .orderPageLeftSideMidItem .orderPageLeftSideMidItemTop span {
+      #orderPageLeftSideMid #orderPageLeftSideMidItem .orderPageLeftSideMidItemTop span {
         margin: 10px 20px; }
-      #orderPageLeftSideMid .orderPageLeftSideMidItem .orderPageLeftSideMidItemTop .orderPageLeftSideMidItemDelete {
+      #orderPageLeftSideMid #orderPageLeftSideMidItem .orderPageLeftSideMidItemTop .orderPageLeftSideMidItemDelete {
         position: absolute;
         margin-left: 20px;
         margin-top: 10px;
