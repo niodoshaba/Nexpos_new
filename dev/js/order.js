@@ -21,7 +21,7 @@ window.onload = function () {
     var orderPageLeftSideMidItemTop = document.querySelectorAll(".orderPageLeftSideMidItemTop");
 
 
-    var ordFill = document.getElementById("ordFill");
+    var ordToppingSec = document.getElementById("ordToppingSec");
 
 
 
@@ -180,35 +180,25 @@ window.onload = function () {
 
     // 把商品從購物車移除，一次一個
     orderPageLeftSideMidItemAll.addEventListener('click', function (e) {
+        // console.log("這裡是", e.target.parentNode); //orderPageLeftSideMidItem
+        // console.log("????", e.target); //orderPageLeftSideMidItemTop
+        // console.log("這邊定位relative", e.target.parentNode.parentNode.parentNode.nextSibling.nextSibling.nextSibling.nextSibling); //orderPageLeftSideMid
+
+        // 觸發配料區塊
         if (e.target.nodeName == 'DIV') {
 
-            console.log("這裡是", e.target.parentNode); //orderPageLeftSideMidItem
-            console.log("????", e.target); //orderPageLeftSideMidItem
-
-
-            // let ordHTML = '';
-            // console.log("找到了嗎", e.target.nodeName)
-
-            // // 觸發配料區塊
-            // if (e.target.nodeName == 'SPAN') {
-
-
-            // $("#ordFill").slideToggle();
-            $(e.target).toggleClass("gray");
-
-
-            // }
+            $(e.target.parentNode.parentNode.parentNode.nextSibling.nextSibling.nextSibling.nextSibling).toggle(); // orderPageLeftSideMid
+            $(e.target).toggleClass("gray"); // orderPageLeftSideMidItemTop
 
         }
 
 
         if (e.target.nodeName == 'IMG') {
 
-            console.log("找到", e.target.nodeName) // IMG
-            console.log("爸爸", e.target.parentNode); //orderPageLeftSideMidItemDelete
-            console.log("爸爸的爸爸", e.target.parentNode.parentNode); //orderPageLeftSideMidItemTop
-            console.log("爸爸的爸爸的爸爸", e.target.parentNode.parentNode.parentNode); //orderPageLeftSideMidItem
-
+            // console.log("找到", e.target.nodeName) // IMG
+            // console.log("爸爸", e.target.parentNode); //orderPageLeftSideMidItemDelete
+            // console.log("爸爸的爸爸", e.target.parentNode.parentNode); //orderPageLeftSideMidItemTop
+            // console.log("爸爸的爸爸的爸爸", e.target.parentNode.parentNode.parentNode); //orderPageLeftSideMidItem
 
 
             console.log("DATASET", e.target.dataset.cnt); //orderPageLeftSideMidItem
