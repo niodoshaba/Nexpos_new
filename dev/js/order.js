@@ -13,7 +13,7 @@ window.onload = function () {
     // var orderPageLeftSideMidItemDelete = document.querySelectorAll(".orderPageLeftSideMidItemDelete");
 
 
-    var orderPageLeftSideMidItem = document.getElementById("orderPageLeftSideMidItem");
+    var orderPageLeftSideMidItemAll = document.getElementById("orderPageLeftSideMidItemAll");
     var ordTotAmtShow = document.getElementById("ordTotAmtShow");
     var ordTotNumShow = document.getElementById("ordTotNumShow");
 
@@ -129,23 +129,31 @@ window.onload = function () {
             ordAddProdItemToCart(ordProdInfo[i]);
 
             let ordHTML = '';
-            orderPageLeftSideMidItem.innerHTML = " ";
+            orderPageLeftSideMidItemAll.innerHTML = " ";
 
             // console.log("長度", ordProdCart.length);
 
             // 動態新增標籤與data-set
             for (let k = 0; k < ordProdCart.length; k++) {
                 ordHTML += `
-                        <div class="orderPageLeftSideMidItemTop" data-ordCnt='${k}'>
-                            <div class="orderPageLeftSideMidItemDelete" data-cnt='${k}'>
-                                <img src="../img/icon_cancel.png" alt="">
+                    <div class="orderPageLeftSideMidItem" >
+                        <div class="orderPageLeftSideMidItemTop">
+                            <div class="orderPageLeftSideMidItemDelete" >
+                                <img src="../img/icon_cancel.png" alt="" data-cnt='${k}'>
                             </div>
-                            <span class="ordSele">${ordProdCart[k].ordProdName}<span>
-                            <span>${ordProdCart[k].ordProdCnt}<span>
-                        </div>`;
+                            <span class="ordSele">${ordProdCart[k].ordProdName}</span>
+                            <span>${ordProdCart[k].ordProdCnt}</span>
+                        </div>
+                        <div class="orderPageLeftSideMidItemBottom">
+                            <div class="orderPageLeftSideMidToppings">
+                            </div>
+                            <span class="ordItemPr">$${ordProdCart[k].ordProdPr}</span>
+                        </div> 
+                    </div>
+                `;
 
             }
-            orderPageLeftSideMidItem.innerHTML = ordHTML;
+            orderPageLeftSideMidItemAll.innerHTML = ordHTML;
 
             // 把購物車資訊存進localStorage
             ordSaveProdInCartHist();
@@ -170,10 +178,8 @@ window.onload = function () {
 
 
 
-
-
     // 把商品從購物車移除，一次一個
-    orderPageLeftSideMidItem.addEventListener('click', function (e) {
+    orderPageLeftSideMidItemAll.addEventListener('click', function (e) {
 
         // let ordHTML = '';
         // console.log("找到了嗎", e.target.nodeName)
@@ -185,18 +191,28 @@ window.onload = function () {
         //     $("#ordFill").slideToggle();
         //     $(e.target).toggleClass("gray");
 
+        console.log(e.target.nodeName); // IMG或DIV
 
         // }
 
-        if (e.target.nodeName == 'DIV') {
+        if (e.target.nodeName == 'IMG') {
 
-            console.log("找到", e.target.nodeName) // x DIV
+            console.log("找到", e.target.nodeName) // IMG
+            console.log("爸爸", e.target.parentNode); //orderPageLeftSideMidItemDelete
+            console.log("爸爸的爸爸", e.target.parentNode.parentNode); //orderPageLeftSideMidItemTop
+            console.log("爸爸的爸爸的爸爸", e.target.parentNode.parentNode.parentNode); //orderPageLeftSideMidItem
+
+
+
+            console.log("DATASET", e.target.dataset.cnt); //orderPageLeftSideMidItem
+
+
             // console.log("名稱", ordProdCart[e.target.dataset.cnt].ordProdName);
             // localStorage.removeItem("ordSaveProdInCart"); //清空ordSaveProdInCart
 
             ordProdCart.splice(parseInt(e.target.dataset.cnt), 1);
-            orderPageLeftSideMidItem.removeChild(e.target.parentNode);
-            // console.log("爸爸", e.target.parentNode); // li
+            orderPageLeftSideMidItemAll.removeChild(e.target.parentNode.parentNode.parentNode);
+
 
             let ordHTML = '';
 
@@ -204,7 +220,7 @@ window.onload = function () {
             for (let o = 0; o < ordProdCart.length; o++) {
                 // console.log("啊啊啊啊啊啊啊啊", ordProdCart[o].ordProdName);
 
-                orderPageLeftSideMidItem.innerHTML = "";
+                orderPageLeftSideMidItemAll.innerHTML = "";
 
                 // console.log("長度", ordProdCart.length);
 
@@ -216,17 +232,27 @@ window.onload = function () {
 
                 // 重跑data-set 
                 ordHTML += `
-                        <div class="orderPageLeftSideMidItemTop" data-ordCnt='${o}'>
-                            <div class="orderPageLeftSideMidItemDelete" data-cnt='${o}'>
-                                <img src="../img/icon_cancel.png" alt="">
+                    <div class="orderPageLeftSideMidItem" >
+                        <div class="orderPageLeftSideMidItemTop">
+                            <div class="orderPageLeftSideMidItemDelete"  >
+                                <img src="../img/icon_cancel.png" alt="" data-cnt='${o}'>
                             </div>
-                            <span class="ordSele">${ordProdCart[o].ordProdName}<span>
-                            <span>${ordProdCart[o].ordProdCnt}<span>
-                        </div>`;
+                            <span class="ordSele">${ordProdCart[o].ordProdName}</span>
+                            <span>${ordProdCart[o].ordProdCnt}</span>
+                        </div>
+                    
+                        <div class="orderPageLeftSideMidItemBottom">
+                            <div class="orderPageLeftSideMidToppings">
+                            
+                            </div>
+                            <span class="ordItemPr">$${ordProdCart[o].ordProdPr}</span>
+                        </div> 
+                    </div> 
+                `;
                 // console.log("除錯", o)
 
             }
-            orderPageLeftSideMidItem.innerHTML = ordHTML;
+            orderPageLeftSideMidItemAll.innerHTML = ordHTML;
 
 
             // 放入localStorage
@@ -269,7 +295,7 @@ window.onload = function () {
     // 把購物車的所有品項與頁面上的金額、數量顯示清除
     function ordClearCart() {
         ordProdCart = [];
-        orderPageLeftSideMidItem.innerHTML = "";
+        orderPageLeftSideMidItemAll.innerHTML = "";
         ordTotAmtShow.innerText = 0;
         ordTotNumShow.innerText = 0;
 

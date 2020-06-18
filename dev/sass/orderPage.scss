@@ -75,10 +75,11 @@ body{
 #orderPageLeftSideMid{
     font-size: 20px;
     color:#959595;
-    // .orderPageLeftSideMidItemAll{
-    //     display: flex;
-        // align-items: center;
-        #orderPageLeftSideMidItem{
+    #orderPageLeftSideMidItemAll{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .orderPageLeftSideMidItem{
             width: 100%;
             .orderPageLeftSideMidItemTop{
                 width: 85%;
@@ -125,7 +126,7 @@ body{
             }
         }
     }
-// }
+}
 
 #orderPageLeftSideBottom{
     #orderPageLeftSideBottomTop{
