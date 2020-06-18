@@ -57,6 +57,8 @@ body {
     align-items: center; }
     #orderPageLeftSideMid #orderPageLeftSideMidItemAll .orderPageLeftSideMidItem {
       width: 100%; }
+      #orderPageLeftSideMid #orderPageLeftSideMidItemAll .orderPageLeftSideMidItem .orderPageLeftSideMidItemTop.gray {
+        background-color: #ccc; }
       #orderPageLeftSideMid #orderPageLeftSideMidItemAll .orderPageLeftSideMidItem .orderPageLeftSideMidItemTop {
         width: 85%;
         margin: 10px 0px 10px 50px;

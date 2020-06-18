@@ -180,20 +180,27 @@ window.onload = function () {
 
     // 把商品從購物車移除，一次一個
     orderPageLeftSideMidItemAll.addEventListener('click', function (e) {
+        if (e.target.nodeName == 'DIV') {
 
-        // let ordHTML = '';
-        // console.log("找到了嗎", e.target.nodeName)
-
-        // // 觸發配料區塊
-        // if (e.target.nodeName == 'SPAN') {
+            console.log("這裡是", e.target.parentNode); //orderPageLeftSideMidItem
+            console.log("????", e.target); //orderPageLeftSideMidItem
 
 
-        //     $("#ordFill").slideToggle();
-        //     $(e.target).toggleClass("gray");
+            // let ordHTML = '';
+            // console.log("找到了嗎", e.target.nodeName)
 
-        console.log(e.target.nodeName); // IMG或DIV
+            // // 觸發配料區塊
+            // if (e.target.nodeName == 'SPAN') {
 
-        // }
+
+            // $("#ordFill").slideToggle();
+            $(e.target).toggleClass("gray");
+
+
+            // }
+
+        }
+
 
         if (e.target.nodeName == 'IMG') {
 

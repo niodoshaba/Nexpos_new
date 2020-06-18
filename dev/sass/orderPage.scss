@@ -81,6 +81,9 @@ body{
         align-items: center;
         .orderPageLeftSideMidItem{
             width: 100%;
+            .orderPageLeftSideMidItemTop.gray{
+                background-color: #ccc;
+            }
             .orderPageLeftSideMidItemTop{
                 width: 85%;
                 margin:10px 0px 10px 50px;
