@@ -75,36 +75,46 @@ body{
 #orderPageLeftSideMid{
     font-size: 20px;
     color:#959595;
-    .orderPageLeftSideMidItemAll{
-        display: flex;
+    // .orderPageLeftSideMidItemAll{
+    //     display: flex;
         // align-items: center;
-        .orderPageLeftSideMidItemDelete{
-            margin-left:20px;
-            margin-top: 20px;
-        }
         .orderPageLeftSideMidItem{
-            width: 90%;
-        }
-        .orderPageLeftSideMidItemTop{
-            background-color: #fff;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            margin: 10px 20px;
-            // background-color: rgb(255, 255, 255);
-            border-radius: 30px;
-            transition: all 0.2s;
-            span{
-                margin: 10px 20px;
+            width: 100%;
+            .orderPageLeftSideMidItemTop{
+                width: 85%;
+                margin:10px 0px 10px 50px;
+                position: relative;
+                background-color: #fff;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                
+                border-radius: 30px;
+                // transition: all 0.2s;
+                span{
+                    margin: 10px 20px;
+                }
+                .orderPageLeftSideMidItemDelete{
+                
+                    position: absolute;
+                    margin-left:20px;
+                    margin-top: 10px;
+                    // width: 50px;
+                    left: -50px;
+                    // background-color: blue;
+                }
             }
         }
+
         .orderPageLeftSideMidItemBottom{
+            width: 80%;
             display: flex;
             justify-content: space-between;
-            margin: 10px 20px;
+            margin:10px 0px 10px 60px;
             
             .orderPageLeftSideMidToppings{
-                line-height: 20px;
+                // line-height: 30px;
+                margin-top: -5px;
                 span{                
                     font-size: 10px;
                     box-shadow: 0px 1px 2px #959595;
@@ -115,7 +125,7 @@ body{
             }
         }
     }
-}
+// }
 
 #orderPageLeftSideBottom{
     #orderPageLeftSideBottomTop{
