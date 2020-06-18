@@ -51,35 +51,37 @@ body {
 #orderPageLeftSideMid {
   font-size: 20px;
   color: #959595; }
-  #orderPageLeftSideMid .orderPageLeftSideMidItemAll {
-    display: flex; }
-    #orderPageLeftSideMid .orderPageLeftSideMidItemAll .orderPageLeftSideMidItemDelete {
-      margin-left: 20px;
-      margin-top: 20px; }
-    #orderPageLeftSideMid .orderPageLeftSideMidItemAll .orderPageLeftSideMidItem {
-      width: 90%; }
-    #orderPageLeftSideMid .orderPageLeftSideMidItemAll .orderPageLeftSideMidItemTop {
+  #orderPageLeftSideMid .orderPageLeftSideMidItem {
+    width: 100%; }
+    #orderPageLeftSideMid .orderPageLeftSideMidItem .orderPageLeftSideMidItemTop {
+      width: 85%;
+      margin: 10px 0px 10px 50px;
+      position: relative;
       background-color: #fff;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
-      margin: 10px 20px;
-      border-radius: 30px;
-      transition: all 0.2s; }
-      #orderPageLeftSideMid .orderPageLeftSideMidItemAll .orderPageLeftSideMidItemTop span {
+      border-radius: 30px; }
+      #orderPageLeftSideMid .orderPageLeftSideMidItem .orderPageLeftSideMidItemTop span {
         margin: 10px 20px; }
-    #orderPageLeftSideMid .orderPageLeftSideMidItemAll .orderPageLeftSideMidItemBottom {
-      display: flex;
-      justify-content: space-between;
-      margin: 10px 20px; }
-      #orderPageLeftSideMid .orderPageLeftSideMidItemAll .orderPageLeftSideMidItemBottom .orderPageLeftSideMidToppings {
-        line-height: 20px; }
-        #orderPageLeftSideMid .orderPageLeftSideMidItemAll .orderPageLeftSideMidItemBottom .orderPageLeftSideMidToppings span {
-          font-size: 10px;
-          box-shadow: 0px 1px 2px #959595;
-          padding: 5px 10px;
-          border-radius: 20px;
-          background-color: #fff; }
+      #orderPageLeftSideMid .orderPageLeftSideMidItem .orderPageLeftSideMidItemTop .orderPageLeftSideMidItemDelete {
+        position: absolute;
+        margin-left: 20px;
+        margin-top: 10px;
+        left: -50px; }
+  #orderPageLeftSideMid .orderPageLeftSideMidItemBottom {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px 10px 60px; }
+    #orderPageLeftSideMid .orderPageLeftSideMidItemBottom .orderPageLeftSideMidToppings {
+      margin-top: -5px; }
+      #orderPageLeftSideMid .orderPageLeftSideMidItemBottom .orderPageLeftSideMidToppings span {
+        font-size: 10px;
+        box-shadow: 0px 1px 2px #959595;
+        padding: 5px 10px;
+        border-radius: 20px;
+        background-color: #fff; }
 
 #orderPageLeftSideBottom #orderPageLeftSideBottomTop {
   margin: 20px 20px 10px 0px;
