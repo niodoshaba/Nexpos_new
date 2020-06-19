@@ -272,7 +272,6 @@ window.onload = function () {
 
 
 
-
     // 把新商品加進購物車
     function ordAddProdItemToCart(ordProdInfo) {
         ordProdCart.push(ordProdInfo);
@@ -339,6 +338,18 @@ window.onload = function () {
     };
 
 
+    // ========VueJs========
 
+    new Vue({
+        el: "#orderPageLeftSideTop",
+        data: {
+            ordNo: " ",
+
+        }
+
+    })
 
 }
+
+
+
