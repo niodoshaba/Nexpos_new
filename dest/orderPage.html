@@ -11,24 +11,36 @@
 </head>
 
 <body>
+
     <div class="container-fluid">
         <div class="row no-gutters">
             <div id="orderPageLeftSide" class="col-4">
                 <img src="../img/checkout_back.png" alt="">
                 <div id="orderPageLeftSideTop" class="row no-gutters">
-                    <span class="col-6">訂單編號：{{單編號}}</span>
-                    <span class="col-6"><img src="../img/icon_spoonfork.png" alt=""> {{內/外}}</span>
+                    <span class="col-6" v-model="ordNo">訂單編號：{{ordNo}}</span>
+                    <span class="col-6">
+                        <img src="../img/icon_spoonfork.png" alt=""> 內/外
+                    </span>
                     <br>
-                    <span class="col-6"><img src="../img/icon_desk.png" alt=""> 桌號： <input type="text"></span>
-                    <span class="col-6"><img src="../img/icon_people.png" alt=""> 人數： <div> <img
-                                src="../img/Icon-minus.png" alt=""> </div> <input type="text">
-                        <div> <img src="../img/Icon-plus.png" alt=""> </div>
+                    <span class="col-6">
+                        <img src="../img/icon_desk.png" alt="">
+                        桌號： <input type="text" v-model="ordTabNo">
+                    </span>
+                    <span class="col-6">
+                        <img src="../img/icon_people.png" alt=""> 人數：
+                        <div>
+                            <img src="../img/Icon-minus.png" alt="" @click="ordCalPplAmtMinus">
+                        </div>
+                        <input type="text" v-model="ordPplAmt">
+                        <div>
+                            <img src="../img/Icon-plus.png" alt="" @click="ordCalPplAmtPlus">
+                        </div>
                     </span>
                 </div>
 
                 <div id="orderPageLeftSideUpLine"></div>
 
-                <div id="orderPageLeftSideMid">
+                <div id="orderPageLeftSideMid" style="position: relative;">
                     <div class="orderPageScrollbar" id="style-3">
 
                         <!-- 這樣為一筆商品資料 -->
@@ -53,8 +65,19 @@
                         </div>
                         <!-- 這樣為一筆商品資料 -->
                     </div>
-
-
+                    <!--  -->
+                    <div id="ordToppingSec"
+                        style="width: 300px;border: 2px solid rgb(22, 87, 141); position: absolute; top: 30px; display: none; right: -300px; z-index: 5; background-color: white;">
+                        <button class="ordFillBtn" id="ordSugar"
+                            style="width:100px; height:40px; border-radius:40px; margin: 20px;">糖度</button>
+                        <button class="ordFillBtn" id="ordIce"
+                            style="width:100px; height:40px; border-radius:40px; margin: 20px;">冰塊</button>
+                        <button class="ordFillBtn" id="ordFillItem"
+                            style="width:100px; height:40px; border-radius:40px; margin: 20px;">配料</button>
+                        <button class="ordFillBtn" id="ordSeasoning"
+                            style="width:100px; height:40px; border-radius:40px; margin: 20px;">調味</button>
+                    </div>
+                    <!--  -->
                 </div>
 
                 <div id="orderPageLeftSideBottom">
@@ -236,6 +259,7 @@
 
 
 
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -245,7 +269,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
     <script src="../js/order.js"></script>
+
+
+
 </body>
 
 </html>
