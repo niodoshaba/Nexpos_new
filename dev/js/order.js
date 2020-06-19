@@ -344,6 +344,7 @@ window.onload = function () {
         el: "#orderPageLeftSideTop",
         data: {
             ordNo: " ",
+            ordTabNo: "T001",
 
         }
 

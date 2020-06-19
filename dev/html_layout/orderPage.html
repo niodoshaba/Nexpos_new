@@ -18,12 +18,22 @@
                 <img src="../img/checkout_back.png" alt="">
                 <div id="orderPageLeftSideTop" class="row no-gutters">
                     <span class="col-6" v-model="ordNo">訂單編號：{{ordNo}}</span>
-                    <span class="col-6"><img src="../img/icon_spoonfork.png" alt=""> 內/外</span>
+                    <span class="col-6">
+                        <img src="../img/icon_spoonfork.png" alt=""> 內/外
+                    </span>
                     <br>
-                    <span class="col-6"><img src="../img/icon_desk.png" alt=""> 桌號： <input type="text"></span>
-                    <span class="col-6"><img src="../img/icon_people.png" alt=""> 人數： <div> <img
-                                src="../img/Icon-minus.png" alt=""> </div> <input type="text">
-                        <div> <img src="../img/Icon-plus.png" alt=""> </div>
+                    <span class="col-6">
+                        <img src="../img/icon_desk.png" alt="">
+                        桌號： <input type="text" v-model="ordTabNo">
+                    </span>
+                    <span class="col-6">
+                        <img src="../img/icon_people.png" alt=""> 人數： <div>
+                            <img src="../img/Icon-minus.png" alt="">
+                        </div>
+                        <input type="text">
+                        <div>
+                            <img src="../img/Icon-plus.png" alt="">
+                        </div>
                     </span>
                 </div>
 
