@@ -27,12 +27,13 @@
                         桌號： <input type="text" v-model="ordTabNo">
                     </span>
                     <span class="col-6">
-                        <img src="../img/icon_people.png" alt=""> 人數： <div>
-                            <img src="../img/Icon-minus.png" alt="">
-                        </div>
-                        <input type="text">
+                        <img src="../img/icon_people.png" alt=""> 人數：
                         <div>
-                            <img src="../img/Icon-plus.png" alt="">
+                            <img src="../img/Icon-minus.png" alt="" @click="ordCalPplAmtMinus">
+                        </div>
+                        <input type="text" v-model="ordPplAmt">
+                        <div>
+                            <img src="../img/Icon-plus.png" alt="" @click="ordCalPplAmtPlus">
                         </div>
                     </span>
                 </div>

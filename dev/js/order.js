@@ -345,7 +345,19 @@ window.onload = function () {
         data: {
             ordNo: " ",
             ordTabNo: "T001",
+            ordPplAmt: ""
 
+        },
+        methods: {
+            ordCalPplAmtPlus() {
+                this.ordPplAmt++;
+            },
+            ordCalPplAmtMinus() {
+                this.ordPplAmt--;
+                if (this.ordPplAmt < 0) {
+                    this.ordPplAmt = 0;
+                }
+            }
         }
 
     })
