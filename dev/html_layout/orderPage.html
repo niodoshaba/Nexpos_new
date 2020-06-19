@@ -40,7 +40,7 @@
 
                 <div id="orderPageLeftSideUpLine"></div>
 
-                <div id="orderPageLeftSideMid" style="position: relative;">
+                <div id="orderPageLeftSideMid">
                     <div class="orderPageScrollbar" id="style-3">
 
                         <!-- 這樣為一筆商品資料 -->
@@ -66,16 +66,11 @@
                         <!-- 這樣為一筆商品資料 -->
                     </div>
                     <!--  -->
-                    <div id="ordToppingSec"
-                        style="width: 300px;border: 2px solid rgb(22, 87, 141); position: absolute; top: 30px; display: none; right: -300px; z-index: 5; background-color: white;">
-                        <button class="ordFillBtn" id="ordSugar"
-                            style="width:100px; height:40px; border-radius:40px; margin: 20px;">糖度</button>
-                        <button class="ordFillBtn" id="ordIce"
-                            style="width:100px; height:40px; border-radius:40px; margin: 20px;">冰塊</button>
-                        <button class="ordFillBtn" id="ordFillItem"
-                            style="width:100px; height:40px; border-radius:40px; margin: 20px;">配料</button>
-                        <button class="ordFillBtn" id="ordSeasoning"
-                            style="width:100px; height:40px; border-radius:40px; margin: 20px;">調味</button>
+                    <div id="ordToppingSec" >
+                        <button class="ordFillBtn" id="ordSugar">糖度</button>
+                        <button class="ordFillBtn" id="ordIce">冰塊</button>
+                        <button class="ordFillBtn" id="ordFillItem">配料</button>
+                        <button class="ordFillBtn" id="ordSeasoning">調味</button>
                         <div class="ordToppingSele"></div>
                     </div>
                     <!--  -->
@@ -88,17 +83,16 @@
                     </div>
 
                     <div id="orderPageLeftSideBottomBottom" class="row no-gutters">
-                        <div class="col-1"></div>
+                        <div class="col-4"></div>
 
-                        <div class="col-5">
+                        <div class="col-6">
                             <span>總計：</span>
                             <span id="ordTotAmtShow"></span>
                         </div>
-                        <div class="col-5">
-                            <span>折扣總計：</span>
-                            <span>{{count}}</span>
+                        <div class="col-2">
+  
                         </div>
-                        <div class="col-1"></div>
+                 
                     </div>
                 </div>
 

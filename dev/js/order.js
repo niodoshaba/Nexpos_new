@@ -188,7 +188,7 @@ window.onload = function () {
         if (e.target.nodeName == 'DIV') {
 
             $(e.target.parentNode.parentNode.parentNode.nextSibling.nextSibling.nextSibling.nextSibling).toggle(); // orderPageLeftSideMid
-            $(e.target).toggleClass("gray"); // orderPageLeftSideMidItemTop
+            $(e.target).toggleClass("lightblue"); // orderPageLeftSideMidItemTop
 
         }
 
