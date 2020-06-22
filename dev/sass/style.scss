@@ -52,20 +52,15 @@
 // modules 模組 每個專案都會累積不同的
 // 要詳細寫說明
 //=================
-@import "modules/link";
+// @import "modules/link";
 
 //=================
 // layout
 //=================
 
 //請import進layout下的scss
-<<<<<<< HEAD
 @import "layout/header";
 @import "layout/wrapper";
-=======
-@import 'layout/header';
-@import 'layout/wrapper';
->>>>>>> 78442a7add22d33d3dfbfa1ecb829d4b0d98a942
 // @import 'layout/footer';
 
 //other
