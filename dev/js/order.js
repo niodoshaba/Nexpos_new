@@ -3,8 +3,10 @@ window.onload = function () {
     // shopping cart function below
 
     // 購物車
-
     var ordProdCart = [];
+
+    // 配料購物車
+    var ordToppingSuagrCart = [];
 
 
     // 點菜按鈕
@@ -18,10 +20,18 @@ window.onload = function () {
     var ordTotNumShow = document.getElementById("ordTotNumShow");
 
 
-    var orderPageLeftSideMidItemTop = document.querySelectorAll(".orderPageLeftSideMidItemTop");
+    // var orderPageLeftSideMidItemTop = document.querySelectorAll(".orderPageLeftSideMidItemTop");
 
 
     var ordToppingSec = document.getElementById("ordToppingSec");
+
+
+    let ordSugar = document.getElementById("ordSugar");
+    let ordSugarItem = document.querySelectorAll(".ordSugarItem");
+    let orderPageLeftSideMidToppings = document.querySelectorAll(".orderPageLeftSideMidToppings");
+
+
+    let ordSele = document.querySelectorAll(".ordSele")
 
 
 
@@ -107,6 +117,42 @@ window.onload = function () {
         },
     ];
 
+
+    var ordSugarInfo = [
+        {
+            ordSugarName: "全糖",
+            ordSugarPr: 0,
+            ordSugarId: "TS001",
+            ordSugarCnt: 1
+        },
+        {
+            ordSugarName: "少糖",
+            ordSugarPr: 0,
+            ordSugarId: "TS002",
+            ordSugarCnt: 1
+        },
+        {
+            ordSugarName: "半糖",
+            ordSugarPr: 0,
+            ordSugarId: "TS003",
+            ordSugarCnt: 1
+        },
+        {
+            ordSugarName: "微糖",
+            ordSugarPr: 0,
+            ordSugarId: "TS004",
+            ordSugarCnt: 1
+        },
+        {
+            ordSugarName: "無糖",
+            ordSugarPr: 0,
+            ordSugarId: "TS005",
+            ordSugarCnt: 1
+        },
+    ]
+
+
+
     function ordSaveProdInfo() {
         localStorage.setItem("ordSaveProdInfo", JSON.stringify(ordProdInfo));
     };
@@ -145,15 +191,17 @@ window.onload = function () {
                             <span>${ordProdCart[k].ordProdCnt}</span>
                         </div>
                         <div class="orderPageLeftSideMidItemBottom">
-                            <div class="orderPageLeftSideMidToppings">
+                            <div class="orderPageLeftSideMidToppings data-sec=${k}">
                             </div>
                             <span class="ordItemPr">$${ordProdCart[k].ordProdPr}</span>
                         </div> 
                     </div>
                 `;
-
             }
             orderPageLeftSideMidItemAll.innerHTML = ordHTML;
+
+
+
 
             // 把購物車資訊存進localStorage
             ordSaveProdInCartHist();
@@ -171,82 +219,84 @@ window.onload = function () {
     };
 
 
-
-
-
-
-
-
-
-    // 把商品從購物車移除，一次一個
     orderPageLeftSideMidItemAll.addEventListener('click', function (e) {
-        // console.log("這裡是", e.target.parentNode); //orderPageLeftSideMidItem
-        // console.log("????", e.target); //orderPageLeftSideMidItemTop
-        // console.log("這邊定位relative", e.target.parentNode.parentNode.parentNode.nextSibling.nextSibling.nextSibling.nextSibling); //orderPageLeftSideMid
-
         // 觸發配料區塊
         if (e.target.nodeName == 'DIV') {
 
             $(e.target.parentNode.parentNode.parentNode.nextSibling.nextSibling.nextSibling.nextSibling).toggle(); // orderPageLeftSideMid
             $(e.target).toggleClass("lightblue"); // orderPageLeftSideMidItemTop
 
+            if (e.target.parentNode.parentNode.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.id == 'ordToppingSec') {
+
+                // 讓配料區塊出現
+                $(ordSugar).click(function () {
+                    $("#ordSugarAll").toggle();
+                });
+            }
+
+            // 增加配料（甜度）  
+
+            for (let s = 0; s < ordSugarItem.length; s++) {
+
+                // alert(ordSugarItem.length);
+                ordSugarItem[s].addEventListener("click", function () {
+
+                    console.log(ordSugarItem[3])
+
+                    ordAddToppingSugarToCart(ordSugarInfo[s]);
+
+
+                    console.log("咔咔咔咔", e.target.nextSibling.nextElementSibling.children[0].innerHTML)
+                    console.log("神秘的陣列", ordToppingSuagrCart[s])
+
+                    $(e.target.nextSibling.nextElementSibling.children[0]).append(`<span> ${ordSugarInfo[s].ordSugarName}  $${ordSugarInfo[s].ordSugarPr}</span>`);
+
+                    e.stopImmediatePropagation();
+                    console.log("咔咔", e.target.nextSibling.nextElementSibling.children[0].innerHTML)
+
+
+                    $("#ordSugarAll").toggle();
+
+                    ordSaveToppingSugarInCartHist();
+
+
+
+                })
+            }
         }
 
-
+        // 把商品從購物車移除，一次一個
         if (e.target.nodeName == 'IMG') {
 
-            // console.log("找到", e.target.nodeName) // IMG
-            // console.log("爸爸", e.target.parentNode); //orderPageLeftSideMidItemDelete
-            // console.log("爸爸的爸爸", e.target.parentNode.parentNode); //orderPageLeftSideMidItemTop
-            // console.log("爸爸的爸爸的爸爸", e.target.parentNode.parentNode.parentNode); //orderPageLeftSideMidItem
-
-
-            console.log("DATASET", e.target.dataset.cnt); //orderPageLeftSideMidItem
-
-
-            // console.log("名稱", ordProdCart[e.target.dataset.cnt].ordProdName);
-            // localStorage.removeItem("ordSaveProdInCart"); //清空ordSaveProdInCart
+            console.log("DATASET", e.target.parentNode.parentNode.parentNode); //orderPageLeftSideMidItem
 
             ordProdCart.splice(parseInt(e.target.dataset.cnt), 1);
             orderPageLeftSideMidItemAll.removeChild(e.target.parentNode.parentNode.parentNode);
 
-
             let ordHTML = '';
+            orderPageLeftSideMidItemAll.innerHTML = "";
 
-            // console.log("刪除的商品", ordProdCart.splice(0, 1));
+
             for (let o = 0; o < ordProdCart.length; o++) {
-                // console.log("啊啊啊啊啊啊啊啊", ordProdCart[o].ordProdName);
-
-                orderPageLeftSideMidItemAll.innerHTML = "";
-
-                // console.log("長度", ordProdCart.length);
-
-
-                // // 重跑data-set 
-                // ordHTML += `<li class="ordSele"  style="display: inline-block" data-ordCnt='${o}'><button class="ordCloseBtn" data-cnt='${o}}'>X</button></ion-icon>${ordProdCart[o].ordProdName}</li>`;
-                // // console.log("除錯", o)
-
 
                 // 重跑data-set 
                 ordHTML += `
-                    <div class="orderPageLeftSideMidItem" >
+                    <div class= "orderPageLeftSideMidItem">
                         <div class="orderPageLeftSideMidItemTop">
                             <div class="orderPageLeftSideMidItemDelete"  >
                                 <img src="../img/icon_cancel.png" alt="" data-cnt='${o}'>
                             </div>
-                            <span class="ordSele">${ordProdCart[o].ordProdName}</span>
-                            <span>${ordProdCart[o].ordProdCnt}</span>
+                                <span class="ordSele">${ordProdCart[o].ordProdName}</span>
+                                <span>${ordProdCart[o].ordProdCnt}</span>
                         </div>
-                    
                         <div class="orderPageLeftSideMidItemBottom">
-                            <div class="orderPageLeftSideMidToppings">
-                            
+                            <div class="orderPageLeftSideMidToppings data-sec=${o}">
+
                             </div>
                             <span class="ordItemPr">$${ordProdCart[o].ordProdPr}</span>
-                        </div> 
+                        </div>
                     </div> 
                 `;
-                // console.log("除錯", o)
 
             }
             orderPageLeftSideMidItemAll.innerHTML = ordHTML;
@@ -261,6 +311,8 @@ window.onload = function () {
             ordTotProdAmt();
 
             ordAllProdNumInCart();
+
+
 
         }
 
@@ -281,6 +333,12 @@ window.onload = function () {
 
         // 把購物車資訊存進屬於"暫時訂單的"localStorage
         // ordSaveProdInCartTemp();
+    };
+
+    // 把配料加進購物車
+    function ordAddToppingSugarToCart(ordSugarInfo) {
+        ordToppingSuagrCart.push(ordSugarInfo);
+        console.log("寫進配料_糖陣列", ordToppingSuagrCart)
     };
 
 
@@ -313,8 +371,7 @@ window.onload = function () {
             ordTotAmt += ordProdCart[i].ordProdPr;
         }
         ordTotAmtShow.innerText = ordTotAmt;
-        // console.log("刺激", typeof ordProdCart);
-        // console.log("刺激1995", ordProdCart);
+
     };
 
 
@@ -324,6 +381,11 @@ window.onload = function () {
     function ordSaveProdInCartHist() {
         localStorage.setItem("ordSaveProdInCart", JSON.stringify(ordProdCart));
     };
+
+    function ordSaveToppingSugarInCartHist() {
+        localStorage.setItem("ordSaveToppingSugarInCart", JSON.stringify(ordToppingSuagrCart));
+
+    }
 
     // 把購物車資訊存進屬於"暫時訂單的"localStorage
     function ordSaveProdInCartTemp() {
@@ -359,7 +421,6 @@ window.onload = function () {
                 }
             }
         }
-
     })
 
 }

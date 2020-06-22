@@ -141,7 +141,7 @@ body{
         color:#959595;
         width: 150px;
         max-height: 70vh;
-        // display: none;
+        display: none;
         position: absolute;
         top: 0;
         right: 0;
@@ -163,6 +163,17 @@ body{
         }
         .ordFillBtn:first-child{
             border-top: none;
+        }
+        #ordSugarAll{
+            display: none;
+            text-align: center;
+            .ordSugarItem{
+                padding: 5px;
+                cursor: pointer;
+                &:hover{
+                    color: bisque;
+                }
+            }
         }
     }
 
