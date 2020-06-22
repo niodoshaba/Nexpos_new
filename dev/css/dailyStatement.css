@@ -1,0 +1,131 @@
+body {
+  font-family: "jf-openhuninn-1.1";
+  font-size: 20px;
+  color: #959595; }
+
+.container-fluid {
+  padding: 0; }
+
+.no-gutters {
+  background-color: #ffffff; }
+
+#orderPageLeftSide {
+  height: 100vh;
+  background-color: #28569a; }
+  #orderPageLeftSide #style-3::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f9f9f9; }
+  #orderPageLeftSide #style-3::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background-color: #dddddd; }
+
+#orderPageLeftSideMid {
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center; }
+  #orderPageLeftSideMid .orderPageLeftSideMidItemAll {
+    display: flex; }
+    #orderPageLeftSideMid .orderPageLeftSideMidItemAll .orderPageLeftSideMidItemDelete {
+      margin-left: 20px;
+      margin-top: 20px; }
+    #orderPageLeftSideMid .orderPageLeftSideMidItemAll .orderPageLeftSideMidItem {
+      width: 90%; }
+    #orderPageLeftSideMid .orderPageLeftSideMidItemAll .orderPageLeftSideMidItemTop {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 20px;
+      border-radius: 30px;
+      transition: all 0.2s; }
+      #orderPageLeftSideMid .orderPageLeftSideMidItemAll .orderPageLeftSideMidItemTop span {
+        color: #ffffff;
+        margin: 15px;
+        text-align: center; }
+    #orderPageLeftSideMid .orderPageLeftSideMidItemAll .orderPageLeftSideMidItemBottom {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 20px; }
+      #orderPageLeftSideMid .orderPageLeftSideMidItemAll .orderPageLeftSideMidItemBottom .orderPageLeftSideMidToppings {
+        line-height: 20px; }
+        #orderPageLeftSideMid .orderPageLeftSideMidItemAll .orderPageLeftSideMidItemBottom .orderPageLeftSideMidToppings span {
+          font-size: 10px;
+          box-shadow: 0px 1px 2px #959595;
+          padding: 5px 10px;
+          border-radius: 20px;
+          background-color: #fff; }
+
+#orderPageLeftSideBottom #orderPageLeftSideBottomTop {
+  margin: 20px 20px 10px 0px;
+  display: flex;
+  justify-content: center; }
+  #orderPageLeftSideBottom #orderPageLeftSideBottomTop div {
+    margin-right: 15px;
+    margin-left: 15px;
+    height: 15px;
+    width: 75px;
+    border-bottom: 1px solid #959595; }
+
+#orderPageLeftSideBottom #orderPageLeftSideBottomBottom {
+  margin-top: 25px; }
+
+#orderPageRightside {
+  display: flex;
+  flex-direction: column; }
+  #orderPageRightside #orderPageRightSideTop {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    height: 10vh;
+    width: 80vw;
+    border-radius: 10px;
+    box-shadow: 4px 4px 3px rgba(51, 51, 102, 0.2); }
+    #orderPageRightside #orderPageRightSideTop div {
+      height: 100%; }
+      #orderPageRightside #orderPageRightSideTop div ul {
+        height: 100%;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center; }
+        #orderPageRightside #orderPageRightSideTop div ul li {
+          font-size: 25px; }
+  #orderPageRightside #orderPageRightSideMid {
+    display: flex;
+    height: 75vh; }
+    #orderPageRightside #orderPageRightSideMid div {
+      height: 100%;
+      margin: 10px auto;
+      border-radius: 10px;
+      box-shadow: 4px 4px 3px rgba(51, 51, 51, 0.2); }
+    #orderPageRightside #orderPageRightSideMid .col-10 {
+      overflow: scroll;
+      overflow-x: hidden; }
+    #orderPageRightside #orderPageRightSideMid th,
+    #orderPageRightside #orderPageRightSideMid td {
+      color: #707070;
+      text-align: center; }
+    #orderPageRightside #orderPageRightSideMid thead tr,
+    #orderPageRightside #orderPageRightSideMid thead th {
+      position: sticky;
+      top: 0px;
+      background: #ffffff; }
+    #orderPageRightside #orderPageRightSideMid tr:nth-child(odd) {
+      background: #ffffff; }
+    #orderPageRightside #orderPageRightSideMid tr:nth-child(even) {
+      background: #f3f8ff; }
+  #orderPageRightside #orderPageRightSideBottom {
+    display: flex;
+    height: 15vh; }
+    #orderPageRightside #orderPageRightSideBottom div {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      #orderPageRightside #orderPageRightSideBottom div #orderPageRightSideBottomBtn3 {
+        font-size: 25px;
+        border-style: none;
+        background-color: #fe9f4b;
+        border-radius: 50px;
+        color: white;
+        outline: none;
+        padding: 5px 30px;
+        margin: 8px auto; }
