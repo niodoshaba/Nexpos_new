@@ -50,7 +50,7 @@
         body {font-family: 'Noto Sans SC', sans-serif;}
     }
     @else if $fontfamilys =='muli'{
-        @import url(//https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+        @import url(//fonts.googleapis.com/css?family=Open+Sans:400,600);
         body {font-family: 'Open Sans', sans-serif;}
     }
     
