@@ -1,0 +1,6 @@
+#showTableToPage{
+    width: 1200px;
+    height: 600px;
+    border: solid 1px black;
+    position: relative;
+}
