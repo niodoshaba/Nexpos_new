@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+      /> -->
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/minty/bootstrap.min.css"
+      />
+      <link
+      href="https://www.jqueryscript.net/css/jquerysctipttop.css"
+      rel="stylesheet"
+      type="text/css"
+      />
+      <link rel="stylesheet" href="bootstrap-side-modals.css?v3" />
+      <title>dailyStatementLogIn</title>
+      
+      <link rel="stylesheet" href="../css/coreui.css" />
+      <link rel="stylesheet" href="../css/dailyStatement.css" />
+    </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row no-gutters">
+        <div id="orderPageLeftSide" class="col-2">
+          <div id="orderPageLeftSideMid">
+            <div class="orderPageScrollbar" id="style-3">
+              <!-- functionList home -->
+              <div class="orderPageLeftSideMidItemAll">
+                <div class="orderPageLeftSideMidItemDelete">
+                  <img src="../img/icon_home.png" alt="" />
+                </div>
+                <div class="orderPageLeftSideMidItem">
+                  <div class="orderPageLeftSideMidItemTop">
+                    <span>主畫面</span>
+                  </div>
+                </div>
+              </div>
+              <!-- home -->
+
+              <!-- functionList member -->
+              <div class="orderPageLeftSideMidItemAll">
+                <div class="orderPageLeftSideMidItemDelete">
+                  <img src="../img/icon_member.png" alt="" />
+                </div>
+                <div class="orderPageLeftSideMidItem">
+                  <div class="orderPageLeftSideMidItemTop">
+                    <span>會員管理</span>
+                  </div>
+                </div>
+              </div>
+              <!-- member -->
+
+              <!-- functionList historyList -->
+              <div class="orderPageLeftSideMidItemAll">
+                <div class="orderPageLeftSideMidItemDelete">
+                  <img src="../img/icon_historyList.png" alt="" />
+                </div>
+                <div class="orderPageLeftSideMidItem">
+                  <div class="orderPageLeftSideMidItemTop">
+                    <span>歷史訂單</span>
+                  </div>
+                </div>
+              </div>
+              <!-- historyList -->
+
+              <div>
+                <span>Hello , dear</span><br />
+                <span>2020/06/11</span><br />
+              </div>
+
+              <!-- functionList tableClosing -->
+              <div class="orderPageLeftSideMidItemAll">
+                <div class="orderPageLeftSideMidItemDelete">
+                  <img src="../img/icon_tabClosing.png" alt="" />
+                </div>
+                <div class="orderPageLeftSideMidItem">
+                  <div class="orderPageLeftSideMidItemTop">
+                    <span>關閉餐桌</span>
+                  </div>
+                </div>
+              </div>
+              <!-- tableClosing -->
+
+              <!-- functionList kitchen -->
+              <div class="orderPageLeftSideMidItemAll">
+                <div class="orderPageLeftSideMidItemDelete">
+                  <img src="../img/icon_kitchen.png" alt="" />
+                </div>
+                <div class="orderPageLeftSideMidItem">
+                  <div class="orderPageLeftSideMidItemTop">
+                    <span>出餐管理</span>
+                  </div>
+                </div>
+              </div>
+              <!-- kitchen -->
+
+              <!-- functionList dailyStatement -->
+              <div class="orderPageLeftSideMidItemAll">
+                <div class="orderPageLeftSideMidItemDelete">
+                  <img src="../img/icon_dailyStatement.png" alt="" />
+                </div>
+                <div class="orderPageLeftSideMidItem">
+                  <div class="orderPageLeftSideMidItemTop">
+                    <span class="btn btn-danger mb-1" data-toggle="modal" data-target="#regular_modal">日結</span>
+                  </div>
+                </div>
+              </div>
+              <!-- dailyStatement -->
+
+              <!-- functionList logOut -->
+              <div class="orderPageLeftSideMidItemAll">
+                <div class="orderPageLeftSideMidItemDelete">
+                  <img src="../img/icon_logOut.png" alt="" />
+                </div>
+                <div class="orderPageLeftSideMidItem">
+                  <div class="orderPageLeftSideMidItemTop">
+                    <span>登出</span>
+                  </div>
+                </div>
+              </div>
+              <!-- logOut -->
+            </div>
+          </div>
+        </div>
+              <div class="modal fade" id="regular_modal" tabindex="-1" role="dialog" aria-labelledby="regular_modal" style="display:none">
+                  <div class="modal-dialog modal-dialog-centered modal-xl" role="document" style="width: 400px;height: 426px;" >
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title" style="margin: 0 88px;" >請輸入帳號、密碼</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <div class="modal-body" style="margin: 0 auto;">
+                            帳號 : <input type="text" name="memID" id="memID" placeholder="boss01" style="border-radius: 10px; border:white;box-shadow: 0px 1px 2px #959595;;width: 170px;height: 40px;margin: 5px;"><br>
+                            密碼 : <input type="password" name="memPsw" id="memPsw" placeholder="******" style="border-radius: 10px;border:white; box-shadow: 0px 1px 2px #959595;;width: 170px;height: 40px; margin: 5px;">
+                          </div>
+                          <div class="modal-footer" style="display: flex;justify-content:center;">
+                            <button type="button" class="btn btn-primary" style="width: 80px;margin: 5px;"><a href="dailyStatement.html" style="text-decoration: none;color: #ffffff;">確定</a></button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="width: 80px;margin: 5px;">取消</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/orderPage.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript"></script>
+  </body>
+</html>
