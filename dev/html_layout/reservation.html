@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>pos 機</title>
+  </head>
+
+  <body>
+    <!-- 複製以下功能列 -->
+<<<<<<< HEAD:dev/html_layout/app/index.html
+    <div class="header c-sidebar">
+      <nav id="sideMenu">
+        <div class="light">
+          <i class="fa fa-circle" aria-hidden="true"></i>
+        </div>
+        <ul>
+          <li><i class="fa fa-home" aria-hidden="true"></i>主畫面</li>
+          <li class="actives">
+            <i class="fa fa-list-alt" aria-hidden="true"></i>訂位管理
+          </li>
+          <li><i class="fa fa-users" aria-hidden="true"></i>會員管理</li>
+          <li><i class="fa fa-calendar" aria-hidden="true"></i>歷史訂單</li>
+          <div class="func">
+            <div class="user">Hi, User</div>
+            <div class="date">2020/6/17</div>
+            <div class="clock">10 : 35</div>
+          </div>
+          <li><i class="fa fa-times-circle" aria-hidden="true"></i>關閉餐桌</li>
+          <li><i class="fa fa-cutlery" aria-hidden="true"></i>出餐管理</li>
+          <li><i class="fa fa-calculator" aria-hidden="true"></i>日結</li>
+          <li><i class="fa fa-sign-out" aria-hidden="true"></i>登出</li>
+        </ul>
+      </nav>
+    </div>
+=======
+    @@include('app/header.html')
+>>>>>>> 78442a7add22d33d3dfbfa1ecb829d4b0d98a942:dev/html_layout/reservation.html
+    <!-- 複製以上功能列 -->
+    <!-- 以下為各分頁內容 -->
+    <div class="c-wrapper">
+      <div class="tablehead">
+        <h1>新增預約資料</h1>
+      </div>
+      <div class="topFunc">
+        <a href="＃" class="topTablink" style="text-decoration: none;">
+          <div class="topTab" id="topTabactives">
+            <div class="toptabCaption">新增<br />預約</div>
+          </div>
+        </a>
+        <a href="＃" class="topTablink" style="text-decoration: none;">
+          <div class="topTab">
+            <div class="toptabCaption">預約<br />記錄</div>
+          </div>
+        </a>
+      </div>
+
+      <form action="reservation.php" id="myForm">
+        <div class="resScrollbar" id="resScrollstyle">
+          <div class="resOverflow">
+            <table id="resTable">
+              <div>
+                <tr>
+                  <td>姓名</td>
+                  <td>性別</td>
+                  <td>手機</td>
+                  <td>人數</td>
+                  <td>日期</td>
+                  <td>備註</td>
+                  <td></td>
+                </tr>
+
+                <tr class="spot">
+                  <td>
+                    <input
+                      type="text"
+                      id="name"
+                      name="firstname"
+                      placeholder=""
+                      size="10"
+                      required
+                    />
+                  </td>
+                  <td>
+                    <select id="country" name="country">
+                      <option value="women">女</option>
+                      <option value="men">男</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="cell"
+                      name="cell"
+                      placeholder=""
+                      size="15"
+                      required
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="num"
+                      name="num"
+                      placeholder=""
+                      size="5"
+                      required
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="date"
+                      name="date"
+                      placeholder=""
+                      size="15"
+                      required
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="note"
+                      name="note"
+                      placeholder=""
+                      size="30"
+                      required
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="save"
+                      type="image"
+                      src="./assets/save.png"
+                      type="submit"
+                      alt="Submit"
+                      width="34"
+                    /><img class="trashcan" src="./assets/trashcan.png" />
+                  </td>
+                </tr>
+              </div>
+            </table>
+          </div>
+        </div>
+        <img class="add" src="./assets/add.png" id="btnAddSpot" />
+        <!-- <input type="submit" value="submit"> -->
+      </form>
+    </div>
+    <script type="text/javascript">
+      function $id(id) {
+        return document.getElementById(id);
+      }
+
+      function addSpot() {
+        let myForm = $id("myForm");
+        let resTable = $id("resTable");
+        let btnSend = $id("btnSend");
+        let spot = document.querySelector(".spot");
+        // let resTablehead = document.getElementById("resTablehead");
+        let newSpot = spot.cloneNode(true);
+        // resTablehead.appendChild(newSpot);
+        // newSpot.style.display="";
+        newSpot.getElementsByTagName("img")[0].onclick = removeSpot; //加入JS行為
+
+        // myForm.insertBefore(newSpot, btnSend);
+        resTable.appendChild(newSpot);
+      }
+
+      function removeSpot(e) {
+        let resTable = $id("resTable");
+        resTable.removeChild(e.target.parentNode.parentNode);
+      }
+
+      window.addEventListener("load", function () {
+        $id("btnAddSpot").onclick = addSpot;
+      });
+    </script>
+  </body>
+</html>
