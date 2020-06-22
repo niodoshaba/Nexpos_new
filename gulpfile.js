@@ -48,7 +48,7 @@ gulp.task('concat', ['sass'], function () {
 
 // sass 轉譯
 gulp.task('sass', function () {
-    return gulp.src('./dev/sass/*.scss')//來源
+    return gulp.src(['dev/sass/*.scss' , 'dev/sass/**/*.scss'])//來源
         .pipe(sass().on('error', sass.logError)) //sass轉譯
         .pipe(gulp.dest('./dev/css')); //目的地
 });
@@ -62,9 +62,14 @@ gulp.task('watch', function () {
 });
 
 
+gulp.task('copyimg' , function(){
+   gulp.src('dev/img/*').pipe(gulp.dest('dest/assets/'));
+})
+
+
 // html 樣板
 gulp.task('fileinclude', function () {
-    gulp.src(['./dev/html_layout/*.html'])
+    gulp.src(['./dev/html_layout/*.html', './dev/html_layout/app/*.html'])
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
@@ -75,7 +80,7 @@ gulp.task('fileinclude', function () {
 
 
 //同步 等同於Apache 
-gulp.task('default', function () {
+gulp.task('default',['copyimg'], function () {
     browserSync.init({
         server: {
             baseDir: "./dest",
@@ -83,7 +88,7 @@ gulp.task('default', function () {
         }
     });
     gulp.watch('./dev/css/*.css', ['concat']).on('change', reload); //當css有變動時 同步更新
-    gulp.watch('./dev/sass/*.scss', ['sass']).on('change', reload); //當sass有變動時 同步更新
+    gulp.watch(['./dev/sass/*.scss' , './dev/sass/**/*.scss'], ['sass']).on('change', reload); //當sass有變動時 同步更新
     gulp.watch('./dev/html_layout/*.html', ['move']).on('change', reload);
     gulp.watch(['./dev/html_layout/*.html', './dev/html_layout/app/*.html'], ['fileinclude']).on('change', reload); //當html_layout與app裡面的html有變動時 同步更新
 });
