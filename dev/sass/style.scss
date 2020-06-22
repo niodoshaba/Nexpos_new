@@ -12,7 +12,6 @@
 //=================
 // @import "vender/bootstrap-sass/bootstrap";
 
-
 //=================
 // base setting
 //=================
@@ -20,14 +19,12 @@
 @import "mixin/mixins";
 @import "base/color";
 
-
 //=================
 //font setting
 //=================
 @import "base/font_family";
 @import "base/font";
 @import "base/common";
-
 
 //=================
 // vender setting
@@ -51,37 +48,23 @@
 // @import "libs/owl.carousel/src/scss/owl.theme.default";
 // @import "../../node_modules/hover.css/scss/hover";
 
-
 //=================
 // modules 模組 每個專案都會累積不同的
 // 要詳細寫說明
 //=================
 @import "modules/link";
 
-
-
 //=================
 // layout
 //=================
 
-//請import進layout嚇得scss
-@import 'layout/header';
-@import 'layout/wrapper';
+//請import進layout下的scss
+@import "layout/header";
+@import "layout/wrapper";
 // @import 'layout/footer';
-
-
 
 //other
 
 // @include margin(top,100);
 // @include margin(left,200);
 // @include margin(right,100);
-
-
-
-
-
-
-
-
-
