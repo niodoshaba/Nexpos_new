@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/calendar.css" />
+
+    <title>pos 機</title>
+  </head>
+
+  <body>
+    <!-- 複製以下功能列 -->
+    @@include('app/header.html')
+    <!-- 複製以上功能列 -->
+    <!-- 以下為各分頁內容 -->
+    <div class="c-wrapper">
+      <div class="tablehead">
+        <h1>訂位資料管理</h1>
+      </div>
+      <div class="topFunc">
+        <a href="＃" class="topTablink" style="text-decoration: none;">
+          <div class="topTab" id="topTabactives">
+            <div class="toptabCaption">訂位<br />管理</div>
+          </div>
+        </a>
+        <a href="＃" class="topTablink" style="text-decoration: none;">
+          <div class="topTab" >
+            <div class="toptabCaption">新增<br />預約</div>
+          </div>
+        </a>
+        <a href="＃" class="topTablink" style="text-decoration: none;">
+          <div class="topTab">
+            <div class="toptabCaption">預約<br />記錄</div>
+          </div>
+        </a>
+      </div>
+
+    <div id="calendarAll">
+        <div class="calendarHeader">
+            <button class="calendarTopBtn" calendarToggle="previous"> < </button>
+
+            <div class="calendarHeaderTop" calendarLabel="month"></div>
+
+            <button class="calendarTopBtn" calendarToggle="next"> > </button>
+        </div>
+        <div class="calendarWeek">
+            <span>一</span>
+            <span>二</span>
+            <span>三</span>
+            <span>四</span>
+            <span>五</span>
+            <span>六</span>
+            <span>日</span>
+        </div>
+        <div class="calendarDay" calendarArea="month"></div>
+    </div>
+
+    <p class="result">
+        Date picked : 
+        <span calendarLabel="picked"></span>
+        <br>
+        剩餘可預約人數 : 
+        <span calendarResAble="respeople"></span>
+    </p>
+  </div>
+    
+<!-- <script src="calendar.js" type="text/javascript"></script> -->
+
+
+<script type="text/javascript"> 
+
+
+
+    var Calendar = {
+    month: document.querySelectorAll('[calendarArea="month"]')[0],
+    next: document.querySelectorAll('[calendarToggle="next"]')[0],
+    previous: document.querySelectorAll('[calendarToggle="previous"]')[0],
+    label: document.querySelectorAll('[calendarLabel="month"]')[0],
+    activeDates: [],
+    date: new Date(),
+    todaysDate: new Date(),
+    
+    init: function (options) {
+      this.options = options
+      this.date.setDate(1)
+      this.createMonth()
+      this.createListeners()
+    },
+  
+    createListeners: function () {
+      var _this = this
+      this.next.addEventListener('click', function () {
+        _this.clearCalendar()
+        var nextMonth = _this.date.getMonth() + 1
+        _this.date.setMonth(nextMonth)
+        _this.createMonth()
+      })
+  
+      this.previous.addEventListener('click', function () {
+        _this.clearCalendar()
+        var prevMonth = _this.date.getMonth() - 1
+        _this.date.setMonth(prevMonth)
+        _this.createMonth()
+      })
+    },
+  
+      //產生每個日期，加上class=calendarDate, data-calendar-date
+    createDay: function (num, day, year) {
+      var newDay = document.createElement('div')
+      var dateEl = document.createElement('span')
+  
+  
+      dateEl.innerHTML = num
+      newDay.className = 'calendarDate'
+  
+        ///GMT轉格式
+        let curdate = new Date(this.date)
+        let currentDate=curdate.getFullYear() + "-" +
+        (curdate.getMonth() + 1) + "-" + 
+        curdate.getDate() + ""
+  
+      newDay.setAttribute('data-calendar-date',currentDate)
+     
+  
+  
+      //如果是1號的時候，判斷星期幾(day)
+      //根據空格數推marginLeft
+      //14.28是100/7
+      if (num === 1) {
+          newDay.style.marginLeft = ((day - 1) * 14.28) + '%'
+      }
+  
+      //如果日期小於今天日期加上disable的class，其他的加上active
+      if (this.options.disablePastDays && this.date.getTime() <= this.todaysDate.getTime() - 1) {
+        newDay.classList.add('calendarDate--disabled') //
+      } else {
+        newDay.classList.add('calendarDate--active')
+        newDay.setAttribute('data-calendar-status', 'active')
+      }
+      
+  
+  
+      newDay.appendChild(dateEl)
+      this.month.appendChild(newDay)
+      
+  
+    //   console.log(newDay)
+   
+    },
+  
+    dateClicked: function () {
+      DAILY_RES = [
+  
+      {
+        DAILY_DATE:"2020-6-22",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:4
+      },
+      {
+        DAILY_DATE:"2020-6-23",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:8
+      },
+      {
+        DAILY_DATE:"2020-6-24",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:10
+      },
+      {
+        DAILY_DATE:"2020-6-25",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:15
+      },
+      {
+        DAILY_DATE:"2020-6-26",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:17
+      },
+      {
+        DAILY_DATE:"2020-6-27",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:16
+      },
+      {
+        DAILY_DATE:"2020-6-28",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:10
+      },
+      {
+        DAILY_DATE:"2020-6-29",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:4
+      },
+      {
+        DAILY_DATE:"2020-6-30",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:20
+      },
+      {
+        DAILY_DATE:"2020-7-1",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:8
+      },
+      {
+        DAILY_DATE:"2020-7-2",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:11
+      },
+      {
+        DAILY_DATE:"2020-7-3",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:20
+      },
+      {
+        DAILY_DATE:"2020-7-4",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:1
+      }, 
+      {
+        DAILY_DATE:"2020-7-5",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:17
+      }, 
+      {
+        DAILY_DATE:"2020-7-6",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:5
+      }, 
+      {
+        DAILY_DATE:"2020-7-7",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:1
+      }, 
+    ]
+  
+  
+      var _this = this
+      this.activeDates = document.querySelectorAll(
+        '[data-calendar-status="active"]'
+      )
+  
+  
+      
+  
+      
+      ///每個日期建立點擊事件
+      for (var i = 0; i < this.activeDates.length; i++) {
+  
+        // let resAbleNum = DAILY_RES[i].DAILY_AVA - DAILY_RES[i].DAILY_NUM
+        var resable =  document.querySelectorAll(
+          '[calendarResAble="respeople"]'
+        )[0]
+  
+        this.activeDates[i].addEventListener('click', function (event) {
+          var picked = document.querySelectorAll(
+            '[calendarLabel="picked"]'
+          )[0]
+          let resAbleDate = this.dataset.calendarDate;
+        //   console.log(this.dataset.calendarDate)
+          // console.log(DAILY_RES[0].DAILY_DATE)
+  
+          var resAbleCount = DAILY_RES.find(function(item, index, array){
+              return item.DAILY_DATE === resAbleDate
+          });
+  
+        //   console.log(resAbleCount)
+          resAbleNum = resAbleCount.DAILY_AVA - resAbleCount.DAILY_NUM
+  
+            if(resAbleNum === 0){
+            // picked.innerHTML = resAbleDate
+            resable.innerHTML = '已客滿，請選擇其他日期'
+            _this.removeActiveClass()
+            this.classList.add('calendarDate--full')
+            //   console.log(13)
+            }else{
+              resable.innerHTML = resAbleNum
+            ///顯示選取日期在下方
+            ///移除其他選取日期
+            ///改變選取日期CSS(加框框)
+            // console.log(15)
+            picked.innerHTML = resAbleDate
+            _this.removeActiveClass()
+            this.classList.add('calendarDate--selected')
+            }
+            
+          })
+      }
+    },
+  
+  
+  
+  
+    createMonth: function () {
+      var currentMonth = this.date.getMonth()
+      while (this.date.getMonth() === currentMonth) {
+        this.createDay(
+          this.date.getDate(),
+          this.date.getDay(),
+          this.date.getFullYear()
+        )
+        this.date.setDate(this.date.getDate() + 1)
+      }
+    
+      this.date.setDate(1)
+      this.date.setMonth(this.date.getMonth() - 1)
+  
+      this.label.innerHTML =
+        this.monthsAsString(this.date.getMonth()) + ' ' + this.date.getFullYear()
+      this.dateClicked()
+    },
+  
+    monthsAsString: function (monthIndex) {
+      return [
+        '一月',
+        '二月',
+        '三月',
+        '四月',
+        '五月',
+        '六月',
+        '七月',
+        '八月',
+        '九月',
+        '十月',
+        '十一月',
+        '十二月'
+      ][monthIndex]
+    },
+  
+    clearCalendar: function () {
+      Calendar.month.innerHTML = ''
+    },
+  
+    removeActiveClass: function () {
+      for (var i = 0; i < this.activeDates.length; i++) {
+        this.activeDates[i].classList.remove('calendarDate--selected')
+        this.activeDates[i].classList.remove('calendarDate--full')
+      }
+    },
+    addCalendarInfo: function(){
+      for(var i =0 ; i < this.activeDates.length; i++) {
+  
+      }
+    },
+    
+  }
+
+
+      function $id(id) {
+        return document.getElementById(id);
+      }
+
+      function addSpot() {
+        let myForm = $id("myForm");
+        let resTable = $id("resTable");
+        let btnSend = $id("btnSend");
+        let spot = document.querySelector(".spot");
+        // let resTablehead = document.getElementById("resTablehead");
+        let newSpot = spot.cloneNode(true);
+        // resTablehead.appendChild(newSpot);
+        // newSpot.style.display="";
+        newSpot.getElementsByTagName("img")[0].onclick = removeSpot; //加入JS行為
+
+        // myForm.insertBefore(newSpot, btnSend);
+        resTable.appendChild(newSpot);
+      }
+
+      function removeSpot(e) {
+        let resTable = $id("resTable");
+        resTable.removeChild(e.target.parentNode.parentNode);
+      }
+
+    window.addEventListener('load', function () {
+        Calendar.init({
+            disablePastDays: true
+        });
+
+        // $id("btnAddSpot").onclick = addSpot;
+
+    })
+    </script>
+  </body>
+</html>
+
+
+<script>
+    
+</script>
