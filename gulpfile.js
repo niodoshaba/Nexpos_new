@@ -69,7 +69,7 @@ gulp.task('copyimg' , function(){
 
 // html 樣板
 gulp.task('fileinclude', function () {
-    gulp.src(['./dev/html_layout/*.html', './dev/html_layout/app/*.html'])
+    gulp.src(['dev/html_layout/*.html' , 'dev/html_layout/**/*.html'])
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
@@ -84,11 +84,11 @@ gulp.task('default',['copyimg'], function () {
     browserSync.init({
         server: {
             baseDir: "./dest",
-            index: "index.html"
+            index: "reservation.html"
         }
     });
     gulp.watch('./dev/css/*.css', ['concat']).on('change', reload); //當css有變動時 同步更新
     gulp.watch(['./dev/sass/*.scss' , './dev/sass/**/*.scss'], ['sass']).on('change', reload); //當sass有變動時 同步更新
-    gulp.watch('./dev/html_layout/*.html', ['move']).on('change', reload);
-    gulp.watch(['./dev/html_layout/*.html', './dev/html_layout/app/*.html'], ['fileinclude']).on('change', reload); //當html_layout與app裡面的html有變動時 同步更新
+    // gulp.watch('./dev/html_layout/*.html', ['move']).on('change', reload);
+    gulp.watch(['dev/html_layout/*.html', 'dev/html_layout/**/*.html'], ['fileinclude']).on('change', reload); //當html_layout與app裡面的html有變動時 同步更新
 });
