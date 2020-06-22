@@ -1,0 +1,97 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+.c-sidebar {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex: 0 0 $sideWidth;
+    flex: 0 0 $sideWidth;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-order: -1;
+    order: -1;
+    width: $sideWidth;
+    padding: 0;
+    box-shadow: none;
+    color: #fff;
+    background: $sidebarBgc;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1030;
+    border: 1px solid $sidebarBgc;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+.light{
+    color: rgb(159, 248, 16);
+    padding-left: 46px;
+    padding-top: 20px;
+}
+
+    ul {
+        .func {
+            text-align: center;
+
+            .clock {
+                font-family:'Noto Sans TC', sans-serif;
+                font-size: 50px;
+                font-weight: 400;
+            }
+
+            .date {
+                font-family:'Noto Sans TC', sans-serif;
+                font-weight: 400;
+            }
+
+            .user {
+                font-family:'Noto Sans TC', sans-serif;
+                font-size: 600;
+            }
+        }
+
+        li {
+            &:first-child {
+                margin-top: 30px;
+            }
+
+            height: 62px;
+            margin: 20px 0;
+            // background-color: #fff;
+            // color:$sidebarBgc;
+            // border: 1px solid #fff;
+            padding: 16px 0px 0px 46px;
+            position: relative;
+
+            i {
+                margin-right: 24px;
+                width: 10px;
+                // display: block;
+            }
+            &:hover, &.actives {
+                // background-color: #fff;
+                color: $sidebarBgc;
+                cursor: pointer;
+                position: relative;
+                z-index: 1000;
+
+                &::after {
+                    content: '';
+                    background-image: url('../assets/Union8.svg');
+                    width: 219px;
+                    height: 120px;
+
+                    display: block;
+                    position: absolute;
+                    top: -29px;
+                    left: 8px;
+                    z-index: -10;
+
+                }
+
+            }
+
+
+        }
+
+    }
+}

@@ -1,0 +1,26 @@
+//常用的寫法
+
+.clearfix {
+    clear: both;
+    &:after {
+        content: '';
+        clear : both;
+    }
+}
+
+.container {
+    width: 1200px;
+    @include margin-auto();
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.float_right {
+    float: right;
+}
+
+.float_left {
+    float: left;
+}
