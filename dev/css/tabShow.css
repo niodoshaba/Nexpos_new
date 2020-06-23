@@ -1,3 +1,11 @@
+.tablehead {
+  margin-top: 20px;
+  padding: 20px;
+  margin-left: 180px;
+  width: 1040px; }
+  .tablehead h1 {
+    font-size: 35px; }
+
 div.c-wrapper .mainTakeAwayBar {
   width: 900px;
   height: 80px;
@@ -20,8 +28,8 @@ div.c-wrapper .mainTakeAwayBar {
 
 div.c-wrapper .mainTable {
   position: relative;
-  left: 15%;
-  top: 20px;
+  left: 180px;
+  top: 30px;
   width: 1000px;
   height: 650px;
   box-shadow: 1px 1px 10px; }

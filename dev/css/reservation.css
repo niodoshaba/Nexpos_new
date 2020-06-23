@@ -23,9 +23,12 @@ table {
 td {
   padding: 16px; }
 
+td:last-child {
+  padding: 8px; }
+
 .save {
   border: none;
-  margin-right: 10px;
+  margin-bottom: 10px;
   vertical-align: sub; }
 
 img {
@@ -41,8 +44,7 @@ form {
   margin: 0 auto; }
 
 .add {
-  margin-left: 50%;
-  transform: translateX(-50%); }
+  margin-left: 50%; }
 
 .resScrollbar {
   margin-top: 40px;

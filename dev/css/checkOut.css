@@ -9,8 +9,6 @@ body {
 
 #checkoutLeftside {
   height: 100vh; }
-  #checkoutLeftside img {
-    margin-left: -15px; }
 
 #checkoutLeftSideTop {
   font-size: 20px;
@@ -22,13 +20,13 @@ body {
     border-bottom: 1px solid #959595;
     outline: none;
     height: 30px; }
-  #checkoutLeftSideTop button {
+  #checkoutLeftSideTop input:last-child {
     border-style: none;
     background-color: #F8C54E;
     border-radius: 20px;
     color: white;
     outline: none;
-    margin: 10px 10px;
+    margin: 10px 20px;
     padding: 0px 10px; }
   #checkoutLeftSideTop span {
     margin: 10px 0px; }
@@ -259,3 +257,13 @@ body {
       border-radius: 35px;
       background-color: #FF9F4B;
       outline: none; }
+    #checkoutRightSide #checkoutRightSideBottom #checkoutSeparateBtn {
+      width: 200px;
+      font-size: 40px;
+      color: #fff;
+      height: 90px;
+      border: 0;
+      border-radius: 35px;
+      background-color: #FF9F4B;
+      outline: none;
+      display: none; }

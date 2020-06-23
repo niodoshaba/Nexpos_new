@@ -11,7 +11,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	  font-family: "jf-openhuninn", "cwTeXYen","Microsoft JhengHei";
+	 font-family: "jf-openhuninn", "cwTeXYen","Microsoft JhengHei";
 
 	margin: 0;
 	padding: 0;
@@ -27,6 +27,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	    max-width:1440px;
+		max-height:900px;
+		margin:0 auto;
 }
 ol, ul {
 	list-style: none;
@@ -41,6 +44,10 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+    color:inherit;
 }
 
 * {

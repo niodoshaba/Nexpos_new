@@ -31,10 +31,14 @@ table, td {
   td{
     padding: 16px;
   }
+  td:last-child{
+    padding: 8px;
+  }
   
   .save{
   border: none;
-  margin-right: 10px;
+  // margin-right: 10px;
+  margin-bottom: 10px;
   vertical-align: sub;
   }
   
@@ -56,7 +60,7 @@ table, td {
   
   .add{
     margin-left: 50%;
-    transform: translateX(-50%);
+    // transform: translateX(-50%);
   }
   
   

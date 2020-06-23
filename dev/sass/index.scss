@@ -103,6 +103,7 @@ section.login{
             font-size: 23px;
             .loginSudo{
             position: relative;  
+            outline: none;
             &::before{
                 content:"";
                 position: absolute;

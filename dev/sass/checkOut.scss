@@ -42,7 +42,7 @@ body{
     // border: 1px solid red;
     height: 100vh;
     img{
-        margin-left: -15px;
+        // margin-left: -15px;
     }
 }
 
@@ -58,9 +58,9 @@ body{
         outline:none;
         height: 30px;
     }
-    button{
+    input:last-child{
         @include yellowBtn(20px);
-        margin: 10px 10px;
+        margin: 10px 20px;
         padding: 0px 10px;
     }
     span{
@@ -306,7 +306,7 @@ body{
         margin-top: 65%;
 
         text-align: center;
-        #checkoutLastBtn{
+        #checkoutLastBtn {
             width: 200px;
             font-size: 40px;
             color:#fff;
@@ -316,6 +316,18 @@ body{
             background-color: #FF9F4B;
             // margin: -10px 0px 0px 210px;
             outline:none;
+        }
+        #checkoutSeparateBtn {
+            width: 200px;
+            font-size: 40px;
+            color:#fff;
+            height: 90px;
+            border: 0;
+            border-radius: 35px;
+            background-color: #FF9F4B;
+            // margin: -10px 0px 0px 210px;
+            outline:none;
+            display: none;
         }
     }
 }
