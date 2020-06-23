@@ -131,6 +131,7 @@ window.onload = function () {
     ];
 
 
+
     var ordSugarInfo = [
         {
             ordSugarName: "全糖",
@@ -234,7 +235,7 @@ window.onload = function () {
             // 把localStorage裡存的資料撈出來
             ordGetToppingBack();
 
-
+            return false;
         });
 
 
@@ -242,41 +243,30 @@ window.onload = function () {
     };
 
     function ordGetToppingBack() {
-        var ordGetTopping = JSON.parse(localStorage.getItem("ordSaveProdInCart"));
 
-        console.log(ordGetTopping)
+        var ordGetTopping = JSON.parse(localStorage.getItem("ordSaveProdInCart"));
 
         for (let g = 0; g < ordGetTopping.length; g++) {
 
-            console.log("長度", ordGetTopping.length)
-
-            // event.preventDefault();
-            // event.stopImmediatePropagation();
-            // console.log("爪", document.querySelectorAll('.orderPageLeftSideMidItemDelete')[g].childNodes[1].dataset.cnt)
-            // console.log("爪爪爪", ordGetTopping[g])
+            // console.log("長度", document.querySelectorAll('.orderPageLeftSideMidItemDelete')[g])
 
 
-            let ordGetToppingBackIndex = Number(document.querySelectorAll('.orderPageLeftSideMidItemDelete')[g].childNodes[1].dataset.cnt);
-            // console.log("爪爪爪爪爪爪爪爪爪", ordGetTopping[ordGetToppingBackIndex].ordTopping.length);
-            // console.log(document.querySelectorAll('.orderPageLeftSideMidItemTop')[g].nextElementSibling.childNodes[1])
+            if (ordGetTopping[g].ordTopping.length != 0) {
 
+                // alert(g);
+                for (let j = 0; j < ordGetTopping[g].ordTopping.length; j++) {
 
-            if (ordGetTopping[ordGetToppingBackIndex].ordTopping.length != 0) {
-                // console.log('888');
-                for (let f = 0; f < ordGetTopping.length; f++) {
-                    $(document.querySelectorAll('.orderPageLeftSideMidItemTop')[g].nextElementSibling.childNodes[1]).append(`<span> ${ordGetTopping[ordGetToppingBackIndex].ordTopping[f].ordSugarName}  $${ordGetTopping[ordGetToppingBackIndex].ordTopping[f].ordSugarPr}</span>`);
+                    // console.log("122", ordGetTopping[g].ordTopping[j])
 
-                    console.log("小淘氣", document.querySelectorAll('.orderPageLeftSideMidItemTop')[g].nextElementSibling.childNodes[1]);
-                    console.log("是你嗎", ordGetTopping[ordGetToppingBackIndex].ordTopping[f])
-                    // console.log("??????", ordGetToppingBackIndex)
+                    $(document.querySelectorAll('.orderPageLeftSideMidItemTop')[g].nextElementSibling.childNodes[1]).append(`<span> ${ordGetTopping[g].ordTopping[j].ordSugarName}  $${ordGetTopping[g].ordTopping[j].ordSugarPr}</span>`);
                 }
+
             }
 
 
         }
+
     }
-
-
 
     orderPageLeftSideMidItemAll.addEventListener('click', function (e) {
 
@@ -299,6 +289,7 @@ window.onload = function () {
             for (let s = 0; s < ordSugarItem.length; s++) {
 
                 ordSugarItem[s].addEventListener("click", function (e) {
+
                     // 加上e.preventDefault()、e.stopImmediatePropagation()阻止冒泡事件
                     e.preventDefault();
                     e.stopImmediatePropagation();
@@ -317,8 +308,6 @@ window.onload = function () {
                     $("#ordSugarAll").toggle();
 
                 })
-
-
             }
 
 
