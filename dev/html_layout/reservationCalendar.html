@@ -75,8 +75,6 @@
 
 <script type="text/javascript"> 
 
-
-
     var Calendar = {
     month: document.querySelectorAll('[calendarArea="month"]')[0],
     next: document.querySelectorAll('[calendarToggle="next"]')[0],
@@ -115,7 +113,6 @@
       var newDay = document.createElement('div')
       var dateEl = document.createElement('span')
   
-  
       dateEl.innerHTML = num
       newDay.className = 'calendarDate'
   
@@ -127,8 +124,6 @@
   
       newDay.setAttribute('data-calendar-date',currentDate)
      
-  
-  
       //如果是1號的時候，判斷星期幾(day)
       //根據空格數推marginLeft
       //14.28是100/7
@@ -144,14 +139,10 @@
         newDay.setAttribute('data-calendar-status', 'active')
       }
       
-  
-  
       newDay.appendChild(dateEl)
       this.month.appendChild(newDay)
       
-  
     //   console.log(newDay)
-   
     },
   
     dateClicked: function () {
@@ -255,15 +246,10 @@
       }, 
     ]
   
-  
       var _this = this
       this.activeDates = document.querySelectorAll(
         '[data-calendar-status="active"]'
       )
-  
-  
-      
-  
       
       ///每個日期建立點擊事件
       for (var i = 0; i < this.activeDates.length; i++) {
@@ -308,9 +294,6 @@
           })
       }
     },
-  
-  
-  
   
     createMonth: function () {
       var currentMonth = this.date.getMonth()
@@ -362,48 +345,27 @@
       for(var i =0 ; i < this.activeDates.length; i++) {
   
       }
-    },
-    
+    },  
   }
-
-
-      function $id(id) {
-        return document.getElementById(id);
-      }
-
-      function addSpot() {
-        let myForm = $id("myForm");
-        let resTable = $id("resTable");
-        let btnSend = $id("btnSend");
-        let spot = document.querySelector(".spot");
-        // let resTablehead = document.getElementById("resTablehead");
-        let newSpot = spot.cloneNode(true);
-        // resTablehead.appendChild(newSpot);
-        // newSpot.style.display="";
-        newSpot.getElementsByTagName("img")[0].onclick = removeSpot; //加入JS行為
-
-        // myForm.insertBefore(newSpot, btnSend);
-        resTable.appendChild(newSpot);
-      }
-
-      function removeSpot(e) {
-        let resTable = $id("resTable");
-        resTable.removeChild(e.target.parentNode.parentNode);
-      }
-
+  
     window.addEventListener('load', function () {
+
+        // document.getElementById("fa-homeli").className = "actives" //主畫面
+        document.getElementById("fa-list-altli").className = "actives" //訂位管理
+        // document.getElementById("fa-usersli").className = "actives" //會員管理
+        // document.getElementById("fa-calendarli").className = "actives" //歷史訂單
+        // document.getElementById("fa-times-circleli").className = "actives" //關閉餐桌
+        // document.getElementById("fa-cutleryli").className = "actives" //出餐管理
+
+
         Calendar.init({
             disablePastDays: true
         });
 
-        // $id("btnAddSpot").onclick = addSpot;
-
+        
     })
     </script>
+
   </body>
 </html>
 
-
-<script>
-    
-</script>
