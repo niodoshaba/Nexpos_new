@@ -9,31 +9,31 @@
     />
     <!-- <link rel="stylesheet" href="css/style.css" /> -->
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/reservationRecord.css">
-    <title> 預約紀錄</title>
+    <link rel="stylesheet" href="./css/memberSearch.css">
+    <title> 會員資料查詢</title>
   </head>
 
   <body>
     <!-- 複製以下功能列 -->
     @@include('./app/header.html', {
-      "nav1" : "actives" 
+      "nav2" : "actives" 
     })
     <!-- 複製以上功能列 -->
     <!-- 以下為各分頁內容 -->
     <div class="c-wrapper">
       <div class="tablehead">
-        <h1>預約記錄</h1> 
+        <h1>會員資料查詢</h1> 
         @@include('app/searchbar.html')
       </div>
       <div class="topFunc">
-        <a href="reservation.html" class="topTablink" style="text-decoration: none;">
-          <div class="topTab">
-            <div class="toptabCaption">新增<br />預約</div>
+        <a href="memberSearch.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab" id="topTabactives">
+            <div class="toptabCaption">會員<br />查詢</div>
           </div>
         </a>
-        <a href="reservationRecord.html" class="topTablink" style="text-decoration: none;">
-          <div class="topTab"  id="topTabactives">
-            <div class="toptabCaption">預約<br />記錄</div>
+        <a href="memberJoin.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab">
+            <div class="toptabCaption">會員<br />新增</div>
           </div>
         </a>
       </div>
@@ -47,106 +47,106 @@
                     <td>姓名</td>
                     <td>性別</td>
                     <td>手機</td>
-                    <td>人數</td>
-                    <td>日期</td>
-                    <td>備註</td>
+                    <td>e-mail</td>
+                    <td>生日</td>
+                    <td>點數</td>
                     
                 </tr>
                 <tr>
                     <td>Ching</td>
                     <td>女</td>
                     <td>0932123456</td>
-                    <td>3</td>
+                    <td>hahaha@gmail.com</td>
                     <td>2020/6/23</td>
-                    <td>需準備嬰兒椅</td>
+                    <td>3000點</td>
                 </tr>
                 <tr>
                     <td>Lily</td>
                     <td>女</td>
                     <td>0932123456</td>
-                    <td>5</td>
+                    <td>hahaha@gmail.com</td>
                     <td>2020/6/23</td>
-                    <td>需準備嬰兒椅</td>
+                    <td>3000點</td>
                 </tr>
                 <tr>
                     <td>小傑</td>
                     <td>女</td>
                     <td>0932123456</td>
-                    <td>3</td>
+                    <td>hahaha@gmail.com</td>
                     <td>2020/6/23</td>
-                    <td>需準備嬰兒椅</td>
+                    <td>3000點</td>
                 </tr>
                 <tr>
                     <td>皮</td>
                     <td>女</td>
                     <td>0932123456</td>
-                    <td>3</td>
+                    <td>hahaha@gmail.com</td>
                     <td>2020/6/23</td>
-                    <td>需準備嬰兒椅</td>
+                    <td>3000點</td>
                 </tr>
                 <tr>
                     <td>千金</td>
                     <td>女</td>
                     <td>0932123456</td>
-                    <td>3</td>
+                    <td>hahaha@gmail.com</td>
                     <td>2020/6/23</td>
-                    <td>需準備嬰兒椅</td>
+                    <td>3000點</td>
                 </tr>
                 <tr>
                     <td>康哥</td>
                     <td>女</td>
                     <td>0932123456</td>
-                    <td>3</td>
+                    <td>hahaha@gmail.com</td>
                     <td>2020/6/23</td>
-                    <td>需準備嬰兒椅</td>
+                    <td>3000點</td>
                 </tr>
                 <tr>
                     <td>Ching</td>
                     <td>女</td>
                     <td>0932123456</td>
-                    <td>3</td>
+                    <td>hahaha@gmail.com</td>
                     <td>2020/6/23</td>
-                    <td>需準備嬰兒椅</td>
+                    <td>3000點</td>
                 </tr>
                 <tr>
                     <td>Lily</td>
                     <td>女</td>
                     <td>0932123456</td>
-                    <td>5</td>
+                    <td>hahaha@gmail.com</td>
                     <td>2020/6/23</td>
-                    <td>需準備嬰兒椅</td>
+                    <td>3000點</td>
                 </tr>
                 <tr>
                     <td>小傑</td>
                     <td>女</td>
                     <td>0932123456</td>
-                    <td>3</td>
+                    <td>hahaha@gmail.com</td>
                     <td>2020/6/23</td>
-                    <td>需準備嬰兒椅</td>
+                    <td>3000點</td>
                 </tr>
                 <tr>
                     <td>皮</td>
                     <td>女</td>
                     <td>0932123456</td>
-                    <td>3</td>
+                    <td>hahaha@gmail.com</td>
                     <td>2020/6/23</td>
-                    <td>需準備嬰兒椅</td>
+                    <td>3000點</td>
                 </tr>
                 <tr>
                     <td>千金</td>
                     <td>女</td>
                     <td>0932123456</td>
-                    <td>3</td>
+                    <td>hahaha@gmail.com</td>
                     <td>2020/6/23</td>
-                    <td>需準備嬰兒椅</td>
+                    <td>3000點</td>
                 </tr>
                 <tr>
                     <td>康哥</td>
                     <td>女</td>
                     <td>0932123456</td>
-                    <td>3</td>
+                    <td>hahaha@gmail.com</td>
                     <td>2020/6/23</td>
-                    <td>需準備嬰兒椅</td>
+                    <td>3000點</td>
                 </tr>
 
               </div>

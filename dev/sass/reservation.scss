@@ -1,0 +1,91 @@
+//以下各分頁新增css
+.tablehead{
+    margin-top: 20px;
+    padding: 20px;
+    margin-left: 180px;
+    width: 1040px;
+    // border-bottom: 1px solid red;
+    h1{
+    font-size: 35px;
+    }
+}
+
+
+table, td {
+    border-bottom: 1px solid rgb(207, 206, 205);
+    border-collapse:collapse;
+  }
+  
+  tr{
+    vertical-align: middle;
+  }
+  
+  table{
+    margin: 30px auto auto auto;
+    font-size: 20px;
+    color: rgb(73, 73, 73);
+    width: 952px;
+    text-align: center;
+  }
+  
+  td{
+    padding: 16px;
+  }
+  
+  .save{
+  border: none;
+  margin-right: 10px;
+  vertical-align: sub;
+  }
+  
+  img{
+    cursor: pointer;
+  }
+  
+  input,select{
+    border: 0.5px solid rgb(189, 189, 189);
+    padding: 5px;
+    border-radius: 8px;
+  
+  }
+  form{
+    width:952px;
+    margin: 0 auto;
+    // border: 1px solid red;
+  }
+  
+  .add{
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  
+  .resScrollbar{
+    margin-top: 40px;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    float: left;
+    height: 600px;
+    width: 1040px;
+    overflow-y: scroll;
+    margin-bottom: 25px;
+  }
+  
+  .resOverflow
+  {
+      min-height: 600px;
+  }
+  
+  
+  #resScrollstyle::-webkit-scrollbar
+  {
+      width: 10px;
+  
+  }
+  
+  #resScrollstyle::-webkit-scrollbar-thumb
+  {
+    border-radius:50px;
+      background-color: #DDDDDD;
+  }
+  
