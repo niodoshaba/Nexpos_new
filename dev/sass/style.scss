@@ -22,10 +22,14 @@
 //=================
 //font setting
 //=================
-@import "base/font_family";
-@import "base/font";
-@import "base/common";
-
+// @import "base/font_family";
+// @import "base/font";
+// @import "base/common";
+@import url("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url("../font/jf-openhuninn-1.1.ttf") format("truetype");
+}
 //=================
 // vender setting
 //=================
