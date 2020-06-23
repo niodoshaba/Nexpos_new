@@ -1,0 +1,45 @@
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform : translate(-50%, -50%);
+}
+
+div.c-wrapper{
+    .mainTakeAwayBar{
+        // border: 1px solid red;
+        width: 900px;
+        height: 80px;
+        position: relative;
+        left:15%;
+        top: -50px;
+        &::after{
+            position: absolute;
+            content: "";
+            width:100%;
+            top: 10%;
+            height: 2px;
+            background: #1c5b9d;
+        }
+        // .mainTakeAwayBarList{
+        //     display: flex;
+
+        // }
+        .mainTakeAwayOder{
+            position: relative;
+            margin:0 10px;
+            width: 60px;
+            top: 10px;
+            display: inline-block;
+        }
+
+    }
+    .mainTable{
+        position: relative;
+        left: 15%;
+        top: 20px;
+        width: 1000px;
+        height: 650px;
+        box-shadow: 1px 1px 10px ;
+    }
+}

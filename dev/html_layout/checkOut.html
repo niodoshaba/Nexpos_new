@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/checkOut.css">
-    <title>Document</title>
+    <title>結帳</title>
 </head>
 <body>
 <div class="container-fluid">
@@ -21,8 +21,11 @@
                 <span class="col-5">人數：{{人數}}</span>
                 <br>
                 <span class="col-2">會員：</span>
-                <input type="text" class="col-5">
-                <button class="col-2" id="checkoutLeftSideTopBtn">輸入</button>
+                <form class="col-10">
+                <input type="text" class="col-5" pattern="^09[0-9]{8}$" title="請輸入正確的手機號碼" required>
+                <!-- <button class="col-2" id="checkoutLeftSideTopBtn">輸入</button> -->
+                <input type="submit" class="col-2" id="checkoutLeftSideTopBtn" value="輸入">
+                </form>    
             </div>
             
             <div id="checkoutLeftSideMid">
@@ -30,7 +33,7 @@
                     <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
                     <div>
                         <div class="checkoutLeftSideMidItemTop">
-                            <span>ITEM NAME</span>
+                            <span>ITEM NAME1</span>
                             <span>1</span>
                         </div>
                         <div class="checkoutLeftSideMidItemBottom">
@@ -39,7 +42,7 @@
                                 <span>(加料2)</span>
                                 <span>(加料2)</span>
                             </div>
-                            <span class="">$300</span>
+                            <span class="checkOutPrice">$300</span>
                         </div>
                     </div>
                     <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
@@ -47,7 +50,7 @@
                     <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
                     <div>
                         <div class="checkoutLeftSideMidItemTop">
-                            <span>ITEM NAME</span>
+                            <span>ITEM NAME2</span>
                             <span>1</span>
                         </div>
                         <div class="checkoutLeftSideMidItemBottom">
@@ -56,7 +59,7 @@
                                 <span>(加料2)</span>
                                 <span>(加料2)</span>
                             </div>
-                            <span class="">$300</span>
+                            <span class="checkOutPrice">$300</span>
                         </div>
                     </div>
                     <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
@@ -64,7 +67,7 @@
                     <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
                     <div>
                         <div class="checkoutLeftSideMidItemTop">
-                            <span>ITEM NAME</span>
+                            <span>ITEM NAME3</span>
                             <span>1</span>
                         </div>
                         <div class="checkoutLeftSideMidItemBottom">
@@ -73,7 +76,7 @@
                                 <span>(加料2)</span>
                                 <span>(加料2)</span>
                             </div>
-                            <span class="">$300</span>
+                            <span class="checkOutPrice">$300</span>
                         </div>
                     </div>
                     <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
@@ -81,7 +84,7 @@
                     <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
                     <div>
                         <div class="checkoutLeftSideMidItemTop">
-                            <span>ITEM NAME</span>
+                            <span>ITEM NAME4</span>
                             <span>1</span>
                         </div>
                         <div class="checkoutLeftSideMidItemBottom">
@@ -90,14 +93,14 @@
                                 <span>(加料2)</span>
                                 <span>(加料2)</span>
                             </div>
-                            <span class="">$300</span>
+                            <span class="checkOutPrice">$300</span>
                         </div>
                     </div>
                     <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
                     <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
                     <div>
                         <div class="checkoutLeftSideMidItemTop">
-                            <span>ITEM NAME</span>
+                            <span>ITEM NAME5</span>
                             <span>1</span>
                         </div>
                         <div class="checkoutLeftSideMidItemBottom">
@@ -106,14 +109,14 @@
                                 <span>(加料2)</span>
                                 <span>(加料2)</span>
                             </div>
-                            <span class="">$300</span>
+                            <span class="checkOutPrice">$300</span>
                         </div>
                     </div>
                     <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
                                         <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
                     <div>
                         <div class="checkoutLeftSideMidItemTop">
-                            <span>ITEM NAME</span>
+                            <span>ITEM NAME6</span>
                             <span>1</span>
                         </div>
                         <div class="checkoutLeftSideMidItemBottom">
@@ -122,14 +125,14 @@
                                 <span>(加料2)</span>
                                 <span>(加料2)</span>
                             </div>
-                            <span class="">$300</span>
+                            <span class="checkOutPrice">$300</span>
                         </div>
                     </div>
                     <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
                     <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
                     <div>
                         <div class="checkoutLeftSideMidItemTop">
-                            <span>ITEM NAME</span>
+                            <span>ITEM NAME7</span>
                             <span>1</span>
                         </div>
                         <div class="checkoutLeftSideMidItemBottom">
@@ -138,7 +141,7 @@
                                 <span>(加料2)</span>
                                 <span>(加料2)</span>
                             </div>
-                            <span class="">$300</span>
+                            <span class="checkOutPrice">$300</span>
                         </div>
                     </div>
                     <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
@@ -174,7 +177,7 @@
                 <div class="checkoutBlueLine2"></div>
                 <div class="checkoutBigLetter">
                     <div id="checkoutTotal">
-                        <span>總計：</span> <span>${{Count}}</span>
+                        <span>總計：</span> <span></span>
                     </div>
                 </div>
                 <br>
@@ -187,7 +190,7 @@
                         <span>找零：</span> <span>${{count}}</span>
                     </div>
                     <div id="checkoutDiscountDiv">
-                        <span>折扣總計：</span> <span>${{count}}</span>
+                        <span>折扣總計：</span> <span id="checkoutDiscountTotalPrice"></span>
                     </div>
                 </div>
             </div>
@@ -203,7 +206,7 @@
                     <div class="checkoutBlueLine2"></div>
                     <div class="checkoutBigLetter">
                         <div id="checkoutEachTotal">
-                            <span>拆單總計：</span> <span>${{count}}</span>
+                            <span>拆單總計：</span> <span></span>
                         </div>
                     </div>
                 </div>
@@ -216,9 +219,7 @@
                     </div>
                     <div class="checkoutBlueLine1"></div>
                     <div id="checkoutDiscount">
-                        <div >
-                            <span>折扣%數：</span> <input type="text">
-                        </div>
+                        <div><span>折扣%數：</span> <input type="text" id="checkOutDiscountInput" pattern="^0.[0-9][0-9]$" title="請輸入正確的折扣%數(例如:0.56)" maxlength="4" required></div>
                     </div>
                 </div>
 <!-- 這裡是折扣會出現的內容 -->
@@ -231,13 +232,13 @@
                     <div class="checkoutBlueLine3"></div>
                     <div class="checkoutThreeLineText">
                         <div>
-                            <span>現有紅利：</span> <span>${{count}}</span>
+                            <span>現有紅利：</span> <span id="checkoutNowBouns"></span>
                         </div>
                         <div>
-                            <span>折抵紅利：</span> <input type="text" id="checkoutGetPoint">
+                            <span>折抵紅利：</span> <input type="text" id="checkoutGetPoint" pattern="^[1-9][0-9]*$" title="請輸入要兌換的紅利點數" required>
                         </div>
                         <div>
-                            <span>折抵金額：</span> <span>${{count}}</span>
+                            <span>折抵金額：</span> <span id="checkoutDiscountPrice"></span>
                         </div>
                     </div>
                 </div>
@@ -268,8 +269,43 @@
                 <button>確認</button>
             </div> -->
             <div id="checkoutRightSideBottom">
-                <button id="checkoutLastBtn">結帳</button>
+                <!-- <button id="checkoutLastBtn" type="submit">結帳</button> -->
+                <form method="post" action="../php/checkOut.php">
+                    <table class="test">
+                        <tr>
+                            <td>訂單編號:</td>
+                            <td><input type="text" name="orderNo"></td>
+                        </tr>
+                        <tr>
+                            <td>付款方式:</td>
+                            <td><input type="text" name="payNo"></td>
+                        </tr>
+                        <tr>
+                            <td>收款金額:</td>
+                            <td><input type="text" name="amountReceived"></td>
+                        </tr>
+                        <tr>
+                            <td>找零:</td>
+                            <td><input type="text" name="change"></td>
+                        </tr>
+                        <tr>
+                            <td>折扣總計:</td>
+                            <td><input type="text" name="disTotal"></td>
+                        </tr>
+                        <tr>
+                            <td>紅利折抵</td>
+                            <td><input type="text" name="bonusExchange"></td>
+                        </tr>
+                        <tr>
+                            <td>剩餘紅利</td>
+                            <td><input type="text" name="rewardPoints"></td>
+                        </tr>
+                    </table>
+                    <button id="checkoutLastBtn" type="submit">結帳</button>
+                </form>  
+                <button id="checkoutSeparateBtn">拆單結帳</button>
             </div>
+             
         </div>
 
     </div>

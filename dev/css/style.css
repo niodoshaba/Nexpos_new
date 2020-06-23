@@ -1,4 +1,4 @@
-@import url(//https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+@import url("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, blockquote, pre,
@@ -13,10 +13,11 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
+  font-family: "jf-openhuninn", "cwTeXYen","Microsoft JhengHei";
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%; }
+  font-size: 20px; }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -76,40 +77,9 @@ table {
 .gray-100 {
   background-color: black; }
 
-body {
-  font-family: "Open Sans", sans-serif;
-  line-height: 1.5;
-  font-weight: 300;
-  font-size: 20px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #585858;
-  letter-spacing: 0.01rem;
-  word-spacing: 2px; }
-
-body {
-  font-family: 'Open Sans', sans-serif; }
-
-.clearfix {
-  clear: both; }
-  .clearfix:after {
-    content: '';
-    clear: both; }
-
-.container {
-  width: 1200px;
-  margin-left: auto;
-  margin-right: auto; }
-
-.bold {
-  font-weight: bold; }
-
-.float_right {
-  float: right; }
-
-.float_left {
-  float: left; }
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url("../font/jf-openhuninn-1.1.ttf") format("truetype"); }
 
 .c-sidebar {
   display: -ms-flexbox;
@@ -151,7 +121,7 @@ body {
   .c-sidebar ul li {
     height: 62px;
     margin: 20px 0;
-    padding: 16px 0px 0px 46px;
+    padding: 20px 0px 0px 46px;
     position: relative; }
     .c-sidebar ul li:first-child {
       margin-top: 30px; }
@@ -186,7 +156,9 @@ body {
   min-width: 0;
   min-height: 100vh; }
   .c-wrapper .topFunc {
-    width: 250px;
+    width: 500px;
+    display: flex;
+    justify-content: flex-end;
     position: absolute;
     right: 100px; }
     .c-wrapper .topFunc .topTablink #topTabactives {

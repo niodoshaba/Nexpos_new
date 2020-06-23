@@ -1,0 +1,27 @@
+div.c-wrapper .mainTakeAwayBar {
+  width: 900px;
+  height: 80px;
+  position: relative;
+  left: 15%;
+  top: -50px; }
+  div.c-wrapper .mainTakeAwayBar::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    top: 10%;
+    height: 2px;
+    background: #1c5b9d; }
+  div.c-wrapper .mainTakeAwayBar .mainTakeAwayOder {
+    position: relative;
+    margin: 0 10px;
+    width: 60px;
+    top: 10px;
+    display: inline-block; }
+
+div.c-wrapper .mainTable {
+  position: relative;
+  left: 15%;
+  top: 20px;
+  width: 1000px;
+  height: 650px;
+  box-shadow: 1px 1px 10px; }
