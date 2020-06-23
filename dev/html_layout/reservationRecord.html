@@ -16,24 +16,25 @@
     <!-- 以下為各分頁內容 -->
     <div class="c-wrapper">
         <div class="tablehead">
-            <h1>新增預約資料</h1>
+            <h1>歷史預約查詢</h1>
         </div>
-        <div class="topFunc">
-            <a href="＃" class="topTablink" style="text-decoration:none">
-                <div class="topTab" id="topTabactives" >
-                    <div class="toptabCaption">
-                        新增<br>預約
-                    </div>
-                </div>
-            </a>
-            <a href="＃" class="topTablink" style="text-decoration:none">
-                <div class="topTab" >
-                    <div class="toptabCaption">
-                        預約<br>記錄
-                    </div>
-                </div>
-            </a>
-        </div>
+             <div class="topFunc">
+        <a href="./reservationCalendar.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab" >
+            <div class="toptabCaption">訂位<br />管理</div>
+          </div>
+        </a>
+        <a href="./reservation.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab" >
+            <div class="toptabCaption">新增<br />預約</div>
+          </div>
+        </a>
+        <a href="./reservationRecord.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab" id="topTabactives">
+            <div class="toptabCaption">預約<br />記錄</div>
+          </div>
+        </a>
+      </div>
        
         <form action="reservation.php" id="myForm">
             <div class="resScrollbar" id="resScrollstyle">
@@ -101,6 +102,14 @@
         }
 
         window.addEventListener("load", function () {
+
+            // document.getElementById("fa-homeli").className = "actives" //主畫面
+            document.getElementById("fa-list-altli").className = "actives" //訂位管理
+            // document.getElementById("fa-usersli").className = "actives" //會員管理
+            // document.getElementById("fa-calendarli").className = "actives" //歷史訂單
+            // document.getElementById("fa-times-circleli").className = "actives" //關閉餐桌
+            // document.getElementById("fa-cutleryli").className = "actives" //出餐管理
+
             $id("btnAddSpot").onclick = addSpot;
         })
     </script>
