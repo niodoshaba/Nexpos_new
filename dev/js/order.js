@@ -124,13 +124,13 @@ window.onload = function () {
     var ordSugarInfo = [
         {
             ordSugarName: "全糖",
-            ordSugarPr: 0,
+            ordSugarPr: 10,
             ordSugarId: "TS001",
             ordSugarCnt: 1
         },
         {
             ordSugarName: "少糖",
-            ordSugarPr: 0,
+            ordSugarPr: 5,
             ordSugarId: "TS002",
             ordSugarCnt: 1
         },
@@ -142,13 +142,13 @@ window.onload = function () {
         },
         {
             ordSugarName: "微糖",
-            ordSugarPr: 0,
+            ordSugarPr: 30,
             ordSugarId: "TS004",
             ordSugarCnt: 1
         },
         {
             ordSugarName: "無糖",
-            ordSugarPr: 0,
+            ordSugarPr: 20,
             ordSugarId: "TS005",
             ordSugarCnt: 1
         },
@@ -330,7 +330,7 @@ window.onload = function () {
 
                     // 收起配料品項的欄位
                     $("#ordSugarAll").toggle();
-
+                    ordTotProdAmt();
                 })
             }
         }
@@ -430,13 +430,34 @@ window.onload = function () {
 
     // 計算購物車內的總品項金額
     function ordTotProdAmt() {
+        var ordGetTopping = JSON.parse(localStorage.getItem("ordSaveProdInCart"));
         ordTotAmt = 0;
+        ordToppingAmt = 0;
+
         for (let i in ordProdCart) {
             ordTotAmt += ordProdCart[i].ordProdPr;
         }
-        ordTotAmtShow.innerText = ordTotAmt;
+
+        for (let g = 0; g < ordGetTopping.length; g++) {
+            if (ordGetTopping[g].ordTopping.length != 0) {
+                // 再跑for迴圈抓到品項內的配料的價錢
+                for (let j = 0; j < ordGetTopping[g].ordTopping.length; j++) {
+                    ordToppingAmt += ordGetTopping[g].ordTopping[j].ordSugarPr;
+                }
+            }
+        }
+
+        console.log(ordToppingAmt);
+
+        ordTotAmtShow.innerText = ordTotAmt + ordToppingAmt;
 
     };
+
+
+
+
+
+
 
 
 
