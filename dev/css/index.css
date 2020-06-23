@@ -51,14 +51,14 @@ section.login .loginBlock {
     background-color: none;
     opacity: .8;
     border: 1px solid #1c5b9d; }
-  section.login .loginBlock .loginForm .loginBtn {
+  section.login .loginBlock .loginBtn {
     margin: 80px 0 50px 0;
     display: flex;
     justify-content: space-around;
     font-size: 23px; }
-    section.login .loginBlock .loginForm .loginBtn .loginSudo {
+    section.login .loginBlock .loginBtn .loginSudo {
       position: relative; }
-      section.login .loginBlock .loginForm .loginBtn .loginSudo::before {
+      section.login .loginBlock .loginBtn .loginSudo::before {
         content: "";
         position: absolute;
         z-index: -1;
@@ -69,7 +69,7 @@ section.login .loginBlock {
         border-radius: 50%;
         top: -40px;
         left: 50px; }
-      section.login .loginBlock .loginForm .loginBtn .loginSudo::after {
+      section.login .loginBlock .loginBtn .loginSudo::after {
         content: "";
         position: absolute;
         width: 100%;
@@ -80,10 +80,10 @@ section.login .loginBlock {
         transition: transform 400ms ease-out;
         transform: scaleX(0);
         transform-origin: right; }
-      section.login .loginBlock .loginForm .loginBtn .loginSudo:hover::after {
+      section.login .loginBlock .loginBtn .loginSudo:hover::after {
         transform: scaleX(1);
         transform-origin: left; }
-    section.login .loginBlock .loginForm .loginBtn .loginFront, section.login .loginBlock .loginForm .loginBtn .loginBack {
+    section.login .loginBlock .loginBtn .loginFront, section.login .loginBlock .loginBtn .loginBack {
       border: 0;
       background: none; }
 
@@ -161,6 +161,7 @@ section.fpHomepage2 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 60%;
     top: 10%; }
     section.fpHomepage2 .fpTabsUl li {
       display: inline-block;

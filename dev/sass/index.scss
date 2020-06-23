@@ -1,0 +1,413 @@
+@import url("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
+@font-face {
+    font-family: 'jf-openhuninn';
+    src: url('../font/jf-openhuninn-1.1.ttf') format('truetype');
+}
+
+$primary_db: #1c5b9d;
+$primary_o:  #ff9c40;
+$secondary_p: #e88d88;
+$secondary_y: #face3d;
+$secondary_b: #b2deeb;
+$secondary_g: #2a9d8f;
+
+@mixin fpBtn {
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    outline-style: none;
+    background-color: rgb(245, 245, 245);
+    border: 2px solid $primary_db;
+    color: $primary_db;
+    &:hover {
+        background-color: $primary_db;
+        border: 0;
+        color: oldlace;
+        cursor:pointer;
+    }
+}
+@mixin margin0 {
+    margin: 0 auto;
+}
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform : translate(-50%, -50%);
+}
+@mixin circle{
+    border-radius: 50%;
+    // line-height: 200px;
+    opacity: .6;
+    position: absolute;
+}
+.fpCircle::before{
+    @include circle();
+    content: " ";
+    z-index: -1;
+}
+
+
+
+
+* {
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    margin: 0 auto;
+    font-family: "jf-openhuninn", "cwTeXYen","Microsoft JhengHei";
+    font-size: 1.1em;
+}
+footer{
+    background-color:rgba(195, 195, 195, 0.2);
+    height: 50px;
+    font-size: 0.5em;
+    text-align: center;
+    line-height: 50px;
+}
+section{
+    // border: 1px solid red;
+    height: 100vh;
+}
+section.login{
+    .loginLogo img{
+        width: 100%;
+        margin: 50px auto;
+    }
+    .loginBlock{
+        @include center();
+        .loginForm{
+            input:focus{
+                outline: none;
+            }
+            div{
+                margin:20px;
+            }
+            .loginInput{
+                margin-left: 50px;
+            }
+            #loginId, #loginPassword{
+                margin-left:20px;
+                border-radius: 15px;
+                background-color: none;
+                opacity: .8;
+                border: 1px solid $primary_db;
+            }
+        }
+        .loginBtn{
+            margin: 80px 0 50px 0;
+            display: flex;
+            justify-content: space-around;
+            font-size: 23px;
+            .loginSudo{
+            position: relative;  
+            &::before{
+                content:"";
+                position: absolute;
+                z-index: -1;
+                width: 100px;
+                height:100px;
+                background-color: $primary_db;
+                opacity: .8;
+                border-radius: 50%;
+                top: -40px;
+                left: 50px;
+                }
+            &::after{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                background-color: $primary_o;
+                bottom: -1px;
+                left: 0;
+                transition: transform 400ms ease-out ;
+                transform: scaleX(0);
+                transform-origin: right;
+            }
+            &:hover::after{
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+            }  
+            .loginFront, .loginBack{
+                border: 0;
+                background: none;
+            }
+        }
+       
+    }
+}
+section.fpHomepage1{
+    .fpLogo{
+        position: relative;
+        &::before{
+            content: "";
+            position: absolute;
+            background-image: url("../images/LOGO.svg");
+            background-repeat: no-repeat;
+            width:100px;
+            height:100px;
+            top:10px;
+            left:10px;
+        }
+    }
+    .fpSlogan{
+        // border: 1px solid red;
+        height: 250px;
+        line-height: 10px;
+        padding: 10px;
+        @include center();
+        span.fpUnderline{
+            position: relative;
+            &::after{
+                position: absolute;
+                content: "";
+                width:100%;
+                height: 2px;
+                background: rgb(17, 44, 121);
+                bottom: -10px;
+                left: 0;
+            }
+        }
+        .fpBtn1{
+            position: relative;
+            top: -110px;
+            left: 365px;
+            @include fpBtn;
+        }
+    }
+}
+section.fpHomepage2{
+    background-image: url(../images/background-dot.png);
+    background-size: 10%;
+    position: relative;
+    &::before{
+        content: " ";
+        width: 300px;
+        height:300px;
+        background-image: url("../images/background-finger.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        bottom: 10%;
+        right: 50%;
+    }
+    .fpTabBlock{
+        // border: 1px solid rgb(0, 26, 255);
+        width: 80%;
+        @include margin0();
+        @include center;
+    }
+    .fpTabsUl{
+        // border: 1px solid rgb(24, 155, 78);
+        @include margin0();
+        @include center;
+        width:60%;
+        top: 10%;
+        li{ 
+        display: inline-block;
+        list-style: none;
+        margin:20px;
+        &.active{
+            background-color: $primary_o;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: $primary_db;
+            font-size: 25px;
+        }
+        }
+    }
+    .fpIntroduceContent{
+        margin-top: 100px;
+        .fpTabContent{
+            margin-top: 100px;
+            p{
+                font-size: 20px;
+                line-height: 40px;
+            }
+        }
+    }
+    .fpCircle1::before{
+        background-color: $secondary_y;
+        width: 350px;
+        height: 350px;
+        top: 10%;
+        left: -5%;
+    }
+    .fpCircle2::before{
+        background-color: $secondary_g;
+        width: 280px;
+        height: 280px;
+        top: 50%;
+        left: 6%;
+    }
+    .fpCircle3::before{
+        background-color: $secondary_b;
+        width: 230px;
+        height: 230px;
+        top: 20%;
+        left: 18%;
+    }
+}  
+section.fpHomepage3_1, section.fpHomepage3_2{
+    height: 100%;
+    .fpParallaxWrapper {
+        // border: 1px solid blue;
+        width: 500px;
+        height: 500px;
+        position: relative;
+        margin: 50px auto;
+      }
+      .fpParent,.fpChild {
+        position: absolute;
+        border-radius: 8px;
+      }
+      .fpParent {
+        width: 500px;
+        height: 500px;
+        padding: 50px;
+        font-size: 20px;
+        line-height: 40px;
+        // background: rgb(153, 153, 153);
+        h2{
+            position: relative;
+        }
+        &::after{
+            position: absolute;
+            content: "";
+            width:100%;
+            height: 1px;
+            background: $primary_db;
+            bottom: 10px;
+            left: 50px;
+        }
+      }
+      .fpChild {
+        // border: 1px solid rgb(0, 0, 0);
+        width: 500px;
+        height: 400px;
+        padding: 20px;
+        right: -500px;
+        bottom: 80px;
+        img{
+            width:150%;
+        }
+      }
+      
+}
+
+section.fpHomepage4{
+    position: relative;
+    overflow: hidden;
+    .fpNumber{
+        // border: 1px solid red;
+        height: 600px;
+        @include center();
+    }
+    .fpNumberSlogan{
+        // border: 1px solid rgb(255, 251, 0);
+        width: 500px;
+        height: 130px;
+        @include margin0();
+        margin-top: 50px;
+        text-align: center;
+        line-height: 3px;
+        .fpBtn4{
+            position: relative;
+            @include fpBtn();
+            left: 200px;
+            top: -75px;
+        }
+    }
+    .fpNum{
+        @include margin0();
+        // border: 1px solid rgb(0, 247, 255);
+        height: 150px;
+        margin-top: 100px;
+        .fpNumRun{
+            // border: 1px solid red;
+            width: 200px;
+            height: 150px;
+            text-align: center;
+            span.fpUnderline{
+                position: relative;
+                font-weight: bold;
+                &::after{
+                    position: absolute;
+                    content: "";
+                    width:100%;
+                    height: 1px;
+                    background: $primary_db;
+                    bottom: -5px;
+                    left: 0;
+                }
+            }
+            h2{
+                margin: 20px;
+            }
+        }
+    }
+    .fpWrapper{
+        overflow: hidden;
+    }
+
+    @keyframes carousel {
+        from {
+        transform: translateX(0);
+        }
+        to{
+        transform: translateX(-100%);
+        }
+    }
+    .fpImgRun{
+        // border: 1px solid green;
+        width: 1000px;
+        display: flex;
+        animation-name: carousel;
+        animation-duration: 35s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+        transform: translateX(0);
+        img{
+            width: 300px;
+            height: 200px;
+            padding: 1px;
+        } 
+    }
+    .fpCircle4::before{
+        background-color: $primary_o;
+        width: 500px;
+        height: 500px;
+        top: 35%;
+        left: 3%;
+    }
+    .fpCircle5::before{
+        background-color: $secondary_p;
+        width: 350px;
+        height: 350px;
+        top: 5%;
+        left: -10%;
+    }
+    .fpCircle6::before{
+        background-color: $secondary_b;
+        width: 400px;
+        height: 400px;
+        top: 30%;
+        left: 50%;
+    }
+    .fpCircle7::before{
+        background-color: $secondary_y;
+        width: 550px;
+        height: 550px;
+        top: -15%;
+        left: 80%;
+    }
+
+}
