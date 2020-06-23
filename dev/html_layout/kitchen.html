@@ -9,43 +9,90 @@
     />
     <!-- <link rel="stylesheet" href="css/style.css" /> -->
     <link rel="stylesheet" href="./css/style.css" />
-    <!-- <link rel="stylesheet" href="../css/coreui.css" /> -->
+    <link rel="stylesheet" href="./css/kitchen.css">
     <title>kitchen</title>
   </head>
 
   <body>
     <!-- 複製以下功能列 -->
-    <div class="header c-sidebar">
-  <nav id="sideMenu">
-    <div class="light">
-      <i class="fa fa-circle" aria-hidden="true"></i>
-    </div>
-    <ul>
-      <li><i class="fa fa-home" aria-hidden="true"></i>主畫面</li>
-      <li class="actives">
-        <i class="fa fa-list-alt" aria-hidden="true"></i>訂位管理
-      </li>
-      <li><i class="fa fa-users" aria-hidden="true"></i>會員管理</li>
-      <li><i class="fa fa-calendar" aria-hidden="true"></i>歷史訂單</li>
-      <div class="func">
-        <div class="user">Hi, User</div>
-        <div class="date">2020/6/17</div>
-        <div class="clock">10 : 35</div>
-      </div>
-      <li><i class="fa fa-times-circle" aria-hidden="true"></i>關閉餐桌</li>
-      <li><i class="fa fa-cutlery" aria-hidden="true"></i>出餐管理</li>
-      <li data-toggle="modal" data-target="#regular_modal">
-        <i class="fa fa-calculator" aria-hidden="true"></i>日結
-      </li>
-      <li><i class="fa fa-sign-out" aria-hidden="true"></i>登出</li>
-    </ul>
-  </nav>
-</div>
+     @@include('./app/header.html', {
+      "nav5" : "actives" 
+    })
 
     <!-- 複製以上功能列 -->
     <!-- 以下為各分頁內容 -->
     <div class="c-wrapper">
-      <table class="table table-responsive-sm">
+      <div class="tablehead">
+        <h1>廚房出餐管理</h1>
+      </div>
+            <div class="topFunc">
+        <a href="./kitchen.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab" >
+            <div class="toptabCaption">出餐<br />管理</div>
+          </div>
+        </a>
+        <a href="./reservation.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab" id="topTabactives">
+            <div class="toptabCaption">訂單<br />記錄</div>
+          </div>
+        </a>
+      </div>
+      <!-- 以下為訂單 -->
+      <div class="kContainer">
+        <div class="kHead">
+          <div class="kHeadItem">
+            <h1>訂單：A10</h1>
+            <span>2020/06/02 10:26</span>
+          </div>
+          <div class="kHeadItem">
+            <h1>外帶：008</h1>
+            <span>店員：Lily</span>
+          </div>
+        </div>
+
+        <div class="kFood">
+          <ul>
+            <div class="kFoodBar">主餐</div>
+            <li class="kFoodItem">
+              <div class="kFoodTitle">
+                <h1>櫻桃鴨胸肉燉飯</h1>
+                <span>去皮</span>
+              </div>
+              <div class="kFoodNum">X1</div>
+              <div class="kFoodStatus"><i></i></div>
+            </li>
+            <li class="kFoodItem">
+              <div class="kFoodTitle">
+                <h1>咖哩雞肉飯</h1>
+                <span>不要紅蘿蔔</span>
+              </div>
+              <div class="kFoodNum">X1</div>
+              <div class="kFoodStatus"><i></i></div>
+            </li>
+            <li class="kFoodItem">
+              <div class="kFoodTitle">
+                <h1>蕃茄牛肉麵</h1>
+                <span>不要牛肉 炒蛋</span>
+              </div>
+              <div class="kFoodNum">X1</div>
+              <div class="kFoodStatus"><i></i></div>
+            </li>
+            <div class="kFoodBar">其他</div>
+            <li class="kFoodItem">
+              <div class="kFoodTitle">
+                <h1>珍珠鮮奶茶</h1>
+                <span>去冰微糖</span>
+              </div>
+              <div class="kFoodNum">X2</div>
+              <div class="kFoodStatus"><i></i></div>
+            </li>
+          </ul>
+        </div>
+
+        <button class="kButton">訂單完成</button>
+
+      </div>
+      <!-- <table class="table table-responsive-sm">
           <thead>
           <tr>
           <th>品項</th>
@@ -80,7 +127,7 @@
           <td>Staff</td>
           </tr>
           </tbody>
-      </table>
-    
+      </table> -->
+      
   </body>
 </html>

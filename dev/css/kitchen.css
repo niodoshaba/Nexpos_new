@@ -1,0 +1,45 @@
+.tablehead {
+  margin-top: 20px;
+  padding: 20px;
+  margin-left: 180px;
+  width: 1040px; }
+  .tablehead h1 {
+    font-size: 35px; }
+
+.kHead, .kFoodItem {
+  padding: 20px; }
+
+span {
+  font-size: 10px; }
+
+.kContainer {
+  width: 320px;
+  height: 605px;
+  background-color: #FDE8B3;
+  position: relative;
+  top: 100px;
+  left: 200px;
+  border-radius: 12px; }
+  .kContainer .kHead {
+    display: flex; }
+  .kContainer .kFood .kFoodBar {
+    background-color: #E4E4E4;
+    text-align: center;
+    padding: 2px; }
+  .kContainer .kFood li {
+    margin-bottom: 10px; }
+  .kContainer .kFood .kFoodItem {
+    display: flex; }
+  .kContainer .kFoodMain {
+    display: flex; }
+
+.kButton {
+  padding: 12px;
+  border-radius: 20px;
+  background-color: #EFA25F;
+  color: white;
+  border: none;
+  position: relative;
+  float: bottom;
+  left: 50%;
+  transform: translateX(-50%); }
