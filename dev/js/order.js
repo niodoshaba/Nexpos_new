@@ -211,6 +211,7 @@ window.onload = function () {
 
 
 
+
     for (let i = 0; i < ordAddToCart.length; i++) {
         ordAddToCart[i].addEventListener("click", function () {
 
@@ -222,6 +223,7 @@ window.onload = function () {
 
             let ordHTML = '';
             orderPageLeftSideMidItemAll.innerHTML = " ";
+
 
             // console.log("長度", ordProdCart.length);
 
@@ -245,6 +247,7 @@ window.onload = function () {
                 `;
 
             }
+
 
             orderPageLeftSideMidItemAll.innerHTML = ordHTML;
 
@@ -270,7 +273,9 @@ window.onload = function () {
 
     function ordGetToppingBack() {
 
-        var ordGetTopping = JSON.parse(localStorage.getItem("ordSaveProdInCart"));
+        // var ordGetTopping = JSON.parse(localStorage.getItem("ordSaveProdInCart"));
+        // 從localStorage把資料拉回來
+        ordLoadProdInCartHist();
 
         // 先跑for迴圈抓到品項
         for (let g = 0; g < ordGetTopping.length; g++) {
@@ -318,11 +323,14 @@ window.onload = function () {
                     e.preventDefault();
                     e.stopImmediatePropagation();
 
+
                     let ordToppingCoProd = Number(document.querySelector('.orderPageLeftSideMidItemTop.lightblue').childNodes[1].childNodes[1].dataset.cnt);
 
 
                     // 把配料加進被點選的品項下
                     $(document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1]).append(`<span> ${ordSugarInfo[s].ordSugarName}  $${ordSugarInfo[s].ordSugarPr}</span>`);
+
+                    console.log("登愣登愣", document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[3]);
 
                     // 把配料寫進被點選的品項裡面，再一起紀錄進localstorage
                     ordProdCart[ordToppingCoProd].ordTopping.push(ordSugarInfo[s]);
@@ -330,7 +338,10 @@ window.onload = function () {
 
                     // 收起配料品項的欄位
                     $("#ordSugarAll").toggle();
+
                     ordTotProdAmt();
+
+                    ordToppingItemPr();
                 })
             }
         }
@@ -430,7 +441,8 @@ window.onload = function () {
 
     // 計算購物車內的總品項金額
     function ordTotProdAmt() {
-        var ordGetTopping = JSON.parse(localStorage.getItem("ordSaveProdInCart"));
+        ordLoadProdInCartHist();
+
         ordTotAmt = 0;
         ordToppingAmt = 0;
 
@@ -447,13 +459,31 @@ window.onload = function () {
             }
         }
 
-        console.log(ordToppingAmt);
+        // console.log(ordToppingAmt);
 
         ordTotAmtShow.innerText = ordTotAmt + ordToppingAmt;
 
     };
 
 
+    // 配料各項價錢
+    function ordToppingItemPr() {
+        // var ordGetTopping = JSON.parse(localStorage.getItem("ordSaveProdInCart"));
+        ordLoadProdInCartHist();
+        ordToppingItemAmt = 0;
+
+        for (let g = 0; g < ordGetTopping.length; g++) {
+            if (ordGetTopping[g].ordTopping.length != 0) {
+                // 再跑for迴圈抓到品項內的配料的價錢
+                for (let j = 0; j < ordGetTopping[g].ordTopping.length; j++) {
+                    ordToppingItemAmt += ordGetTopping[g].ordTopping[j].ordSugarPr;
+
+                }
+            }
+        }
+        console.log("配料價錢", ordToppingItemAmt)
+
+    }
 
 
 
@@ -481,7 +511,7 @@ window.onload = function () {
 
     // 把購物車資訊從localStorage裡抓出來
     function ordLoadProdInCartHist() {
-        ordProdCart = JSON.parse(localStorage.getItem("ordSaveProdInCart"));
+        ordGetTopping = JSON.parse(localStorage.getItem("ordSaveProdInCart"));
     };
 
 
