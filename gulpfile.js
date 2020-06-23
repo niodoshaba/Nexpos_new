@@ -22,7 +22,7 @@ gulp.task('hello', function () {
 // 移動＝拷貝 src下的html 經由pipe 到dest
 gulp.task('move', function () {
     //do
-    return gulp.src('./dev/html_layout/*.html') //來源
+    return gulp.src('./dev/*.html') //來源
         .pipe(gulp.dest('./dest')) //目的地
 });
 
@@ -48,7 +48,7 @@ gulp.task('concat', ['sass'], function () {
 
 // sass 轉譯
 gulp.task('sass', function () {
-    return gulp.src(['dev/sass/*.scss' , 'dev/sass/**/*.scss'])//來源
+    return gulp.src(['dev/sass/*.scss', 'dev/sass/**/*.scss'])//來源
         .pipe(sass().on('error', sass.logError)) //sass轉譯
         .pipe(gulp.dest('./dev/css')); //目的地
 });
@@ -58,18 +58,18 @@ gulp.task('sass', function () {
 gulp.task('watch', function () {
     gulp.watch('./dev/css/*.css', ['concat']);
     gulp.watch('./dev/sass/*.scss', ['sass']);
-    gulp.watch('./dev/html_layout/*.html', ['move']);
+    gulp.watch('./dev/*.html', ['move']);
 });
 
 
-gulp.task('copyimg' , function(){
-   gulp.src('dev/img/*').pipe(gulp.dest('dest/assets/'));
+gulp.task('copyimg', function () {
+    gulp.src('dev/img/*').pipe(gulp.dest('dest/assets/'));
 })
 
 
 // html 樣板
 gulp.task('fileinclude', function () {
-    gulp.src(['dev/html_layout/*.html' , 'dev/html_layout/**/*.html'])
+    gulp.src(['dev/*.html', 'dev/**/*.html'])
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
@@ -80,7 +80,7 @@ gulp.task('fileinclude', function () {
 
 
 //同步 等同於Apache 
-gulp.task('default',['copyimg'], function () {
+gulp.task('default', ['copyimg'], function () {
     browserSync.init({
         server: {
             baseDir: "./dest",
@@ -88,7 +88,7 @@ gulp.task('default',['copyimg'], function () {
         }
     });
     gulp.watch('./dev/css/*.css', ['concat']).on('change', reload); //當css有變動時 同步更新
-    gulp.watch(['./dev/sass/*.scss' , './dev/sass/**/*.scss'], ['sass']).on('change', reload); //當sass有變動時 同步更新
+    gulp.watch(['./dev/sass/*.scss', './dev/sass/**/*.scss'], ['sass']).on('change', reload); //當sass有變動時 同步更新
     // gulp.watch('./dev/html_layout/*.html', ['move']).on('change', reload);
-    gulp.watch(['dev/html_layout/*.html', 'dev/html_layout/**/*.html'], ['fileinclude']).on('change', reload); //當html_layout與app裡面的html有變動時 同步更新
+    gulp.watch(['dev/*.html', 'dev/**/*.html'], ['fileinclude']).on('change', reload); //當html_layout與app裡面的html有變動時 同步更新
 });
