@@ -528,14 +528,24 @@ window.onload = function () {
         methods: {
             ordCalPplAmtPlus() {
                 this.ordPplAmt++;
+                localStorage.setItem('ordPplNum', this.ordPplAmt);
+
             },
             ordCalPplAmtMinus() {
                 this.ordPplAmt--;
                 if (this.ordPplAmt < 0) {
                     this.ordPplAmt = 0;
                 }
+
+                localStorage.setItem('ordPplNum', this.ordPplAmt);
+            }
+        },
+        computed: {
+            ordGetPpl() {
+                return this.ordPplAmt = localStorage.getItem("ordPplNum");
             }
         }
+
     })
 
 }
