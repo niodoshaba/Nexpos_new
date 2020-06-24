@@ -34,84 +34,84 @@ window.onload = function () {
     // 菜單資訊
     var ordProdInfo = [
         {
-            ordProdName: "醬燒姑姑",
+            ordProdName: "火腿起司",
             ordProdPr: 600,
             ordProdId: "A001",
             ordProdCnt: 1,
             ordTopping: []
         },
         {
-            ordProdName: "奶爸薯泥",
+            ordProdName: "鮪魚玉米",
             ordProdPr: 300,
             ordProdId: "A002",
             ordProdCnt: 1,
             ordTopping: []
         },
         {
-            ordProdName: "青醬雞柳",
+            ordProdName: "培根起司蛋",
             ordProdPr: 100,
             ordProdId: "A003",
             ordProdCnt: 1,
             ordTopping: []
         },
         {
-            ordProdName: "舒巴大叔",
+            ordProdName: "季節鮮蔬",
             ordProdPr: 10,
             ordProdId: "A004",
             ordProdCnt: 1,
             ordTopping: []
         },
         {
-            ordProdName: "番茄小丸子",
+            ordProdName: "燻雞",
             ordProdPr: 600,
             ordProdId: "A005",
             ordProdCnt: 1,
             ordTopping: []
         },
         {
-            ordProdName: "紅燒牛柳",
+            ordProdName: "奶油洋芋",
             ordProdPr: 380,
             ordProdId: "A006",
             ordProdCnt: 1,
             ordTopping: []
         },
         {
-            ordProdName: "章魚嘴",
+            ordProdName: "醬燒蘑菇",
             ordProdPr: 170,
             ordProdId: "A007",
             ordProdCnt: 1,
             ordTopping: []
         },
         {
-            ordProdName: "綺夢的＿＿",
+            ordProdName: "桃木雞腿排",
             ordProdPr: 1000,
             ordProdId: "A008",
             ordProdCnt: 1,
             ordTopping: []
         },
         {
-            ordProdName: "班花特製",
+            ordProdName: "德腸起司蛋",
             ordProdPr: 300,
             ordProdId: "A009",
             ordProdCnt: 1,
             ordTopping: []
         },
         {
-            ordProdName: "天龍聖品",
+            ordProdName: "薑汁燒肉",
             ordProdPr: 300,
             ordProdId: "A010",
             ordProdCnt: 1,
             ordTopping: []
         },
         {
-            ordProdName: "彗星香蕉",
+            ordProdName: "墨西哥辣椒牛肉",
             ordProdPr: 500,
             ordProdId: "A011",
             ordProdCnt: 1,
             ordTopping: []
         },
         {
-            ordProdName: "極讚大腿",
+            ordProdName: "法式紅酒牛肉",
             ordProdPr: 900,
             ordProdId: "A012",
             ordProdCnt: 1,
@@ -520,7 +520,7 @@ window.onload = function () {
     new Vue({
         el: "#orderPageLeftSideTop",
         data: {
-            ordNo: " ",
+            ordNo: "S0001",
             ordTabNo: "T001",
             ordPplAmt: ""
 
