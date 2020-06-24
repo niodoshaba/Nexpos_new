@@ -176,7 +176,7 @@ window.onload = function () {
                 <div class="orderPageLeftSideMidItem" >
                     <div class="orderPageLeftSideMidItemTop">
                         <div class="orderPageLeftSideMidItemDelete" >
-                            <img src="../img/icon_cancel.png" alt="" data-cnt='${k}'>
+                            <img src="./assets/icon_cancel.png" alt="" data-cnt='${k}'>
                         </div>
                         <span class="ordSele">${ordGetTopping[k].ordProdName}</span>
                         <span>${ordGetTopping[k].ordProdCnt}</span>
@@ -233,7 +233,7 @@ window.onload = function () {
                     <div class="orderPageLeftSideMidItem" >
                         <div class="orderPageLeftSideMidItemTop">
                             <div class="orderPageLeftSideMidItemDelete" >
-                                <img src="../img/icon_cancel.png" alt="" data-cnt='${k}'>
+                                <img src="./assets/icon_cancel.png" alt="" data-cnt='${k}'>
                             </div>
                             <span class="ordSele">${ordProdCart[k].ordProdName}</span>
                             <span>${ordProdCart[k].ordProdCnt}</span>
@@ -366,7 +366,7 @@ window.onload = function () {
                     <div class= "orderPageLeftSideMidItem">
                         <div class="orderPageLeftSideMidItemTop">
                             <div class="orderPageLeftSideMidItemDelete"  >
-                                <img src="../img/icon_cancel.png" alt="" data-cnt='${o}'>
+                                <img src="./assets/icon_cancel.png" alt="" data-cnt='${o}'>
                             </div>
                                 <span class="ordSele">${ordProdCart[o].ordProdName}</span>
                                 <span>${ordProdCart[o].ordProdCnt}</span>
