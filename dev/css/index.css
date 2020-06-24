@@ -39,7 +39,7 @@ section.login .loginBlock {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
-  section.login .loginBlock .loginForm input:focus {
+  section.login .loginBlock input:focus {
     outline: none; }
   section.login .loginBlock .loginForm div {
     margin: 20px; }
@@ -57,7 +57,8 @@ section.login .loginBlock {
     justify-content: space-around;
     font-size: 23px; }
     section.login .loginBlock .loginBtn .loginSudo {
-      position: relative; }
+      position: relative;
+      outline: none; }
       section.login .loginBlock .loginBtn .loginSudo::before {
         content: "";
         position: absolute;

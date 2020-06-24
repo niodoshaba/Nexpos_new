@@ -23,9 +23,12 @@ table {
 td {
   padding: 16px; }
 
+td:last-child {
+  padding: 5px; }
+
 .save {
   border: none;
-  margin-right: 10px;
+  margin-bottom: 10px;
   vertical-align: sub; }
 
 img {
@@ -52,9 +55,11 @@ form {
   height: 600px;
   width: 1040px;
   overflow-y: scroll;
+  overflow-x: hidden;
   margin-bottom: 25px; }
 
 .resOverflow {
+  width: 100%;
   min-height: 600px; }
 
 #resScrollstyle::-webkit-scrollbar {

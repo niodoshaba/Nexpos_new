@@ -7,9 +7,6 @@
     <title>log in</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/index.css">
@@ -22,7 +19,7 @@
         <div class="loginBlock">
 
             <div class="loginLogo">
-                <img src="../img/LOGO.svg">
+                <img src="./assets/LOGO.svg">
             </div>
 
             <form class="loginForm">
@@ -37,13 +34,17 @@
             </form>
 
             <div class="loginBtn">
+                
+            <a href="./tabShow.html">
                 <form id="loginToFront">
                     <div class="loginSudo">
                         <input class="loginFront" type="submit" name="" value="點餐系統"
                             style="font-size: 20px; font-family:jf-openhuninn;">
                     </div>
                 </form>
+            </a>
 
+            <a href="../../Nexpos_back/dest/proManage.html">
                 <form id="loginToBack">
                     <div class="loginSudo">
                         <input class="loginBack" type="submit" name="" value="後臺管理"
@@ -51,6 +52,7 @@
                     </div>
                 </form>
             </div>
+            <a>
 
         </div>
         <svg width="100%" height="100%">
@@ -71,13 +73,12 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
-    <script src="../js/animation.js"></script>
 
     <script>
         // localStorage.setItem('id', 'E0000000001');
         // localStorage.setItem('password', '123456');
         var fakeNumData = {
-            id: 'E0000000001',
+            id: 'E001',
             password: '123456'
         };
         localStorage.setItem('fakeNum', JSON.stringify(fakeNumData));
@@ -116,6 +117,52 @@
                 alert('請輸入正確帳密');
             }
         });    
+    </script>
+
+    <script>
+    //----------GSAP第一屏的球球----------
+        TweenMax.to('#fpBall_db',28, {
+            bezier: function(){
+            return  [{x: 20,y: 30},{x: 10,y: 10,},{x: 15,y: 15,},{x: 20,y: 50},{x: 10,y: 60,}]
+            },
+            repeat: -1,
+            yoyo: true,
+        })
+        TweenMax.to('#fpBall_g',26, {
+        bezier: function(){
+            return  [{x: 25,y: 20},{x: 40,y: 40,},{x: 15,y: 15,},{x: 30,y: 50},{x: 20,y: 10,}]
+        },
+        repeat: -1,
+        yoyo: true,
+        })
+        TweenMax.to('#fpBall_o',24, {
+        bezier: function(){
+            return  [{x: 0,y: 0},{x: 10,y: 10,},{x: 15,y: 15,},{x: 20,y: 50},{x: 10,y: 10,}]
+        },
+        repeat: -1,
+        yoyo: true,
+        })
+        TweenMax.to('#fpBall_b',26, {
+        bezier: function(){
+            return  [{x: 20,y: 15},{x: 20,y: 20,},{x: 30,y: 15,},{x: 25,y: 50},{x: 30,y: 10,}]
+        },
+        repeat: -1,
+        yoyo: true,
+        })
+        TweenMax.to('#fpBall_p',18, {
+        bezier: function(){
+            return  [{x: 10,y: 5},{x: 10,y: 10,},{x: 15,y: 15,},{x: 20,y: 50},{x: 10,y: 10,}]
+        },
+        repeat: -1,
+        yoyo: true,
+        })
+        TweenMax.to('#fpBall_y',20, {
+        bezier: function(){
+            return  [{x: 40,y: 40},{x: 30,y: 30,},{x: 15,y: 15,},{x: 20,y: 50},{x: 0,y: 0,}]
+        },
+        repeat: -1,
+        yoyo: true,
+        })
     </script>
 
 </body>

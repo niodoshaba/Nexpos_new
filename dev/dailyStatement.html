@@ -3,15 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- <link rel="stylesheet" href="css/style.css" /> -->
-    <link rel="stylesheet" href="./css/style.css" />
-     <!-- <link rel="stylesheet" href="../css/coreui.css" /> -->
-     <link rel="stylesheet" href="./css/dailyStatement.css" />
-     <title>dailyStatement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
      <link
        rel="stylesheet"
        href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/minty/bootstrap.min.css"
@@ -21,11 +13,17 @@
        rel="stylesheet"
        type="text/css"
      />
+    <link rel="stylesheet" href="./css/style.css" />
+     <link rel="stylesheet" href="./css/dailyStatement.css" />
+     <title>dailyStatement</title>
+
   </head>
 
   <body>
     <!-- 複製以下功能列 -->
-    @@include('app/header.html')
+    @@include('./app/header.html', {
+      "nav6" : "actives" 
+    })
     <!-- 複製以上功能列 -->
     <!-- 以下為各分頁內容 -->
     <div class="c-wrapper" style="margin-left: 300px;">

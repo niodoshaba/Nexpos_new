@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
-@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,7 +24,10 @@ footer, header, hgroup, menu, nav, section {
   display: block; }
 
 body {
-  line-height: 1; }
+  line-height: 1;
+  max-width: 1440px;
+  max-height: 900px;
+  margin: 0 auto; }
 
 ol, ul {
   list-style: none; }
@@ -40,6 +42,10 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
 
 * {
   box-sizing: border-box; }
@@ -109,15 +115,15 @@ table {
   .c-sidebar ul .func {
     text-align: center; }
     .c-sidebar ul .func .clock {
-      font-family: 'Noto Sans TC', sans-serif;
       font-size: 50px;
-      font-weight: 400; }
+      font-weight: 400;
+      margin: 5px 0; }
     .c-sidebar ul .func .date {
-      font-family: 'Noto Sans TC', sans-serif;
-      font-weight: 400; }
+      font-weight: 400;
+      margin: 5px 0; }
     .c-sidebar ul .func .user {
-      font-family: 'Noto Sans TC', sans-serif;
-      font-size: 600; }
+      font-size: 600;
+      margin: 5px 0; }
   .c-sidebar ul li {
     height: 62px;
     margin: 20px 0;
@@ -189,9 +195,9 @@ table {
       margin-top: 10px; }
 
 .search-container {
-  width: 200px;
+  width: 220px;
   position: relative;
-  top: -50px;
+  top: -40px;
   right: 154px; }
 
 input#search-bar {
@@ -207,12 +213,15 @@ input#search-bar {
     transition: 0.35s ease;
     color: #008ABF; }
     input#search-bar:focus::-webkit-input-placeholder {
+      font-family: "jf-openhuninn", "cwTeXYen","Microsoft JhengHei";
       transition: opacity 0.45s ease;
       opacity: 0; }
     input#search-bar:focus::-moz-placeholder {
+      font-family: "jf-openhuninn", "cwTeXYen","Microsoft JhengHei";
       transition: opacity 0.45s ease;
       opacity: 0; }
     input#search-bar:focus:-ms-placeholder {
+      font-family: "jf-openhuninn", "cwTeXYen","Microsoft JhengHei";
       transition: opacity 0.45s ease;
       opacity: 0; }
 

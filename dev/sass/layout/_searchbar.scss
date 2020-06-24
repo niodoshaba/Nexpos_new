@@ -1,8 +1,9 @@
 
 .search-container{
-    width: 200px;
+  
+    width: 220px;
     position: relative;
-    top: -50px;
+    top: -40px;
     right: 154px;
   }
   
@@ -19,14 +20,20 @@
       transition: 0.35s ease;
       color: #008ABF;
       &::-webkit-input-placeholder{
+        font-family: "jf-openhuninn", "cwTeXYen","Microsoft JhengHei";
+
         transition: opacity 0.45s ease; 
           opacity: 0;
        }
       &::-moz-placeholder {
+        font-family: "jf-openhuninn", "cwTeXYen","Microsoft JhengHei";
+
         transition: opacity 0.45s ease; 
           opacity: 0;
        }
       &:-ms-placeholder {
+        font-family: "jf-openhuninn", "cwTeXYen","Microsoft JhengHei";
+
        transition: opacity 0.45s ease; 
          opacity: 0;
        }    

@@ -141,7 +141,7 @@ body {
   margin-top: 25px; }
 
 #orderPageRightside {
-  background-image: url("../img/bg_dots.png");
+  background-image: url("../assets/bg_dots.png");
   display: flex;
   flex-direction: column; }
   #orderPageRightside #orderPageRightSideTop {

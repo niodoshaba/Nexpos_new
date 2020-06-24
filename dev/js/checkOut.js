@@ -22,13 +22,31 @@ window.addEventListener('load',function(){
     //剩餘品項
     let checkoutLeftSideBottomTop = document.getElementById('checkoutLeftSideBottomTop');
     
-    
+    //----- 假資料 -----
+    var data = [
+        {
+            CUS_PHONE: "0931254698",
+            CUS_LAST: "千",
+            CUS_FIRST: "金",
+            CUS_GEN: "女",
+            CUS_BIRTH: "1993/06/22",
+            CUS_EMAIL: "a5487@gmail.com",
+            CUS_POINT: "5000",
+            CUS_ID: "1",
+            CUS_STATE: "1"
+        }];
+        
+    localStorage.setItem('cusData', JSON.stringify(data));
+
+    let bonusRule = "消費500元累積1點，每300點可折抵1元";
+    localStorage.setItem('bonusRule', JSON.stringify(bonusRule));
+     
     
     
     
     //-------------------------- 紅利相關 --------------------------
     //取得暫存區裡的紅利規則
-    let bonusRule = localStorage.getItem('bonusRule');
+    bonusRule = localStorage.getItem('bonusRule');
     let bounsCom = parseInt(bonusRule.substring(bonusRule.indexOf('費')+1, bonusRule.indexOf('元')));
     let bonusExchange = parseInt(bonusRule.substring(bonusRule.indexOf('每')+1,bonusRule.lastIndexOf('點')));
 
@@ -232,23 +250,7 @@ window.addEventListener('load',function(){
     //-----bonusRule為字串
    
 
-    //----- 假資料 -----
-    // var data = [
-    //     {
-    //         CUS_PHONE: "0931254698",
-    //         CUS_LAST: "千",
-    //         CUS_FIRST: "金",
-    //         CUS_GEN: "女",
-    //         CUS_BIRTH: "1993/06/22",
-    //         CUS_EMAIL: "a5487@gmail.com",
-    //         CUS_POINT: "5000",
-    //         CUS_ID: "1",
-    //         CUS_STATE: "1"
-    //     }];
-        
-
-    // localStorage.setItem('cusData', JSON.stringify(data));
-     
+   
 
 
        
