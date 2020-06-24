@@ -46,7 +46,7 @@ window.addEventListener('load',function(){
     
     //-------------------------- 紅利相關 --------------------------
     //取得暫存區裡的紅利規則
-    let bonusRule = localStorage.getItem('bonusRule');
+    bonusRule = localStorage.getItem('bonusRule');
     let bounsCom = parseInt(bonusRule.substring(bonusRule.indexOf('費')+1, bonusRule.indexOf('元')));
     let bonusExchange = parseInt(bonusRule.substring(bonusRule.indexOf('每')+1,bonusRule.lastIndexOf('點')));
 
