@@ -93,7 +93,7 @@ section.fpHomepage1 .fpLogo {
   section.fpHomepage1 .fpLogo::before {
     content: "";
     position: absolute;
-    background-image: url("../images/LOGO.svg");
+    background-image: url("../assets/LOGO.svg");
     background-repeat: no-repeat;
     width: 100px;
     height: 100px;
@@ -136,14 +136,14 @@ section.fpHomepage1 .fpSlogan {
       cursor: pointer; }
 
 section.fpHomepage2 {
-  background-image: url(../images/background-dot.png);
+  background-image: url("../assets/background-dot.png");
   background-size: 10%;
   position: relative; }
   section.fpHomepage2::before {
     content: " ";
     width: 300px;
     height: 300px;
-    background-image: url("../images/background-finger.png");
+    background-image: url("../assets/background-finger.png");
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
