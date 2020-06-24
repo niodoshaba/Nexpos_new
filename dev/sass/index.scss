@@ -78,10 +78,10 @@ section.login{
     }
     .loginBlock{
         @include center();
-        .loginForm{
-            input:focus{
+         input:focus{
                 outline: none;
             }
+        .loginForm{
             div{
                 margin:20px;
             }
