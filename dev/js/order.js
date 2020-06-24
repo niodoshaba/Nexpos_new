@@ -538,13 +538,11 @@ window.onload = function () {
                 }
 
                 localStorage.setItem('ordPplNum', this.ordPplAmt);
-            }
+            },
+            // ordGetPpl() {
+            //     this.ordPplAmt = localStorage.getItem("ordPplNum");
+            // }
         },
-        computed: {
-            ordGetPpl() {
-                return this.ordPplAmt = localStorage.getItem("ordPplNum");
-            }
-        }
 
     })
 
