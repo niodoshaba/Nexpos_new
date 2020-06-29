@@ -85,6 +85,12 @@ body{
         align-items: center;
         .orderPageLeftSideMidItem{
             width: 100%;
+            .ordItemCount{
+                font-size:16px;
+            }
+            .ordItemPr{
+                font-size:22px;
+            }
             .orderPageLeftSideMidItemTop.lightblue{
                 transition: all 0.5s;
                 background-color: rgba(178,221,234,.35);
@@ -194,9 +200,15 @@ body{
             width: 75px;
             border-bottom: 1px solid #959595;       
         }
+        span{
+            font-size:16px;
+        }
     }
     #orderPageLeftSideBottomBottom{
         margin-top: 25px;
+        span{
+            font-size:24px;
+        }
     }
 }
 

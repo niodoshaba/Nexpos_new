@@ -184,7 +184,7 @@ window.onload = function () {
                                 <img src="./assets/icon_cancel.png" alt="" data-cnt='${k}'>
                             </div>
                             <span class="ordSele">${ordGetProd[k].PRO_ITEM_NAME}</span>
-                            <span>1</span>
+                            <span class="ordItemCount>1</span>
                         </div>
                         <div class="orderPageLeftSideMidItemBottom">
                             <div class="orderPageLeftSideMidToppings data-sec=${k}">
@@ -329,7 +329,7 @@ window.onload = function () {
                                 <img src="./assets/icon_cancel.png" alt="" data-cnt='${o}'>
                             </div>
                                 <span class="ordSele">${ordProdCart[o].PRO_ITEM_NAME}</span>
-                                <span>1</span>
+                                <span class="ordItemCount>1</span>
                         </div>
                         <div class="orderPageLeftSideMidItemBottom">
                             <div class="orderPageLeftSideMidToppings data-sec=${o}"></div>

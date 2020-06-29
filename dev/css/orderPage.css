@@ -60,6 +60,10 @@ body {
     align-items: center; }
     #orderPageLeftSideMid #orderPageLeftSideMidItemAll .orderPageLeftSideMidItem {
       width: 100%; }
+      #orderPageLeftSideMid #orderPageLeftSideMidItemAll .orderPageLeftSideMidItem .ordItemCount {
+        font-size: 16px; }
+      #orderPageLeftSideMid #orderPageLeftSideMidItemAll .orderPageLeftSideMidItem .ordItemPr {
+        font-size: 22px; }
       #orderPageLeftSideMid #orderPageLeftSideMidItemAll .orderPageLeftSideMidItem .orderPageLeftSideMidItemTop.lightblue {
         transition: all 0.5s;
         background-color: rgba(178, 221, 234, 0.35); }
@@ -136,9 +140,13 @@ body {
     height: 15px;
     width: 75px;
     border-bottom: 1px solid #959595; }
+  #orderPageLeftSideBottom #orderPageLeftSideBottomTop span {
+    font-size: 16px; }
 
 #orderPageLeftSideBottom #orderPageLeftSideBottomBottom {
   margin-top: 25px; }
+  #orderPageLeftSideBottom #orderPageLeftSideBottomBottom span {
+    font-size: 24px; }
 
 #orderPageRightside {
   background-image: url("../assets/bg_dots.png");
