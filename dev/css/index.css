@@ -27,6 +27,83 @@ footer {
   text-align: center;
   line-height: 50px; }
 
+div.loading {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  position: fixed;
+  z-index: 9;
+  background-color: white; }
+  div.loading #loading_svg, div.loading #loading_img {
+    width: 20%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  div.loading #loading_svg {
+    animation: loading1 1.5s ease 2s 1 noraml forwards; }
+  div.loading #loading_img {
+    opacity: 0;
+    animation: loading2 2s ease 2s 1 normal forwards; }
+  div.loading .loadingball {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 0;
+    background: #face3d;
+    animation: loadingball 2s ease 3.5s 1 normal forwards; }
+
+@keyframes loading1 {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes loading2 {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes loadingball {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1;
+    transform: scale(20, 20); }
+  70% {
+    opacity: 1;
+    transform: scale(35, 35); }
+  100% {
+    opacity: 1;
+    transform: scale(50, 50); } }
+
+.fpClickBall {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  opacity: 0;
+  background: #1c5b9d; }
+  .fpClickBall.active {
+    animation: clickball 2s ease 0.5s 1 normal forwards; }
+
+@keyframes clickball {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1;
+    transform: scale(20, 20); }
+  70% {
+    opacity: 1;
+    transform: scale(35, 35); }
+  100% {
+    opacity: 1;
+    transform: scale(50, 50); } }
+
 section {
   height: 100vh; }
 
@@ -46,6 +123,7 @@ section.login .loginBlock {
   section.login .loginBlock .loginForm .loginInput {
     margin-left: 50px; }
   section.login .loginBlock .loginForm #loginId, section.login .loginBlock .loginForm #loginPassword {
+    padding-left: 10px;
     margin-left: 20px;
     border-radius: 15px;
     background-color: none;
@@ -183,44 +261,80 @@ section.fpHomepage2 {
       section.fpHomepage2 .fpIntroduceContent .fpTabContent p {
         font-size: 20px;
         line-height: 40px; }
-  section.fpHomepage2 .fpCircle1::before {
+  section.fpHomepage2 .fpCircle1 {
+    border-radius: 50%;
+    opacity: .6;
+    position: absolute;
     background-color: #face3d;
     width: 350px;
     height: 350px;
     top: 10%;
-    left: -5%; }
-  section.fpHomepage2 .fpCircle2::before {
+    left: -5%;
+    z-index: -1; }
+    section.fpHomepage2 .fpCircle1.active {
+      animation: ani1 2s cubic-bezier(0.01, -0.01, 0.7, 2.03); }
+  section.fpHomepage2 .fpCircle2 {
+    border-radius: 50%;
+    opacity: .6;
+    position: absolute;
     background-color: #2a9d8f;
     width: 280px;
     height: 280px;
     top: 50%;
-    left: 6%; }
-  section.fpHomepage2 .fpCircle3::before {
+    left: 6%;
+    z-index: -1; }
+    section.fpHomepage2 .fpCircle2.active {
+      animation: ani2 2s cubic-bezier(0.01, -0.01, 0.7, 2.03); }
+  section.fpHomepage2 .fpCircle3 {
+    border-radius: 50%;
+    opacity: .6;
+    position: absolute;
     background-color: #b2deeb;
     width: 230px;
     height: 230px;
     top: 20%;
-    left: 18%; }
+    left: 18%;
+    z-index: -1; }
+    section.fpHomepage2 .fpCircle3.active {
+      animation: ani3 2s cubic-bezier(0.01, -0.01, 0.7, 2.03); }
+
+@keyframes ani1 {
+  0% {
+    top: 100%; }
+  100% {
+    top: 20%; } }
+
+@keyframes ani2 {
+  0% {
+    left: 100%; }
+  100% {
+    left: 0%; } }
+
+@keyframes ani3 {
+  0% {
+    top: -100%; }
+  100% {
+    top: 10%; } }
 
 section.fpHomepage3_1, section.fpHomepage3_2 {
   height: 100%; }
+  section.fpHomepage3_1 h2, section.fpHomepage3_2 h2 {
+    color: #1c5b9d; }
   section.fpHomepage3_1 .fpParallaxWrapper, section.fpHomepage3_2 .fpParallaxWrapper {
     width: 500px;
     height: 500px;
     position: relative;
     margin: 50px auto; }
-  section.fpHomepage3_1 .fpParent, section.fpHomepage3_1 .fpChild, section.fpHomepage3_2 .fpParent, section.fpHomepage3_2 .fpChild {
+  section.fpHomepage3_1 .fpParent_left, section.fpHomepage3_1 .fpParent_right, section.fpHomepage3_1 .fpChild_left, section.fpHomepage3_1 .fpChild_right, section.fpHomepage3_2 .fpParent_left, section.fpHomepage3_2 .fpParent_right, section.fpHomepage3_2 .fpChild_left, section.fpHomepage3_2 .fpChild_right {
     position: absolute;
     border-radius: 8px; }
-  section.fpHomepage3_1 .fpParent, section.fpHomepage3_2 .fpParent {
+  section.fpHomepage3_1 .fpParent_left, section.fpHomepage3_1 .fpParent_right, section.fpHomepage3_2 .fpParent_left, section.fpHomepage3_2 .fpParent_right {
     width: 500px;
     height: 500px;
     padding: 50px;
     font-size: 20px;
     line-height: 40px; }
-    section.fpHomepage3_1 .fpParent h2, section.fpHomepage3_2 .fpParent h2 {
-      position: relative; }
-    section.fpHomepage3_1 .fpParent::after, section.fpHomepage3_2 .fpParent::after {
+    section.fpHomepage3_1 .fpParent_left::after, section.fpHomepage3_1 .fpParent_right::after, section.fpHomepage3_2 .fpParent_left::after, section.fpHomepage3_2 .fpParent_right::after {
       position: absolute;
       content: "";
       width: 100%;
@@ -228,14 +342,20 @@ section.fpHomepage3_1, section.fpHomepage3_2 {
       background: #1c5b9d;
       bottom: 10px;
       left: 50px; }
-  section.fpHomepage3_1 .fpChild, section.fpHomepage3_2 .fpChild {
+  section.fpHomepage3_1 .fpParent_right, section.fpHomepage3_2 .fpParent_right {
+    right: 50px; }
+    section.fpHomepage3_1 .fpParent_right::after, section.fpHomepage3_2 .fpParent_right::after {
+      left: -50px; }
+  section.fpHomepage3_1 .fpChild_left, section.fpHomepage3_1 .fpChild_right, section.fpHomepage3_2 .fpChild_left, section.fpHomepage3_2 .fpChild_right {
     width: 500px;
     height: 400px;
     padding: 20px;
-    right: -500px;
+    right: -450px;
     bottom: 80px; }
-    section.fpHomepage3_1 .fpChild img, section.fpHomepage3_2 .fpChild img {
+    section.fpHomepage3_1 .fpChild_left img, section.fpHomepage3_1 .fpChild_right img, section.fpHomepage3_2 .fpChild_left img, section.fpHomepage3_2 .fpChild_right img {
       width: 150%; }
+  section.fpHomepage3_1 .fpChild_left, section.fpHomepage3_2 .fpChild_left {
+    left: -100px; }
 
 section.fpHomepage4 {
   position: relative;
@@ -290,6 +410,8 @@ section.fpHomepage4 {
           left: 0; }
       section.fpHomepage4 .fpNum .fpNumRun h2 {
         margin: 20px; }
+  section.fpHomepage4 #fpPercent, section.fpHomepage4 #fpSaleNo, section.fpHomepage4 #fpStoreNo {
+    color: #1c5b9d; }
   section.fpHomepage4 .fpWrapper {
     overflow: hidden; }
 

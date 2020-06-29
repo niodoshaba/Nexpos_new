@@ -117,13 +117,18 @@ a {
     .c-sidebar ul .func .clock {
       font-size: 50px;
       font-weight: 400;
-      margin: 5px 0; }
+      margin: 5px 0;
+      color: #0a3264; }
     .c-sidebar ul .func .date {
       font-weight: 400;
-      margin: 5px 0; }
+      margin: 5px 0;
+      font-weight: bold;
+      color: #0a3264; }
     .c-sidebar ul .func .user {
       font-size: 600;
-      margin: 5px 0; }
+      margin: 5px 0;
+      font-weight: bold;
+      color: #0a3264; }
   .c-sidebar ul li {
     height: 62px;
     margin: 20px 0;
