@@ -46,46 +46,51 @@ TweenMax.to('#fpBall_y',20, {
 })
 
 //----------GSAP數字遞增----------
-var fpPercentCont={val:0} , fpPercentNewVal = 58 ;
+var numStart = document.querySelector('.fpHomepage4');
 
-TweenMax.to(fpPercentCont,5,{
-  val:fpPercentNewVal,
-  roundProps:"val",
-  onUpdate:function(){
-  document.getElementById("fpPercent").innerHTML=fpPercentCont.val + "%"
-}});
-// ----------------------
-var fpSaleNoCont={val:0} , fpSaleNoNewVal = 97 ;
+function start(){
+  var fpPercentCont={val:0} , fpPercentNewVal = 58 ;
+  TweenMax.to(fpPercentCont,3,{
+    val:fpPercentNewVal,
+    roundProps:"val",
+    onUpdate:function(){
+    document.getElementById("fpPercent").innerHTML=fpPercentCont.val + "%"
+  }});
+  //........................ 
+  var fpSaleNoCont={val:0} , fpSaleNoNewVal = 97 ;
 
-TweenMax.to(fpSaleNoCont,5,{
-  val:fpSaleNoNewVal,
-  roundProps:"val",
-  onUpdate:function(){
-  document.getElementById("fpSaleNo").innerHTML=fpSaleNoCont.val + "%"
-}});
-// -----------------------
-var fpStoreNoCont={val:0} , fpStoreNoNewVal = 12378 ;
+  TweenMax.to(fpSaleNoCont,3,{
+    val:fpSaleNoNewVal,
+    roundProps:"val",
+    onUpdate:function(){
+    document.getElementById("fpSaleNo").innerHTML=fpSaleNoCont.val + "%"
+  }});
+  //........................ 
+  var fpStoreNoCont={val:0} , fpStoreNoNewVal = 12378 ;
 
-TweenMax.to(fpStoreNoCont,5,{
-  val:fpStoreNoNewVal,
-  roundProps:"val",
-  onUpdate:function(){
-  document.getElementById("fpStoreNo").innerHTML=fpStoreNoCont.val;
-}});
-
+  TweenMax.to(fpStoreNoCont,3,{
+    val:fpStoreNoNewVal,
+    roundProps:"val",
+    onUpdate:function(){
+    document.getElementById("fpStoreNo").innerHTML=fpStoreNoCont.val;
+  }});
+}
+  numStart.addEventListener('mouseover', start, {once:true});
 
 //----------parallax----------
 var controller = new ScrollMagic.Controller();
 
 $(".fpParallaxWrapper").each(function() {
   var tl = new TimelineMax();
-  var fpChild = $(this).find(".fpChild");
-  tl.to(fpChild, 1, { y: -180, ease: Linear.easeNone });
+  var fpChild_left = $(this).find(".fpChild_left");
+  tl.to(fpChild_left, 1, { y: -80, ease: Linear.easeNone });
+  var fpChild_right = $(this).find(".fpChild_right");
+  tl.to(fpChild_right, 1, { y: -80, ease: Linear.easeNone });
 
   var scene = new ScrollMagic.Scene({
     triggerElement: this,
     triggerHook: 0.4,
-    duration: "100%"
+    duration: 300
   })
   .setTween(tl)
   // .addIndicators({
@@ -96,61 +101,6 @@ $(".fpParallaxWrapper").each(function() {
   // })
   .addTo(controller);
 });
-
-//-----------change background color------------
-var scrollMagicController = new ScrollMagic.Controller();
-
-var t1 = TweenMax.to('.section1', 0.6);
-
-var t2a = new TimelineLite();
-t2a.to('.section2', 0.6);
-
-var t2b = TweenMax.to('.section2', 0.6);
-
-
-var sceneForSection1 = new ScrollMagic.Scene({
-  triggerElement: '.section1',
-  offset: 30
-})
-.setTween(t1)
-.addIndicators({
-  name: 'indicator0',
-  colorTigger: 'black',
-  colorStart: 'black',
-  colorEnd: 'black'
-})
-.addTo(scrollMagicController);
-
-var sceneForSection2a = new ScrollMagic.Scene({
-triggerElement: '.section2',
-// duration: 500,
-triggerHook: 0.6,
-offset: -300 /* offset the trigger 100px below #scene's top */
-})
-.setTween(t2a)
-.addIndicators({
-  name: 'indicator2a',
-  colorTigger: 'black',
-  colorStart: 'black',
-  colorEnd: 'black'
-})
-.addTo(scrollMagicController);
-
-var sceneForSection2b = new ScrollMagic.Scene({
-triggerElement: '.section2',
-// duration: 500,
-triggerHook: 0.8,
-offset: 500 /* offset the trigger 800px over #scene's top */
-})
-.setTween(t2b)
-.addIndicators({
-name: 'indicator2b',
-colorTigger: 'black',
-colorStart: 'black',
-colorEnd: 'black'
-})
-.addTo(scrollMagicController);
-
 
 
 
