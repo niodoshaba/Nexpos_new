@@ -10,14 +10,29 @@
     font-size: 35px;
     }
 }
-  
+
+#calendarLeftAndRight{
+  display: flex;
+  // border: 1px solid red;
+  width: 80%;
+  margin-left: 15%;
+  margin-top: 10%;
+  align-items: center;
+  position: relative;
+}
+
+
   #calendarAll {
     box-shadow: 0 4px 22px 0 rgba(0, 0, 0, 0.05);
+    background-color: white;
+    position: absolute;
     // margin: 0 auto;
     overflow: hidden;
-    margin-left: 15%;
-    margin-top: 5%;
+    margin-left:10%;
+    // margin-top: 5%;
     width: 70%;
+    z-index: 5;
+    transition: all 0.3s ease-in;
   }
   
   .result {
@@ -37,7 +52,7 @@
     font-size: 25px;
     align-items: center;
     display: flex;
-    padding: 20px 0;
+    padding: 30px 0;
     width: 50%;
     margin: 0 auto;
   }
@@ -78,7 +93,7 @@
     flex: 0 0 14.28%;
     max-width: 14.28%;
     margin: 10px 0;
-    padding: 15px 0;
+    padding: 20px 0;
   }
   
   #calendarAll .calendarDate--active {
@@ -105,9 +120,59 @@
     opacity: 0.3;
   }
   
+  .calendarRight{
+    // border: 1px solid blue;
+    opacity: 0;
+    position: relative;
+    z-index: 0;
+    width: 30%;
+    margin-left: 30%;
+    padding: 30px 0;
+    background-color: rgb(252, 252, 252);
+    box-shadow: 10px 0px 10px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 0 30px 30px 0;
+    transition: all 0.5s ease-out;
+
+    #calendarResTable{
+      
+      margin-left: 10%;
+      line-height: 50px;
+      .calendarInputText{
+        font-family: "jf-openhuninn";
+        background-color: rgb(252, 252, 252);
+        border: none;
+        border-bottom: 1px solid rgb(199, 199, 199);
+        outline: none;
+        font-size: 20px;
+        width: 160px;
+        margin-left: 5px;
+
+      }
+      .calendarInputSubmit{
+        font-family: "jf-openhuninn";
+        font-size:20px;
+        width: 100px;
+        background-color: #FF9F4B;
+        border: none;
+        border-radius:30px;
+        outline: none;
+        color:white;
+        margin-left:25%;
+        margin-top:25px;
+        padding:10px 5px;
+        cursor:pointer;
+
+      }
+    }
+  }
 
 
-  .result span{
-    line-height:1.5;
-    color: #28569A;
-  } 
+  .result {
+    opacity:0;
+    margin-top: 5%;
+    transition:all 0.3s;
+    span{
+      line-height:1.5;
+      color: #28569A;
+    } 
+}
