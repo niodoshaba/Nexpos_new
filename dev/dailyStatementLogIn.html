@@ -7,36 +7,32 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <!-- <link rel="stylesheet" href="css/style.css" /> -->
-    <link rel="stylesheet" href="./css/style.css" />
-    <!-- <link rel="stylesheet" href="../css/coreui.css" /> -->
-    <link rel="stylesheet" href="./css/dailyStatement.css" />
-    <title>dailyStatementLogIn</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/minty/bootstrap.min.css"
     />
-    <link
+    <!-- <link
       href="https://www.jqueryscript.net/css/jquerysctipttop.css"
       rel="stylesheet"
       type="text/css"
-    />
-    <!-- <link rel="stylesheet" href="bootstrap-side-modals.css" /> -->
+    /> -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/dailyStatement.css" />
+    <title>dailyStatementLogIn</title>
   </head>
 
   <body>
     <!-- 複製以下功能列 -->
-    @@include('app/header.html')
+    @@include('./app/header.html', { "nav6" : "actives" })
     <!-- 複製以上功能列 -->
     <!-- 以下為各分頁內容 -->
-    <div class="c-wrapper">
+    <div class="c-wrapper" style="margin-left: 300px;">
       <div
         class="modal fade"
         id="regular_modal"
         tabindex="-1"
         role="dialog"
         aria-labelledby="regular_modal"
-        style="display: none;"
       >
         <div
           class="modal-dialog modal-dialog-centered modal-xl"
@@ -45,7 +41,7 @@
         >
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" style="margin: 0 88px;">
+              <h5 class="modal-title" style="margin-left: 100px;">
                 請輸入帳號、密碼
               </h5>
               <button
@@ -99,7 +95,7 @@
                 style="width: 80px; margin: 5px;"
               >
                 <a
-                  href="dailyStatement2.html"
+                  href="dailyStatement.html"
                   style="text-decoration: none; color: #ffffff;"
                   >確定</a
                 >
