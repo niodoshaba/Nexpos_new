@@ -7,73 +7,133 @@
     activeDates: [],
     date: new Date(),
     todaysDate: new Date(),
-    
-    init: function (options) {
-      this.options = options
-      this.date.setDate(1)
-      this.createMonth()
-      this.createListeners()
-    },
-  
-    createListeners: function () {
-      var _this = this
-      this.next.addEventListener('click', function () {
-        _this.clearCalendar()
-        var nextMonth = _this.date.getMonth() + 1
-        _this.date.setMonth(nextMonth)
-        _this.createMonth()
-      })
-  
-      this.previous.addEventListener('click', function () {
-        _this.clearCalendar()
-        var prevMonth = _this.date.getMonth() - 1
-        _this.date.setMonth(prevMonth)
-        _this.createMonth()
-      })
-    },
-  
-      //產生每個日期，加上class=calendarDate, data-calendar-date
-    createDay: function (num, day, year) {
-      var newDay = document.createElement('div')
-      var dateEl = document.createElement('span')
-  
-      dateEl.innerHTML = num
-      newDay.className = 'calendarDate'
-  
-        ///GMT轉格式
-        let curdate = new Date(this.date)
-        let currentDate=curdate.getFullYear() + "-" +
-        (curdate.getMonth() + 1) + "-" + 
-        curdate.getDate() + ""
-  
-      newDay.setAttribute('data-calendar-date',currentDate)
-     
-      //如果是1號的時候，判斷星期幾(day)
-      //根據空格數推marginLeft
-      //14.28是100/7
-      if (num === 1) {
-          newDay.style.marginLeft = ((day - 1) * 14.28) + '%'
-      }
-  
-      //如果日期小於今天日期加上disable的class，其他的加上active
-      if (this.options.disablePastDays && this.date.getTime() <= this.todaysDate.getTime() - 1) {
-        newDay.classList.add('calendarDate--disabled') //
-      } else {
-        newDay.classList.add('calendarDate--active')
-        newDay.setAttribute('data-calendar-status', 'active')
-      }
-      
-      newDay.appendChild(dateEl)
-      this.month.appendChild(newDay)
-      
-    //   console.log(newDay)
-    },
-  
-
-  
-    dateClicked: function () {
-      DAILY_RES = [
-  
+    DAILY_RES:[
+      {
+        DAILY_DATE:"2020-6-1",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:20
+      },
+      {
+        DAILY_DATE:"2020-6-2",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:2
+      },
+      {
+        DAILY_DATE:"2020-6-3",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:12
+      },
+      {
+        DAILY_DATE:"2020-6-4",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:20
+      },
+      {
+        DAILY_DATE:"2020-6-5",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:20
+      },
+      {
+        DAILY_DATE:"2020-6-6",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:20
+      },
+      {
+        DAILY_DATE:"2020-6-7",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:2
+      },
+      {
+        DAILY_DATE:"2020-6-8",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:10
+      },
+      {
+        DAILY_DATE:"2020-6-9",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:9
+      },
+      {
+        DAILY_DATE:"2020-6-10",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:2
+      },
+      {
+        DAILY_DATE:"2020-6-11",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:9
+      },
+      {
+        DAILY_DATE:"2020-6-12",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:7
+      },
+      {
+        DAILY_DATE:"2020-6-13",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:5
+      },
+      {
+        DAILY_DATE:"2020-6-14",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:10
+      },
+      {
+        DAILY_DATE:"2020-6-15",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:20
+      },
+      {
+        DAILY_DATE:"2020-6-16",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:2
+      },
+      {
+        DAILY_DATE:"2020-6-17",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:10
+      },
+      {
+        DAILY_DATE:"2020-6-18",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:10
+      },
+      {
+        DAILY_DATE:"2020-6-19",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:10
+      },
+      {
+        DAILY_DATE:"2020-6-20",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:10
+      },
+      {
+        DAILY_DATE:"2020-6-21",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:10
+      },
       {
         DAILY_DATE:"2020-6-22",
         DAILY_STA:0,
@@ -83,7 +143,7 @@
       {
         DAILY_DATE:"2020-6-23",
         DAILY_STA:0,
-        DAILY_AVA:20,
+        DAILY_AVA:21,
         DAILY_NUM:8
       },
       {
@@ -170,13 +230,350 @@
         DAILY_AVA:20,
         DAILY_NUM:1
       }, 
-    ]
+      {
+        DAILY_DATE:"2020-7-8",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:1
+      }, 
+      {
+        DAILY_DATE:"2020-7-9",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:6
+      }, 
+      {
+        DAILY_DATE:"2020-7-10",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:1
+      }, 
+      {
+        DAILY_DATE:"2020-7-11",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:18
+      }, 
+      {
+        DAILY_DATE:"2020-7-12",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:11
+      }, 
+      {
+        DAILY_DATE:"2020-7-13",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:20
+      }, 
+      {
+        DAILY_DATE:"2020-7-14",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:11
+      }, 
+      {
+        DAILY_DATE:"2020-7-15",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:18
+      }, 
+      {
+        DAILY_DATE:"2020-7-16",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:1
+      }, 
+      {
+        DAILY_DATE:"2020-7-17",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:14
+      }, 
+      {
+        DAILY_DATE:"2020-7-18",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:20
+      }, 
+      {
+        DAILY_DATE:"2020-7-19",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:1
+      }, 
+      {
+        DAILY_DATE:"2020-7-20",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:1
+      }, 
+      {
+        DAILY_DATE:"2020-7-21",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:3
+      }, 
+      {
+        DAILY_DATE:"2020-7-22",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:6
+      }, 
+      {
+        DAILY_DATE:"2020-7-23",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:20
+      }, 
+      {
+        DAILY_DATE:"2020-7-24",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:20
+      }, 
+      {
+        DAILY_DATE:"2020-7-25",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:9
+      }, 
+      {
+        DAILY_DATE:"2020-7-26",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:8
+      }, 
+      {
+        DAILY_DATE:"2020-7-27",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:2
+      }, 
+      {
+        DAILY_DATE:"2020-7-28",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:16
+      }, 
+      {
+        DAILY_DATE:"2020-7-29",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:17
+      }, 
+      {
+        DAILY_DATE:"2020-7-30",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:18
+      }, 
+      {
+        DAILY_DATE:"2020-7-31",
+        DAILY_STA:0,
+        DAILY_AVA:20,
+        DAILY_NUM:20
+      }, 
+    ],
+    
+    //初始化
+    init: function (options) {
+      this.options = options
+      this.date.setDate(1)
+      this.createMonth()
+      this.createListeners()
+    },
+  
+    //前後月份
+    createListeners: function () {
+      var _this = this
+      this.next.addEventListener('click', function () {
+        _this.clearCalendar()
+        var nextMonth = _this.date.getMonth() + 1
+        _this.date.setMonth(nextMonth)
+        _this.createMonth()
+      })
+  
+      this.previous.addEventListener('click', function () {
+        _this.clearCalendar()
+        var prevMonth = _this.date.getMonth() - 1
+        _this.date.setMonth(prevMonth)
+        _this.createMonth()
+      })
+    },
+  
+      //產生每個日期，加上class=calendarDate, data-calendar-date
+    createDay: function (num, day, year) {
+      var newDay = document.createElement('div')
+      var dateEl = document.createElement('span')
+      var DAILY_TABLE = this.DAILY_RES
+
+
+  
+      dateEl.innerHTML = num
+      newDay.className = 'calendarDate'
+  
+        ///GMT轉格式
+        let curdate = new Date(this.date)
+        let currentDate=curdate.getFullYear() + "-" +
+        (curdate.getMonth() + 1) + "-" + 
+        curdate.getDate() + ""
+  
+      newDay.setAttribute('data-calendar-date',currentDate)
+     
+      //如果是1號的時候，判斷星期幾(day)
+      //根據空格數推marginLeft
+      //14.28是100/7
+      if (num === 1) {
+          newDay.style.marginLeft = ((day - 1) * 14.28) + '%'
+      }
+  
+      //如果日期小於今天日期加上disable的class，其他的加上active
+      if (this.options.disablePastDays && this.date.getTime() <= this.todaysDate.getTime() - 1) {
+        newDay.classList.add('calendarDate--disabled') //
+      } else {
+        newDay.classList.add('calendarDate--active')
+        newDay.setAttribute('data-calendar-status', 'active')
+      }
+      
+      newDay.appendChild(dateEl)
+      this.month.appendChild(newDay)
+      
+
+      console.log(newDay)
+
+      let calendarDateClass =document.getElementsByClassName("calendarDate")
+      
+
+
+      for(i=0;i<calendarDateClass.length;i++){
+
+        let resAbleDateRander = calendarDateClass[i].dataset.calendarDate
+      
+        var resAbleCountRander = DAILY_TABLE.find(function(item, index, array){
+          return item.DAILY_DATE === resAbleDateRander
+      });
+  
+        resAbleNumRander = resAbleCountRander.DAILY_AVA - resAbleCountRander.DAILY_NUM
+  
+        if(resAbleNumRander == 0 ){
+          calendarDateClass[i].style.color = "#E98E89";
+          calendarDateClass[i].style.cursor = "not-allowed";
+        }
+
+
+      }
+
+    },
+  
+
+  
+    dateClicked: function () {
+    //   DAILY_RES = [
+  
+    //   {
+    //     DAILY_DATE:"2020-6-22",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:4
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-6-23",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:8
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-6-24",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:10
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-6-25",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:15
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-6-26",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:17
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-6-27",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:16
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-6-28",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:10
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-6-29",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:4
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-6-30",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:20
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-7-1",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:8
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-7-2",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:11
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-7-3",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:20
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-7-4",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:1
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-7-5",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:17
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-7-6",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:5
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-7-7",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:1
+    //   }, 
+    // ]
   
       var _this = this
       this.activeDates = document.querySelectorAll(
         '[data-calendar-status="active"]'
       )
-      
+      var DAILY_TABLE = this.DAILY_RES
       ///每個日期建立點擊事件
       for (var i = 0; i < this.activeDates.length; i++) {
   
@@ -190,10 +587,10 @@
             '[calendarLabel="picked"]'
           )[0]
           let resAbleDate = this.dataset.calendarDate;
-        //   console.log(this.dataset.calendarDate)
+          console.log(this.dataset.calendarDate)
           // console.log(DAILY_RES[0].DAILY_DATE)
   
-          var resAbleCount = DAILY_RES.find(function(item, index, array){
+          var resAbleCount = DAILY_TABLE.find(function(item, index, array){
               return item.DAILY_DATE === resAbleDate
           });
   
