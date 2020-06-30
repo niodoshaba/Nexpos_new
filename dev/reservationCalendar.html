@@ -16,9 +16,7 @@
 
   <body>
     <!-- 複製以下功能列 -->
-  @@include('./app/header.html', {
-  "nav1" : "actives"
-  })
+    @@include('./app/header.html', { "nav1" : "actives" })
     <!-- 複製以上功能列 -->
     <!-- 以下為各分頁內容 -->
     <div class="c-wrapper">
@@ -26,12 +24,20 @@
         <h1>訂位資料管理</h1>
       </div>
       <div class="topFunc">
-        <a href="./reservationCalendar.html" class="topTablink" style="text-decoration: none;">
+        <a
+          href="./reservationCalendar.html"
+          class="topTablink"
+          style="text-decoration: none;"
+        >
           <div class="topTab" id="topTabactives">
             <div class="toptabCaption">訂位<br />管理</div>
           </div>
         </a>
-        <a href="./reservationRecord.html" class="topTablink" style="text-decoration: none;">
+        <a
+          href="./reservationRecord.html"
+          class="topTablink"
+          style="text-decoration: none;"
+        >
           <div class="topTab">
             <div class="toptabCaption">預約<br />記錄</div>
           </div>
@@ -39,15 +45,15 @@
       </div>
 
       <div id="calendarLeftAndRight">
-    <div id="calendarAll">
-        <div class="calendarHeader">
-            <button class="calendarTopBtn" calendarToggle="previous"> < </button>
+        <div id="calendarAll">
+          <div class="calendarHeader">
+            <button class="calendarTopBtn" calendarToggle="previous"><</button>
 
             <div class="calendarHeaderTop" calendarLabel="month"></div>
 
-            <button class="calendarTopBtn" calendarToggle="next"> > </button>
-        </div>
-        <div class="calendarWeek">
+            <button class="calendarTopBtn" calendarToggle="next">></button>
+          </div>
+          <div class="calendarWeek">
             <span>一</span>
             <span>二</span>
             <span>三</span>
@@ -55,60 +61,82 @@
             <span>五</span>
             <span>六</span>
             <span>日</span>
+          </div>
+          <div class="calendarDay" calendarArea="month"></div>
         </div>
-        <div class="calendarDay" calendarArea="month"></div>
-    </div>
-    <div class="calendarRight">
-      <div>
-        <form action="" id="calendarResTable">
-          日期：<input  calendarLabel="picked" type="text" class="calendarInputText" required="required" disabled="disabled" id="calendarPickDate">
-          <br>
-          姓名：<input type="text" class="calendarInputText" required="required" id="resFormName">
-          <br>
-          手機：<input type="text" class="calendarInputText" required="required" id="resFormPhone">
-          <br>
-          性別： <input type="radio" name="sex" id="sex1" required="required">
-                <label for="sex1" >男</label>
-                
-                <input type="radio" name="sex" id="sex2" required="required">
-                <label for="sex2" >女</label>
-          <br>
-          人數：<input type="text" class="calendarInputText" required="required" id="resFormPeopleCount">
-          <br>
-          備註：<input type="text" class="calendarInputText" >
-          <br>
-          <input type="submit" class="calendarInputSubmit" value="確定預約" id="resFormSubmit"> 
-        </form>
+        <div class="calendarRight">
+          <div>
+            <form action="" id="calendarResTable">
+              日期：<input
+                calendarLabel="picked"
+                type="text"
+                class="calendarInputText"
+                required="required"
+                disabled="disabled"
+                id="calendarPickDate"
+              />
+              <br />
+              姓名：<input
+                type="text"
+                class="calendarInputText"
+                required="required"
+                id="resFormName"
+              />
+              <br />
+              手機：<input
+                type="text"
+                class="calendarInputText"
+                required="required"
+                id="resFormPhone"
+              />
+              <br />
+              性別：
+              <input type="radio" name="sex" id="sex1" required="required" />
+              <label for="sex1">男</label>
+
+              <input type="radio" name="sex" id="sex2" required="required" />
+              <label for="sex2">女</label>
+              <br />
+              人數：<input
+                type="text"
+                class="calendarInputText"
+                required="required"
+                id="resFormPeopleCount"
+              />
+              <br />
+              備註：<input type="text" class="calendarInputText" />
+              <br />
+              <input
+                type="submit"
+                class="calendarInputSubmit"
+                value="確定預約"
+                id="resFormSubmit"
+              />
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-    <p class="result">
+      <p class="result">
         <!-- Date picked : 
         <span calendarLabel="picked"></span>
         <br> -->
-        剩餘可預約人數 : 
+        剩餘可預約人數 :
         <span calendarResAble="respeople"></span>
-    </p>
-  </div>
-    
-<!-- <script src="calendar.js" type="text/javascript"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      </p>
+    </div>
 
-  <script src="../dev/js/calendar.js"></script>
-  <script > 
-  
-    window.addEventListener('load', function () {
+    <!-- <script src="calendar.js" type="text/javascript"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+    <script src="../dev/js/calendar.js"></script>
+    <script>
+      window.addEventListener("load", function () {
         Calendar.init({
-            disablePastDays: true
+          disablePastDays: true,
         });
 
-        Calendar.matchcalendarInfo()
-
-    })
-  </script>
-
-
+        Calendar.matchcalendarInfo();
+      });
+    </script>
   </body>
 </html>
-
