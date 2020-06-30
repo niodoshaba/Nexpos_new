@@ -76,10 +76,10 @@
   cursor: pointer; }
 
 #calendarAll .calendarDate--today {
-  color: #28569A; }
+  color: #28569a; }
 
 #calendarAll .calendarDate--selected {
-  border: 3px solid #B2DDEA;
+  border: 3px solid #b2ddea;
   border-radius: 10px; }
 
 #calendarAll .calendarDate--full {
@@ -118,7 +118,7 @@
       font-family: "jf-openhuninn";
       font-size: 20px;
       width: 100px;
-      background-color: #FF9F4B;
+      background-color: #ff9f4b;
       border: none;
       border-radius: 30px;
       outline: none;
@@ -134,4 +134,4 @@
   transition: all 0.3s; }
   .result span {
     line-height: 1.5;
-    color: #28569A; }
+    color: #28569a; }
