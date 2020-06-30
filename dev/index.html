@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <!-- <div class="loading">
+    <div class="loading">
         <svg id="loading_svg" viewBox="0 0 193.22 148.84" data-llp-composed="true" class="lazy-line-painter">
             <path class="cls-1" d="M77,210.79A5,5,0,0,1,74.78,212a13.19,13.19,0,0,1-3.5.41,12.24,12.24,0,0,1-3.86-.6,5.34,5.34,0,0,1-3-2.93L59,197.72c-.55-1.14-1-2.21-1.49-3.23s-.92-2.17-1.44-3.5l-.33.06c.15,2,.23,4,.25,6.06s0,4.09,0,6.07v8.55a15.54,15.54,0,0,1-1.85.33,18.57,18.57,0,0,1-2.45.17,12.41,12.41,0,0,1-2.15-.17A3.32,3.32,0,0,1,48,211.4a3.21,3.21,0,0,1-.94-1.35,6.34,6.34,0,0,1-.33-2.24V180.24a4.65,4.65,0,0,1,2.37-1.66,10.39,10.39,0,0,1,3.42-.55,12,12,0,0,1,3.89.63,5.28,5.28,0,0,1,3,2.9l5.52,11.14c.55,1.14,1.05,2.22,1.49,3.23s.92,2.18,1.43,3.5l.28-.05q-.22-3-.28-6c0-2,0-4,0-6v-8.93a13.42,13.42,0,0,1,1.85-.33,16.91,16.91,0,0,1,2.45-.17,6.64,6.64,0,0,1,3.7.85c.84.57,1.26,1.76,1.26,3.56Z" transform="translate(-45.23 -67.72)" data-llp-id="123-0" data-llp-duration="1500" data-llp-delay="0" fill-opacity="0" style="stroke-linecap: round;" data-llp-stroke-join="" data-llp-stroke-cap="round"/>
             <path class="cls-1" d="M84.18,183.66a4.75,4.75,0,0,1,5.13-5.13h18.21a7,7,0,0,1,.69,1.6,7.18,7.18,0,0,1,.3,2.09,4,4,0,0,1-.91,3,3.3,3.3,0,0,1-2.4.88H93.56v5.13H106a6.63,6.63,0,0,1,.69,1.57,7,7,0,0,1,.31,2.07,4.11,4.11,0,0,1-.89,3,3.2,3.2,0,0,1-2.37.88H93.56v5.8h14.18a7.1,7.1,0,0,1,.69,1.59,7.3,7.3,0,0,1,.3,2.1,4.14,4.14,0,0,1-.91,3,3.28,3.28,0,0,1-2.4.91H89.31A4.76,4.76,0,0,1,84.18,207Z" transform="translate(-45.23 -67.72)" data-llp-id="123-1" data-llp-duration="1500" data-llp-delay="0" fill-opacity="0" style="stroke-linecap: round;" data-llp-stroke-join="" data-llp-stroke-cap="round"/>
@@ -27,8 +27,8 @@
         </svg>
         <img id="loading_img" src="./assets/LOGO.svg">
         <div class="fpCircle loadingball"></div>
-    </div> -->
-
+    </div>
+    <div class="fpClickBall"></div>
     <section class="fpHomepage1">
         <div class="container-fluid">
             <a class="fpLogo" href="index.html"></a>
@@ -38,7 +38,7 @@
                     <h1>最直覺的POS系統</h1>
                     <h1><span class="fpUnderline">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp操作更快速、點餐更方便</span></h1>
                     <a class="fpGoToLogin" href="login.html"><button class="fpBtn1">NEX POS</button></a>
-                    <div class="fpClickBall"></div>
+
                     <p>順應時代的潮流，POS系統也得跟著一起進化。</p>
                     <p>要簡單好用，更要強悍耐用。</p>
                     <p>還在找一套好用的POS系統？</p>
@@ -324,17 +324,20 @@
         })
     </script>
 
-    <!-- <script>
+    <script>
         $(function(){
             $('.fpBtn1').on('click',function(e){
             e.preventDefault();
             })
             $('.fpBtn1').click(function(){
                 $('.fpClickBall').addClass('active')
-                $('.fpGoToLogin').attr('href', 'login.html');
+                setTimeout(() => {
+                    location.href="./login.html"
+                }, 1000);
+                
             });
         })
-    </script> -->
+    </script>
 
 </body>
 

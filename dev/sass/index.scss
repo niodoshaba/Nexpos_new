@@ -74,12 +74,13 @@ div.loading{
     position: fixed;
     z-index: 9;
     background-color: white;
+
     #loading_svg, #loading_img{
         width:20%;
         @include center();
     }
     #loading_svg{
-        animation: loading1 1.5s ease 2s 1 noraml forwards;
+        animation: loading1 1.5s ease 2s 1 normal forwards;
      // animation: name duration timing-function delay iteration-count direction fill-mode;
     }
     #loading_img{
@@ -130,30 +131,32 @@ div.loading{
         }
     }
 .fpClickBall{
+    position: absolute;
+    z-index: 9999999;
     width: 100px;
     height: 100px;
     border-radius: 50%;
     opacity: 0;
     background: $primary_db;
     &.active{
-        animation: clickball 2s ease 0.5s 1 normal forwards;
+        animation: clickball 1.5s linear ;
     }
 }
     @keyframes clickball{
         0%{
-            opacity: 0;
+            opacity: 0.5;
         }
         50%{
             opacity: 1;
-            transform: scale(20, 20);
+            transform: scale(30);
         }
         70%{
             opacity: 1;
-            transform: scale(35, 35);
+            transform: scale(60);
         }
         100%{
             opacity: 1;
-            transform: scale(50, 50);
+            transform: scale(90);
         }
     }
 
