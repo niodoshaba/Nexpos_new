@@ -7,374 +7,8 @@
     activeDates: [],
     date: new Date(),
     todaysDate: new Date(),
-    DAILY_RES:[
-      {
-        DAILY_DATE:"2020-06-01",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:20
-      },
-      {
-        DAILY_DATE:"2020-06-02",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:2
-      },
-      {
-        DAILY_DATE:"2020-06-03",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:12
-      },
-      {
-        DAILY_DATE:"2020-06-04",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:20
-      },
-      {
-        DAILY_DATE:"2020-06-05",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:20
-      },
-      {
-        DAILY_DATE:"2020-06-06",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:20
-      },
-      {
-        DAILY_DATE:"2020-06-07",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:2
-      },
-      {
-        DAILY_DATE:"2020-06-08",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:10
-      },
-      {
-        DAILY_DATE:"2020-06-09",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:9
-      },
-      {
-        DAILY_DATE:"2020-06-10",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:2
-      },
-      {
-        DAILY_DATE:"2020-06-11",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:9
-      },
-      {
-        DAILY_DATE:"2020-06-12",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:7
-      },
-      {
-        DAILY_DATE:"2020-06-13",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:5
-      },
-      {
-        DAILY_DATE:"2020-06-14",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:10
-      },
-      {
-        DAILY_DATE:"2020-06-15",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:20
-      },
-      {
-        DAILY_DATE:"2020-06-16",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:2
-      },
-      {
-        DAILY_DATE:"2020-06-17",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:10
-      },
-      {
-        DAILY_DATE:"2020-06-18",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:10
-      },
-      {
-        DAILY_DATE:"2020-06-19",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:10
-      },
-      {
-        DAILY_DATE:"2020-06-20",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:10
-      },
-      {
-        DAILY_DATE:"2020-06-21",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:10
-      },
-      {
-        DAILY_DATE:"2020-06-22",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:4
-      },
-      {
-        DAILY_DATE:"2020-06-23",
-        DAILY_STA:0,
-        DAILY_AVA:21,
-        DAILY_NUM:8
-      },
-      {
-        DAILY_DATE:"2020-06-24",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:10
-      },
-      {
-        DAILY_DATE:"2020-06-25",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:15
-      },
-      {
-        DAILY_DATE:"2020-06-26",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:17
-      },
-      {
-        DAILY_DATE:"2020-06-27",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:16
-      },
-      {
-        DAILY_DATE:"2020-06-28",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:10
-      },
-      {
-        DAILY_DATE:"2020-06-29",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:4
-      },
-      {
-        DAILY_DATE:"2020-06-30",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:20
-      },
-      {
-        DAILY_DATE:"2020-07-01",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:8
-      },
-      {
-        DAILY_DATE:"2020-07-02",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:11
-      },
-      {
-        DAILY_DATE:"2020-07-03",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:20
-      },
-      {
-        DAILY_DATE:"2020-07-04",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:1
-      }, 
-      {
-        DAILY_DATE:"2020-07-05",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:17
-      }, 
-      {
-        DAILY_DATE:"2020-07-06",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:5
-      }, 
-      {
-        DAILY_DATE:"2020-07-07",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:1
-      }, 
-      {
-        DAILY_DATE:"2020-07-08",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:1
-      }, 
-      {
-        DAILY_DATE:"2020-07-09",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:6
-      }, 
-      {
-        DAILY_DATE:"2020-07-10",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:1
-      }, 
-      {
-        DAILY_DATE:"2020-07-11",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:18
-      }, 
-      {
-        DAILY_DATE:"2020-07-12",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:11
-      }, 
-      {
-        DAILY_DATE:"2020-07-13",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:20
-      }, 
-      {
-        DAILY_DATE:"2020-07-14",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:11
-      }, 
-      {
-        DAILY_DATE:"2020-07-15",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:18
-      }, 
-      {
-        DAILY_DATE:"2020-07-16",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:1
-      }, 
-      {
-        DAILY_DATE:"2020-07-17",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:14
-      }, 
-      {
-        DAILY_DATE:"2020-07-18",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:20
-      }, 
-      {
-        DAILY_DATE:"2020-07-19",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:1
-      }, 
-      {
-        DAILY_DATE:"2020-07-20",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:1
-      }, 
-      {
-        DAILY_DATE:"2020-07-21",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:3
-      }, 
-      {
-        DAILY_DATE:"2020-07-22",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:6
-      }, 
-      {
-        DAILY_DATE:"2020-07-23",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:20
-      }, 
-      {
-        DAILY_DATE:"2020-07-24",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:20
-      }, 
-      {
-        DAILY_DATE:"2020-07-25",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:9
-      }, 
-      {
-        DAILY_DATE:"2020-07-26",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:8
-      }, 
-      {
-        DAILY_DATE:"2020-07-27",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:2
-      }, 
-      {
-        DAILY_DATE:"2020-07-28",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:16
-      }, 
-      {
-        DAILY_DATE:"2020-07-29",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:17
-      }, 
-      {
-        DAILY_DATE:"2020-07-30",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:18
-      }, 
-      {
-        DAILY_DATE:"2020-07-31",
-        DAILY_STA:0,
-        DAILY_AVA:20,
-        DAILY_NUM:20
-      }, 
-    ],
+    DAILY_RES : [],
+
     
     //初始化
     init: function (options) {
@@ -408,6 +42,8 @@
       var dateEl = document.createElement('span')
       var DAILY_TABLE = this.DAILY_RES
 
+      // console.log(DAILY_TABLE)
+
 
   
       dateEl.innerHTML = num
@@ -440,7 +76,10 @@
       this.month.appendChild(newDay)
       
 
-      console.log(newDay)
+      // console.log(newDay)
+
+
+///渲染時判斷日期是否客滿
 
       let calendarDateClass =document.getElementsByClassName("calendarDate")
       
@@ -449,11 +88,15 @@
       for(i=0;i<calendarDateClass.length;i++){
 
         let resAbleDateRander = calendarDateClass[i].dataset.calendarDate
-      
+
+      // console.log(resAbleDateRander)
+      // console.log(DAILY_TABLE)
+
         var resAbleCountRander = DAILY_TABLE.find(function(item, index, array){
           return item.DAILY_DATE === resAbleDateRander
       });
-  
+      // console.log(Calendar.DAILY_RES)
+
         resAbleNumRander = resAbleCountRander.DAILY_AVA - resAbleCountRander.DAILY_NUM
   
         if(resAbleNumRander == 0 ){
@@ -488,7 +131,7 @@
             '[calendarLabel="picked"]'
           )[0]
           let resAbleDate = this.dataset.calendarDate;
-          console.log(this.dataset.calendarDate)
+          // console.log(this.dataset.calendarDate)
           // console.log(DAILY_RES[0].DAILY_DATE)
   
           var resAbleCount = DAILY_TABLE.find(function(item, index, array){
@@ -517,6 +160,7 @@
             _this.removeActiveClass()
             this.classList.add('calendarDate--selected')
             }
+            console.log(resAbleDate)
             
             //點擊日曆左滑然後表單出現的效果
             $("#calendarAll").css("width","65%")
@@ -611,23 +255,387 @@
         }
       })
 
-      // $("#resFormSubmit").mouseover(function(){
-      //   if(resFormName.style.color = "#E98E89"){
-      //     $('#resFormSubmit').attr("disabled","disabled");
-      //     resFormSubmit.style.cursor = "not-allowed"
+    },
 
-      //   }else if(resFormPeopleCount.style.color = "#E98E89"){
-      //     $('#resFormSubmit').attr("disabled","disabled");
-      //     resFormSubmit.style.cursor = "not-allowed"
-
-      //   }else if(resFormPhone.style.color = "#E98E89"){
-      //     $('#resFormSubmit').attr("disabled","disabled");
-      //     resFormSubmit.style.cursor = "not-allowed"
-          
-      //   }else{
-      //     $('#resFormSubmit').attr("disabled",false);
-      //     resFormSubmit.style.cursor = "pointer"
+    getCalendarData: function(){
+      // // var calendarDataFromPHP = []
+      // let xhr = new XMLHttpRequest();
+      
+      // xhr.onload = function (){
+      //   if(xhr.status == 200){
+      //     Calendar.DAILY_RES = JSON.parse(xhr.responseText);
+      //           console.log(Calendar.DAILY_RES)
       //   }
-      // })
-    }
+      // }
+      // xhr.open("get", "../dev/js/calendarData.php", true);
+      // xhr.send(null);
+    },
   }
+    // [
+    //   {
+    //     DAILY_DATE:"2020-06-01",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:20
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-02",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:2
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-03",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:12
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-04",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:20
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-05",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:20
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-06",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:20
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-07",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:2
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-08",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:10
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-09",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:9
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-10",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:2
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-11",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:9
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-12",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:7
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-13",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:5
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-14",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:10
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-15",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:20
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-16",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:2
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-17",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:10
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-18",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:10
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-19",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:10
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-20",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:10
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-21",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:10
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-22",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:4
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-23",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:21,
+    //     DAILY_NUM:8
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-24",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:10
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-25",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:15
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-26",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:17
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-27",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:16
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-28",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:10
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-29",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:4
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-06-30",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:20
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-07-01",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:8
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-07-02",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:11
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-07-03",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:20
+    //   },
+    //   {
+    //     DAILY_DATE:"2020-07-04",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:1
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-05",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:17
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-06",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:5
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-07",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:1
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-08",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:1
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-09",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:6
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-10",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:1
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-11",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:18
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-12",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:11
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-13",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:20
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-14",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:11
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-15",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:18
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-16",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:1
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-17",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:14
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-18",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:20
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-19",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:1
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-20",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:1
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-21",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:3
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-22",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:6
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-23",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:20
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-24",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:20
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-25",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:9
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-26",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:8
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-27",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:2
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-28",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:16
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-29",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:17
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-30",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:18
+    //   }, 
+    //   {
+    //     DAILY_DATE:"2020-07-31",
+    //     DAILY_STA:0,
+    //     DAILY_AVA:20,
+    //     DAILY_NUM:20
+    //   }, 
+    // ],
