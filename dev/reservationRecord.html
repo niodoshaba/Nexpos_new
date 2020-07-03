@@ -40,7 +40,8 @@
                 <div class="resScrollbar" id="resScrollstyle">
                   <div class="resOverflow">
                     <table id="resTable">
-                      <div>
+                      
+
                         <tr>
                           <td>姓名</td>
                           <td>性別</td>
@@ -48,145 +49,79 @@
                           <td>人數</td>
                           <td>日期</td>
                           <td>備註</td>
-
-                        </tr>
-                        <tr>
-                          <td>Ching</td>
-                          <td>女</td>
-                          <td>0932123456</td>
-                          <td>3</td>
-                          <td>2020/6/23</td>
-                          <td>需準備嬰兒椅</td>
-                        </tr>
-                        <tr>
-                          <td>Lily</td>
-                          <td>女</td>
-                          <td>0932123456</td>
-                          <td>5</td>
-                          <td>2020/6/23</td>
-                          <td>需準備嬰兒椅</td>
-                        </tr>
-                        <tr>
-                          <td>小傑</td>
-                          <td>女</td>
-                          <td>0932123456</td>
-                          <td>3</td>
-                          <td>2020/6/23</td>
-                          <td>需準備嬰兒椅</td>
-                        </tr>
-                        <tr>
-                          <td>皮</td>
-                          <td>女</td>
-                          <td>0932123456</td>
-                          <td>3</td>
-                          <td>2020/6/23</td>
-                          <td>需準備嬰兒椅</td>
-                        </tr>
-                        <tr>
-                          <td>千金</td>
-                          <td>女</td>
-                          <td>0932123456</td>
-                          <td>3</td>
-                          <td>2020/6/23</td>
-                          <td>需準備嬰兒椅</td>
-                        </tr>
-                        <tr>
-                          <td>康哥</td>
-                          <td>女</td>
-                          <td>0932123456</td>
-                          <td>3</td>
-                          <td>2020/6/23</td>
-                          <td>需準備嬰兒椅</td>
-                        </tr>
-                        <tr>
-                          <td>Ching</td>
-                          <td>女</td>
-                          <td>0932123456</td>
-                          <td>3</td>
-                          <td>2020/6/23</td>
-                          <td>需準備嬰兒椅</td>
-                        </tr>
-                        <tr>
-                          <td>Lily</td>
-                          <td>女</td>
-                          <td>0932123456</td>
-                          <td>5</td>
-                          <td>2020/6/23</td>
-                          <td>需準備嬰兒椅</td>
-                        </tr>
-                        <tr>
-                          <td>小傑</td>
-                          <td>女</td>
-                          <td>0932123456</td>
-                          <td>3</td>
-                          <td>2020/6/23</td>
-                          <td>需準備嬰兒椅</td>
-                        </tr>
-                        <tr>
-                          <td>皮</td>
-                          <td>女</td>
-                          <td>0932123456</td>
-                          <td>3</td>
-                          <td>2020/6/23</td>
-                          <td>需準備嬰兒椅</td>
-                        </tr>
-                        <tr>
-                          <td>千金</td>
-                          <td>女</td>
-                          <td>0932123456</td>
-                          <td>3</td>
-                          <td>2020/6/23</td>
-                          <td>需準備嬰兒椅</td>
-                        </tr>
-                        <tr>
-                          <td>康哥</td>
-                          <td>女</td>
-                          <td>0932123456</td>
-                          <td>3</td>
-                          <td>2020/6/23</td>
-                          <td>需準備嬰兒椅</td>
                         </tr>
 
-                      </div>
+                      
                     </table>
                   </div>
                 </div>
               </form>
             </div>
-            <<<<<<< HEAD </body>
 
-</html>
-=======
 <script type="text/javascript">
-  function $id(id) {
-    return document.getElementById(id);
+window.addEventListener('load', function () {
+
+let xhr = new XMLHttpRequest();
+      
+xhr.onload = function (){
+  if(xhr.status == 200){
+    var resAllData = JSON.parse(xhr.responseText);
+    var resTable = document.querySelector('#resTable');
+    var len  = resAllData.length;
+    var str= "";
+
+    for (i = 0; i < len; i++) {
+        var content = ` <tr>
+                          <td>${resAllData[i].CUS_LAST}${resAllData[i].CUS_FIRST}</td>
+                          <td>${resAllData[i].CUS_GEN}</td>
+                          <td>${resAllData[i].CUS_PHONE}</td>
+                          <td>${resAllData[i].RES_NUM}</td>
+                          <td>${resAllData[i].RES_DATE}</td>
+                          <td>${resAllData[i].RES_NOTE}</td>
+                        </tr> `
+        
+        console.log(content);
+				str+=content;
+        };
+        
+			  resTable.innerHTML += str;
   }
 
-  function addSpot() {
-    let myForm = $id("myForm");
-    let resTable = $id("resTable");
-    let btnSend = $id("btnSend");
-    let spot = document.querySelector(".spot");
-    // let resTablehead = document.getElementById("resTablehead");
-    let newSpot = spot.cloneNode(true);
-    // resTablehead.appendChild(newSpot);
-    // newSpot.style.display=""; 
-    newSpot.getElementsByTagName("img")[0].onclick = removeSpot; //加入JS行為
+}
+xhr.open("get", "../dev/js/reservationRecord.php", true);
+xhr.send(null);
 
-    // myForm.insertBefore(newSpot, btnSend);
-    resTable.appendChild(newSpot);
-  }
+    })
 
-  function removeSpot(e) {
-    let resTable = $id("resTable");
-    resTable.removeChild(e.target.parentNode.parentNode);
-  }
 
-  window.addEventListener("load", function () {
-    $id("btnAddSpot").onclick = addSpot;
-  })
+  // function $id(id) {
+  //   return document.getElementById(id);
+  // }
+
+  // function addSpot() {
+  //   let myForm = $id("myForm");
+  //   let resTable = $id("resTable");
+  //   let btnSend = $id("btnSend");
+  //   let spot = document.querySelector(".spot");
+  //   // let resTablehead = document.getElementById("resTablehead");
+  //   let newSpot = spot.cloneNode(true);
+  //   // resTablehead.appendChild(newSpot);
+  //   // newSpot.style.display=""; 
+  //   newSpot.getElementsByTagName("img")[0].onclick = removeSpot; //加入JS行為
+
+  //   // myForm.insertBefore(newSpot, btnSend);
+  //   resTable.appendChild(newSpot);
+  // }
+
+  // function removeSpot(e) {
+  //   let resTable = $id("resTable");
+  //   resTable.removeChild(e.target.parentNode.parentNode);
+  // }
+
+  // window.addEventListener("load", function () {
+  //   $id("btnAddSpot").onclick = addSpot;
+  // })
 </script>
 </body>
 
 </html>
->>>>>>> dev
