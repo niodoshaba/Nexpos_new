@@ -24,6 +24,7 @@ div.c-wrapper{
         position: relative;
         left:15%;
         top: -50px;
+        z-index: -1;
         &::after{
             position: absolute;
             content: "";

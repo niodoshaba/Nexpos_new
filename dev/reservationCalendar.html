@@ -42,7 +42,7 @@
             <div class="toptabCaption">預約<br />記錄</div>
           </div>
         </a>
-      </div>
+      </div>  
 
       <div id="calendarLeftAndRight">
         <div id="calendarAll">
@@ -115,6 +115,33 @@
             </form>
           </div>
         </div>
+<<<<<<< HEAD
+=======
+        <div class="calendarDay" calendarArea="month"></div>
+    </div>
+    <div class="calendarRight">
+      <div>
+        <form action="../dev/js/calendarDailyUpdate.php" id="calendarResTable" enctype="multipart/form-data" method="POST" target="stayhere">
+          日期：<input  calendarLabel="picked" type="text" class="calendarInputText" required="required"  id="calendarPickDate" name="calendarPickDate">
+          <br>
+          姓名：<input type="text" class="calendarInputText" required="required" id="resFormName" name="resFormName">
+          <br>
+          手機：<input type="text" class="calendarInputText" required="required" id="resFormPhone" name="resFormPhone">
+          <br>
+          性別： <input type="radio" name="sex" id="sex1" required="required">
+                <label for="sex1" >男</label>
+                
+                <input type="radio" name="sex" id="sex2" required="required">
+                <label for="sex2" >女</label>
+          <br>
+          人數：<input type="text" class="calendarInputText" required="required" id="resFormPeopleCount" name="resFormPeopleCount">
+          <br>
+          備註：<input type="text" class="calendarInputText" name="resFormTextArea">
+          <br>
+          <input type="submit" class="calendarInputSubmit" value="確定預約" id="resFormSubmit"> 
+        </form>
+ 
+>>>>>>> 7c92986014afd36230027b0876b7458d86bd8c12
       </div>
       <p class="result">
         <!-- Date picked : 
@@ -122,6 +149,7 @@
         <br> -->
         剩餘可預約人數 :
         <span calendarResAble="respeople"></span>
+<<<<<<< HEAD
       </p>
     </div>
 
@@ -138,5 +166,47 @@
         Calendar.matchcalendarInfo();
       });
     </script>
+=======
+    </p>
+  </div>
+    
+<!-- <script src="calendar.js" type="text/javascript"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="../dev/js/calendar.js"></script>
+
+  <script type='text/javascript'> 
+
+    window.addEventListener('load', function () {
+
+        //撈資料
+        // Calendar.getCalendarData()
+        // console.log(Calendar.DAILY_RES)
+
+
+              // var calendarDataFromPHP = []
+      let xhr = new XMLHttpRequest();
+      
+      xhr.onload = function (){
+        if(xhr.status == 200){
+          Calendar.DAILY_RES = JSON.parse(xhr.responseText);
+                // console.log(Calendar.DAILY_RES)
+        }
+                //初始化日曆  
+                Calendar.init({
+            disablePastDays: true
+        });
+
+       //正規表達
+        Calendar.matchcalendarInfo()
+      }
+      xhr.open("get", "../dev/js/calendarData.php", true);
+      xhr.send(null);
+
+
+    })
+  </script>
+
+
+>>>>>>> 7c92986014afd36230027b0876b7458d86bd8c12
   </body>
 </html>

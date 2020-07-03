@@ -11,7 +11,8 @@ div.c-wrapper .mainTakeAwayBar {
   height: 80px;
   position: relative;
   left: 15%;
-  top: -50px; }
+  top: -50px;
+  z-index: -1; }
   div.c-wrapper .mainTakeAwayBar::after {
     position: absolute;
     content: "";
