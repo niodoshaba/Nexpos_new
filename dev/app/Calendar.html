@@ -1,14 +1,28 @@
 
+		
+	<style>
+		/* 整個日曆 */
+		#S_calendarAll{
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			position: absolute;
+			top: 500px;
+			right: 30%;
+			width: 13%;
+		}
 
-		<div id="calendarAll">
-			<div class="calendarHeader">
-				<button class="calendarTopBtn" calendarToggle="previous"> < </button>
+	</style>
+<!--放到html上方 可調整位置大小-->
 
-				<div class="calendarHeaderTop" calendarLabel="month"></div>
+		<div id="S_calendarAll">
+			<div class="yearPickScrollBar" id="yearCalendarSelect"></div>
+			<div class="S_calendarHeader">
+				<button class="S_calendarTopBtn" calendarToggle="previous"> < </button>
 
-				<button class="calendarTopBtn" calendarToggle="next"> > </button>
+				<div class="S_calendarHeaderTop" calendarLabel="month"></div>
+
+				<button class="S_calendarTopBtn" calendarToggle="next"> > </button>
 			</div>
-			<div class="calendarWeek">
+			<div class="S_calendarWeek">
 				<span>一</span>
 				<span>二</span>
 				<span>三</span>
@@ -17,13 +31,22 @@
 				<span>六</span>
 				<span>日</span>
 			</div>
-			<div class="calendarDay" calendarArea="month"></div>
+			<div class="S_calendarDay" calendarArea="month"></div>
 		</div>
 
-		<p class="result">
+		<p class="result" style="position: absolute;top:50%;right: 50%;"> <!--這塊是輸出日期的地方,class的result必須 style隨便改-->
 			Date picked : 
-			<span calendarLabel="picked"></span>
-			<br>
-			剩餘可預約人數 : 
-			<span calendarResAble="respeople"></span>
+			<span calendarLabel="picked" id="calendarPickDate"></span> <!--這裡是要填入日期的地方,calendarLabel="picked" id="calendarPickDate"都是必須-->
 		</p>
+
+<!--放到html下方-->
+		<script src="../dev/js/calendarSmall.js"></script>
+		<script>
+			 window.addEventListener('load', function () {
+
+				Calendar.init({
+            disablePastDays: true
+        });
+
+			 })
+		</script>
