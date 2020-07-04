@@ -30,9 +30,35 @@ table, td {
   
   td{
     padding: 16px;
+    position: relative;
+    .regUpdateCell{
+      position: absolute;
+      top: 50px;
+      left: 25px;
+    }
+    .regUpdateName{
+      position: absolute;
+      top: 50px;
+      left: 25px;
+    }
+    .regUpdateEmail{
+      position: absolute;
+      top: 50px;
+      left: 40px;
+    }
+  }
+
+  
+
+  .failure {
+    font-size: 10px;
+    color: rgba(255, 0, 0, .6);
+  }
+  .success {
+    font-size: 10px;
+    color: rgba(0, 255, 0, .6);
   }
   td:last-child{
-
     padding: 5px;
   }
   
