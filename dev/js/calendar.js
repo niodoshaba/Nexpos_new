@@ -95,16 +95,18 @@
         var resAbleCountRander = DAILY_TABLE.find(function(item, index, array){
           return item.DAILY_DATE === resAbleDateRander
       });
-      // console.log(Calendar.DAILY_RES)
+        let resDateOpenRander = resAbleCountRander.DAILY_STA
+      console.log(resDateOpenRander)
 
         resAbleNumRander = resAbleCountRander.DAILY_AVA - resAbleCountRander.DAILY_NUM
-  
         if(resAbleNumRander == 0 ){
           calendarDateClass[i].style.color = "#E98E89";
           calendarDateClass[i].style.cursor = "not-allowed";
+        }else if(resDateOpenRander == 0){
+          
+          calendarDateClass[i].classList.remove()
+          calendarDateClass[i].classList.add('calendarDate--disabled')
         }
-
-
       }
 
     },
@@ -140,8 +142,9 @@
   
         //   console.log(resAbleCount)
           resAbleNum = resAbleCount.DAILY_AVA - resAbleCount.DAILY_NUM
-  
-            if(resAbleNum === 0){
+          resDateOpen = resAbleCount.DAILY_STA
+          console.log(resDateOpen)
+            if(resAbleNum <= 0){
               
             document.getElementById("calendarPickDate").value="";
             // picked.innerHTML = ''
@@ -149,8 +152,14 @@
             _this.removeActiveClass()
             this.classList.add('calendarDate--full')
             //   console.log(13)
+            }else if(resDateOpen == 0){
+            resable.innerHTML = '<span style="color:#9C9C9C"> 該日期不開放預約，請選擇其他日期</span>'
+            _this.removeActiveClass()
+            this.classList.add('calendarDate--full')
+
             }else{
               resable.innerHTML = resAbleNum
+
             ///顯示選取日期在下方
             ///移除其他選取日期
             ///改變選取日期CSS(加框框)
@@ -158,7 +167,7 @@
             document.getElementById("calendarPickDate").value=resAbleDate;
             // picked.innerHTML = resAbleDate
             _this.removeActiveClass()
-            this.classList.add('calendarDate--selected')
+            this.classList.add('calendarDate--selected')  
             }
             console.log(resAbleDate)
             
@@ -227,15 +236,23 @@
     //輸入預約資料判斷正確格式
     
     matchcalendarInfo: function(){
-      var ResName = /^[\u4E00-\u9FA5]{2,4}$/   //2-4個中文字
+      var ResName = /^[\u4E00-\u9FA5]{1,2}$/   //2-4個中文字
+
       var ResPhone = /^09\d{8}$/  //09後接8個數字
       var ResPeopleCount =  /^\d{1,2}$/  //1-2個數字
 
-      $('#resFormName').blur(function(){
-        if(resFormName.value.match(ResName)){
-          resFormName.style.color = "black"
+      $('#resFormFirstName').blur(function(){
+        if(resFormFirstName.value.match(ResName)){
+          resFormFirstName.style.color = "black"
         }else{
-          resFormName.style.color = "#E98E89"
+          resFormFirstName.style.color = "#E98E89"
+        }
+      })
+      $('#resFormLastName').blur(function(){
+        if(resFormLastName.value.match(ResName)){
+          resFormLastName.style.color = "black"
+        }else{
+          resFormLastName.style.color = "#E98E89"
         }
       })
 
