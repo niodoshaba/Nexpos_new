@@ -17,7 +17,7 @@
             <div id="orderPageLeftSide" class="col-4">
                 <a id="ordBackToTable" href="tabShow.html"><img src="./assets/checkout_back.png" alt=""></a>
                 <div id="orderPageLeftSideTop" class="row no-gutters">
-                    <span class="col-6" v-model="ordNo">訂單編號：{{ordNo}}</span>
+                    <span class="col-6">訂單編號：{{ordNo}}</span>
                     <span class="col-6">
                         內/外
                     </span>
@@ -41,8 +41,8 @@
 
                 <div id="orderPageLeftSideMid">
                     <div class="orderPageScrollbar" id="style-3">
-
-
+                        <div id="orderPageLeftSideMidItemAll">
+                        </div>
                     </div>
                     <!--  -->
                     <div id="ordToppingSec">
@@ -136,7 +136,7 @@
                             <li id="ordMuf">瑪芬堡</li>
                             <li id="ordSwe">甜點</li>
                             <li id="ordCof">咖啡</li>
-                            <!-- <li id="ordDri">飲料</li> -->
+                            <li id="ordDri" style="display: none;">飲料</li>
                         </ul>
 
                     </div>

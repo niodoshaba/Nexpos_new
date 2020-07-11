@@ -439,10 +439,7 @@ window.onload = function () {
                         ordSeasoningCart.push(ordToppingInfo[g]);
                     }
                 }
-                // console.log("aaa", ordSugarCart);
-                // console.log("bbb", ordIceCart);
-                // console.log("ccc", ordAsideCart);
-                // console.log("ccc", ordSeasoningCart);
+
 
                 // looping through the data 把從資料庫抓出來的配料品項加到HTML頁面上
                 for (let s = 0; s < ordSugarCart.length; s++) {
@@ -470,7 +467,7 @@ window.onload = function () {
     // 當頁面重新整理的時候，已經存在localStorage的資料會被重新撈出與印在頁面上
     function ordReload() {
 
-        if (localStorage.getItem(`${ordNoShow}_ordSaveProdInCart`)) {
+        if (localStorage.getItem("ordSaveProdInCart")) {
             orderPageRightSideBottomBtn2.style.pointerEvents = "none";
             orderPageRightSideBottomBtn2.style.backgroundColor = "#ccc";
             ordLoadProdInCartHist();
@@ -833,6 +830,7 @@ window.onload = function () {
     // 把新商品加進購物車
     function ordAddProdItemToCart(ordProdInfo) {
         ordProdInfo.status = 0; // 未出餐
+        ordProdInfo.state = 0; // 後廚
 
         ordProdInfo.topping = []; // 加一個陣列紀錄配料
 
@@ -842,11 +840,13 @@ window.onload = function () {
         ordSaveProdInCartHist();
     };
 
+
     function ordAddProdItemToCartOn() {
         // 讓頁面重整的時候，購物車內的商品的狀態呈現1出餐
         for (let w = 0; w < ordGetProd.length; w++) {
             if (ordGetProd[w].status != 2) {
                 ordGetProd[w].status = 1; // 出餐
+
             }
         }
 
@@ -990,8 +990,8 @@ window.onload = function () {
 
     // 把購物車資訊存進localStorage
     function ordSaveProdInCartHist() {
-        ordReceiveOrdNo();
-        localStorage.setItem(`${ordNoShow}_ordSaveProdInCart`, JSON.stringify(ordProdCart));
+        // ordReceiveOrdNo();
+        localStorage.setItem("ordSaveProdInCart", JSON.stringify(ordProdCart));
     };
 
     // 把暫時購物車資訊存進localStorage
@@ -1011,7 +1011,7 @@ window.onload = function () {
 
     // 把購物車資訊從localStorage裡抓出來
     function ordLoadProdInCartHist() {
-        ordGetProd = JSON.parse(localStorage.getItem(`${ordNoShow}_ordSaveProdInCart`));
+        ordGetProd = JSON.parse(localStorage.getItem("ordSaveProdInCart"));
     };
 
     // 把暫時購物車資訊從localStorage裡抓出來
