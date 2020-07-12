@@ -41,8 +41,22 @@ window.addEventListener('load',function(){
     let bonusRule = "消費500元累積1點，每300點可折抵1元";
     localStorage.setItem('bonusRule', JSON.stringify(bonusRule));
      
+    function bonusRuleGetData(){
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+            alert(xhr.readyState);
+            if(xhr.readyState == 4 && xhr.status == 200){
+                let result = xhr.responseText;
+                console.log(result);
+                return result;
+            }
+        }
+        xhr.open("post","../php/checkOut.php",true);
+        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        xhr.send(null);
+    }
     
-    
+    bonusRuleGetData();
     
     //-------------------------- 紅利相關 --------------------------
     //取得暫存區裡的紅利規則
@@ -62,7 +76,7 @@ window.addEventListener('load',function(){
     
     //輸入紅利點數
     let checkoutGetPoint = document.getElementById('checkoutGetPoint');
-    
+    //每筆品項金額
     let checkOutPrice = document.getElementsByClassName('checkOutPrice');
     //總金額
     let checkOutTotalPrice = parseInt(0);
@@ -215,7 +229,7 @@ window.addEventListener('load',function(){
           //
           checkOutTotalPrice = checkOutTotalPrice - parseInt(getPoint/bonusExchange);
          
-          //紅利 用第一個品項扣錢
+          //紅利折抵金額 用第一筆品項去扣
           checkOutPrice[0].innerText = "$" + (firstItem - parseInt(getPoint/bonusExchange));
         }
         //取得會員逾兌換的紅利點數
