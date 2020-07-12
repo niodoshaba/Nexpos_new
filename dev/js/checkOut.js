@@ -2,6 +2,7 @@ window.addEventListener('load',function(){
 
 
     let checkoutLeftSideMidItemTop = document.getElementsByClassName("checkoutLeftSideMidItemTop")
+    let checkoutLeftSideMidItemTop = document.getElementsByClassName("checkoutLeftSideMidItemTop");
     // let checkoutScrollbar = document.getElementsByClassName('checkoutScrollbar');
     let checkoutIfEachCheck = document.getElementById("checkoutIfEachCheck");
     let checkoutIfDiscount = document.getElementById("checkoutIfDiscount");
