@@ -35,31 +35,6 @@
         </div>
       </a>
     </div>
-    <div id="S_calendarAll">
-			<div class="yearPickScrollBar" id="yearCalendarSelect"></div>
-			<div class="S_calendarHeader">
-				<button class="S_calendarTopBtn" calendarToggle="previous"> </button>
-
-				<div class="S_calendarHeaderTop" calendarLabel="month"></div>
-
-				<button class="S_calendarTopBtn" calendarToggle="next"> > </button>
-			</div>
-			<div class="S_calendarWeek">
-				<span>一</span>
-				<span>二</span>
-				<span>三</span>
-				<span>四</span>
-				<span>五</span>
-				<span>六</span>
-				<span>日</span>
-			</div>
-			<div class="S_calendarDay" calendarArea="month"></div>
-		</div>
-
-		<p class="result" style="position: absolute;top:50%;right: 50%;"> <!--這塊是輸出日期的地方,class的result必須 style隨便改-->
-			Date picked : 
-			<span calendarLabel="picked" id="calendarPickDate"></span> <!--這裡是要填入日期的地方,calendarLabel="picked" id="calendarPickDate"都是必須-->
-		</p>
 
     <form method="post" action="memberJoin.php" id="myForm" name="form1">
       <div class="resScrollbar" id="resScrollstyle">
@@ -99,7 +74,6 @@
                   <input type="text" class="birthday" id="CUS_BIRTH" name="CUS_BIRTH" placeholder="" size="15"
                     required />
                 </td>
-               
                 <td>
                   <input type="text" class="email" id="CUS_EMAIL" name="CUS_EMAIL" placeholder="" size="30" required />
                   <span class="regUpdateEmail"></span>
@@ -241,19 +215,8 @@
         });
       })
     });
-
-    
   </script>
-  <script src="../dev/js/calendarSmall.js"></script>
-  <script>
-    window.addEventListener('load', function () {
 
-      Calendar.init({
-          disablePastDays: true
-      });
-
-    })
-  </script>
 
 </body>
 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/memberSearch.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title> 會員資料查詢</title>
+  </head>
+
+  <body>
+    <!-- 複製以下功能列 -->
+    <div class="header c-sidebar">
+    <nav id="sideMenu">
+        <div class="light">
+            <i class="fa fa-circle" aria-hidden="true"></i>
+
+        </div>
+        <ul>
+            <a href="./tabShow.html"><li class="@@nav0"><i class="fa fa-home" aria-hidden="true"></i>主畫面</li></a>
+            <a href="./reservationCalendar.html"><li class="@@nav1"><i class="fa fa-list-alt" aria-hidden="true"></i>訂位管理</li></a>
+            <a href="./memberJoin.html"><li class="actives"><i class="fa fa-users" aria-hidden="true"></i>會員管理</li></a>
+            <a href="./orderRecord.html"><li class="@@nav3"><i class="fa fa-calendar" aria-hidden="true"></i>歷史訂單</li></a>
+            <div class="func">
+                <div class="user">Hi, User</div>
+                <div class="date"></div>
+                <div class="clock"></div>
+            </div>
+            <a href="./tabShow.html"><li class="@@nav4"><i class="fa fa-times-circle" aria-hidden="true"></i>關閉餐桌</li></a>
+            <a href="./kitchen.html"><li class="@@nav5"><i class="fa fa-cutlery" aria-hidden="true"></i>出餐管理</li></a>
+            <a href="./dailyStatement.html"><li class="@@nav6"><i class="fa fa-calculator" aria-hidden="true"></i>日結</li></a>
+            <a href="./login.html"><li><i class="fa fa-sign-out" aria-hidden="true"></i>登出</li></a>
+        </ul>
+    </nav>
+</div>
+
+
+<script>
+let el = document.querySelector('.date');
+let Today=new Date();
+el.textContent = Today.getFullYear()+ " / "+ (Today.getMonth()+1) + " / " + Today.getDate();
+
+let dt = document.querySelector('.clock');
+
+TodayHours = Today.getHours() < 10 ? '0' + Today.getHours() : Today.getHours();
+TodayMinutes = Today.getMinutes() < 10 ? '0' + Today.getMinutes() : Today.getMinutes();
+dt.textContent = TodayHours + " : " + TodayMinutes;
+
+</script>
+
+    <!-- 複製以上功能列 -->
+    <!-- 以下為各分頁內容 -->
+<div class="c-wrapper">
+    <div class="tablehead">
+        <h1>會員資料查詢</h1> 
+
+        <div class="search-container">
+            <input type="search" id="search-bar" name="memId" id="memId" placeholder="輸入姓名或電話">
+            <input type="button" value="取得會員資料" onclick="getMember()"/>
+            <!-- <img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" > -->
+        </div>
+
+       
+
+
+
+    </div>
+    <div class="topFunc">
+        <a href="memberSearch.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab" id="topTabactives">
+            <div class="toptabCaption">會員<br />查詢</div>
+          </div>
+        </a>
+        <a href="memberJoin.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab">
+            <div class="toptabCaption">會員<br />新增</div>
+          </div>
+        </a>
+    </div>
+    <div class="resScrollbar" id="resScrollstyle">
+        <div class="resOverflow">
+            <table id="memTable">
+                <div>
+                    <tr>
+                        <td>姓名</td>
+                        <td>性別</td>
+                        <td>手機</td>
+                        <td>e-mail</td>
+                        <td>生日</td>
+                        <td>點數</td>
+                    </tr>
+                </div>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+//ajax: get from database
+// window.addEventListener('load', function(){
+// let xhr = new XMLHttpRequest();
+
+// xhr.onload = function(){
+//     if(xhr.status ==200){
+//     var memAllData = JSON.parse(xhr.responseText);
+//     var memTable = document.querySelector('#memTable');
+//     var len = memAllData.length;
+//     var str = "";
+
+//     for (i = 0; i <len; I++){
+//         var content = `<tr>
+//                             <td>${memAllData[i].CUS_LAST}${memAllData[i].CUS_FIRST}</td>
+//                             <td>${memAllData[i].CUS_GEN}</td>
+//                             <td>${memAllData[i].CUS_PHONE}</td>
+//                             <td>${memAllData[i].CUS_NUM}</td>
+//                             <td>${memAllData[i].CUS_BIRTH}</td>
+//                             <td>${memAllData[i].CUS_EMAIL}</td>
+//                         </tr>`
+//          console.log(content);
+//         str+=content;
+//         };
+//         memTable.innerHTML += str;
+   
+//     }
+// }
+// xhr.open("get","memberSearch.php", true);
+// xhr.send(null);
+// })
+
+      
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -10,7 +10,19 @@
     <!-- <link rel="stylesheet" href="css/style.css" /> -->
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/kitchen.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>kitchen</title>
+    <style>
+      /* 整個日曆 */
+      #S_calendarAll{
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 500px;
+        right: 30%;
+        width: 13%;
+      }
+  
+    </style>
   </head>
 
   <body>
@@ -39,7 +51,7 @@
       </div>
       <!-- 以下為訂單 -->
       <div class="kPageContainer">
-        <div class="kContainer">
+        <div class="kContainer" id="kOrder">
           <div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
           <div class="kHead">
             <div class="kHeadItem">
@@ -53,180 +65,78 @@
           </div>
 
           <div class="kFood">
-            <ul>
-              <div class="kFoodBar">主餐</div>
-              <li class="kFoodItem">
+            <div class="kFoodBar">項 目</div>
+            <ul class="kFoodItem">
+              <li>
                 <div class="kFoodTitle">
-                  <h1>櫻桃鴨胸肉燉飯</h1>
-                  <span>去皮</span>
+                  <h1 class="kFoodValue"></h1>
+                  <span class="kFoodValueTopping"></span>
                 </div>
                 <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>咖哩雞肉飯</h1>
-                  <span>不要紅蘿蔔</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>蕃茄牛肉麵</h1>
-                  <span>不要牛肉 炒蛋</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>牛肉麵</h1>
-                  <span>不要酸菜</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <div class="kFoodBar">其他</div>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>珍珠鮮奶茶</h1>
-                  <span>去冰微糖</span>
-                </div>
-                <div class="kFoodNum">X2</div>
                 <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
               </li>
             </ul>
           </div>
-
-          <button class="kButton">訂單完成</button>
-
+          <button class="kButton" onclick="foodDone();">訂單完成</button>
         </div>
-        <div class="kContainer">
-          <div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-          <div class="kHead">
-            <div class="kHeadItem">
-              <h1>訂單：A10</h1>
-              <span>2020/06/02 10:26</span>
-            </div>
-            <div class="kHeadItem">
-              <h1>外帶：008</h1>
-              <span>店員：Lily</span>
-            </div>
-          </div>
+      </div>
 
-          <div class="kFood">
-            <ul>
-              <div class="kFoodBar">主餐</div>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>櫻桃鴨胸肉燉飯</h1>
-                  <span>去皮</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>咖哩雞肉飯</h1>
-                  <span>不要紅蘿蔔</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>蕃茄牛肉麵</h1>
-                  <span>不要牛肉 炒蛋</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>牛肉麵</h1>
-                  <span>不要酸菜</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <div class="kFoodBar">其他</div>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>珍珠鮮奶茶</h1>
-                  <span>去冰微糖</span>
-                </div>
-                <div class="kFoodNum">X2</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-            </ul>
-          </div>
+        <!-- <script src="../dev/js/kitchen.js"></script> -->
 
-          <button class="kButton">訂單完成</button>
+      <script type="text/javascript">
+        //下訂單時寫入
+        let ordSaveProdInCartOnHist = [];
+        let display = document.querySelector('.kFoodItem') //顯示點餐的品項
+        // let displayTopping = document.querySelector('.kFoodValueTopping') //顯示點餐的品項
+        localStorage.ordSaveProdInCartOnHist = '[{"PRO_ITEM_NO":"2","PRO_CATA_NO":"1","PRO_ITEM_NAME":"燻雞","PRO_ITEM_PRICE":"45","PRO_ITEM_ONOFF":"1","PRO_PIC":null,"status":1,"state":0,"topping":["生菜 $10","培根 $15","生菜 $10"]},{"PRO_ITEM_NO":"20","PRO_CATA_NO":"3","PRO_ITEM_NAME":"日式燒肉","PRO_ITEM_PRICE":"70","PRO_ITEM_ONOFF":"1","PRO_PIC":null,"status":2,"topping":[]},{"PRO_ITEM_NO":"28","PRO_CATA_NO":"5","PRO_ITEM_NAME":"司康","PRO_ITEM_PRICE":"40","PRO_ITEM_ONOFF":"1","PRO_PIC":null,"status":1,"topping":[]},{"PRO_ITEM_NO":"36","PRO_CATA_NO":"6","PRO_ITEM_NAME":"澳洲小拿鐵","PRO_ITEM_PRICE":"60","PRO_ITEM_ONOFF":"1","PRO_PIC":null,"status":1,"topping":["少冰 $0","正常冰 $0"]}]';
 
-        </div>
-        <div class="kContainer">
-          <div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-          <div class="kHead">
-            <div class="kHeadItem">
-              <h1>訂單：A10</h1>
-              <span>2020/06/02 10:26</span>
-            </div>
-            <div class="kHeadItem">
-              <h1>外帶：008</h1>
-              <span>店員：Lily</span>
-            </div>
-          </div>
+        //出餐時讀出
+        ordSaveProdInCartOnHist = JSON.parse(localStorage.ordSaveProdInCartOnHist);//要取出資料時，再透過 JSON.parse() 方法，將資料轉換回原本的格式：
+        console.log(ordSaveProdInCartOnHist);
 
-          <div class="kFood">
-            <ul>
-              <div class="kFoodBar">主餐</div>
-              <li class="kFoodItem">
+        function show(){//將資料透過map轉化為字串並消除逗號
+          display.innerHTML = ordSaveProdInCartOnHist.map((ordSaveProdInCartOnHist,key)=>{//將資料透過map轉化為字串並消除逗號
+
+          if (ordSaveProdInCartOnHist.status == '1'){
+            var K = ordSaveProdInCartOnHist.topping
+            var L=[];
+            for(i=0;i<K.length;i++){
+            L.push(K[i].substring(0,K[i].indexOf(" ")));
+            }
+            return `
+              <li>
                 <div class="kFoodTitle">
-                  <h1>櫻桃鴨胸肉燉飯</h1>
-                  <span>去皮</span>
+                  <h1 class="kFoodValue">${ordSaveProdInCartOnHist.PRO_ITEM_NAME}</h1>
+                  <span class="kFoodValueTopping">${L}</span>
                 </div>
                 <div class="kFoodNum">X1</div>
                 <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
               </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>咖哩雞肉飯</h1>
-                  <span>不要紅蘿蔔</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>蕃茄牛肉麵</h1>
-                  <span>不要牛肉 炒蛋</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>牛肉麵</h1>
-                  <span>不要酸菜</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <div class="kFoodBar">其他</div>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>珍珠鮮奶茶</h1>
-                  <span>去冰微糖</span>
-                </div>
-                <div class="kFoodNum">X2</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-            </ul>
-          </div>
+          `
+          }
 
-          <button class="kButton">訂單完成</button>
+        }).join('')//將陣列轉出來的逗號刪除
+        };
+     
+        show();
 
-        </div>
+        // 按下送出後：該訂單消失、local storage state訂單改值成1、功能列綠燈閃
+
+        function foodDone(){
+          //該單畫面不見
+          let kOrder = $("#kOrder");
+          kOrder.css('display' , 'none');
+          //state改值:1
+          // var objs = JSON.parse('ordSaveProdInCartOnHist');
+          // console.log('objs');
+          var newVal = {
+            'state' : '1'
+          }
+          var newdata = JSON.stringify(newVal);
+          localStorage.setItem('ordSaveProdInCartOnHist' , newdata);
+        }
+
+
+      </script>
   </body>
 </html>
