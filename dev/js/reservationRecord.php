@@ -8,8 +8,10 @@ try {
 	$pdo = new PDO( $dsn, $user, $password, $options); 
 
 	$sql = " SELECT customer.CUS_LAST,customer.CUS_FIRST,customer.CUS_GEN,customer.CUS_PHONE,reservation.RES_DATE,reservation.RES_NUM,reservation.RES_NOTE
-             FROM customer,reservation
-             WHERE customer.CUS_PHONE = reservation.CUS_PHONE; ";
+			 FROM customer,reservation
+             WHERE customer.CUS_PHONE = reservation.CUS_PHONE
+			 ORDER BY reservation.RES_DATE DESC
+		  ;";
              
 	$resInfo = $pdo->query($sql);
 

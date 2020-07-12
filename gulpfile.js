@@ -27,6 +27,14 @@ gulp.task('move', function () {
 });
 
 
+// 移動＝拷貝 src下的php 經由pipe 到dest
+gulp.task('movePhp', function () {
+    //do
+    return gulp.src('./dev/js/*.php') //來源
+        .pipe(gulp.dest('./dest')) //目的地
+});
+
+
 // 壓縮 css
 gulp.task('minicss', function () {
     //do

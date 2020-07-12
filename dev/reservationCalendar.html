@@ -63,14 +63,15 @@
         <form action="../dev/js/calendarDailyUpdate.php" id="calendarResTable" enctype="multipart/form-data" method="POST" target="stayhere">
           日期：<input  calendarLabel="picked" type="text" class="calendarInputText" required="required"  id="calendarPickDate" name="calendarPickDate">
           <br>
-          姓名：<input type="text" class="calendarInputText" required="required" id="resFormName" name="resFormName">
+          姓：<input type="text" class="calendarInputText" required="required" id="resFormFirstName" name="resFormFirstName" style="width: 25%;">
+          名：<input type="text" class="calendarInputText" required="required" id="resFormLastName" name="resFormLastName" style="width: 25%;">
           <br>
           手機：<input type="text" class="calendarInputText" required="required" id="resFormPhone" name="resFormPhone">
           <br>
-          性別： <input type="radio" name="sex" id="sex1" required="required">
+          性別： <input type="radio" name="sex" id="sex1" required="required" value="男">
                 <label for="sex1" >男</label>
                 
-                <input type="radio" name="sex" id="sex2" required="required">
+                <input type="radio" name="sex" id="sex2" required="required" value="女">
                 <label for="sex2" >女</label>
           <br>
           人數：<input type="text" class="calendarInputText" required="required" id="resFormPeopleCount" name="resFormPeopleCount">

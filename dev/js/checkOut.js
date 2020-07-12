@@ -1,8 +1,7 @@
 window.addEventListener('load',function(){
 
 
-    let checkoutLeftSideMidItemTop = document.getElementsByClassName("checkoutLeftSideMidItemTop")
-    // let checkoutScrollbar = document.getElementsByClassName('checkoutScrollbar');
+    let checkoutLeftSideMidItemTop = document.getElementsByClassName("checkoutLeftSideMidItemTop");
     let checkoutIfEachCheck = document.getElementById("checkoutIfEachCheck");
     let checkoutIfDiscount = document.getElementById("checkoutIfDiscount");
     let checkoutIfPoint = document.getElementById("checkoutIfPoint");
@@ -40,9 +39,23 @@ window.addEventListener('load',function(){
 
     let bonusRule = "消費500元累積1點，每300點可折抵1元";
     localStorage.setItem('bonusRule', JSON.stringify(bonusRule));
-     
     
+    function bonusRuleGetData(){
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+            
+            if(xhr.readyState == 4 && xhr.status == 200){
+                let result = xhr.responseText;
+                console.log(result);
+                return result;
+            }
+        }
+        xhr.open("post","checkOut.php",true);
+        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        xhr.send(null);
+    }
     
+    bonusRuleGetData();
     
     //-------------------------- 紅利相關 --------------------------
     //取得暫存區裡的紅利規則
@@ -62,7 +75,7 @@ window.addEventListener('load',function(){
     
     //輸入紅利點數
     let checkoutGetPoint = document.getElementById('checkoutGetPoint');
-    
+    //每筆品項金額
     let checkOutPrice = document.getElementsByClassName('checkOutPrice');
     //總金額
     let checkOutTotalPrice = parseInt(0);
@@ -73,31 +86,35 @@ window.addEventListener('load',function(){
     
     let checkoutDiscountPrice = document.getElementById('checkoutDiscountPrice');
 
-
-    //立即函式 
-    //1. 計算總金額
-    (function checkOutSum(){
-        for(i=0;i<checkOutPrice.length;i++){
+    
+        //立即函式 
+        //1. 計算總金額
+        (function checkOutSum(){
+            for(i=0;i<checkOutPrice.length;i++){
             checkOutTotalPrice = checkOutTotalPrice+parseInt(checkOutPrice[i].innerText.substring(1, checkOutPrice[i].innerText.length));
-        }
-        checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkOutTotalPrice}</span>`;
-    })();
+            }
+            checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkOutTotalPrice}</span>`;
+        })();
     
-    //2. 暫時用立即函式，確認是否為會員
-    (function checkMem(){
-        //輸入手機查詢資料庫，確認是否為會員
+        //2. 暫時用立即函式，確認是否為會員
+        (function checkMem(){
+            //輸入手機查詢資料庫，確認是否為會員
 
-        cus.phone = dbCusData[0].CUS_PHONE;
-        cus.id = dbCusData[0].CUS_ID;
-        cus.point = parseInt(dbCusData[0].CUS_POINT); 
-    })();
+            cus.phone = dbCusData[0].CUS_PHONE;
+            cus.id = dbCusData[0].CUS_ID;
+            cus.point = parseInt(dbCusData[0].CUS_POINT); 
+        })();
 
-    //會員紅利 暫時串 
-    (function nowBonus(){
-        checkoutNowBouns.innerText = cus.point;
-    })();
+        //會員紅利 暫時串 
+        (function nowBonus(){
+            checkoutNowBouns.innerText = cus.point;
+        })();
+
     
-    console.log(cus);
+   
+    
+    
+    
     
     // 點擊訂單項目反藍
     for(i=0;i<checkoutLeftSideMidItemTop.length;i++){
@@ -215,7 +232,7 @@ window.addEventListener('load',function(){
           //
           checkOutTotalPrice = checkOutTotalPrice - parseInt(getPoint/bonusExchange);
          
-          //紅利 用第一個品項扣錢
+          //紅利折抵金額 用第一筆品項去扣
           checkOutPrice[0].innerText = "$" + (firstItem - parseInt(getPoint/bonusExchange));
         }
         //取得會員逾兌換的紅利點數
@@ -228,30 +245,5 @@ window.addEventListener('load',function(){
 
        
     });
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //-----bonusRule為字串
-   
-
-   
-
-
        
-})
+});
