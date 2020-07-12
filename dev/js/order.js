@@ -87,15 +87,15 @@ window.onload = function () {
     var orderPageLeftSideTop = document.getElementById("orderPageLeftSideTop");
     console.log("444", orderPageLeftSideTop.childNodes[1].innerHTML)
 
-    function ordReceiveOrdNo() {
+    // function ordReceiveOrdNo() {
 
-        let ordNoInRecord = JSON.parse(localStorage.getItem("a01_info"));
-        ordNoShow = ordNoInRecord.ordno;
+    //     let ordNoInRecord = JSON.parse(localStorage.getItem("a01_info"));
+    //     ordNoShow = ordNoInRecord.ordno;
 
-        console.log("訂單編號", ordNoInRecord.ordno);
-        orderPageLeftSideTop.childNodes[1].innerHTML = `訂單編號：${ordNoShow}`;
-    }
-    ordReceiveOrdNo();
+    //     console.log("訂單編號", ordNoInRecord.ordno);
+    //     orderPageLeftSideTop.childNodes[1].innerHTML = `訂單編號：${ordNoShow}`;
+    // }
+    // ordReceiveOrdNo();
 
     // =========================
 
@@ -1007,8 +1007,6 @@ window.onload = function () {
 
 
 
-
-
     // 把購物車資訊從localStorage裡抓出來
     function ordLoadProdInCartHist() {
         ordGetProd = JSON.parse(localStorage.getItem("ordSaveProdInCart"));
@@ -1029,33 +1027,35 @@ window.onload = function () {
 
     // ========VueJs========
 
-    new Vue({
-        el: "#orderPageLeftSideTop",
-        data: {
-            ordTabNo: "T001",
-            ordPplAmt: ""
+    // 會報錯，先暫時拿掉
 
-        },
-        methods: {
-            ordCalPplAmtPlus() {
-                this.ordPplAmt++;
-                localStorage.setItem('ordPplNum', this.ordPplAmt);
+    // new Vue({
+    //     el: "#orderPageLeftSideTop",
+    //     data: {
+    //         ordTabNo: "T001",
+    //         ordPplAmt: ""
 
-            },
-            ordCalPplAmtMinus() {
-                this.ordPplAmt--;
-                if (this.ordPplAmt < 0) {
-                    this.ordPplAmt = 0;
-                }
+    //     },
+    //     methods: {
+    //         ordCalPplAmtPlus() {
+    //             this.ordPplAmt++;
+    //             localStorage.setItem('ordPplNum', this.ordPplAmt);
 
-                localStorage.setItem('ordPplNum', this.ordPplAmt);
-            },
-            // ordGetPpl() {
-            //     this.ordPplAmt = localStorage.getItem("ordPplNum");
-            // }
-        },
+    //         },
+    //         ordCalPplAmtMinus() {
+    //             this.ordPplAmt--;
+    //             if (this.ordPplAmt < 0) {
+    //                 this.ordPplAmt = 0;
+    //             }
 
-    })
+    //             localStorage.setItem('ordPplNum', this.ordPplAmt);
+    //         },
+    //         // ordGetPpl() {
+    //         //     this.ordPplAmt = localStorage.getItem("ordPplNum");
+    //         // }
+    //     },
+
+    // })
 
 }
 
