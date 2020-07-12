@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/orderPage.css">
-    <title>Document</title>
+    <title>DocumenT</title>
 </head>
 
 <body>
@@ -15,19 +15,18 @@
     <div class="container-fluid">
         <div class="row no-gutters">
             <div id="orderPageLeftSide" class="col-4">
-                <a href="tabShow.html"><img src="./assets/checkout_back.png" alt=""></a>
+                <a id="ordBackToTable" href="tabShow.html"><img src="./assets/checkout_back.png" alt=""></a>
                 <div id="orderPageLeftSideTop" class="row no-gutters">
-                    <span class="col-6" v-model="ordNo">訂單編號：{{ordNo}}</span>
+                    <span class="col-6">訂單編號：{{ordNo}}</span>
                     <span class="col-6">
-                        <img src="./assets/icon_spoonfork.png" alt=""> 內/外
+                        內/外
                     </span>
                     <br>
                     <span class="col-6">
-                        <img src="./assets/icon_desk.png" alt="">
                         桌號： <input type="text" v-model="ordTabNo">
                     </span>
                     <span class="col-6">
-                        <img src="./assets/icon_people.png" alt=""> 人數：
+                        人數：
                         <div>
                             <img src="./assets/Icon-minus.png" alt="" @click="ordCalPplAmtMinus">
                         </div>
@@ -42,45 +41,57 @@
 
                 <div id="orderPageLeftSideMid">
                     <div class="orderPageScrollbar" id="style-3">
-
-                        <!-- 這樣為一筆商品資料 -->
                         <div id="orderPageLeftSideMidItemAll">
-                            <!-- <div id="orderPageLeftSideMidItem">
-                                <div class="orderPageLeftSideMidItemTop">
-                                    <div class="orderPageLeftSideMidItemDelete">
-                                        <img src="./assets/icon_cancel.png" alt="">
-                                    </div>
-                                    <span>ITEM NAME</span>
-                                    <span>1</span>
-                                </div>
-                                <div class="orderPageLeftSideMidItemBottom">
-                                    <div class="orderPageLeftSideMidToppings">
-                                        <span>(加料1)</span>
-                                        <span>(加料2)</span>
-                                        <span>(加料2)</span>
-                                    </div>
-                                    <span class="ordItemPr">$300</span>
-                                </div>
-                            </div> -->
                         </div>
-                        <!-- 這樣為一筆商品資料 -->
                     </div>
                     <!--  -->
                     <div id="ordToppingSec">
                         <div class="ordToppingSecSu">
                             <button class="ordFillBtn" id="ordSugar">糖度</button>
                             <div id="ordSugarAll">
-                                <div class="ordSugarItem Q100">全糖</div>
-                                <div class="ordSugarItem Q70">少糖</div>
-                                <div class="ordSugarItem Q50">半糖</div>
-                                <div class="ordSugarItem Q30">微糖</div>
-                                <div class="ordSugarItem Q0">無糖</div>
+                                <div class="ordSugarItem Q100"></div>
+                                <div class="ordSugarItem Q70"></div>
+                                <div class="ordSugarItem Q50"></div>
+                                <div class="ordSugarItem Q30"></div>
+                                <div class="ordSugarItem Q0"></div>
                             </div>
 
                         </div>
-                        <button class="ordFillBtn" id="ordIce">冰塊</button>
-                        <button class="ordFillBtn" id="ordFillItem">配料</button>
-                        <button class="ordFillBtn" id="ordSeasoning">調味</button>
+
+                        <div class="ordToppingSecIce">
+                            <button class="ordFillBtn" id="ordIce">冰塊</button>
+                            <div id="ordIceAll" style="display: none; text-align: center;">
+                                <div class="ordIceItem Q100"></div>
+                                <div class="ordIceItem Q70"></div>
+                                <div class="ordIceItem Q50"></div>
+                                <div class="ordIceItem Q30"></div>
+                                <div class="ordIceItem Q0"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="ordToppingSecAside">
+                            <button class="ordFillBtn" id="ordAside">配料</button>
+                            <div id="ordAsideAll" style="display: none; text-align: center;">
+                                <div class="ordAsideItem ItemA"></div>
+                                <div class="ordAsideItem ItemB"></div>
+                                <div class="ordAsideItem ItemC"></div>
+                                <div class="ordAsideItem ItemD"></div>
+                                <div class="ordAsideItem ItemE"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="ordToppingSecSeasoning">
+                            <button class="ordFillBtn" id="ordSeasoning">調味</button>
+                            <div id="ordSeasoningAll" style="display: none; text-align: center;">
+                                <div class="ordSeasoningItem Q100"></div>
+                                <div class="ordSeasoningItem Q50"></div>
+                                <div class="ordSeasoningItem Q0"></div>
+                            </div>
+
+                        </div>
+
                     </div>
                     <!--  -->
                 </div>
@@ -112,122 +123,49 @@
 
             <div id="orderPageRightside" class="col-8">
                 <div id="orderPageRightSideTop">
+
                     <div class="orderPageArrow col-1">
-                        <img src="./assets/Icon_arrowleft.png" alt="">
+                        <img id="orderPageArrowUL" style="display: none;" src="./assets/Icon_arrowleft.png" alt="">
                     </div>
 
                     <div class="col-10">
-                        <ul>
-                            <li>義式磚壓三明治</li>
-                            <li>輕食套餐</li>
-                            <li>漢堡</li>
-                            <li>甜點</li>
-                            <li>咖啡</li>
-                            <li>飲料</li>
+                        <ul class="ordNavList">
+                            <li id="ordSan">磚壓三明治</li>
+                            <li id="ordPas">義大利麵</li>
+                            <li id="ordHam">漢堡</li>
+                            <li id="ordMuf">瑪芬堡</li>
+                            <li id="ordSwe">甜點</li>
+                            <li id="ordCof">咖啡</li>
+                            <li id="ordDri" style="display: none;">飲料</li>
                         </ul>
+
                     </div>
 
                     <div class="orderPageArrow col-1">
-                        <img src="./assets/Icon_arrowright.png" alt="">
+                        <img id="orderPageArrowUR" style="display: none;" src="./assets/Icon_arrowright.png" alt="">
                     </div>
                 </div>
 
                 <div id="orderPageRightSideMid">
 
                     <div class="orderPageArrow col-1">
-                        <img src="./assets/Icon_arrowleft.png" alt="">
+                        <img id="orderPageArrowDL" style="display: none;" src="./assets/Icon_arrowleft.png" alt="">
                     </div>
+
 
                     <div id="orderPageItemDivAll" class="col-10">
 
-                        <div class="orderPageItemDiv">
+                        <!-- <div class="orderPageItemDiv">
                             <img src="./assets/sandwich1.jpg" alt="">
                             <div class="orderPageItemDivBottomBlack">
-                                <span>醬燒姑姑</span>
+                                <span>火腿起司</span>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="orderPageItemDiv">
-                            <img src="./assets/sandwich2.jpg" alt="">
-                            <div class="orderPageItemDivBottomBlack">
-                                <span>奶爸薯泥</span>
-                            </div>
-                        </div>
-
-                        <div class="orderPageItemDiv">
-                            <img src="./assets/sandwich3.jpg" alt="">
-                            <div class="orderPageItemDivBottomBlack">
-                                <span>青醬雞柳</span>
-                            </div>
-                        </div>
-
-                        <div class="orderPageItemDiv">
-                            <img src="./assets/sandwich1.jpg" alt="">
-                            <div class="orderPageItemDivBottomBlack">
-                                <span>舒巴大叔</span>
-                            </div>
-                        </div>
-
-                        <div class="orderPageItemDiv">
-                            <img src="./assets/sandwich2.jpg" alt="">
-                            <div class="orderPageItemDivBottomBlack">
-                                <span>番茄小丸子</span>
-                            </div>
-                        </div>
-
-                        <div class="orderPageItemDiv">
-                            <img src="./assets/sandwich3.jpg" alt="">
-                            <div class="orderPageItemDivBottomBlack">
-                                <span>紅燒牛柳</span>
-                            </div>
-                        </div>
-
-                        <div class="orderPageItemDiv">
-                            <img src="./assets/sandwich1.jpg" alt="">
-                            <div class="orderPageItemDivBottomBlack">
-                                <span>章魚嘴</span>
-                            </div>
-                        </div>
-
-                        <div class="orderPageItemDiv">
-                            <img src="./assets/sandwich2.jpg" alt="">
-                            <div class="orderPageItemDivBottomBlack">
-                                <span>綺夢的＿＿</span>
-                            </div>
-                        </div>
-
-                        <div class="orderPageItemDiv">
-                            <img src="./assets/sandwich3.jpg" alt="">
-                            <div class="orderPageItemDivBottomBlack">
-                                <span>班花特製</span>
-                            </div>
-                        </div>
-
-                        <div class="orderPageItemDiv">
-                            <img src="./assets/sandwich1.jpg" alt="">
-                            <div class="orderPageItemDivBottomBlack">
-                                <span>天龍聖品</span>
-                            </div>
-                        </div>
-
-                        <div class="orderPageItemDiv">
-                            <img src="./assets/sandwich2.jpg" alt="">
-                            <div class="orderPageItemDivBottomBlack">
-                                <span>彗星香蕉</span>
-                            </div>
-                        </div>
-
-
-                        <div class="orderPageItemDiv">
-                            <img src="./assets/sandwich3.jpg" alt="">
-                            <div class="orderPageItemDivBottomBlack">
-                                <span>極讚大腿</span>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="orderPageArrow col-1">
-                        <img src="./assets/Icon_arrowright.png" alt="">
+                        <img id="orderPageArrowDR" style="display: none;" src="./assets/Icon_arrowright.png" alt="">
                     </div>
 
                 </div>
@@ -248,9 +186,9 @@
                     <div class="col-2"></div>
 
                     <div class="col-3">
-                    <a href="./checkout.html">
-                        <button id="orderPageRightSideBottomBtn3">結帳</button>
-                    </a>
+                        <a href="./checkout.html">
+                            <button id="orderPageRightSideBottomBtn3">結帳</button>
+                        </a>
                     </div>
 
                     <div class="col-1"></div>

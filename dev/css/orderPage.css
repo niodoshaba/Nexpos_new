@@ -60,6 +60,10 @@ body {
     align-items: center; }
     #orderPageLeftSideMid #orderPageLeftSideMidItemAll .orderPageLeftSideMidItem {
       width: 100%; }
+      #orderPageLeftSideMid #orderPageLeftSideMidItemAll .orderPageLeftSideMidItem .ordItemCount {
+        font-size: 16px; }
+      #orderPageLeftSideMid #orderPageLeftSideMidItemAll .orderPageLeftSideMidItem .ordItemPr {
+        font-size: 22px; }
       #orderPageLeftSideMid #orderPageLeftSideMidItemAll .orderPageLeftSideMidItem .orderPageLeftSideMidItemTop.lightblue {
         transition: all 0.5s;
         background-color: rgba(178, 221, 234, 0.35); }
@@ -136,9 +140,13 @@ body {
     height: 15px;
     width: 75px;
     border-bottom: 1px solid #959595; }
+  #orderPageLeftSideBottom #orderPageLeftSideBottomTop span {
+    font-size: 16px; }
 
 #orderPageLeftSideBottom #orderPageLeftSideBottomBottom {
   margin-top: 25px; }
+  #orderPageLeftSideBottom #orderPageLeftSideBottomBottom span {
+    font-size: 24px; }
 
 #orderPageRightside {
   background-image: url("../assets/bg_dots.png");
@@ -148,19 +156,27 @@ body {
     display: flex;
     height: 10vh; }
     #orderPageRightside #orderPageRightSideTop div {
-      height: 100%; }
+      height: 100%;
+      padding: 0; }
       #orderPageRightside #orderPageRightSideTop div ul {
+        width: 100%;
         height: 100%;
         list-style-type: none;
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-start;
         padding: 0;
         margin-left: 0px;
-        align-items: center; }
+        align-items: center;
+        overflow: hidden; }
         #orderPageRightside #orderPageRightSideTop div ul li {
           font-size: 25px;
+          margin-right: 70px;
+          padding: 0;
           border-bottom: 3px solid #E98E89;
-          border-radius: 5px; }
+          border-radius: 5px;
+          text-align: center; }
+        #orderPageRightside #orderPageRightSideTop div ul li:last-child {
+          margin-right: 0px; }
     #orderPageRightside #orderPageRightSideTop .orderPageArrow {
       display: flex;
       justify-content: center;

@@ -10,14 +10,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/index.css">
 
 </head>
 
 <body>
-
+    <div class="loading">
+        <svg id="loading_svg" viewBox="0 0 193.22 148.84" data-llp-composed="true" class="lazy-line-painter">
+            <path class="cls-1" d="M77,210.79A5,5,0,0,1,74.78,212a13.19,13.19,0,0,1-3.5.41,12.24,12.24,0,0,1-3.86-.6,5.34,5.34,0,0,1-3-2.93L59,197.72c-.55-1.14-1-2.21-1.49-3.23s-.92-2.17-1.44-3.5l-.33.06c.15,2,.23,4,.25,6.06s0,4.09,0,6.07v8.55a15.54,15.54,0,0,1-1.85.33,18.57,18.57,0,0,1-2.45.17,12.41,12.41,0,0,1-2.15-.17A3.32,3.32,0,0,1,48,211.4a3.21,3.21,0,0,1-.94-1.35,6.34,6.34,0,0,1-.33-2.24V180.24a4.65,4.65,0,0,1,2.37-1.66,10.39,10.39,0,0,1,3.42-.55,12,12,0,0,1,3.89.63,5.28,5.28,0,0,1,3,2.9l5.52,11.14c.55,1.14,1.05,2.22,1.49,3.23s.92,2.18,1.43,3.5l.28-.05q-.22-3-.28-6c0-2,0-4,0-6v-8.93a13.42,13.42,0,0,1,1.85-.33,16.91,16.91,0,0,1,2.45-.17,6.64,6.64,0,0,1,3.7.85c.84.57,1.26,1.76,1.26,3.56Z" transform="translate(-45.23 -67.72)" data-llp-id="123-0" data-llp-duration="1500" data-llp-delay="0" fill-opacity="0" style="stroke-linecap: round;" data-llp-stroke-join="" data-llp-stroke-cap="round"/>
+            <path class="cls-1" d="M84.18,183.66a4.75,4.75,0,0,1,5.13-5.13h18.21a7,7,0,0,1,.69,1.6,7.18,7.18,0,0,1,.3,2.09,4,4,0,0,1-.91,3,3.3,3.3,0,0,1-2.4.88H93.56v5.13H106a6.63,6.63,0,0,1,.69,1.57,7,7,0,0,1,.31,2.07,4.11,4.11,0,0,1-.89,3,3.2,3.2,0,0,1-2.37.88H93.56v5.8h14.18a7.1,7.1,0,0,1,.69,1.59,7.3,7.3,0,0,1,.3,2.1,4.14,4.14,0,0,1-.91,3,3.28,3.28,0,0,1-2.4.91H89.31A4.76,4.76,0,0,1,84.18,207Z" transform="translate(-45.23 -67.72)" data-llp-id="123-1" data-llp-duration="1500" data-llp-delay="0" fill-opacity="0" style="stroke-linecap: round;" data-llp-stroke-join="" data-llp-stroke-cap="round"/>
+            <path class="cls-1" d="M113.31,182.61a7.45,7.45,0,0,1,.77-1.55,6.46,6.46,0,0,1,3-2.45,5.62,5.62,0,0,1,2.21-.41,5,5,0,0,1,2.81.79,9.57,9.57,0,0,1,2.48,2.74l4.3,6.56,6.35-9.38a6.36,6.36,0,0,1,1.24-.41,6.56,6.56,0,0,1,1.57-.2,6,6,0,0,1,4,1.22,3.74,3.74,0,0,1,1.43,3,4.85,4.85,0,0,1-.8,2.76c-.53.8-1.26,1.78-2.17,2.92l-5.69,6.95,9,12.85a5.52,5.52,0,0,1-1.91,3.23,6.07,6.07,0,0,1-3.94,1.18,4.68,4.68,0,0,1-2.76-.8,9.25,9.25,0,0,1-2.37-2.73l-4.47-7.06-7,10.48-.83.09-.77,0a7,7,0,0,1-4.63-1.27,4,4,0,0,1-1.49-3.14,5.47,5.47,0,0,1,.69-2.79,24.29,24.29,0,0,1,2-2.78l5.79-7.45Z" transform="translate(-45.23 -67.72)" data-llp-id="123-2" data-llp-duration="1500" data-llp-delay="0" fill-opacity="0" style="stroke-linecap: round;" data-llp-stroke-join="" data-llp-stroke-cap="round"/>
+            <path class="cls-2" d="M203.25,207.75,198,200.31a1.45,1.45,0,0,1-.12-1.5c.12-.24.26-.48.41-.72a6.46,6.46,0,0,1,3-2.45,5.62,5.62,0,0,1,2.21-.41,5,5,0,0,1,2.81.79,9.43,9.43,0,0,1,2.48,2.74l2.09,3.18a12.9,12.9,0,0,0,1.78-8.34,13,13,0,1,0-16.07,14.26A12.67,12.67,0,0,0,203.25,207.75Z" transform="translate(-45.23 -67.72)" data-llp-id="123-3" data-llp-duration="1500" data-llp-delay="0" fill-opacity="0" style="stroke-linecap: round;" data-llp-stroke-join="" data-llp-stroke-cap="round"/>
+            <path class="cls-2" d="M227.17,197.7c-1.17-.4-2.23-.81-3.19-1.22a9.6,9.6,0,0,1-2.46-1.49,6.08,6.08,0,0,1-1.61-2.09,6.73,6.73,0,0,1-.58-3,6.49,6.49,0,0,1,2.61-5.4c1.73-1.36,4.16-2,7.29-2a19.77,19.77,0,0,1,3.18.24,9.6,9.6,0,0,1,2.53.73,4.49,4.49,0,0,1,1.65,1.27,2.87,2.87,0,0,1,.59,1.81,3.16,3.16,0,0,1-.47,1.77,5.17,5.17,0,0,1-1.16,1.26,8.66,8.66,0,0,0-2.34-1,11.72,11.72,0,0,0-3.22-.42,5.36,5.36,0,0,0-2.63.5,1.45,1.45,0,0,0-.83,1.25,1.15,1.15,0,0,0,.52,1,5.3,5.3,0,0,0,1.55.69l2.1.68a15.19,15.19,0,0,1,5.75,3,6.49,6.49,0,0,1,2,5,6.62,6.62,0,0,1-2.67,5.47q-2.65,2.08-7.83,2.08a19.07,19.07,0,0,1-3.4-.29,10.5,10.5,0,0,1-2.74-.88,5.06,5.06,0,0,1-1.83-1.43,3.14,3.14,0,0,1-.66-2,3,3,0,0,1,.68-2,5.16,5.16,0,0,1,1.47-1.25,10.78,10.78,0,0,0,2.72,1.51,9.42,9.42,0,0,0,3.52.64,4.74,4.74,0,0,0,2.75-.6,1.71,1.71,0,0,0,.79-1.39,1.35,1.35,0,0,0-.64-1.21,8.37,8.37,0,0,0-1.78-.82Z" transform="translate(-45.23 -67.72)" data-llp-id="123-4" data-llp-duration="1500" data-llp-delay="0" fill-opacity="0" style="stroke-linecap: round;" data-llp-stroke-join="" data-llp-stroke-cap="round"/>
+            <path class="cls-3" d="M183,67.73c-21.75-.42-41.45,13.17-49.36,34.05-7.28,19.19-1.21,41.5,15.2,55.46a5.87,5.87,0,0,1,2.37,5c-.08,10.49-.23,21,.07,31.47A23.6,23.6,0,0,0,174,216.53c3.74.16,4.16-.22,4.16-4,0-12.59,0-25.18,0-37.77,0-4,1.27-5.37,5.19-5.62,27.58-1.71,47.8-22.44,48.69-49.9C233,92.1,210.19,68.25,183,67.73ZM168.53,209.18a17.93,17.93,0,0,1,.21-33.39c2.36-.85,3.29-.21,3.26,2.27-.05,4.85,0,9.69,0,14.54s-.05,9.47,0,14.21C172.05,209.49,171,210.09,168.53,209.18Zm10.54-46.29c-3.4,2.72-7.5,4.58-11.33,6.73-2.11,1.19-4.3,2.23-6.5,3.24a22.71,22.71,0,0,1-2.85,1,.37.37,0,0,1-.46-.25,12.64,12.64,0,0,1-.67-3c-.07-8.84,0-17.68,0-26.51,0-8,0-15.91,0-23.86.07-15.19,10.68-25.8,25.89-25.92q4.77,0,9.54,0a.36.36,0,0,1,.36.36v40.75a10.35,10.35,0,0,1-.13,1.67C191.38,146.76,186.65,156.83,179.07,162.89Zm17.56-2.62a13.32,13.32,0,0,1-2.84.88h0a2.08,2.08,0,0,1-2.23-2.6,1.75,1.75,0,0,1,.12-.32c1.79-4,3.9-7.91,5.5-12a37.83,37.83,0,0,0,1.73-7.73,10.36,10.36,0,0,0,.18-2.58V91.38h0c.09-2.37-1.48-3.26-3.64-3.25-5.63.05-11.29-.21-16.89.27-14.7,1.25-26.79,14.08-27.3,29-.32,9.15-.07,18.33-.17,27.49,0,0,0,.06,0,.09a2.41,2.41,0,0,1-4,1.67,2.81,2.81,0,0,1-.34-.35c-11.77-14.07-13.14-35.21-3.42-51.17A44.6,44.6,0,0,1,191.34,75c18.26,4.23,32.37,20,34.26,38.2C227.76,134,216,153.19,196.63,160.27Z" transform="translate(-45.23 -67.72)" data-llp-id="123-5" data-llp-duration="1500" data-llp-delay="0" fill-opacity="0" style="stroke-linecap: round;" data-llp-stroke-join="" data-llp-stroke-cap="round"/>
+        </svg>
+        <img id="loading_img" src="./assets/LOGO.svg">
+        <div class="fpCircle loadingball"></div>
+    </div>
+    <div class="fpClickBall"></div>
     <section class="fpHomepage1">
         <div class="container-fluid">
             <a class="fpLogo" href="index.html"></a>
@@ -26,7 +37,8 @@
                 <div class="col-5 fpSlogan">
                     <h1>最直覺的POS系統</h1>
                     <h1><span class="fpUnderline">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp操作更快速、點餐更方便</span></h1>
-                    <a href="login.html"><button class="fpBtn1">NEX POS</button></a>
+                    <a class="fpGoToLogin" href="login.html"><button class="fpBtn1">NEX POS</button></a>
+
                     <p>順應時代的潮流，POS系統也得跟著一起進化。</p>
                     <p>要簡單好用，更要強悍耐用。</p>
                     <p>還在找一套好用的POS系統？</p>
@@ -111,12 +123,15 @@
 
     </section>
 
-    <section class="fpHomepage3_1 section1">
+    <section class="fpHomepage3_1 section3_1">
         <div class="container">
 
             <div class="row fpFlowStep fpFlowStep1">
                 <div class="col fpParallaxWrapper">
-                    <div class="fpParent">
+                    <div class="fpChild_left">
+                        <img src="./assets/pos_img1.png">
+                    </div>
+                    <div class="fpParent_right">
                         <h2>更高的自訂性、更高的素質</h2>
                         <br>
                         <p>未出餐的訂單、已送餐的訂單
@@ -124,15 +139,12 @@
                             <br>透過自行定義的狀態顏色，餐桌畫面一目瞭然
                             <br>讓外場工作人員場控清楚明瞭
                         </p>
-                        <div class="fpChild">
-                            <img src="./assets/pos_img1.png">
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="row fpFlowStep fpFlowStep2">
                 <div class="col fpParallaxWrapper">
-                    <div class=" fpParent">
+                    <div class=" fpParent_left">
                         <h2>點餐太趕總是出錯？</h2>
                         <br>
                         <p>覺得手寫單再回櫃台 Key 還是太慢嗎?
@@ -140,7 +152,7 @@
                             <br>即使客人念了一串，也能流暢點餐不卡卡。
                             <br>桌邊點完廚房馬上收到單，內外場溝通零秒差；拿到桌邊點餐、快速調整口味、邊點餐邊確認。
                         </p>
-                        <div class=" fpChild">
+                        <div class=" fpChild_right">
                             <img src="./assets/pos_img2.png">
                         </div>
                     </div>
@@ -150,12 +162,15 @@
         </div>
     </section>
 
-    <section class="fpHomepage3_2 section2">
+    <section class="fpHomepage3_2 section3_2">
         <div class="container ">
 
             <div class="row fpFlowStep fpFlowStep3">
                 <div class="col fpParallaxWrapper">
-                    <div class="fpParent">
+                    <div class="fpChild_left">
+                        <img src="./assets/pos_img3.png">
+                    </div>
+                    <div class="fpParent_right">
                         <h2>輕鬆管理預約紀錄</h2>
                         <br>
                         <p>增加預約、查看預約紀錄
@@ -163,21 +178,18 @@
                             <br>收到預約紀錄馬上保留座位
                             <br>客人到店不用等直接入桌
                         </p>
-                        <div class="fpChild">
-                            <img src="./assets/pos_img3.png">
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="row fpFlowStep fpFlowStep4">
                 <div class="col fpParallaxWrapper">
-                    <div class="fpParent">
+                    <div class="fpParent_left">
                         <h2>將廚房運作管理得井井有條</h2>
                         <br>
                         <p>快、狠、準的出餐哲學。
                             <br>讓出餐員工妥善管理出餐部門更快更準，透過出餐管理系統檢視每個訂單，並查看已完成或未完成的訂單，出餐管理系統確保每項餐品均可新鮮送到顧客餐桌上。
                         </p>
-                        <div class="fpChild">
+                        <div class="fpChild_right">
                             <img src="./assets/pos_img4.png">
                         </div>
 
@@ -188,7 +200,7 @@
         </div>
     </section>
 
-    <section class="fpHomepage4 section3">
+    <section class="fpHomepage4">
         <div class="container-fluid">
             <div class="row no-gutters fpNumber">
 
@@ -248,17 +260,38 @@
         COPYRIGHT &copy; 2020 NEXPOS ALL RIGHT RESERVED
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"crossorigin="anonymous"></script>
+    <script src="../dev/js/lazy-line-painter-1.9.6.min.js"></script>
     <script src="../dev/js/animation.js"></script>
 
-    <!--seciton2頁籤 -->
+    <!-- ==========loading SVG ==========-->
+    <script>
+        (function() {
+            document.onreadystatechange = ()=>{
+                if (document.readyState === 'complete') {
+                    let el = document.querySelector('#loading_svg');
+                    let myAnimation = new LazyLinePainter(el,{
+                        "ease": "easeLinear",
+                        "strokeWidth": 1,
+                        "strokeOpacity": 1,
+                        "strokeColor": "7B7B7B",
+                        "strokeCap": "round",
+                        "delay": 300
+                    });
+                    myAnimation.paint();
+                }
+            }
+        }
+        )();
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('.loading').delay(4300).fadeOut();
+        })
+    </script>
+    <!--==========seciton2頁籤 ==========-->
     <script>
         $(function () {
             var showTab = 0;
@@ -277,6 +310,33 @@
                 this.blur();
             });
         });
+    </script>
+    <!-- =====section2的球進場 ======== -->
+    <script>
+         $('.fpHomepage2').one('mouseover', function(){
+            $('.fpCircle1').addClass('active');
+        })
+         $('.fpHomepage2').one('mouseover', function(){
+            $('.fpCircle2').addClass('active');
+        })
+        $('.fpHomepage2').one('mouseover', function(){
+            $('.fpCircle3').addClass('active');
+        })
+    </script>
+
+    <script>
+        $(function(){
+            $('.fpBtn1').on('click',function(e){
+            e.preventDefault();
+            })
+            $('.fpBtn1').click(function(){
+                $('.fpClickBall').addClass('active')
+                setTimeout(() => {
+                    location.href="./login.html"
+                }, 1000);
+                
+            });
+        })
     </script>
 
 </body>
