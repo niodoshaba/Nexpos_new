@@ -1,9 +1,7 @@
 window.addEventListener('load',function(){
 
 
-    let checkoutLeftSideMidItemTop = document.getElementsByClassName("checkoutLeftSideMidItemTop")
     let checkoutLeftSideMidItemTop = document.getElementsByClassName("checkoutLeftSideMidItemTop");
-    // let checkoutScrollbar = document.getElementsByClassName('checkoutScrollbar');
     let checkoutIfEachCheck = document.getElementById("checkoutIfEachCheck");
     let checkoutIfDiscount = document.getElementById("checkoutIfDiscount");
     let checkoutIfPoint = document.getElementById("checkoutIfPoint");
@@ -41,18 +39,18 @@ window.addEventListener('load',function(){
 
     let bonusRule = "消費500元累積1點，每300點可折抵1元";
     localStorage.setItem('bonusRule', JSON.stringify(bonusRule));
-     
+    
     function bonusRuleGetData(){
         let xhr = new XMLHttpRequest();
         xhr.onload = function(){
-            alert(xhr.readyState);
+            
             if(xhr.readyState == 4 && xhr.status == 200){
                 let result = xhr.responseText;
                 console.log(result);
                 return result;
             }
         }
-        xhr.open("post","../php/checkOut.php",true);
+        xhr.open("post","checkOut.php",true);
         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
         xhr.send(null);
     }
@@ -88,31 +86,35 @@ window.addEventListener('load',function(){
     
     let checkoutDiscountPrice = document.getElementById('checkoutDiscountPrice');
 
-
-    //立即函式 
-    //1. 計算總金額
-    (function checkOutSum(){
-        for(i=0;i<checkOutPrice.length;i++){
+    
+        //立即函式 
+        //1. 計算總金額
+        (function checkOutSum(){
+            for(i=0;i<checkOutPrice.length;i++){
             checkOutTotalPrice = checkOutTotalPrice+parseInt(checkOutPrice[i].innerText.substring(1, checkOutPrice[i].innerText.length));
-        }
-        checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkOutTotalPrice}</span>`;
-    })();
+            }
+            checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkOutTotalPrice}</span>`;
+        })();
     
-    //2. 暫時用立即函式，確認是否為會員
-    (function checkMem(){
-        //輸入手機查詢資料庫，確認是否為會員
+        //2. 暫時用立即函式，確認是否為會員
+        (function checkMem(){
+            //輸入手機查詢資料庫，確認是否為會員
 
-        cus.phone = dbCusData[0].CUS_PHONE;
-        cus.id = dbCusData[0].CUS_ID;
-        cus.point = parseInt(dbCusData[0].CUS_POINT); 
-    })();
+            cus.phone = dbCusData[0].CUS_PHONE;
+            cus.id = dbCusData[0].CUS_ID;
+            cus.point = parseInt(dbCusData[0].CUS_POINT); 
+        })();
 
-    //會員紅利 暫時串 
-    (function nowBonus(){
-        checkoutNowBouns.innerText = cus.point;
-    })();
+        //會員紅利 暫時串 
+        (function nowBonus(){
+            checkoutNowBouns.innerText = cus.point;
+        })();
+
     
-    console.log(cus);
+   
+    
+    
+    
     
     // 點擊訂單項目反藍
     for(i=0;i<checkoutLeftSideMidItemTop.length;i++){
@@ -243,30 +245,5 @@ window.addEventListener('load',function(){
 
        
     });
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //-----bonusRule為字串
-   
-
-   
-
-
        
-})
+});
