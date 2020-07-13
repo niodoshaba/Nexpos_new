@@ -6,6 +6,18 @@ window.onload = function () {
 
     // 購物車
     var ordProdCart = [];
+    // 購物車 On
+    var ordProdCartOn = [];
+    // 暫存購物車
+    var ordTempProdCart = [];
+    // 配料購物車
+    var ordSugarCart = [];
+    var ordIceCart = [];
+    var ordAsideCart = [];
+    var ordSeasoningCart = [];
+
+    // 測試比對訂單
+    var ordComparingOrderList = [];
 
     // 裝三明治容器
     var ordSanCart = [];
@@ -24,21 +36,8 @@ window.onload = function () {
 
 
 
-    // 購物車 On
-    var ordProdCartOn = [];
-    // 暫存購物車
-    var ordTempProdCart = [];
-
-    // 配料購物車
-    var ordSugarCart = [];
-    var ordIceCart = [];
-    var ordAsideCart = [];
-    var ordSeasoningCart = [];
-
-
     // 菜單區域
     var orderPageItemDivAll = document.getElementById("orderPageItemDivAll");
-
 
     var orderPageLeftSideMidItemAll = document.getElementById("orderPageLeftSideMidItemAll");
     var ordTotAmtShow = document.getElementById("ordTotAmtShow");
@@ -66,11 +65,18 @@ window.onload = function () {
     var orderPageRightSideBottomBtn2 = document.getElementById("orderPageRightSideBottomBtn2"); // 整單取消按鈕
     var orderPageRightSideBottomBtn3 = document.getElementById("orderPageRightSideBottomBtn3"); // 結帳按鈕
 
+    var ordPplPlus = document.getElementById("ordPplPlus"); // 加人數
+    var ordPplMinus = document.getElementById("ordPplMinus"); // 減人數
+    var ordPplAmt = document.getElementById("ordPplAmt"); // 顯示人數
+
+    var orderList = document.getElementById("orderList"); //訂單編號
+    var inOrOut = document.getElementById("inOrOut"); //內用外帶
+    var number = document.getElementById("number"); //桌號
+
     var orderPageArrowUR = document.getElementById("orderPageArrowUR"); // 種類欄位的右箭頭
     var orderPageArrowUL = document.getElementById("orderPageArrowUL"); // 種類欄位的左箭頭
     var orderPageArrowDL = document.getElementById("orderPageArrowDL"); // 品項的左箭頭
     var orderPageArrowDR = document.getElementById("orderPageArrowDR"); // 品項的右箭頭
-
 
     var ordSan = document.getElementById("ordSan"); // 商品類別（三明治）
     var ordPas = document.getElementById("ordPas"); // 商品類別（義大利麵）
@@ -81,21 +87,81 @@ window.onload = function () {
     var ordDri = document.getElementById("ordDri"); // 商品類別（飲料）
 
 
+    ordComparingOrderList
+
+    // var basicInfo;
+
     // =========================
 
-    // 接收訂單編號
-    var orderPageLeftSideTop = document.getElementById("orderPageLeftSideTop");
-    console.log("444", orderPageLeftSideTop.childNodes[1].innerHTML)
+    // 接收basicInfo資料
+    function ordReceiveBasicInfo() {
+        basicInfo = JSON.parse(localStorage.getItem("basicInfo"));
 
-    // function ordReceiveOrdNo() {
+        // 輸入訂單編號
+        orderList.innerHTML = basicInfo[0].orderList;
+        // 輸入內用外帶
+        if (basicInfo[0].inOrOut == 'in') {
+            inOrOut.innerHTML = "內用";
+        } else {
+            inOrOut.innerHTML = "外帶";
+        };
+        // 輸入桌號
+        number.innerHTML = basicInfo[0].number;
+    }
+    ordReceiveBasicInfo();
 
-    //     let ordNoInRecord = JSON.parse(localStorage.getItem("a01_info"));
-    //     ordNoShow = ordNoInRecord.ordno;
 
-    //     console.log("訂單編號", ordNoInRecord.ordno);
-    //     orderPageLeftSideTop.childNodes[1].innerHTML = `訂單編號：${ordNoShow}`;
-    // }
-    // ordReceiveOrdNo();
+    console.log("888", orderList.textContent);
+
+    if (basicInfo[0].orderList == orderList.textContent) {
+        console.log("888");
+    }
+
+
+    // 加減人數
+    function ordPplAdjust() {
+        let ordPplAmtShow = 0;
+
+        ordPplAmt.innerHTML = ordPplAmtShow;
+
+        ordPplPlus.addEventListener("click", function () {
+            ordPplAmtShow++;
+            ordPplAmt.innerHTML = ordPplAmtShow;
+            basicInfo[0].ppl = ordPplAmtShow;
+
+            ordSaveBasicInfo();
+            localStorage.setItem("ordSavePpl", JSON.stringify(ordPplAmtShow));
+
+
+        });
+        ordPplMinus.addEventListener("click", function () {
+            ordPplAmtShow--;
+            if (ordPplAmtShow < 0) {
+                ordPplAmtShow = 0;
+                ordPplAmt.innerHTML = ordPplAmtShow;
+                basicInfo[0].ppl = ordPplAmtShow;
+
+                ordSaveBasicInfo();
+                localStorage.setItem("ordSavePpl", JSON.stringify(ordPplAmtShow));
+
+            }
+            ordPplAmt.innerHTML = ordPplAmtShow;
+            basicInfo[0].ppl = ordPplAmtShow;
+
+            ordSaveBasicInfo();
+            localStorage.setItem("ordSavePpl", JSON.stringify(ordPplAmtShow));
+
+        });
+    }
+    ordPplAdjust();
+
+    // 抓回localstorage裡的人數
+    function ordReloadPpl() {
+        ordReloadPplAmt = JSON.parse(localStorage.getItem("ordSavePpl"));
+        ordPplAmt.innerHTML = ordReloadPplAmt;
+    };
+    ordReloadPpl();
+
 
     // =========================
 
@@ -472,7 +538,6 @@ window.onload = function () {
             orderPageRightSideBottomBtn2.style.backgroundColor = "#ccc";
             ordLoadProdInCartHist();
 
-            // var ordGetProd = JSON.parse(localStorage.getItem("ordSaveProdInCart"));
             let ordReloadHTML = '';
 
             orderPageLeftSideMidItemAll.innerHTML = " ";
@@ -505,8 +570,6 @@ window.onload = function () {
                                         </div> 
                                     </div>
                                 `;
-
-
                     } else {
                         ordReloadHTML += `
                             <div class="orderPageLeftSideMidItem" style="pointer-events:none; color:#ccc">
@@ -525,7 +588,6 @@ window.onload = function () {
                 }
                 orderPageLeftSideMidItemAll.innerHTML = ordReloadHTML;
 
-
                 // 把資訊存入購物車On中
                 ordAddProdItemToCartOn();
 
@@ -534,7 +596,6 @@ window.onload = function () {
 
                 // 計算金額
                 ordTotProdAmt();
-
             }
         }
     }
@@ -542,14 +603,13 @@ window.onload = function () {
 
 
 
-
-
     function ordAddToList() {
         orderPageItemDivAll.addEventListener("click", function () {
             // 點餐按鈕
             let ordAddToCart = document.querySelectorAll(".orderPageItemDiv");
-            let orderPageRightSideTop = document.getElementById("orderPageRightSideTop");
-
+            // let orderPageRightSideTop = document.getElementById("orderPageRightSideTop");
+            event.preventDefault();
+            event.stopImmediatePropagation();
 
             for (let i = 0; i < ordAddToCart.length; i++) {
                 ordAddToCart[i].addEventListener("click", function (e) {
@@ -561,14 +621,11 @@ window.onload = function () {
                     // 清空div
                     // 跑for迴圈
 
+                    let ordChoseNum = Number(this.childNodes[3].childNodes[1].id);
+
+
                     // 把被選中的商品加入購物車的陣列裡，並同步存到localStorage
-                    // console.log("090909090909", orderPageRightSideTop.childNodes[3].childNodes[1].childNodes[1].id);
-
-                    let ordChoseNum = Number(this.childNodes[3].childNodes[1].id)
-                    // console.log("ppppp", ordProdInfo)
-
                     ordAddProdItemToCart(ordProdInfo[ordChoseNum - 1]);
-
                     // 叫出暫存購物車的資料
                     ordLoadProdInTempCartHist();
 
@@ -635,8 +692,10 @@ window.onload = function () {
 
                     // 把localStorage裡存的配料資料撈出來
                     // ordGetToppingBack();
+
                 });
             };
+
         })
     }
     ordAddToList();
@@ -829,15 +888,26 @@ window.onload = function () {
 
     // 把新商品加進購物車
     function ordAddProdItemToCart(ordProdInfo) {
+
+
         ordProdInfo.status = 0; // 未出餐
         ordProdInfo.state = 0; // 後廚
-
         ordProdInfo.topping = []; // 加一個陣列紀錄配料
 
 
-        ordProdCart.push(ordProdInfo);
+        if (orderList.innerText == basicInfo[0].orderList) {
+            ordProdCart.push(ordProdInfo);
+            // 把點餐資訊加到basicInfo的item裡
+            basicInfo = JSON.parse(localStorage.getItem("basicInfo"));
+            basicInfo[0].item = ordProdCart;
 
-        ordSaveProdInCartHist();
+            console.log(orderList.innerText)
+            ordSaveBasicInfo();
+            ordSaveProdInCartHist();
+        } else {
+            console.log("483726104")
+        }
+
     };
 
 
@@ -846,7 +916,6 @@ window.onload = function () {
         for (let w = 0; w < ordGetProd.length; w++) {
             if (ordGetProd[w].status != 2) {
                 ordGetProd[w].status = 1; // 出餐
-
             }
         }
 
@@ -854,11 +923,16 @@ window.onload = function () {
         ordProdCartOn = ordGetProd;
         // 把資料存入購物車On的localStorage裡面
         ordSaveProdInCartOnHist();
-
         // 把資料從購物車On的localStorage裡面抓出來
         ordLoadProdInCartOnHist();
         // 讓購物車陣列裡的資料等於帶入狀態1的購物車On的資料
         ordProdCart = ordGetOnProd;
+
+
+        basicInfo = JSON.parse(localStorage.getItem("basicInfo"));
+        basicInfo[0].item = ordProdCart;
+        ordSaveBasicInfo();
+
         // 把資料存入購物車的localStorage裡面
         ordSaveProdInCartHist();
 
@@ -873,10 +947,6 @@ window.onload = function () {
         // 再把資料存進暫時購物車的localStorage
         ordSaveProdInTempCartHist();
     };
-
-
-
-
 
 
 
@@ -945,8 +1015,14 @@ window.onload = function () {
         ordTotProdAmt();
     });
 
+    // 結帳
     orderPageRightSideBottomBtn3.addEventListener("click", function () {
+        // 把左側餐點顯示清空
+        orderPageLeftSideMidItemAll.innerHTML = " ";
+
+        // 把點餐資訊輸入資料庫
         ordSentInfotoDb();
+
     })
 
     function ordSentInfotoDb() {
@@ -990,7 +1066,6 @@ window.onload = function () {
 
     // 把購物車資訊存進localStorage
     function ordSaveProdInCartHist() {
-        // ordReceiveOrdNo();
         localStorage.setItem("ordSaveProdInCart", JSON.stringify(ordProdCart));
     };
 
@@ -1003,6 +1078,18 @@ window.onload = function () {
     function ordSaveProdInCartOnHist() {
         localStorage.setItem("ordSaveProdInCartOnHist", JSON.stringify(ordProdCartOn));
     };
+
+    // 把basicInfo存進localStorage
+    function ordSaveBasicInfo() {
+        localStorage.setItem("basicInfo", JSON.stringify(basicInfo));
+    };
+
+
+
+
+
+
+
 
 
 
@@ -1025,37 +1112,9 @@ window.onload = function () {
 
 
 
-    // ========VueJs========
 
-    // 會報錯，先暫時拿掉
 
-    // new Vue({
-    //     el: "#orderPageLeftSideTop",
-    //     data: {
-    //         ordTabNo: "T001",
-    //         ordPplAmt: ""
 
-    //     },
-    //     methods: {
-    //         ordCalPplAmtPlus() {
-    //             this.ordPplAmt++;
-    //             localStorage.setItem('ordPplNum', this.ordPplAmt);
-
-    //         },
-    //         ordCalPplAmtMinus() {
-    //             this.ordPplAmt--;
-    //             if (this.ordPplAmt < 0) {
-    //                 this.ordPplAmt = 0;
-    //             }
-
-    //             localStorage.setItem('ordPplNum', this.ordPplAmt);
-    //         },
-    //         // ordGetPpl() {
-    //         //     this.ordPplAmt = localStorage.getItem("ordPplNum");
-    //         // }
-    //     },
-
-    // })
 
 }
 
