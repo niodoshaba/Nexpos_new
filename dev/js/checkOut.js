@@ -22,8 +22,11 @@ window.addEventListener('load',function(){
     let checkoutLeftSideBottomTop = document.getElementById('checkoutLeftSideBottomTop');
     
     let checkoutLeftSideTopBtn = document.getElementById('checkoutLeftSideTopBtn');
-    
+    //接從後端撈回的紅利規則
     let bonusRule = "";
+
+    //接會員點數
+    let cusPoint = 0;
 
     function bonusRuleGetData(){
         let xhr = new XMLHttpRequest();
@@ -50,7 +53,7 @@ window.addEventListener('load',function(){
             if(xhr.readyState == 4 && xhr.status == 200){
                 let phone = JSON.parse(xhr.responseText);
 
-                checkoutNowBouns.innerText = phone.CUS_POINT;
+                
                 if(phone == ""){
                     //查無此會員
                     checkoutLeftSideTopBtn.children[0].value = "無會員資料";
@@ -60,6 +63,8 @@ window.addEventListener('load',function(){
                 }else{
                     checkoutLeftSideTopBtn.children[1].style.display = "none";
                     checkoutLeftSideTopBtn.children[0].style.padding = "0";
+                    checkoutNowBouns.innerText = phone.CUS_POINT;
+                    cusPoint = phone.CUS_POINT;
                     if(phone.CUS_GEN == "男"){
                         checkoutLeftSideTopBtn.children[0].value = `${phone.CUS_LAST}先生您好`
                     }else{
@@ -202,7 +207,7 @@ window.addEventListener('load',function(){
         
         //欲折抵點數
         var getPoint = parseInt(checkoutGetPoint.value); //輸入的紅利點數(整數)
-        var bonusPoint = cus.point - getPoint;           //扣掉後剩餘的紅利點數(整數) -- 第一筆
+        var bonusPoint = cusPoint - getPoint;           //扣掉後剩餘的紅利點數(整數) -- 第一筆
 
         //取第一個品項的金額
         var firstItem = parseInt(checkOutPrice[0].innerText.substring(1, checkOutPrice[0].innerText.length));
@@ -228,13 +233,7 @@ window.addEventListener('load',function(){
           //紅利折抵金額 用第一筆品項去扣
           checkOutPrice[0].innerText = "$" + (firstItem - parseInt(getPoint/bonusExchange));
         }
-        //取得會員逾兌換的紅利點數
-        // //紅利規則
-        // bonusRule
-        //___點可換1元
         
-        //折抵金額
-        //checkoutDiscountPrice
 
        
     });
