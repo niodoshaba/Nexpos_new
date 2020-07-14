@@ -23,14 +23,15 @@ window.addEventListener('load',function(){
     
     let checkoutLeftSideTopBtn = document.getElementById('checkoutLeftSideTopBtn');
     
+    let bonusRule = "";
+
     function bonusRuleGetData(){
         let xhr = new XMLHttpRequest();
         xhr.onload = function(){
             
             if(xhr.readyState == 4 && xhr.status == 200){
                 let result = xhr.responseText;
-                console.log(result);
-                return result;
+                bonusRule = result;
             }
         }
         xhr.open("post","../dev/js/checkOut.php",true);
@@ -78,7 +79,7 @@ window.addEventListener('load',function(){
 
     //-------------------------- 紅利相關 --------------------------
     //取得暫存區裡的紅利規則
-    bonusRule = localStorage.getItem('bonusRule');
+    
     let bounsCom = parseInt(bonusRule.substring(bonusRule.indexOf('費')+1, bonusRule.indexOf('元')));
     let bonusExchange = parseInt(bonusRule.substring(bonusRule.indexOf('每')+1,bonusRule.lastIndexOf('點')));
 
