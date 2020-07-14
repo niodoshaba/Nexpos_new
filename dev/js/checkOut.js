@@ -87,8 +87,8 @@ window.addEventListener('load',function(){
     
     let bounsCom = parseInt(bonusRule.substring(bonusRule.indexOf('費')+1, bonusRule.indexOf('元')));
     let bonusExchange = parseInt(bonusRule.substring(bonusRule.indexOf('每')+1,bonusRule.lastIndexOf('點')));
-
-    
+    console.log(bounsCom);
+    console.log(bonusExchange);
     //let bonusRule = "消費500元累積1點，每300點可折抵1元";
     
     //輸入紅利點數
@@ -211,7 +211,7 @@ window.addEventListener('load',function(){
 
         //取第一個品項的金額
         var firstItem = parseInt(checkOutPrice[0].innerText.substring(1, checkOutPrice[0].innerText.length));
-
+       
 
         //會員有的紅利點數 - 會員逾兌換的紅利點數
         if(bonusPoint>0){   //可兌換
