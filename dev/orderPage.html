@@ -17,22 +17,26 @@
             <div id="orderPageLeftSide" class="col-4">
                 <a id="ordBackToTable" href="tabShow.html"><img src="./assets/checkout_back.png" alt=""></a>
                 <div id="orderPageLeftSideTop" class="row no-gutters">
-                    <span class="col-6">訂單編號：{{ordNo}}</span>
                     <span class="col-6">
-                        內/外
+                        訂單編號：
+                        <span id="orderList"></span>
                     </span>
+                    <!-- 內用外帶 -->
+                    <span class="col-6" id="inOrOut"></span>
                     <br>
                     <span class="col-6">
-                        桌號： <input type="text" v-model="ordTabNo">
+                        桌號：
+                        <span id="number"></span>
                     </span>
-                    <span class="col-6">
+                    <span class=" col-6">
                         人數：
                         <div>
-                            <img src="./assets/Icon-minus.png" alt="" @click="ordCalPplAmtMinus">
+                            <img src="./assets/Icon-minus.png" alt="" @click="ordCalPplAmtMinus" id="ordPplMinus">
                         </div>
-                        <input type="text" v-model="ordPplAmt">
+                        <!-- 人數 -->
+                        <span class="col-6" id="ordPplAmt"></span>
                         <div>
-                            <img src="./assets/Icon-plus.png" alt="" @click="ordCalPplAmtPlus">
+                            <img src="./assets/Icon-plus.png" alt="" @click="ordCalPplAmtPlus" id="ordPplPlus">
                         </div>
                     </span>
                 </div>

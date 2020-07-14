@@ -2,27 +2,28 @@
 		
 	<style>
 		/* 整個日曆 */
-		#S_calendarAll{
+		/* 整個日曆 */
+		.S_calendarAll{
 			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 			position: absolute;
-			top: 500px;
-			right: 30%;
-			width: 13%;
+			width:15%;
+			top:20%;
+			right:20%;
 		}
 
 	</style>
 <!--放到html上方 可調整位置大小-->
 
-		<div id="S_calendarAll">
-			<div class="yearPickScrollBar" id="yearCalendarSelect"></div>
-			<div class="S_calendarHeader">
-				<button class="S_calendarTopBtn" calendarToggle="previous"> < </button>
+			<div class="S_calendarAll" style="display:none">
+				<div class="yearPickScrollBar" id="yearCalendarSelect"></div>
+				<div class="S_calendarHeader">
+					<button type="button" class="S_calendarTopBtn" calendarToggle="previous"> < </button>
 
-				<div class="S_calendarHeaderTop" calendarLabel="month"></div>
+					<div class="S_calendarHeaderTop" calendarLabel="month"></div>
 
-				<button class="S_calendarTopBtn" calendarToggle="next"> > </button>
-			</div>
-			<div class="S_calendarWeek">
+					<button type="button" class="S_calendarTopBtn" calendarToggle="next"> > </button>
+				</div>
+				<div class="S_calendarWeek">
 				<span>一</span>
 				<span>二</span>
 				<span>三</span>
@@ -30,14 +31,12 @@
 				<span>五</span>
 				<span>六</span>
 				<span>日</span>
+				</div>
+				<div class="S_calendarDay" calendarArea="month"></div>
 			</div>
-			<div class="S_calendarDay" calendarArea="month"></div>
-		</div>
 
-		<p class="result" style="position: absolute;top:50%;right: 50%;"> <!--這塊是輸出日期的地方,class的result必須 style隨便改-->
-			Date picked : 
-			<span calendarLabel="picked" id="calendarPickDate"></span> <!--這裡是要填入日期的地方,calendarLabel="picked" id="calendarPickDate"都是必須-->
-		</p>
+			<input calendarLabel="picked" class="calendarPickDate"></input> <!--這裡是要填入日期的地方,calendarLabel="picked" class="calendarPickDate"都是必須-->
+
 
 <!--放到html下方-->
 		<script src="../dev/js/calendarSmall.js"></script>
@@ -47,6 +46,8 @@
 				Calendar.init({
             disablePastDays: true
         });
+
+		
 
 			 })
 		</script>

@@ -1,5 +1,5 @@
 /* 整個日曆 */
-#S_calendarAll{
+.S_calendarAll{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: absolute;
     top: 100px;
@@ -7,7 +7,7 @@
     width: 13%;
 }
 /* 標頭相關 */
-#S_calendarAll .S_calendarHeader {
+.S_calendarAll .S_calendarHeader {
     font-size: 25px;
     align-items: center;
     display: flex;
@@ -16,7 +16,7 @@
     margin: 10px auto;
     cursor: pointer;
 }
-#S_calendarAll .S_calendarHeaderTop {
+.S_calendarAll .S_calendarHeaderTop {
     /* font-weight: bold; */
     text-align: center;
     width: 100%;
@@ -24,7 +24,7 @@
     /* margin: 0px 15px; */
 }
 /* 兩顆箭頭 */
-#S_calendarAll .S_calendarTopBtn {
+.S_calendarAll .S_calendarTopBtn {
 
     background-color: #fff;
     border: none;
@@ -33,25 +33,25 @@
     cursor: pointer;
 }
 
-#S_calendarAll .S_calendarWeek {
+.S_calendarAll .S_calendarWeek {
     display: flex;
     justify-content: space-around;
     margin: 5px;
   }
   
-  #S_calendarAll .S_calendarWeek span {
+  .S_calendarAll .S_calendarWeek span {
     font-size: 16px;
     /* font-weight: bold; */
     text-align: center;
   }
 /* 日期文字相關 */
-#S_calendarAll .S_calendarDay {
+.S_calendarAll .S_calendarDay {
     /* background-color: ; */
     display: flex;
     flex-wrap: wrap;
   }
 
-#S_calendarAll .S_calendarDate {  
+.S_calendarAll .S_calendarDate {  
     box-sizing: border-box;
     align-items: center;
     background-color: #fff;
@@ -63,10 +63,10 @@
     padding: 5px 0;
     font-size: 14px;
 }
-#S_calendarAll .S_calendarDate span{  
+.S_calendarAll .S_calendarDate span{  
     font-size: 14px;
 }
-#S_calendarAll .calendarDate--selected {
+.S_calendarAll .calendarDate--selected {
     border: 2px solid #b2ddea;
     border-radius: 10px;
   }
