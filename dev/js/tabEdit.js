@@ -49,7 +49,7 @@ function loadTabStatus(){
     }
     
   }
-  xhr.open("post","../php/loadTabStatusColor.php",false);
+  xhr.open("post","../dev/js/loadTabStatusColor.php",false);
   xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
   xhr.send(null);        
 }
@@ -269,7 +269,7 @@ function tabEditSave(tabData){
     }
     
   }
-  xhr.open("post","../php/tabSpecSaveToDB.php",true);
+  xhr.open("post","../dev/js/tabSpecSaveToDB.php",true);
   xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
   // xhr.send("tabData=" + tabData);
   xhr.send(`tabData=${tabData}`);        
