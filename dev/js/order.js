@@ -93,12 +93,27 @@ window.onload = function () {
 
     // =========================
 
+    let ordIsOrderList = ordComparingOrderList.includes(orderList.textContent)
+
+    console.log("888", orderList.textContent);
+
+    console.log("比對不出來啊啊啊", ordIsOrderList);
+
+    if (ordIsOrderList == true) {
+        console.log("888");
+    } else {
+        console.log("029029342094023");
+    }
+
+
     // 接收basicInfo資料
     function ordReceiveBasicInfo() {
         basicInfo = JSON.parse(localStorage.getItem("basicInfo"));
 
         // 輸入訂單編號
         orderList.innerHTML = basicInfo[0].orderList;
+        ordComparingOrderList.push(basicInfo[0].orderList);
+
         // 輸入內用外帶
         if (basicInfo[0].inOrOut == 'in') {
             inOrOut.innerHTML = "內用";
@@ -110,12 +125,6 @@ window.onload = function () {
     }
     ordReceiveBasicInfo();
 
-
-    console.log("888", orderList.textContent);
-
-    if (basicInfo[0].orderList == orderList.textContent) {
-        console.log("888");
-    }
 
 
     // 加減人數
@@ -341,8 +350,6 @@ window.onload = function () {
     }
     ordHamShow();
 
-
-
     // call ajax(mufInfo)
     function ordReceiveMufInfo() {
         localStorage.setItem("ordSaveMufInfo", JSON.stringify(ordMufCart));
@@ -362,7 +369,6 @@ window.onload = function () {
         }
     }
 
-
     function ordMufShow() {
         ordMuf.addEventListener("click", function () {
             ordReceiveMufInfo();
@@ -371,8 +377,6 @@ window.onload = function () {
         })
     }
     ordMufShow();
-
-
 
     // call ajax(sweInfo)
     function ordReceiveSweInfo() {
@@ -529,7 +533,6 @@ window.onload = function () {
     ordReceiveToppingInfo();
 
 
-
     // 當頁面重新整理的時候，已經存在localStorage的資料會被重新撈出與印在頁面上
     function ordReload() {
 
@@ -633,10 +636,21 @@ window.onload = function () {
                     if (ordGetTempProd != null) {
 
                         let ordReloadHTML = '';
+                        // let ordDisCount;
 
                         // 以暫存的購物車的長度為基準，從此之後開始新增商品（因為點選完商品之後資料就會進入暫存購物車，所以只有第一次暫存購物車是null，之後都會跑這邊的function，且因為購物車的資訊比暫存購物車的資訊更早進去，所以兩者永遠相差一）
                         for (let k = ordGetTempProd.length; k < ordProdCart.length; k++) {
+                            let ordDisCount = Number(ordProdCart[k].before);
+                            console.log("紅色？", ordDisCount)
+                            console.log("jiejoejo色？", typeof (Number(ordProdCart[k].PRO_ITEM_PRICE)))
+
+
+                            if (ordDisCount > Number(ordProdCart[k].PRO_ITEM_PRICE)) {
+                                ordDisCount = "color: red;"
+                            };
+                            console.log("紅色？", ordDisCount)
                             ordReloadHTML += `
+
                                 <div class="orderPageLeftSideMidItem">
                                     <div class="orderPageLeftSideMidItemTop">
                                         <div class="orderPageLeftSideMidItemDelete">
@@ -647,7 +661,7 @@ window.onload = function () {
                                     </div>
                                     <div class="orderPageLeftSideMidItemBottom">
                                         <div class="orderPageLeftSideMidToppings" data-sec=${k}></div>
-                                        <span class="ordItemPr" data-itempr=${ordProdCart[k].PRO_ITEM_PRICE}>$${ordProdCart[k].PRO_ITEM_PRICE}</span>
+                                        <span class="ordItemPr" data-itempr=${ordProdCart[k].PRO_ITEM_PRICE} style = "${ordDisCount}">$${ordProdCart[k].PRO_ITEM_PRICE}</span>
                                     </div> 
                                 </div>
                             `;
@@ -660,6 +674,14 @@ window.onload = function () {
 
                         // 動態新增標籤與data-set
                         for (let k = 0; k < ordProdCart.length; k++) {
+                            let ordDisCount = Number(ordProdCart[k].before);
+
+                            if (ordDisCount > Number(ordProdCart[k].PRO_ITEM_PRICE)) {
+                                ordDisCount = "color: red;"
+                            };
+                            // console.log("紅色？", ordDisCount > parseInt(ordProdCart[k].PRO_ITEM_PRICE))
+
+
                             ordHTML += `
                                 <div class="orderPageLeftSideMidItem">
                                     <div class="orderPageLeftSideMidItemTop">
@@ -671,7 +693,7 @@ window.onload = function () {
                                     </div>
                                     <div class="orderPageLeftSideMidItemBottom">
                                         <div class="orderPageLeftSideMidToppings" data-sec=${k}></div>
-                                        <span class="ordItemPr" data-itempr=${ordProdCart[k].PRO_ITEM_PRICE}>$${ordProdCart[k].PRO_ITEM_PRICE}</span>
+                                        <span class="ordItemPr" data-itempr=${ordProdCart[k].PRO_ITEM_PRICE} style = "${ordDisCount}">$${ordProdCart[k].PRO_ITEM_PRICE}</span>
                                     </div> 
                                 </div>
                             `;
@@ -1088,12 +1110,6 @@ window.onload = function () {
 
 
 
-
-
-
-
-
-
     // 把購物車資訊從localStorage裡抓出來
     function ordLoadProdInCartHist() {
         ordGetProd = JSON.parse(localStorage.getItem("ordSaveProdInCart"));
@@ -1108,12 +1124,6 @@ window.onload = function () {
     function ordLoadProdInCartOnHist() {
         ordGetOnProd = JSON.parse(localStorage.getItem("ordSaveProdInCartOnHist"));
     };
-
-
-
-
-
-
 
 
 }
