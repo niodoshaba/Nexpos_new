@@ -240,7 +240,7 @@ window.onload = function () {
         for (let g = 0; g < ordSanCart.length - 1; g++) {
             // 渲染商品進HTML頁面
             ordProdItemDiv = `<div class="orderPageItemDiv">
-                                            <img src="./assets/sandwich1.jpg" alt="">
+                                            <img src="./assets/${ordSanCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordSanCart[g].PRO_ITEM_NO}">${ordSanCart[g].PRO_ITEM_NAME}</span>
                                             </div>
@@ -263,7 +263,7 @@ window.onload = function () {
             for (let g = ordSanCart.length - 1; g < ordSanCart.length; g++) {
                 // 渲染商品進HTML頁面
                 ordProdItemDiv = `<div class="orderPageItemDiv">
-                                        <img src="./assets/sandwich1.jpg" alt="">
+                                        <img src="./assets/${ordSanCart[g].PRO_ITEM_NO}.jpg" alt="">
                                         <div class="orderPageItemDivBottomBlack">
                                             <span class="ordProdName" id="${ordSanCart[g].PRO_ITEM_NO}">${ordSanCart[g].PRO_ITEM_NAME}</span>
                                         </div>
@@ -300,7 +300,7 @@ window.onload = function () {
             // 渲染商品進HTML頁面
 
             ordProdItemDiv = `<div class="orderPageItemDiv">
-                                            <img src="./assets/sandwich1.jpg" alt="">
+                                            <img src="./assets/${ordPasCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordPasCart[g].PRO_ITEM_NO}">${ordPasCart[g].PRO_ITEM_NAME}</span>
                                             </div>
@@ -329,7 +329,7 @@ window.onload = function () {
             // 渲染商品進HTML頁面
 
             ordProdItemDiv = `<div class="orderPageItemDiv">
-                                            <img src="./assets/sandwich1.jpg" alt="">
+                                            <img src="./assets/${ordHamCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordHamCart[g].PRO_ITEM_NO}">${ordHamCart[g].PRO_ITEM_NAME}</span>
                                             </div>
@@ -361,7 +361,7 @@ window.onload = function () {
             // 渲染商品進HTML頁面
 
             ordProdItemDiv = `<div class="orderPageItemDiv">
-                                            <img src="./assets/sandwich1.jpg" alt="">
+                                            <img src="./assets/${ordMufCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordMufCart[g].PRO_ITEM_NO}">${ordMufCart[g].PRO_ITEM_NAME}</span>
                                             </div>
@@ -388,7 +388,7 @@ window.onload = function () {
         for (let g = 0; g < ordSweCart.length; g++) {
             // 渲染商品進HTML頁面
             ordProdItemDiv = `<div class="orderPageItemDiv">
-                                            <img src="./assets/sandwich1.jpg" alt="">
+                                            <img src="./assets/${ordSweCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordSweCart[g].PRO_ITEM_NO}">${ordSweCart[g].PRO_ITEM_NAME}</span>
                                             </div>
@@ -419,7 +419,7 @@ window.onload = function () {
             // 渲染商品進HTML頁面
 
             ordProdItemDiv = `<div class="orderPageItemDiv">
-                                            <img src="./assets/sandwich1.jpg" alt="">
+                                            <img src="./assets/${ordCofCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordCofCart[g].PRO_ITEM_NO}">${ordCofCart[g].PRO_ITEM_NAME}</span>
                                             </div>
@@ -450,7 +450,7 @@ window.onload = function () {
             // 渲染商品進HTML頁面
 
             ordProdItemDiv = `<div class="orderPageItemDiv">
-                                            <img src="./assets/sandwich1.jpg" alt="">
+                                            <img src="./assets/${ordDriCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordDriCart[g].PRO_ITEM_NO}">${ordDriCart[g].PRO_ITEM_NAME}</span>
                                             </div>
