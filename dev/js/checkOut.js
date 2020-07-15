@@ -23,10 +23,10 @@ window.addEventListener('load',function(){
     
     let checkoutLeftSideTopBtn = document.getElementById('checkoutLeftSideTopBtn');
     //接從後端撈回的紅利規則
-    let bonusRule = "";
+    // let bonusRule = "";
 
     //接會員點數
-    let cusPoint = 0;
+    // let cusPoint = 0;
 
     function bonusRuleGetData(){
         let xhr = new XMLHttpRequest();
@@ -35,6 +35,7 @@ window.addEventListener('load',function(){
             if(xhr.readyState == 4 && xhr.status == 200){
                 let result = xhr.responseText;
                 bonusRule = result;
+                console.log(bonusRule);
             }
         }
         xhr.open("post","../dev/js/checkOut.php",true);
@@ -84,7 +85,7 @@ window.addEventListener('load',function(){
 
     //-------------------------- 紅利相關 --------------------------
     //取得暫存區裡的紅利規則
-    
+    // console.log(bonusRule);
     let bounsCom = parseInt(bonusRule.substring(bonusRule.indexOf('費')+1, bonusRule.indexOf('元')));
     let bonusExchange = parseInt(bonusRule.substring(bonusRule.indexOf('每')+1,bonusRule.lastIndexOf('點')));
     console.log(bounsCom);
@@ -203,6 +204,7 @@ window.addEventListener('load',function(){
 
     //----- 紅利 -----
     //紅利折點
+    
     checkoutGetPoint.addEventListener('change',function(){
         
         //欲折抵點數
