@@ -35,10 +35,10 @@ window.addEventListener('load',function(){
             if(xhr.readyState == 4 && xhr.status == 200){
                 let result = xhr.responseText;
                 bonusRule = result;
-                console.log(bonusRule);
+                // console.log(bonusRule);
             }
         }
-        xhr.open("post","../dev/js/checkOut.php",true);
+        xhr.open("post","../dev/js/checkOut.php",false);
         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
         xhr.send(null);
         
@@ -53,7 +53,7 @@ window.addEventListener('load',function(){
             console.log(xhr.readyState);
             if(xhr.readyState == 4 && xhr.status == 200){
                 let phone = JSON.parse(xhr.responseText);
-
+                
                 
                 if(phone == ""){
                     //查無此會員
@@ -84,8 +84,6 @@ window.addEventListener('load',function(){
     }
 
     //-------------------------- 紅利相關 --------------------------
-    //取得暫存區裡的紅利規則
-    // console.log(bonusRule);
     let bounsCom = parseInt(bonusRule.substring(bonusRule.indexOf('費')+1, bonusRule.indexOf('元')));
     let bonusExchange = parseInt(bonusRule.substring(bonusRule.indexOf('每')+1,bonusRule.lastIndexOf('點')));
     console.log(bounsCom);
