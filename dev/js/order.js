@@ -15,9 +15,9 @@ window.onload = function () {
     var ordIceCart = [];
     var ordAsideCart = [];
     var ordSeasoningCart = [];
+    // 裝有basicInfo的購物車
+    var ordProdCartWithBasicInfo = [];
 
-    // 測試比對訂單
-    var ordComparingOrderList = [];
 
     // 裝三明治容器
     var ordSanCart = [];
@@ -72,9 +72,6 @@ window.onload = function () {
     var inOrOut = document.getElementById("inOrOut"); //內用外帶
     var number = document.getElementById("number"); //桌號
 
-
-    // var orderPageArrowUR = document.getElementById("orderPageArrowUR"); // 種類欄位的右箭頭
-    // var orderPageArrowUL = document.getElementById("orderPageArrowUL"); // 種類欄位的左箭頭
     var orderPageArrowDL = document.getElementById("orderPageArrowDL"); // 品項的左箭頭
     var orderPageArrowDR = document.getElementById("orderPageArrowDR"); // 品項的右箭頭
 
@@ -87,18 +84,22 @@ window.onload = function () {
     var ordDri = document.getElementById("ordDri"); // 商品類別（飲料）
 
     // =========================
+
     // 把basicInfo存進localStorage
-    // function ordSaveBasicInfo() {
-    //     localStorage.setItem("basicInfo", JSON.stringify(basicInfoGet));
-    // };
+    function ordSaveBasicInfo() {
+        localStorage.setItem("basicInfo", JSON.stringify(basicInfoGet));
+    };
+
+    // 把basicInfo從localStorage裡抓出來
     function ordLoadBasicInfo() {
         basicInfoGet = JSON.parse(localStorage.getItem("basicInfo"));
     }
     ordLoadBasicInfo();
-    var ordList = basicInfoGet[0].orderList;
 
 
-    let ordProdCartWithBasicInfo = []; // 裝有basicInfo的購物車
+
+    var ordList = basicInfoGet[0].orderList;// 訂單編號
+
 
 
 
@@ -110,8 +111,6 @@ window.onload = function () {
         // 把basicInfo的資料先推入購物車陣列
         ordProdCartWithBasicInfo.push(basicInfoGet[0]);
         localStorage.setItem("ordProdCartWithBasicInfo", JSON.stringify(ordProdCartWithBasicInfo));
-
-
 
         // 輸入訂單編號
         orderList.innerHTML = basicInfoGet[0].orderList;
@@ -125,7 +124,6 @@ window.onload = function () {
         // 輸入桌號
         number.innerHTML = basicInfoGet[0].number;
 
-        // ordSperateOrder();
     };
     ordReceiveBasicInfo();
 
@@ -136,7 +134,7 @@ window.onload = function () {
     function ordPplAdjust() {
         let ordPplAmtShow = 0;
 
-        ordPplAmt.innerHTML = ordPplAmtShow;
+        // ordPplAmt.innerHTML = ordPplAmtShow;
 
         ordPplPlus.addEventListener("click", function () {
             ordPplAmtShow++;
@@ -144,7 +142,9 @@ window.onload = function () {
             basicInfoGet[0].ppl = ordPplAmtShow;
 
             ordSaveBasicInfo();
-            localStorage.setItem("ordSavePpl", JSON.stringify(ordPplAmtShow));
+            localStorage.setItem(`ordSavePpl_${ordList}`, JSON.stringify(ordPplAmtShow));
+
+
         });
         ordPplMinus.addEventListener("click", function () {
             ordPplAmtShow--;
@@ -154,28 +154,31 @@ window.onload = function () {
                 basicInfoGet[0].ppl = ordPplAmtShow;
 
                 ordSaveBasicInfo();
-                localStorage.setItem("ordSavePpl", JSON.stringify(ordPplAmtShow));
-            }
+                localStorage.setItem(`ordSavePpl_${ordList}`, JSON.stringify(ordPplAmtShow));
+            };
             ordPplAmt.innerHTML = ordPplAmtShow;
             basicInfoGet[0].ppl = ordPplAmtShow;
 
             ordSaveBasicInfo();
-            localStorage.setItem("ordSavePpl", JSON.stringify(ordPplAmtShow));
+            localStorage.setItem(`ordSavePpl_${ordList}`, JSON.stringify(ordPplAmtShow));
         });
-    }
+    };
     ordPplAdjust();
 
     // 抓回localstorage裡的人數
     function ordReloadPpl() {
-        ordReloadPplAmt = JSON.parse(localStorage.getItem("ordSavePpl"));
+        ordReloadPplAmt = JSON.parse(localStorage.getItem(`ordSavePpl_${ordList}`));
         ordPplAmt.innerHTML = ordReloadPplAmt;
+
+        // 把人數放進basicInfo的ppl裡面
+        basicInfoGet[0].ppl = ordReloadPplAmt;
+
+        ordSaveBasicInfo();
     };
     ordReloadPpl();
 
 
     // =========================
-
-
 
 
     // call ajax(all prodInfo)
@@ -215,15 +218,12 @@ window.onload = function () {
                         ordCofCart.push(ordProdInfo[g]);
                     } else if (ordProdInfo[g].PRO_CATA_NO == 7) {
                         ordDriCart.push(ordProdInfo[g]);
-                    }
-                }
-            }
-        }
-    }
+                    };
+                };
+            };
+        };
+    };
     ordReceiveProdInfo();
-
-
-    console.log("333333", ordPasCart);
 
 
     // call ajax(sanInfo)
@@ -238,16 +238,21 @@ window.onload = function () {
 
         // looping through the data 把從資料庫抓出來的商品品項加到HTML頁面上
         for (let g = 0; g < ordSanCart.length - 1; g++) {
+            let ordDisCount = Number(ordSanCart[g].before);
+            // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
+            if (ordDisCount > Number(ordSanCart[g].PRO_ITEM_PRICE)) {
+                // 讓變數帶入css指令，讓他價錢變色
+                ordDisCount = "border: 5px solid #67A8CE; Box-sizing: border-box;"
+            };
             // 渲染商品進HTML頁面
-            ordProdItemDiv = `<div class="orderPageItemDiv">
+            ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
                                             <img src="./assets/${ordSanCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordSanCart[g].PRO_ITEM_NO}">${ordSanCart[g].PRO_ITEM_NAME}</span>
                                             </div>
                                         </div>`;
-
             orderPageItemDivAll.insertAdjacentHTML("beforeend", ordProdItemDiv);
-        }
+        };
     };
     ordReceiveSanInfo();
 
@@ -268,17 +273,16 @@ window.onload = function () {
                                             <span class="ordProdName" id="${ordSanCart[g].PRO_ITEM_NO}">${ordSanCart[g].PRO_ITEM_NAME}</span>
                                         </div>
                                     </div>`;
-            }
+            };
             orderPageItemDivAll.insertAdjacentHTML("beforeend", ordProdItemDiv);
         });
-
         // 點擊左側按鈕可以回到一開始的default點餐
         orderPageArrowDL.addEventListener("click", function () {
             orderPageArrowDL.style.display = "none";
             orderPageArrowDR.style.display = "block";
             ordReceiveSanInfo();
         });
-    }
+    };
 
     ordSanShow();
     ordSan.addEventListener("click", function () {
@@ -286,8 +290,6 @@ window.onload = function () {
         orderPageArrowDL.style.display = "none";
         orderPageArrowDR.style.display = "block";
     });
-
-
 
 
     // call ajax(pasInfo)
@@ -298,7 +300,6 @@ window.onload = function () {
         let ordProdItemDiv = "";
         for (let g = 0; g < ordPasCart.length; g++) {
             // 渲染商品進HTML頁面
-
             ordProdItemDiv = `<div class="orderPageItemDiv">
                                             <img src="./assets/${ordPasCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
@@ -306,16 +307,16 @@ window.onload = function () {
                                             </div>
                                         </div>`;
             orderPageItemDivAll.insertAdjacentHTML("beforeend", ordProdItemDiv);
-        }
-    }
+        };
+    };
 
     function ordPasShow() {
         ordPas.addEventListener("click", function () {
             ordReceivePasInfo();
             orderPageArrowDR.style.display = "none";
             orderPageArrowDL.style.display = "none";
-        })
-    }
+        });
+    };
     ordPasShow();
 
 
@@ -327,7 +328,6 @@ window.onload = function () {
         let ordProdItemDiv = "";
         for (let g = 0; g < ordHamCart.length; g++) {
             // 渲染商品進HTML頁面
-
             ordProdItemDiv = `<div class="orderPageItemDiv">
                                             <img src="./assets/${ordHamCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
@@ -335,9 +335,8 @@ window.onload = function () {
                                             </div>
                                         </div>`;
             orderPageItemDivAll.insertAdjacentHTML("beforeend", ordProdItemDiv);
-        }
-
-    }
+        };
+    };
 
 
     function ordHamShow() {
@@ -346,9 +345,8 @@ window.onload = function () {
             ordReceiveHamInfo();
             orderPageArrowDR.style.display = "none";
             orderPageArrowDL.style.display = "none";
-
-        })
-    }
+        });
+    };
     ordHamShow();
 
     // call ajax(mufInfo)
@@ -359,7 +357,6 @@ window.onload = function () {
         let ordProdItemDiv = "";
         for (let g = 0; g < ordMufCart.length; g++) {
             // 渲染商品進HTML頁面
-
             ordProdItemDiv = `<div class="orderPageItemDiv">
                                             <img src="./assets/${ordMufCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
@@ -367,16 +364,16 @@ window.onload = function () {
                                             </div>
                                         </div>`;
             orderPageItemDivAll.insertAdjacentHTML("beforeend", ordProdItemDiv);
-        }
-    }
+        };
+    };
 
     function ordMufShow() {
         ordMuf.addEventListener("click", function () {
             ordReceiveMufInfo();
             orderPageArrowDR.style.display = "none";
             orderPageArrowDL.style.display = "none";
-        })
-    }
+        });
+    };
     ordMufShow();
 
     // call ajax(sweInfo)
@@ -394,8 +391,8 @@ window.onload = function () {
                                             </div>
                                         </div>`;
             orderPageItemDivAll.insertAdjacentHTML("beforeend", ordProdItemDiv);
-        }
-    }
+        };
+    };
 
 
     function ordSweShow() {
@@ -403,10 +400,9 @@ window.onload = function () {
             ordReceiveSweInfo();
             orderPageArrowDR.style.display = "none";
             orderPageArrowDL.style.display = "none";
-        })
-    }
+        });
+    };
     ordSweShow();
-
 
 
     // call ajax(cofInfo)
@@ -417,7 +413,6 @@ window.onload = function () {
         let ordProdItemDiv = "";
         for (let g = 0; g < ordCofCart.length; g++) {
             // 渲染商品進HTML頁面
-
             ordProdItemDiv = `<div class="orderPageItemDiv">
                                             <img src="./assets/${ordCofCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
@@ -425,8 +420,8 @@ window.onload = function () {
                                             </div>
                                         </div>`;
             orderPageItemDivAll.insertAdjacentHTML("beforeend", ordProdItemDiv);
-        }
-    }
+        };
+    };
 
 
     function ordCofShow() {
@@ -434,8 +429,8 @@ window.onload = function () {
             ordReceiveCofInfo();
             orderPageArrowDR.style.display = "none";
             orderPageArrowDL.style.display = "none";
-        })
-    }
+        });
+    };
     ordCofShow();
 
 
@@ -456,8 +451,8 @@ window.onload = function () {
                                             </div>
                                         </div>`;
             orderPageItemDivAll.insertAdjacentHTML("beforeend", ordProdItemDiv);
-        }
-    }
+        };
+    };
 
 
     function ordDriShow() {
@@ -465,10 +460,9 @@ window.onload = function () {
             ordReceiveDriInfo();
             orderPageArrowDR.style.display = "none";
             orderPageArrowDL.style.display = "none";
-        })
-    }
+        });
+    };
     ordDriShow();
-
 
 
     function ordReceiveToppingInfo() {
@@ -501,25 +495,25 @@ window.onload = function () {
                         ordAsideCart.push(ordToppingInfo[g]);
                     } else if (ordToppingInfo[g].FILLING_CATA_NO == 4) {
                         ordSeasoningCart.push(ordToppingInfo[g]);
-                    }
-                }
+                    };
+                };
 
                 // looping through the data 把從資料庫抓出來的配料品項加到HTML頁面上
                 for (let s = 0; s < ordSugarCart.length; s++) {
                     ordSugarItem[s].innerHTML = ordSugarCart[s].FILLING_ITEM_NAME;
-                }
+                };
                 for (let i = 0; i < ordIceCart.length; i++) {
                     ordIceItem[i].innerHTML = ordIceCart[i].FILLING_ITEM_NAME;
-                }
+                };
                 for (let a = 0; a < ordAsideCart.length; a++) {
                     ordAsideItem[a].innerHTML = ordAsideCart[a].FILLING_ITEM_NAME;
-                }
+                };
                 for (let o = 0; o < ordSeasoningCart.length; o++) {
                     ordSeasoningItem[o].innerHTML = ordSeasoningCart[o].FILLING_ITEM_NAME;
-                }
-            }
-        }
-    }
+                };
+            };
+        };
+    };
     ordReceiveToppingInfo();
 
 
@@ -545,7 +539,7 @@ window.onload = function () {
                             ordtoppingReloadHTML += `<span class="ordToppingSec"> ${ordGetProd[k].topping[s]}</span>`;
                             // 把配料的價錢將加算出總價
                             ordToppingTtlNum += parseInt(ordGetProd[k].topping[s].split("$")[1]);
-                        }
+                        };
 
                         ordReloadHTML += `
                                     <div class="orderPageLeftSideMidItem" style="pointer-events:none; color:#ccc">
@@ -575,8 +569,8 @@ window.onload = function () {
                                 </div> 
                             </div>
                         `;
-                    }
-                }
+                    };
+                };
                 orderPageLeftSideMidItemAll.innerHTML = ordReloadHTML;
 
                 // 把資訊存入購物車On中
@@ -587,9 +581,9 @@ window.onload = function () {
 
                 // 計算金額
                 ordTotProdAmt();
-            }
-        }
-    }
+            };
+        };
+    };
     ordReload();
 
 
@@ -632,7 +626,7 @@ window.onload = function () {
                             // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
                             if (ordDisCount > Number(ordProdCart[k].PRO_ITEM_PRICE)) {
                                 // 讓變數帶入css指令，讓他價錢變色
-                                ordDisCount = "color: red;"
+                                ordDisCount = "color: #E98E89;"
                             };
                             ordReloadHTML += `
                                 <div class="orderPageLeftSideMidItem">
@@ -649,7 +643,7 @@ window.onload = function () {
                                     </div> 
                                 </div>
                             `;
-                        }
+                        };
                         orderPageLeftSideMidItemAll.insertAdjacentHTML("beforeend", `${ordReloadHTML}`);
 
                     } else {
@@ -659,7 +653,7 @@ window.onload = function () {
                             let ordDisCount = Number(ordProdCart[k].before);
 
                             if (ordDisCount > Number(ordProdCart[k].PRO_ITEM_PRICE)) {
-                                ordDisCount = "color: red;"
+                                ordDisCount = "color: #E98E89;"
                             };
                             ordHTML += `
                                 <div class="orderPageLeftSideMidItem">
@@ -676,9 +670,9 @@ window.onload = function () {
                                     </div> 
                                 </div>
                             `;
-                        }
+                        };
                         orderPageLeftSideMidItemAll.innerHTML = ordHTML;
-                    }
+                    };
                     // 把購物車資訊存進屬於"暫時訂單的"localStorage與暫存購物車
                     ordAddProdItemToTempCart();
                     // 計算購物車裡商品數量
@@ -687,8 +681,8 @@ window.onload = function () {
                     ordTotProdAmt();
                 });
             };
-        })
-    }
+        });
+    };
     ordAddToList();
 
 
@@ -713,9 +707,9 @@ window.onload = function () {
                 ordSaveProdInCartHist();
                 ordTotProdAmt();
                 ordAllProdNumInCart();
-            }
-        })
-    }
+            };
+        });
+    };
     ordDeleteProd();
 
 
@@ -759,6 +753,10 @@ window.onload = function () {
 
                             ordProdCart[ordLightBlueNum].topping.push(`${ordAsideCart[s].FILLING_ITEM_NAME} $${ordAsideCart[s].FILLING_ITEM_PRICE}`);
 
+
+
+                            console.log("ejijeij", e.target)
+
                             // 單除抓出配料的錢
                             ordToppingTtlPr += parseInt(ordAsideCart[s].FILLING_ITEM_PRICE);
                             // 把商品的價錢轉換為數字
@@ -771,7 +769,7 @@ window.onload = function () {
                             ordTotProdAmt();
                         });
                         ordSaveProdInCartHist();
-                    }
+                    };
 
                     for (let s = 0; s < ordSeasoningCart.length; s++) {
                         // let ordToppingTxt = '';
@@ -786,8 +784,8 @@ window.onload = function () {
                             ordProdCart[ordLightBlueNum].topping.push(`${ordSeasoningCart[s].FILLING_ITEM_NAME} $${ordSeasoningCart[s].FILLING_ITEM_PRICE}`);
 
                             ordSaveProdInCartHist();
-                        })
-                    }
+                        });
+                    };
 
                 } else if (e.target.childNodes[3].classList[1] == 6 || e.target.childNodes[3].classList[1] == 7) {
                     ordToppingSecAside.style.display = "none";
@@ -817,8 +815,8 @@ window.onload = function () {
 
                             ordProdCart[ordLightBlueNum].topping.push(`${ordSugarCart[s].FILLING_ITEM_NAME} $${ordSugarCart[s].FILLING_ITEM_PRICE}`);
                             ordSaveProdInCartHist();
-                        })
-                    }
+                        });
+                    };
 
                     for (let s = 0; s < ordIceCart.length; s++) {
                         // let ordToppingTxt = '';
@@ -832,17 +830,17 @@ window.onload = function () {
 
                             ordProdCart[ordLightBlueNum].topping.push(`${ordIceCart[s].FILLING_ITEM_NAME} $${ordIceCart[s].FILLING_ITEM_PRICE}`);
                             ordSaveProdInCartHist();
-                        })
-                    }
+                        });
+                    };
                 } else {
                     ordToppingSecAside.style.display = "none";
                     ordToppingSecSeasoning.style.display = "none";
                     ordToppingSecSu.style.display = "none";
                     ordToppingSecIce.style.display = "none";
-                }
-            }
-        })
-    }
+                };
+            };
+        });
+    };
     ordToppingSecShow();
 
 
@@ -865,8 +863,8 @@ window.onload = function () {
         for (let w = 0; w < ordGetProd.length; w++) {
             if (ordGetProd[w].status != 2) {
                 ordGetProd[w].status = 1; // 出餐
-            }
-        }
+            };
+        };
 
         // 讓購物車On陣列裡的資料等於帶入狀態1的購物車的資料
         ordProdCartOn = ordGetProd;
@@ -876,11 +874,6 @@ window.onload = function () {
         ordLoadProdInCartOnHist();
         // 讓購物車陣列裡的資料等於帶入狀態1的購物車On的資料
         ordProdCart = ordGetOnProd;
-
-
-        // basicInfo = JSON.parse(localStorage.getItem("basicInfo"));
-        // basicInfo[0].item = ordProdCart;
-        // ordSaveBasicInfo();
 
         // 把資料存入購物車的localStorage裡面
         ordSaveProdInCartHist();
@@ -925,9 +918,9 @@ window.onload = function () {
         for (let i in ordGetProd) {
             if (ordGetProd[i].status != 2) {
                 ordAllProdNum += Number(ordGetProd[i].PRO_ITEM_ONOFF);
-            }
+            };
             ordTotNumShow.innerText = ordAllProdNum;
-        }
+        };
     };
 
 
@@ -945,10 +938,11 @@ window.onload = function () {
             ordItemTtlNum = parseInt(ordItemTtlNum.split("$")[1]);
             ordTotAmt += ordItemTtlNum;
             // console.log("!!!!???", ordTotAmt)
-        }
+        };
         ordTotAmtShow.innerText = ordTotAmt;
         // console.log("LLLLLLLLLLL", typeof (ordTotAmt))
     };
+
 
 
 
@@ -957,20 +951,20 @@ window.onload = function () {
         ordReload();
         ordTotProdAmt();
 
+        ordLoadProdInCartOnHist();
+        ordLoadBasicInfo();
 
+        // 要傳給廚房的資料
+        var ordToKitchen = [];
 
-        // ordProdCartWithBasicInfo.push(basicInfoGet[0]);
-        // ordGetProdCartWithBasicInfo = JSON.parse(localStorage.getItem("ordProdCartWithBasicInfo"));
-
-        // ordLoadProdInCartOnHist();
-        // ordProdCartWithBasicInfo.push(ordGetOnProd);
-        // localStorage.setItem("ordProdCartWithBasicInfo", JSON.stringify(ordProdCartWithBasicInfo));
-
-        // let ordAllorder = [];
-        // ordAllorder.push(ordProdCartWithBasicInfo);
-        // localStorage.setItem("ordAllorder", JSON.stringify(ordAllorder));
-
+        ordToKitchen = basicInfoGet.concat(ordGetOnProd);
+        localStorage.setItem(`${ordList}`, JSON.stringify(ordToKitchen));
     });
+
+
+
+
+
 
 
     // 結帳
@@ -980,7 +974,7 @@ window.onload = function () {
 
         // 把點餐資訊輸入資料庫
         ordSentInfotoDb();
-    })
+    });
 
     function ordSentInfotoDb() {
         // Creating a XHR object 
@@ -1002,8 +996,8 @@ window.onload = function () {
             if (this.readyState == 4 && this.status == 200) {
                 ordReceiveOrder = JSON.parse(this.responseText);
                 console.log(ordReceiveOrder); // for debugging
-            }
-        }
+            };
+        };
     };
 
 
@@ -1021,7 +1015,6 @@ window.onload = function () {
     };
 
 
-
     // 把購物車資訊從localStorage裡抓出來
     function ordLoadProdInCartHist() {
         ordGetProd = JSON.parse(localStorage.getItem(`ordSaveProdInCart_${ordList}`));
@@ -1034,8 +1027,5 @@ window.onload = function () {
     function ordLoadProdInCartOnHist() {
         ordGetOnProd = JSON.parse(localStorage.getItem(`ordSaveProdInCartOnHist_${ordList}`));
     };
-
-
-
-}
+};
 
