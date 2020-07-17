@@ -69,7 +69,7 @@ for(i=0;i<tabReceiveJson.length;i++){
 //給下拉式選單初值
 tabChangeStatus("tabRes");
 // console.log(tabResOrCloseSelect);
-tabResOrCloseSelect.addEventListener('change', e => {
+tabResOrCloseSelect.addEventListener('change', function(e){
     var ResOrClose = e.target.value; //tabClose || tabRes
     
     if(ResOrClose == "tabClose"){
@@ -85,7 +85,7 @@ tabResOrCloseSelect.addEventListener('change', e => {
 
 function tabChangeStatus(bgc){
     // console.log(bgc);
-    tabConstrainZone.addEventListener('click',e => {
+    tabConstrainZone.addEventListener('click',function(e){
         var test = tabResOrCloseSelect.value;
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -172,7 +172,7 @@ function tabChangeStatus(bgc){
 function saveAllDataToJson(data){
     localStorage.setItem("allData",JSON.stringify(data));
 } 
-tabCloseBtn.addEventListener('click', e => {
+tabCloseBtn.addEventListener('click', function(e){
     // var positionArr = [];
     e.preventDefault();
     e.stopImmediatePropagation();
