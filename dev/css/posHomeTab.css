@@ -1,0 +1,24 @@
+#toGoZone{
+    list-style: none;
+    width: 700px;
+    height: 100px;
+    display: flex;
+    overflow-x: auto;
+}
+#toGoZone > li{
+    width: 60px;
+    
+    /* #ff9c40　未結帳 */
+    /* #face3d 未出餐 */
+}
+#testQ{
+    display: none;
+
+    fill: #ff9c40;
+    width: 60px;
+}
+#testZ{
+    display: none;
+    fill: #face3d;
+    width: 60px;
+}
