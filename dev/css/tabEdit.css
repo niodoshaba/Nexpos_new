@@ -28,9 +28,7 @@
   width: 120px;
   height: 60px;
   /* This makes things *much* easier */
-  box-sizing: border-box; 
-  border-radius: 5px;
-}
+  box-sizing: border-box; }
 
 .tabRectangleBig {
   background-color: #2299ee;
@@ -42,9 +40,7 @@
   width: 180px;
   height: 120px;
   /* This makes things *much* easier */
-  box-sizing: border-box; 
-  border-radius: 15px;
-}
+  box-sizing: border-box; }
 
 .tabCircle {
   background-color: #34532a;
@@ -53,8 +49,8 @@
   font-family: sans-serif;
   /* padding: 20px;
     margin: 30px 20px; */
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 100%; }
 
 .tabCircleBig {
@@ -64,8 +60,8 @@
   font-family: sans-serif;
   /* padding: 20px;
     margin: 30px 20px; */
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   border-radius: 100%; }
 
 .tabSquare {
@@ -76,9 +72,7 @@
   /* padding: 20px;
     margin: 30px 20px; */
   width: 60px;
-  height: 60px; 
-  border-radius: 5px;
-}
+  height: 60px; }
 
 .tabSquareBig {
   background-color: #113b41;
@@ -88,9 +82,7 @@
   /* padding: 20px;
     margin: 30px 20px; */
   width: 120px;
-  height: 120px; 
-  border-radius: 15px;
-}
+  height: 120px; }
 
 #resize-tabContainer {
   position: relative;
