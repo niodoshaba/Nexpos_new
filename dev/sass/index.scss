@@ -250,12 +250,19 @@ section.fpHomepage1{
         }
     }
     .fpSlogan{
+        h1{
+            display: inline-block;
+        }
+        h1:last-child{
+            margin-bottom: 20px;
+        }
         // border: 1px solid red;
         height: 250px;
         line-height: 10px;
         padding: 10px;
         @include center();
         span.fpUnderline{
+            display: inline;
             position: relative;
             &::after{
                 position: absolute;
@@ -268,11 +275,17 @@ section.fpHomepage1{
             }
         }
         .fpBtn1{
-            position: relative;
-            top: -110px;
-            left: 365px;
+            margin-left: 20px;
+            margin-bottom: 0px;
+            transform: translateY(-10px);
+            
+            display: inline-block;
             @include fpBtn;
         }
+
+    }
+    .fpSloganSmallText{
+        margin-top: 20px;
     }
 }
 section.fpHomepage2{
@@ -295,13 +308,15 @@ section.fpHomepage2{
         width: 80%;
         @include margin0();
         @include center;
+
     }
     .fpTabsUl{
         // border: 1px solid rgb(24, 155, 78);
         @include margin0();
         @include center;
-        width:60%;
+        width:100%;
         top: 10%;
+        flex-wrap: nowrap;
         li{ 
         display: inline-block;
         list-style: none;
@@ -318,10 +333,17 @@ section.fpHomepage2{
         }
         }
     }
+    .indexPic{
+        width: 100%;
+    }
+
     .fpIntroduceContent{
         margin-top: 100px;
+        
+        // flex-wrap: nowrap;
         .fpTabContent{
             margin-top: 100px;
+
             p{
                 font-size: 20px;
                 line-height: 40px;
@@ -400,21 +422,31 @@ section.fpHomepage3_1, section.fpHomepage3_2{
     }
     .fpParallaxWrapper {
         // border: 1px solid blue;
-        width: 500px;
-        height: 500px;
+        width: 80%;
+        margin-left: 10%;
+        // height: 500px;
         position: relative;
+        display: flex;
         margin: 50px auto;
       }
       .fpParent_left, .fpParent_right, .fpChild_left, .fpChild_right{
-        position: absolute;
+        // position: absolute;
         border-radius: 8px;
       }
       .fpParent_left, .fpParent_right{
-        width: 500px;
-        height: 500px;
-        padding: 50px;
-        font-size: 20px;
-        line-height: 40px;
+          margin-top: 50px;
+          h2{
+            margin-left: 50px;
+          }
+          p{
+              margin-left: 50px;
+          }
+        //   text-align: center;
+        // width: 500px;
+        // height: 500px;
+        // padding: 50px;
+        // font-size: 20px;
+        // line-height: 40px;
         // background: rgb(153, 153, 153);
         &::after{
             position: absolute;
@@ -423,29 +455,29 @@ section.fpHomepage3_1, section.fpHomepage3_2{
             height: 1px;
             background: $primary_db;
             bottom: 10px;
-            left: 50px;
+            // left: 50px;
         }
       }
-      .fpParent_right{
-          right: 50px;
-          &::after{
-              left: -50px;
-          }
-      }
+    //   .fpParent_right{
+    //       right: 50px;
+    //       &::after{
+    //           left: -50px;
+    //       }
+    //   }
       .fpChild_left, .fpChild_right {
         // border: 1px solid rgb(0, 0, 0);
-        width: 500px;
-        height: 400px;
-        padding: 20px;
-        right: -450px;
-        bottom: 80px;
+        // width: 500px;
+        // height: 400px;
+        // padding: 20px;
+        // right: -450px;
+        // bottom: 80px;
         img{
-            width:150%;
+            width:100%;
         }
       }
-      .fpChild_left{
-        left: -100px;
-      }
+    //   .fpChild_left{
+    //     left: -100px;
+    //   }
       
 }
 
@@ -559,5 +591,586 @@ section.fpHomepage4{
         top: -15%;
         left: 80%;
     }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px){
+    .fpSlogan{
+        h1{
+           font-size: 30px;
+        }
+
+    }
+    section.fpHomepage2{
+        .fpCircle1{
+            @include circle();
+    
+            top: 10%;
+            left: 8%;
+            z-index: -1;
+            &.active{
+                animation: ani1 2s cubic-bezier(.01,-0.01,.7,2.03);
+            }
+    
+        }
+        .fpCircle2{
+            @include circle();
+    
+            top: 40%;
+            left: 16%;  
+            z-index: -1;
+            &.active{
+                animation: ani2 2s cubic-bezier(.01,-0.01,.7,2.03);
+            }
+        }
+        .fpCircle3{
+    
+            top: 25%;
+            left: 40%;
+            z-index: -1;
+            &.active{
+                animation: ani3 2s cubic-bezier(.01,-0.01,.7,2.03);
+            }
+    }
+    
+    }
+    // #fpBall_db,#fpBall_o,#fpBall_p,#fpBall_y,#fpBall_b,#fpBall_g{
+    //     transform: scale(0.8);
+    }
+    #fpTab1,#fpTab2,#fpTab3{
+        height: 950px;
+    }
+    .fpParent_left, .fpParent_right{
+        margin-top: 0;
+        h2{
+            font-size: 24px;
+        }
+        p{
+            font-size: 16px;
+        }
+    }
+    .indexPic2{
+        transform: translateY(30%);
+    }
+    .fpNum{
+        display: flex;
+        justify-content: center;   
+        width: 800px;
+    }
+    section.fpHomepage4{
+
+        position: relative;
+        overflow: hidden;
+        .fpWrapper{
+            width: 70%;
+            margin-left: 15%;
+            overflow: hidden;
+            .fpImgRun{
+            
+                // border: 1px solid green;
+        
+                display: flex;
+                animation-name: carousel;
+                animation-duration: 35s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-direction: alternate;
+                transform: translateX(0);
+                img{
+                    width: 300px;
+                    height: 200px;
+                    padding: 1px;
+                } 
+            }
+        }
+
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px){
+    .fpSlogan{
+        h1{
+           font-size:25px;
+        }
+    }
+    section.fpHomepage2{
+        background-image: url("../assets/background-dot.png");
+        background-size: 10%;
+        position: relative;
+        &::before{
+            content: " ";
+            width: 300px;
+            height:300px;
+            background-image: url("../assets/background-finger.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            bottom: 10%;
+            right: 50%;
+        }
+        .fpTabBlock{
+            // border: 1px solid rgb(0, 26, 255);
+            width: 80%;
+            @include margin0();
+            @include center;
+    
+        }
+        .fpTabsUl{
+            // border: 1px solid rgb(24, 155, 78);
+            @include margin0();
+            @include center;
+            width:100%;
+            top: 10%;
+            flex-wrap: nowrap;
+            li{ 
+            display: inline-block;
+            list-style: none;
+            margin:15px;
+            &.active{
+                background-color: $primary_o;
+                border-radius: 5px;
+                padding: 10px;
+            }
+            a{
+                text-decoration: none;
+                color: $primary_db;
+                font-size: 20px;
+            }
+            }
+        }
+        .fpCircle1{
+            @include circle();
+
+            top: 10%;
+            left: 5%;
+            z-index: -1;
+            &.active{
+                animation: ani1 2s cubic-bezier(.01,-0.01,.7,2.03);
+            }
+    
+        }
+        .fpCircle2{
+            @include circle();
+ 
+            top: 50%;
+            left: 16%;
+            z-index: -1;
+            &.active{
+                animation: ani2 2s cubic-bezier(.01,-0.01,.7,2.03);
+            }
+        }
+        .fpCircle3{
+
+            top: 35%;
+            left: 40%;
+            z-index: -1;
+            &.active{
+                animation: ani3 2s cubic-bezier(.01,-0.01,.7,2.03);
+            }
+        }
+
+    }
+  
+    section.fpHomepage3_1, section.fpHomepage3_2{
+        height: 100%;
+       
+
+          .fpParent_left, .fpParent_right{
+            margin-top: 50px;
+            h2{
+                font-size: 24px;
+              margin-left: 10px;
+            }
+            p{
+                font-size: 16px;
+                margin-left: 10px;
+            }
+        }
+        .indexPic2{
+            transform: translateY(80%);
+        }
+    }
+
+
+    #fpTab1,#fpTab2,#fpTab3{
+        height: 950px;
+    }
+
+    .indexPic2{
+        transform: translateY(30%);
+    }
+
+
+    section.fpHomepage4{
+
+        position: relative;
+        overflow: hidden;
+        .fpNum{
+            display: flex;
+            justify-content: center;   
+            width: 600px;
+            .fpNumRun{
+                // border: 1px solid red;
+                width: 180px;
+                height: 150px;
+                text-align: center;
+                span.fpUnderline{
+                    position: relative;
+                    font-weight: bold;
+                    &::after{
+                        position: absolute;
+                        content: "";
+                        width:100%;
+                        height: 1px;
+                        background: $primary_db;
+                        bottom: -5px;
+                        left: 0;
+                    }
+                }
+                h2{
+                    margin: 20px;
+                }
+            }
+        }
+        .fpWrapper{
+            width: 50%;
+            margin-left: 25%;
+            overflow: hidden;
+            .fpImgRun{
+            
+                // border: 1px solid green;
+        
+                display: flex;
+                animation-name: carousel;
+                animation-duration: 35s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-direction: alternate;
+                transform: translateX(0);
+                img{
+                    width: 240px;
+                    height: 160px;
+                    padding: 1px;
+                } 
+            }
+        }
+
+}   
+}
+
+@media screen and (max-width: 576px){
+    section.fpHomepage1{
+        svg{
+            z-index: -1;
+            opacity: 0.7;
+        }
+    .fpSlogan{
+        text-align: center;
+        h1{
+           font-size:20px;
+           
+        }
+        p{
+            font-size: 16px;
+            line-height: 25px;
+        }
+        .fpBtn1{
+            position: absolute;
+            top:300px;
+            right: 30%;
+            margin-left: 0px;
+            margin-bottom: 0px;
+            transform: translateY(0px);
+            font-size: 16px;
+            
+            display: inline-block;
+            width: 120px;
+            height: 40px;
+            border-radius: 20px;
+            outline-style: none;
+            background-color: rgb(245, 245, 245);
+            border: 2px solid $primary_db;
+            color: $primary_db;
+            &:hover {
+                background-color: $primary_db;
+                border: 0;
+                color: oldlace;
+                cursor:pointer;
+            }
+        }
+    }
+}
+    section.fpHomepage2{
+        background-image: url("../assets/background-dot.png");
+        background-size: 10%;
+        position: relative;
+        .fpIntroduceContent{
+            .fpTabContent{
+                margin-top: 50px;
+                h2{
+                    font-size: 20px;
+                }
+                p{
+                    font-size: 16px;
+                    line-height: 25px;
+                }
+            }
+        }
+        &::before{
+            content: " ";
+            width: 300px;
+            height:300px;
+            background-image: url("../assets/background-finger.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            bottom: 10%;
+            right: 50%;
+        }
+        .fpTabBlock{
+            // border: 1px solid rgb(0, 26, 255);
+            width: 80%;
+            @include margin0();
+            @include center;
+    
+        }
+        .fpTabsUl{
+            // border: 1px solid rgb(24, 155, 78);
+            @include margin0();
+            @include center;
+            width:100%;
+            top: 10%;
+            flex-wrap: nowrap;
+            ul{
+                padding-inline-start: 0px;
+            }
+            li{ 
+            display: inline-block;
+            list-style: none;
+            margin:0px;
+            margin-right: 10px;
+            &.active{
+                background-color: $primary_o;
+                border-radius: 5px;
+                padding: 5px;
+
+            }
+            a{
+                text-decoration: none;
+                color: $primary_db;
+                font-size: 15px;
+            }
+            }
+        }
+        .fpCircle{
+            transform: scale(0.5);
+        }
+        .fpCircle1{
+            @include circle();
+
+            top: 10%;
+            left: -5%;
+            z-index: -1;
+            &.active{
+                animation: ani1 2s cubic-bezier(.01,-0.01,.7,2.03);
+            }
+    
+        }
+        .fpCircle2{
+            @include circle();
+ 
+            top: 50%;
+            left: 6%;
+            z-index: -1;
+            &.active{
+                animation: ani2 2s cubic-bezier(.01,-0.01,.7,2.03);
+            }
+        }
+        .fpCircle3{
+
+            top: 35%;
+            left: 18%;
+            z-index: -1;
+            &.active{
+                animation: ani3 2s cubic-bezier(.01,-0.01,.7,2.03);
+            }
+        }
+
+    }
+  
+    section.fpHomepage3_1, section.fpHomepage3_2{
+        height: 100%;
+        .fpParallaxWrapper{
+            flex-direction: column;
+            margin: 25px auto;
+        }
+
+        .fpChild_left, .fpChild_right{
+            order:2;
+            margin-top: 100px;
+            &::after{
+                position: absolute;
+                content: "";
+                width:30%;
+                height: 1px;
+                background: $primary_db;
+                bottom: 10px;
+                bottom:-5px;
+                right: 0px;
+                // left: 0px;
+            }
+        }
+          .fpParent_left, .fpParent_right{
+            order:1;
+            // margin-top: 50px;
+            &::after{
+                position: absolute;
+                content: "";
+                width:0px;
+                height: 0px;
+                background: $primary_db;
+                bottom: 0px;
+                // left: 50px;
+            }
+            h2{
+                font-size: 24px;
+              margin-left: 10px;
+            }
+            p{
+                font-size: 16px;
+                margin-left: 10px;
+            }
+        }
+        .indexPic2{
+            transform: translateY(0%);
+        }
+    }
+
+
+    #fpTab1,#fpTab2,#fpTab3{
+        height: 500px;
+    }
+
+    .indexPic2{
+        transform: translateY(30%);
+    }
+
+
+
+    section.fpHomepage4{
+        .fpCircle4::before{
+            background-color: $primary_o;
+            width: 200px;
+            height: 200px;
+            top: 35%;
+            left: 3%;
+        }
+        .fpCircle5::before{
+            background-color: $secondary_p;
+            width: 120px;
+            height: 120px;
+            top: 5%;
+            left: -10%;
+        }
+        .fpCircle6::before{
+            background-color: $secondary_b;
+            width: 150px;
+            height: 150px;
+            top: 30%;
+            left: 50%;
+        }
+        .fpCircle7::before{
+            background-color: $secondary_y;
+            width: 220px;
+            height: 220px;
+            top: 5%;
+            left: 60%;
+        }
+        .fpNumber{
+            height: 1000px;
+        }
+        font-size: 20px;
+        .fpNumberSlogan{
+            position: relative;
+            max-width: 576px;
+            a{
+                position: absolute;
+                top: 0;
+                right: 50%;
+                transform: translateY(-150%) translateX(50%);
+                .fpBtn4{
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                }
+            }
+            h2{
+                font-size: 20px;
+            }
+            p{
+                margin-left: 25%;
+                width: 50%;
+                font-size: 16px;
+                line-height: 25px;
+            }
+        }
+        position: relative;
+        overflow: hidden;
+        .fpNum{
+            display: flex;
+            justify-content: center;
+            .fpNumRun{
+                // border: 1px solid red;
+                width: 180px;
+                height: 150px;
+                text-align: center;
+                span.fpUnderline{
+                    position: relative;
+                    font-weight: bold;
+                    &::after{
+                        position: absolute;
+                        content: "";
+                        width:100%;
+                        height: 1px;
+                        background: $primary_db;
+                        bottom: -5px;
+                        left: 0;
+                    }
+                }
+                h2{
+                    margin: 20px;
+                }
+            }
+        }
+        .fpWrapper{
+            display: block;
+            width: 30%;
+            margin-left: 35%;
+            overflow: hidden;
+            margin-top: 300px;
+
+            .fpImgRun{
+            
+                // border: 1px solid green;
+        
+                display: flex;
+                animation-name: carousel;
+                animation-duration: 35s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-direction: alternate;
+                transform: translateX(0);
+                img{
+                    width: 240px;
+                    height: 160px;
+                    padding: 1px;
+                } 
+            }
+        }
+
+}   
+
+section.login .loginBlock{
+    transform: translate(-50%, -50%) scale(0.7);
+}
 
 }
