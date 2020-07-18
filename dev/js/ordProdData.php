@@ -28,7 +28,8 @@ try {
         if($DIS_CATA_NO == 0){
             $sql_allProd = "SELECT *, PRO_ITEM_PRICE AS 'before',
             ROUND(PRODUCT_ITEM.PRO_ITEM_PRICE*$DIS_PCTALL, 0) AS 'PRO_ITEM_PRICE'
-            FROM PRODUCT_ITEM
+            FROM PRODUCT_CATA JOIN PRODUCT_ITEM
+            ON PRODUCT_CATA.PRO_CATA_NO = PRODUCT_ITEM.PRO_CATA_NO
             WHERE PRO_ITEM_ONOFF =1;";
     
             $ordProd = $pdo->query($sql_allProd);
@@ -41,15 +42,16 @@ try {
             echo json_encode($ordProdInfo);
     
         }elseif($DIS_CATA_NO == 1){
-            $sql_partProd = "SELECT  DISCOUNT.DIS_NO, DISCOUNT.DIS_PCTALL, DIS_ITEM.PRO_ITEM_NUMBER, 
-            PRODUCT_ITEM.PRO_ITEM_NO, PRODUCT_ITEM.PRO_CATA_NO, PRODUCT_ITEM.PRO_ITEM_NAME,PRODUCT_ITEM.PRO_ITEM_ONOFF, PRODUCT_ITEM.PRO_ITEM_PRICE AS 'before',
+            $sql_partProd = "SELECT  DISCOUNT.DIS_NO, DISCOUNT.DIS_PCTALL, DIS_ITEM.PRO_ITEM_NUMBER, PRODUCT_CATA.PRO_CATA_NO, PRODUCT_CATA.PRO_CATA_ONOFF, PRODUCT_ITEM.PRO_ITEM_NO, PRODUCT_ITEM.PRO_CATA_NO, PRODUCT_ITEM.PRO_ITEM_NAME,PRODUCT_ITEM.PRO_ITEM_ONOFF, PRODUCT_ITEM.PRO_ITEM_PRICE AS 'before',
             ifnull(ROUND(PRODUCT_ITEM.PRO_ITEM_PRICE*DISCOUNT.DIS_PCTALL, 0) , ROUND(PRODUCT_ITEM.PRO_ITEM_PRICE*1, 0)) AS 'PRO_ITEM_PRICE'
             FROM DISCOUNT  JOIN DIS_ITEM 
             ON DISCOUNT.DIS_NO = DIS_ITEM.DIS_NO
             right JOIN PRODUCT_ITEM
             ON PRO_ITEM_NUMBER = PRO_ITEM_NO
             AND DISCOUNT.DIS_NO = $DIS_NO
-            WHERE PRO_ITEM_ONOFF =1;";
+            JOIN PRODUCT_CATA
+            ON PRODUCT_CATA.PRO_CATA_NO = PRODUCT_ITEM.PRO_CATA_NO
+            WHERE PRO_ITEM_ONOFF = 1;";
     
             $ordProd = $pdo->query($sql_partProd);
             $ordProdInfo = array();   
@@ -63,7 +65,10 @@ try {
         };
     }elseif($DIS_NO == null){
         //如果沒有折扣，則顯示原價
-        $sql = "SELECT * FROM PRODUCT_ITEM WHERE PRO_ITEM_ONOFF =1;";
+        $sql = "SELECT *
+        FROM PRODUCT_CATA JOIN PRODUCT_ITEM
+        ON PRODUCT_CATA.PRO_CATA_NO = PRODUCT_ITEM.PRO_CATA_NO
+        WHERE PRO_ITEM_ONOFF =1;";
         $ordProd = $pdo->query($sql);
 
         $ordProdInfo = array();
