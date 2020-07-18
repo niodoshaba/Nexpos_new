@@ -43,22 +43,7 @@ window.onload = function () {
     var ordTotAmtShow = document.getElementById("ordTotAmtShow");
     var ordTotNumShow = document.getElementById("ordTotNumShow");
 
-    var ordToppingSec = document.getElementById("ordToppingSec")
-
-    var ordToppingSecSu = document.querySelector(".ordToppingSecSu");
-    var ordToppingSecIce = document.querySelector(".ordToppingSecIce");
-    var ordToppingSecAside = document.querySelector(".ordToppingSecAside");
-    var ordToppingSecSeasoning = document.querySelector(".ordToppingSecSeasoning");
-
-    var ordSugar = document.getElementById("ordSugar");
-    var ordIce = document.getElementById("ordIce");
-    var ordAside = document.getElementById("ordAside");
-    var ordSeasoning = document.getElementById("ordSeasoning");
-
-    var ordSugarItem = document.querySelectorAll('.ordSugarItem');
-    var ordIceItem = document.querySelectorAll('.ordIceItem');
-    var ordAsideItem = document.querySelectorAll('.ordAsideItem');
-    var ordSeasoningItem = document.querySelectorAll('.ordSeasoningItem');
+    var ordToppingSec = document.getElementById("ordToppingSec");
 
     var orderPageRightSideBottomBtn1 = document.getElementById('orderPageRightSideBottomBtn1'); // 出單按鈕
     var orderPageRightSideBottomBtn2 = document.getElementById("orderPageRightSideBottomBtn2"); // 整單取消按鈕
@@ -106,8 +91,6 @@ window.onload = function () {
 
     // 接收basicInfo資料
     function ordReceiveBasicInfo() {
-        // ordLoadBasicInfo();
-
         // 把basicInfo的資料先推入購物車陣列
         ordProdCartWithBasicInfo.push(basicInfoGet[0]);
         localStorage.setItem("ordProdCartWithBasicInfo", JSON.stringify(ordProdCartWithBasicInfo));
@@ -181,6 +164,10 @@ window.onload = function () {
     // =========================
 
 
+    var ordNavList = document.querySelector(".ordNavList");
+    // console.log(ordNavList)
+
+
     // call ajax(all prodInfo)
     function ordReceiveProdInfo() {
         var ajax = new XMLHttpRequest();
@@ -205,19 +192,24 @@ window.onload = function () {
                     if (ordProdInfo[g].PRO_CATA_NO == 1) {
                         ordSanCart.push(ordProdInfo[g]);
                         localStorage.setItem("ordSaveSanInfo", JSON.stringify(ordSanCart));
-                        ordReceiveSanInfo();
                     } else if (ordProdInfo[g].PRO_CATA_NO == 2) {
                         ordPasCart.push(ordProdInfo[g]);
+                        localStorage.setItem("ordSavePasInfo", JSON.stringify(ordPasCart));
                     } else if (ordProdInfo[g].PRO_CATA_NO == 3) {
                         ordHamCart.push(ordProdInfo[g]);
+                        localStorage.setItem("ordSaveHamInfo", JSON.stringify(ordHamCart));
                     } else if (ordProdInfo[g].PRO_CATA_NO == 4) {
                         ordMufCart.push(ordProdInfo[g]);
+                        localStorage.setItem("ordSaveMufInfo", JSON.stringify(ordMufCart));
                     } else if (ordProdInfo[g].PRO_CATA_NO == 5) {
                         ordSweCart.push(ordProdInfo[g]);
+                        localStorage.setItem("ordSaveSweInfo", JSON.stringify(ordSweCart));
                     } else if (ordProdInfo[g].PRO_CATA_NO == 6) {
                         ordCofCart.push(ordProdInfo[g]);
+                        localStorage.setItem("ordSaveCofInfo", JSON.stringify(ordCofCart));
                     } else if (ordProdInfo[g].PRO_CATA_NO == 7) {
                         ordDriCart.push(ordProdInfo[g]);
+                        localStorage.setItem("ordSaveDriInfo", JSON.stringify(ordDriCart));
                     };
                 };
             };
@@ -225,11 +217,95 @@ window.onload = function () {
     };
     ordReceiveProdInfo();
 
+    // 當大種類被下架時
+    function ordProdOnOff() {
+        // 三明治
+        ordProdSan = JSON.parse(localStorage.getItem("ordSaveSanInfo"));
+        let ordSanTitle = "";
+
+        if (ordProdSan[0].PRO_CATA_ONOFF == 1) {
+            ordSanTitle = `<li id="ordSan">${ordProdSan[0].PRO_CATA_NAME}</li>`;
+            ordNavList.insertAdjacentHTML("beforeend", ordSanTitle);
+        } else {
+            ordSanTitle = `<li id="ordSan" style="display:none">${ordProdSan[0].PRO_CATA_NAME}</li>`;
+            ordNavList.insertAdjacentHTML("beforeend", ordSanTitle);
+        }
+
+
+        // 義大利麵
+        ordProdPas = JSON.parse(localStorage.getItem("ordSavePasInfo"));
+        let ordPasTitle = "";
+        if (ordProdPas[0].PRO_CATA_ONOFF == 1) {
+            ordPasTitle = `<li id="ordPas">${ordProdPas[0].PRO_CATA_NAME}</li>`;
+            ordNavList.insertAdjacentHTML("beforeend", ordPasTitle);
+        } else {
+            ordPasTitle = `<li id="ordPas" style="display:none">${ordProdPas[0].PRO_CATA_NAME}</li>`;
+            ordNavList.insertAdjacentHTML("beforeend", ordPasTitle);
+        };
+
+        // 漢堡
+        ordProdHam = JSON.parse(localStorage.getItem("ordSaveHamInfo"));
+        let ordHamTitle = "";
+        if (ordProdHam[0].PRO_CATA_ONOFF == 1) {
+            ordHamTitle = `<li id="ordHam">${ordProdHam[0].PRO_CATA_NAME}</li>`;
+            ordNavList.insertAdjacentHTML("beforeend", ordHamTitle);
+        } else {
+            ordHamTitle = `<li id="ordHam" style="display:none">${ordProdHam[0].PRO_CATA_NAME}</li>`;
+            ordNavList.insertAdjacentHTML("beforeend", ordHamTitle);
+        };
+
+        // 瑪芬
+        ordProMuf = JSON.parse(localStorage.getItem("ordSaveMufInfo"));
+        let ordMufTitle = "";
+        if (ordProMuf[0].PRO_CATA_ONOFF == 1) {
+            ordMufTitle = `<li id="ordMuf">${ordProMuf[0].PRO_CATA_NAME}</li>`;
+            ordNavList.insertAdjacentHTML("beforeend", ordMufTitle);
+        } else {
+            ordMufTitle = `<li id="ordMuf" style="display:none">${ordProMuf[0].PRO_CATA_NAME}</li>`;
+            ordNavList.insertAdjacentHTML("beforeend", ordMufTitle);
+        };
+
+        // 甜點
+        ordProSwe = JSON.parse(localStorage.getItem("ordSaveSweInfo"));
+        let ordSweTitle = "";
+        if (ordProSwe[0].PRO_CATA_ONOFF == 1) {
+            ordSweTitle = `<li id="ordSwe">${ordProSwe[0].PRO_CATA_NAME}</li>`;
+            ordNavList.insertAdjacentHTML("beforeend", ordSweTitle);
+        } else {
+            ordSweTitle = `<li id="ordSwe" style="display:none">${ordProSwe[0].PRO_CATA_NAME}</li>`;
+            ordNavList.insertAdjacentHTML("beforeend", ordSweTitle);
+        };
+
+        // 咖啡
+        ordProCof = JSON.parse(localStorage.getItem("ordSaveCofInfo"));
+        let ordCofTitle = "";
+        if (ordProCof[0].PRO_CATA_ONOFF == 1) {
+            ordCofTitle = `<li id="ordCof">${ordProCof[0].PRO_CATA_NAME}</li>`;
+            ordNavList.insertAdjacentHTML("beforeend", ordCofTitle);
+        } else {
+            ordCofTitle = `<li id="ordCof" style="display:none">${ordProCof[0].PRO_CATA_NAME}</li>`;
+            ordNavList.insertAdjacentHTML("beforeend", ordCofTitle);
+        };
+
+        // 飲料
+
+        ordProDri = JSON.parse(localStorage.getItem("ordSaveDriInfo"));
+        let ordDriTitle = "";
+        if (ordProDri[0].PRO_CATA_ONOFF == 1) {
+            ordDriTitle = `<li id="ordDri">${ordProDri[0].PRO_CATA_NAME}</li>`;
+            ordNavList.insertAdjacentHTML("beforeend", ordDriTitle);
+        } else {
+            ordDriTitle = `<li id="ordDri" style="display:none">${ordProDri[0].PRO_CATA_NAME}</li>`;
+            ordNavList.insertAdjacentHTML("beforeend", ordDriTitle);
+        };
+    }
+    ordProdOnOff();
+
+
+    console.log("位置", ordNavList.childNodes)
 
     // call ajax(sanInfo)
     function ordReceiveSanInfo() {
-        // localStorage.setItem("ordSaveSanInfo", JSON.stringify(ordSanCart));
-
         // 顯示右側換頁箭頭按鈕
         orderPageArrowDR.style.display = "block";
 
@@ -237,22 +313,23 @@ window.onload = function () {
         let ordProdItemDiv = "";
 
         // looping through the data 把從資料庫抓出來的商品品項加到HTML頁面上
-        for (let g = 0; g < ordSanCart.length - 1; g++) {
-            let ordDisCount = Number(ordSanCart[g].before);
+        for (let g = 0; g < ordProdSan.length - 1; g++) {
+            let ordDisCount = Number(ordProdSan[g].before);
             // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
-            if (ordDisCount > Number(ordSanCart[g].PRO_ITEM_PRICE)) {
+            if (ordDisCount > Number(ordProdSan[g].PRO_ITEM_PRICE)) {
                 // 讓變數帶入css指令，讓他價錢變色
-                ordDisCount = "border: 5px solid #67A8CE; Box-sizing: border-box;"
-            };
+                ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+            } else { };
             // 渲染商品進HTML頁面
             ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
-                                            <img src="./assets/${ordSanCart[g].PRO_ITEM_NO}.jpg" alt="">
-                                            <div class="orderPageItemDivBottomBlack">
-                                                <span class="ordProdName" id="${ordSanCart[g].PRO_ITEM_NO}">${ordSanCart[g].PRO_ITEM_NAME}</span>
-                                            </div>
-                                        </div>`;
+                                                <img src="./assets/${ordProdSan[g].PRO_ITEM_NO}.jpg" alt="">
+                                                <div class="orderPageItemDivBottomBlack">
+                                                    <span class="ordProdName" id="${ordProdSan[g].PRO_ITEM_NO}">${ordProdSan[g].PRO_ITEM_NAME}</span>
+                                                </div>
+                                            </div>`;
             orderPageItemDivAll.insertAdjacentHTML("beforeend", ordProdItemDiv);
         };
+
     };
     ordReceiveSanInfo();
 
@@ -265,12 +342,18 @@ window.onload = function () {
 
             orderPageItemDivAll.innerHTML = "";
             let ordProdItemDiv = "";
-            for (let g = ordSanCart.length - 1; g < ordSanCart.length; g++) {
+            for (let g = ordProdSan.length - 1; g < ordProdSan.length; g++) {
+                let ordDisCount = Number(ordProdSan[g].before);
+                // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
+                if (ordDisCount > Number(ordProdSan[g].PRO_ITEM_PRICE)) {
+                    // 讓變數帶入css指令，讓他價錢變色
+                    ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+                } else { };
                 // 渲染商品進HTML頁面
-                ordProdItemDiv = `<div class="orderPageItemDiv">
-                                        <img src="./assets/${ordSanCart[g].PRO_ITEM_NO}.jpg" alt="">
+                ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
+                                        <img src="./assets/${ordProdSan[g].PRO_ITEM_NO}.jpg" alt="">
                                         <div class="orderPageItemDivBottomBlack">
-                                            <span class="ordProdName" id="${ordSanCart[g].PRO_ITEM_NO}">${ordSanCart[g].PRO_ITEM_NAME}</span>
+                                            <span class="ordProdName" id="${ordProdSan[g].PRO_ITEM_NO}">${ordProdSan[g].PRO_ITEM_NAME}</span>
                                         </div>
                                     </div>`;
             };
@@ -282,25 +365,31 @@ window.onload = function () {
             orderPageArrowDR.style.display = "block";
             ordReceiveSanInfo();
         });
-    };
 
+        ordNavList.childNodes[1].addEventListener("click", function () {
+            ordReceiveSanInfo();
+            orderPageArrowDL.style.display = "none";
+            orderPageArrowDR.style.display = "block";
+        });
+    };
     ordSanShow();
-    ordSan.addEventListener("click", function () {
-        ordReceiveSanInfo();
-        orderPageArrowDL.style.display = "none";
-        orderPageArrowDR.style.display = "block";
-    });
+
 
 
     // call ajax(pasInfo)
     function ordReceivePasInfo() {
-        localStorage.setItem("ordSavePasInfo", JSON.stringify(ordPasCart));
 
         orderPageItemDivAll.innerHTML = "";
         let ordProdItemDiv = "";
         for (let g = 0; g < ordPasCart.length; g++) {
+            let ordDisCount = Number(ordPasCart[g].before);
+            // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
+            if (ordDisCount > Number(ordPasCart[g].PRO_ITEM_PRICE)) {
+                // 讓變數帶入css指令，讓他價錢變色
+                ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+            } else { };
             // 渲染商品進HTML頁面
-            ordProdItemDiv = `<div class="orderPageItemDiv">
+            ordProdItemDiv = `<div class="orderPageItemDiv"  style="${ordDisCount}">
                                             <img src="./assets/${ordPasCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordPasCart[g].PRO_ITEM_NO}">${ordPasCart[g].PRO_ITEM_NAME}</span>
@@ -311,7 +400,7 @@ window.onload = function () {
     };
 
     function ordPasShow() {
-        ordPas.addEventListener("click", function () {
+        ordNavList.childNodes[2].addEventListener("click", function () {
             ordReceivePasInfo();
             orderPageArrowDR.style.display = "none";
             orderPageArrowDL.style.display = "none";
@@ -320,15 +409,20 @@ window.onload = function () {
     ordPasShow();
 
 
-    // call ajax(hamInfo)
+    // // call ajax(hamInfo)
     function ordReceiveHamInfo() {
-        localStorage.setItem("ordSaveHamInfo", JSON.stringify(ordHamCart));
 
         orderPageItemDivAll.innerHTML = "";
         let ordProdItemDiv = "";
         for (let g = 0; g < ordHamCart.length; g++) {
+            let ordDisCount = Number(ordHamCart[g].before);
+            // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
+            if (ordDisCount > Number(ordHamCart[g].PRO_ITEM_PRICE)) {
+                // 讓變數帶入css指令，讓他價錢變色
+                ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+            } else { };
             // 渲染商品進HTML頁面
-            ordProdItemDiv = `<div class="orderPageItemDiv">
+            ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
                                             <img src="./assets/${ordHamCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordHamCart[g].PRO_ITEM_NO}">${ordHamCart[g].PRO_ITEM_NAME}</span>
@@ -338,10 +432,9 @@ window.onload = function () {
         };
     };
 
-
     function ordHamShow() {
 
-        ordHam.addEventListener("click", function () {
+        ordNavList.childNodes[3].addEventListener("click", function () {
             ordReceiveHamInfo();
             orderPageArrowDR.style.display = "none";
             orderPageArrowDL.style.display = "none";
@@ -349,15 +442,20 @@ window.onload = function () {
     };
     ordHamShow();
 
-    // call ajax(mufInfo)
+    // // call ajax(mufInfo)
     function ordReceiveMufInfo() {
-        localStorage.setItem("ordSaveMufInfo", JSON.stringify(ordMufCart));
 
         orderPageItemDivAll.innerHTML = "";
         let ordProdItemDiv = "";
         for (let g = 0; g < ordMufCart.length; g++) {
+            let ordDisCount = Number(ordMufCart[g].before);
+            // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
+            if (ordDisCount > Number(ordMufCart[g].PRO_ITEM_PRICE)) {
+                // 讓變數帶入css指令，讓他價錢變色
+                ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+            } else { };
             // 渲染商品進HTML頁面
-            ordProdItemDiv = `<div class="orderPageItemDiv">
+            ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
                                             <img src="./assets/${ordMufCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordMufCart[g].PRO_ITEM_NO}">${ordMufCart[g].PRO_ITEM_NAME}</span>
@@ -368,7 +466,7 @@ window.onload = function () {
     };
 
     function ordMufShow() {
-        ordMuf.addEventListener("click", function () {
+        ordNavList.childNodes[4].addEventListener("click", function () {
             ordReceiveMufInfo();
             orderPageArrowDR.style.display = "none";
             orderPageArrowDL.style.display = "none";
@@ -378,13 +476,18 @@ window.onload = function () {
 
     // call ajax(sweInfo)
     function ordReceiveSweInfo() {
-        localStorage.setItem("ordSaveSweInfo", JSON.stringify(ordSweCart));
 
         orderPageItemDivAll.innerHTML = "";
         let ordProdItemDiv = "";
         for (let g = 0; g < ordSweCart.length; g++) {
+            let ordDisCount = Number(ordSweCart[g].before);
+            // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
+            if (ordDisCount > Number(ordSweCart[g].PRO_ITEM_PRICE)) {
+                // 讓變數帶入css指令，讓他價錢變色
+                ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+            } else { };
             // 渲染商品進HTML頁面
-            ordProdItemDiv = `<div class="orderPageItemDiv">
+            ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
                                             <img src="./assets/${ordSweCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordSweCart[g].PRO_ITEM_NO}">${ordSweCart[g].PRO_ITEM_NAME}</span>
@@ -396,7 +499,7 @@ window.onload = function () {
 
 
     function ordSweShow() {
-        ordSwe.addEventListener("click", function () {
+        ordNavList.childNodes[5].addEventListener("click", function () {
             ordReceiveSweInfo();
             orderPageArrowDR.style.display = "none";
             orderPageArrowDL.style.display = "none";
@@ -407,13 +510,18 @@ window.onload = function () {
 
     // call ajax(cofInfo)
     function ordReceiveCofInfo() {
-        localStorage.setItem("ordSaveCofInfo", JSON.stringify(ordCofCart));
 
         orderPageItemDivAll.innerHTML = "";
         let ordProdItemDiv = "";
         for (let g = 0; g < ordCofCart.length; g++) {
+            let ordDisCount = Number(ordCofCart[g].before);
+            // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
+            if (ordDisCount > Number(ordCofCart[g].PRO_ITEM_PRICE)) {
+                // 讓變數帶入css指令，讓他價錢變色
+                ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+            } else { };
             // 渲染商品進HTML頁面
-            ordProdItemDiv = `<div class="orderPageItemDiv">
+            ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
                                             <img src="./assets/${ordCofCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordCofCart[g].PRO_ITEM_NO}">${ordCofCart[g].PRO_ITEM_NAME}</span>
@@ -425,7 +533,7 @@ window.onload = function () {
 
 
     function ordCofShow() {
-        ordCof.addEventListener("click", function () {
+        ordNavList.childNodes[6].addEventListener("click", function () {
             ordReceiveCofInfo();
             orderPageArrowDR.style.display = "none";
             orderPageArrowDL.style.display = "none";
@@ -437,14 +545,18 @@ window.onload = function () {
 
     // call ajax(driInfo)
     function ordReceiveDriInfo() {
-        localStorage.setItem("ordSaveDriInfo", JSON.stringify(ordDriCart));
 
         orderPageItemDivAll.innerHTML = "";
         let ordProdItemDiv = "";
         for (let g = 0; g < ordDriCart.length; g++) {
+            let ordDisCount = Number(ordDriCart[g].before);
+            // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
+            if (ordDisCount > Number(ordDriCart[g].PRO_ITEM_PRICE)) {
+                // 讓變數帶入css指令，讓他價錢變色
+                ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+            } else { };
             // 渲染商品進HTML頁面
-
-            ordProdItemDiv = `<div class="orderPageItemDiv">
+            ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
                                             <img src="./assets/${ordDriCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordDriCart[g].PRO_ITEM_NO}">${ordDriCart[g].PRO_ITEM_NAME}</span>
@@ -456,7 +568,7 @@ window.onload = function () {
 
 
     function ordDriShow() {
-        ordDri.addEventListener("click", function () {
+        ordNavList.childNodes[7].addEventListener("click", function () {
             ordReceiveDriInfo();
             orderPageArrowDR.style.display = "none";
             orderPageArrowDL.style.display = "none";
@@ -499,18 +611,40 @@ window.onload = function () {
                 };
 
                 // looping through the data 把從資料庫抓出來的配料品項加到HTML頁面上
-                for (let s = 0; s < ordSugarCart.length; s++) {
-                    ordSugarItem[s].innerHTML = ordSugarCart[s].FILLING_ITEM_NAME;
-                };
-                for (let i = 0; i < ordIceCart.length; i++) {
-                    ordIceItem[i].innerHTML = ordIceCart[i].FILLING_ITEM_NAME;
-                };
-                for (let a = 0; a < ordAsideCart.length; a++) {
-                    ordAsideItem[a].innerHTML = ordAsideCart[a].FILLING_ITEM_NAME;
-                };
-                for (let o = 0; o < ordSeasoningCart.length; o++) {
-                    ordSeasoningItem[o].innerHTML = ordSeasoningCart[o].FILLING_ITEM_NAME;
-                };
+                ordToppingSec.innerHTML = "";
+                // 糖份
+                let ordToppingSuSec = "";
+                ordToppingSuSec = `<div class="ordToppingSecSu">
+                                <button class="ordFillBtn" id="ordSugar" data-timer=0>${ordSugarCart[0].FILLING_CATA_NAME}</button>
+                                <div id="ordSugarAll">
+                                </div>
+                            </div>`;
+
+                ordToppingSec.insertAdjacentHTML("beforeend", ordToppingSuSec);
+                // 冰塊
+                let ordToppingIceSec = "";
+                ordToppingIceSec = `<div class="ordToppingSecIce">
+                                <button class="ordFillBtn" id="ordIce" data-timer=0>${ordIceCart[0].FILLING_CATA_NAME}</button>
+                                <div id="ordIceAll">
+                                </div>
+                            </div>`;
+                ordToppingSec.insertAdjacentHTML("beforeend", ordToppingIceSec);
+                // 配料
+                let ordToppingAsideSec = "";
+                ordToppingAsideSec = `<div class="ordToppingSecAside">
+                                <button class="ordFillBtn" id="ordAside" data-timer=0>${ordAsideCart[0].FILLING_CATA_NAME}</button>
+                                <div id="ordAsideAll">
+                                </div>
+                            </div>`;
+                ordToppingSec.insertAdjacentHTML("beforeend", ordToppingAsideSec);
+                // 調味
+                let ordToppingSeasoningSec = "";
+                ordToppingSeasoningSec = `<div class="ordToppingSecSeasoning">
+                                <button class="ordFillBtn" id="ordSeasoning" data-timer=0>${ordSeasoningCart[0].FILLING_CATA_NAME}</button>
+                                <div id="ordSeasoningAll">
+                                </div>
+                            </div>`;
+                ordToppingSec.insertAdjacentHTML("beforeend", ordToppingSeasoningSec);
             };
         };
     };
@@ -686,6 +820,7 @@ window.onload = function () {
     ordAddToList();
 
 
+
     function ordDeleteProd() {
         orderPageLeftSideMidItemAll.addEventListener("click", function (e) {
 
@@ -713,6 +848,9 @@ window.onload = function () {
     ordDeleteProd();
 
 
+    // 計算配料金額時弄一個容器（讓他等加），用parseInt(0)讓他初值變成數字0
+    let ordToppingTtlPr = parseInt(0);
+
     function ordToppingSecShow() {
         ordAddToList();
         orderPageLeftSideMidItemAll.addEventListener("click", function (e) {
@@ -725,118 +863,243 @@ window.onload = function () {
 
                 // 先判斷所點選的商品的編號，再決定要讓哪些配料項目出現
                 if (e.target.childNodes[3].classList[1] == 1 || e.target.childNodes[3].classList[1] == 2 || e.target.childNodes[3].classList[1] == 3 || e.target.childNodes[3].classList[1] == 4) {
-                    ordToppingSecAside.style.display = "block";
-                    ordToppingSecSeasoning.style.display = "block";
-                    ordToppingSecSu.style.display = "none";
-                    ordToppingSecIce.style.display = "none";
+                    // 如果配料大分類下架，讓他不出現在畫面上
+                    if (ordAsideCart[0].FILLING_CATA_ONOFF == 0) {
+                        // 配料按鈕消失
+                        ordToppingSec.childNodes[2].childNodes[1].style.display = "none";
+                    } else {
+                        // 配料按鈕顯現
+                        ordToppingSec.childNodes[2].childNodes[1].style.display = "block";
+                    }
 
-                    // 讓配料出現 for ordFood
-                    $(ordAside).click(function () {
-                        $("#ordAsideAll").toggle();
+                    // 如果調味大分類下架，讓他不出現在畫面上
+                    if (ordSeasoningCart[0].FILLING_CATA_ONOFF == 0) {
+                        // 調味按鈕消失
+                        ordToppingSec.childNodes[3].childNodes[1].style.display = "none";
+                    } else {
+                        // 調味按鈕顯現
+                        ordToppingSec.childNodes[3].childNodes[1].style.display = "block";
+                    }
+
+                    // 糖分按鈕消失
+                    ordToppingSec.childNodes[0].childNodes[1].style.display = "none";
+                    // 冰塊按鈕消失
+                    ordToppingSec.childNodes[1].childNodes[1].style.display = "none";
+
+
+                    // 綁定ordFillBtn（配料）的監聽事件
+                    ordToppingSec.childNodes[2].childNodes[1].addEventListener("click", function () {
+                        event.stopPropagation;
+                        event.stopImmediatePropagation;
+                        // 先把ordAsideAll內的空間清空
+                        ordToppingSec.childNodes[2].childNodes[3].innerHTML = "";
+                        // 渲染配料進HTML頁面
+                        let ordToppingAside = "";
+
+                        for (let g = 0; g < ordAsideCart.length; g++) {
+                            ordToppingAside = `<div class="ordAsideItem">${ordAsideCart[g].FILLING_ITEM_NAME}</div>`;
+                            ordToppingSec.childNodes[2].childNodes[3].insertAdjacentHTML("beforeend", ordToppingAside);
+                        };
+
+
+                        // 弄一個容器（讓他等加），用parseInt(0)讓他初值變成數字0
+                        // let ordToppingTtlPr = parseInt(0);
+                        if (ordToppingSec.childNodes[2].childNodes[1].dataset.timer == 0) {
+                            ordToppingSec.childNodes[2].childNodes[3].style.display = "block";
+                            // 弄一個容器（讓他等加），用parseInt(0)讓他初值變成數字0
+                            // let ordToppingTtlPr = parseInt(0);
+                            // 綁定每一個配料的事件監聽
+                            for (let s = 0; s < ordAsideCart.length; s++) {
+                                ordToppingSec.childNodes[2].childNodes[3].childNodes[s].addEventListener("click", function (e) {
+                                    e.preventDefault();
+                                    e.stopImmediatePropagation();
+                                    // 渲染進品項下面的空間
+                                    document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordAsideCart[s].FILLING_ITEM_NAME} $${ordAsideCart[s].FILLING_ITEM_PRICE}</span>`;
+
+                                    let ordLightBlueNum = parseInt(document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].dataset.sec);
+
+                                    ordProdCart[ordLightBlueNum].topping.push(`${ordAsideCart[s].FILLING_ITEM_NAME} $${ordAsideCart[s].FILLING_ITEM_PRICE}`);
+
+                                    // 單獨抓出配料的錢
+                                    ordToppingTtlPr += parseInt(ordAsideCart[s].FILLING_ITEM_PRICE);
+                                    // 把商品的價錢轉換為數字
+                                    let ordPrdoItemPr = Number(ordProdCart[ordLightBlueNum].PRO_ITEM_PRICE);
+                                    // 用一個容器來裝配料與商品加總的總數
+                                    let ordProdnToppingPr = ordPrdoItemPr + ordToppingTtlPr;
+                                    // console.log("價錢", ordProdCart[ordLightBlueNum].PRO_ITEM_PRICE)
+
+                                    // 讓總數加到該商品內
+                                    document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[3].innerHTML = "$" + ordProdnToppingPr;
+
+                                    ordTotProdAmt();
+
+                                    // 存入購物車
+                                    ordSaveProdInCartHist();
+                                    // 點擊一個配料後該空間就會關閉
+                                    ordToppingSec.childNodes[2].childNodes[3].style.display = "none";
+                                });
+                            };
+                            ordToppingSec.childNodes[2].childNodes[1].dataset.timer++;
+                        } else {
+                            ordToppingSec.childNodes[2].childNodes[3].style.display = "none";
+                            ordToppingSec.childNodes[2].childNodes[1].dataset.timer--;
+                        }
+                    })
+
+                    // 綁定ordFillBtn（調味）的監聽事件
+                    ordToppingSec.childNodes[3].childNodes[1].addEventListener("click", function () {
+                        event.stopPropagation;
+                        event.stopImmediatePropagation;
+                        // 先把ordSeasoningAll內的空間清空
+                        ordToppingSec.childNodes[3].childNodes[3].innerHTML = "";
+                        let ordToppingSea = "";
+                        for (let g = 0; g < ordSeasoningCart.length; g++) {
+                            ordToppingSea = `<div class="ordSeasoningItem">${ordSeasoningCart[g].FILLING_ITEM_NAME}</div>`;
+                            ordToppingSec.childNodes[3].childNodes[3].insertAdjacentHTML("beforeend", ordToppingSea);
+                        };
+                        // 用js寫toggle
+                        if (ordToppingSec.childNodes[3].childNodes[1].dataset.timer == 0) {
+                            ordToppingSec.childNodes[3].childNodes[3].style.display = "block";
+                            // 綁定每一個調味的事件監聽
+                            for (let s = 0; s < ordSeasoningCart.length; s++) {
+                                // let ordToppingTxt = '';
+                                ordToppingSec.childNodes[3].childNodes[3].childNodes[s].addEventListener("click", function (e) {
+                                    e.preventDefault();
+                                    e.stopImmediatePropagation();
+                                    // 渲染進品項下面的空間
+                                    document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordSeasoningCart[s].FILLING_ITEM_NAME} $${ordSeasoningCart[s].FILLING_ITEM_PRICE}</span>`;
+
+                                    let ordLightBlueNum = parseInt(document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].dataset.sec);
+
+                                    ordProdCart[ordLightBlueNum].topping.push(`${ordSeasoningCart[s].FILLING_ITEM_NAME} $${ordSeasoningCart[s].FILLING_ITEM_PRICE}`);
+
+                                    // 存入購物車
+                                    ordSaveProdInCartHist();
+                                    // 點擊一個調味後該空間就會關閉
+                                    ordToppingSec.childNodes[3].childNodes[3].style.display = "none";
+                                });
+                            };
+                            ordToppingSec.childNodes[3].childNodes[1].dataset.timer++;
+                        } else {
+                            ordToppingSec.childNodes[3].childNodes[3].style.display = "none";
+                            ordToppingSec.childNodes[3].childNodes[1].dataset.timer--;
+                        };
+
                     });
-                    // 讓調味出現 for ordFood
-                    $(ordSeasoning).click(function () {
-                        $("#ordSeasoningAll").toggle();
-                    });
-                    // 弄一個容器（讓他等加），用parseInt(0)讓他初值變成數字0
-                    let ordToppingTtlPr = parseInt(0);
-
-                    for (let s = 0; s < ordAsideCart.length; s++) {
-                        // let ordToppingTxt = '';
-                        ordAsideItem[s].addEventListener("click", function (e) {
-                            e.preventDefault();
-                            e.stopImmediatePropagation();
-
-                            document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordAsideCart[s].FILLING_ITEM_NAME}  $${ordAsideCart[s].FILLING_ITEM_PRICE}</span>`;
-
-                            let ordLightBlueNum = parseInt(document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].dataset.sec);
-
-                            ordProdCart[ordLightBlueNum].topping.push(`${ordAsideCart[s].FILLING_ITEM_NAME} $${ordAsideCart[s].FILLING_ITEM_PRICE}`);
-
-
-
-                            console.log("ejijeij", e.target)
-
-                            // 單除抓出配料的錢
-                            ordToppingTtlPr += parseInt(ordAsideCart[s].FILLING_ITEM_PRICE);
-                            // 把商品的價錢轉換為數字
-                            let ordPrdoItemPr = Number(ordProdCart[ordLightBlueNum].PRO_ITEM_PRICE);
-                            // 用一個容器來裝配料與商品加總的總數
-                            let ordProdnToppingPr = ordPrdoItemPr + ordToppingTtlPr;
-                            // 讓總數加到該商品內
-                            document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[3].innerHTML = "$" + ordProdnToppingPr;
-
-                            ordTotProdAmt();
-                        });
-                        ordSaveProdInCartHist();
-                    };
-
-                    for (let s = 0; s < ordSeasoningCart.length; s++) {
-                        // let ordToppingTxt = '';
-                        ordSeasoningItem[s].addEventListener("click", function (e) {
-                            e.preventDefault();
-                            e.stopImmediatePropagation();
-                            // console.log("3333", document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1]);
-                            document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordSeasoningCart[s].FILLING_ITEM_NAME} $${ordSeasoningCart[s].FILLING_ITEM_PRICE}</span>`;
-
-                            let ordLightBlueNum = parseInt(document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].dataset.sec);
-
-                            ordProdCart[ordLightBlueNum].topping.push(`${ordSeasoningCart[s].FILLING_ITEM_NAME} $${ordSeasoningCart[s].FILLING_ITEM_PRICE}`);
-
-                            ordSaveProdInCartHist();
-                        });
-                    };
 
                 } else if (e.target.childNodes[3].classList[1] == 6 || e.target.childNodes[3].classList[1] == 7) {
-                    ordToppingSecAside.style.display = "none";
-                    ordToppingSecSeasoning.style.display = "none";
-                    ordToppingSecSu.style.display = "block";
-                    ordToppingSecIce.style.display = "block";
-                    // 讓糖度出現 for ordDrink
-                    $(ordSugar).click(function () {
-                        $("#ordSugarAll").toggle();
+                    event.stopPropagation;
+                    event.stopImmediatePropagation;
+
+                    // 如果糖分大分類下架，讓他不出現在畫面上
+                    if (ordSugarCart[0].FILLING_CATA_ONOFF == 0) {
+                        // 糖分按鈕消失
+                        ordToppingSec.childNodes[0].childNodes[1].style.display = "none";
+                    } else {
+                        // 糖分按鈕顯現
+                        ordToppingSec.childNodes[0].childNodes[1].style.display = "block";
+                    }
+
+                    if (ordIceCart[0].FILLING_CATA_ONOFF == 0) {
+                        // 冰塊按鈕消失
+                        ordToppingSec.childNodes[1].childNodes[1].style.display = "none";
+                    } else {
+                        // 冰塊按鈕顯現
+                        ordToppingSec.childNodes[1].childNodes[1].style.display = "block";
+                    }
+
+                    // 配料按鈕消失
+                    ordToppingSec.childNodes[2].childNodes[1].style.display = "none";
+                    // 調味按鈕消失
+                    ordToppingSec.childNodes[3].childNodes[1].style.display = "none";
+
+                    // 綁定ordFillBtn（糖度）的監聽事件
+                    ordToppingSec.childNodes[0].childNodes[1].addEventListener("click", function () {
+                        event.stopPropagation;
+                        event.stopImmediatePropagation;
+                        // 先把ordSugarAll內的空間清空
+                        ordToppingSec.childNodes[0].childNodes[3].innerHTML = "";
+                        // 渲染糖份進HTML頁面
+                        let ordToppingSu = "";
+
+                        for (let g = 0; g < ordSugarCart.length; g++) {
+                            ordToppingSu = `<div class="ordSugarItem">${ordSugarCart[g].FILLING_ITEM_NAME}</div>`;
+                            ordToppingSec.childNodes[0].childNodes[3].insertAdjacentHTML("beforeend", ordToppingSu);
+                        };
+
+
+                        // 用js寫toggle
+                        if (ordToppingSec.childNodes[0].childNodes[1].dataset.timer == 0) {
+                            ordToppingSec.childNodes[0].childNodes[3].style.display = "block";
+                            // 綁定每一個糖份的事件監聽
+                            for (let s = 0; s < ordSugarCart.length; s++) {
+                                // let ordToppingTxt = '';
+                                ordToppingSec.childNodes[0].childNodes[3].childNodes[s].addEventListener("click", function (e) {
+                                    e.preventDefault();
+                                    e.stopImmediatePropagation();
+                                    // 渲染進品項下面的空間
+                                    document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordSugarCart[s].FILLING_ITEM_NAME} $${ordSugarCart[s].FILLING_ITEM_PRICE}</span>`;
+
+                                    let ordLightBlueNum = parseInt(document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].dataset.sec);
+
+                                    ordProdCart[ordLightBlueNum].topping.push(`${ordSugarCart[s].FILLING_ITEM_NAME} $${ordSugarCart[s].FILLING_ITEM_PRICE}`);
+
+                                    // 存入購物車
+                                    ordSaveProdInCartHist();
+                                    // 點擊一個糖分後該空間就會關閉
+                                    ordToppingSec.childNodes[0].childNodes[3].style.display = "none";
+                                });
+                            };
+                            ordToppingSec.childNodes[0].childNodes[1].dataset.timer++;
+                        } else {
+                            ordToppingSec.childNodes[0].childNodes[3].style.display = "none";
+                            ordToppingSec.childNodes[0].childNodes[1].dataset.timer--;
+                        }
                     });
 
-                    // 讓冰塊出現 for ordDrink
-                    $(ordIce).click(function () {
-                        $("#ordIceAll").toggle();
+                    // 綁定ordFillBtn（冰塊）的監聽事件
+                    ordToppingSec.childNodes[1].childNodes[1].addEventListener("click", function () {
+                        event.stopPropagation;
+                        event.stopImmediatePropagation;
+                        // 先把ordIceAll內的空間清空
+                        ordToppingSec.childNodes[1].childNodes[3].innerHTML = "";
+                        // 渲染糖份進HTML頁面
+                        let ordToppingIce = "";
+                        for (let g = 0; g < ordIceCart.length; g++) {
+                            ordToppingIce = `<div class="ordIceItem">${ordIceCart[g].FILLING_ITEM_NAME}</div>`;
+                            ordToppingSec.childNodes[1].childNodes[3].insertAdjacentHTML("beforeend", ordToppingIce);
+                        };
+                        // 用js寫toggle
+                        if (ordToppingSec.childNodes[1].childNodes[1].dataset.timer == 0) {
+                            ordToppingSec.childNodes[1].childNodes[3].style.display = "block";
+                            // 綁定每一個冰塊的事件監聽
+                            for (let s = 0; s < ordIceCart.length; s++) {
+                                // let ordToppingTxt = '';
+                                ordToppingSec.childNodes[1].childNodes[3].childNodes[s].addEventListener("click", function (e) {
+                                    e.preventDefault();
+                                    e.stopImmediatePropagation();
+                                    // 渲染進品項下面的空間
+                                    document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordIceCart[s].FILLING_ITEM_NAME} $${ordIceCart[s].FILLING_ITEM_PRICE}</span>`;
+
+                                    let ordLightBlueNum = parseInt(document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].dataset.sec);
+
+                                    ordProdCart[ordLightBlueNum].topping.push(`${ordIceCart[s].FILLING_ITEM_NAME} $${ordIceCart[s].FILLING_ITEM_PRICE}`);
+
+                                    // 存入購物車
+                                    ordSaveProdInCartHist();
+                                    // 點擊一個糖分後該空間就會關閉
+                                    ordToppingSec.childNodes[1].childNodes[3].style.display = "none";
+                                });
+                            };
+                            ordToppingSec.childNodes[1].childNodes[1].dataset.timer++;
+                        } else {
+                            ordToppingSec.childNodes[1].childNodes[3].style.display = "none";
+                            ordToppingSec.childNodes[1].childNodes[1].dataset.timer--;
+                        }
                     });
-
-                    for (let s = 0; s < ordSugarCart.length; s++) {
-                        // let ordToppingTxt = '';
-                        ordSugarItem[s].addEventListener("click", function (e) {
-                            e.preventDefault();
-                            e.stopImmediatePropagation();
-                            // console.log("3333", document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1]);
-                            document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordSugarCart[s].FILLING_ITEM_NAME} $${ordSugarCart[s].FILLING_ITEM_PRICE}</span>`;
-
-
-                            let ordLightBlueNum = parseInt(document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].dataset.sec);
-
-                            ordProdCart[ordLightBlueNum].topping.push(`${ordSugarCart[s].FILLING_ITEM_NAME} $${ordSugarCart[s].FILLING_ITEM_PRICE}`);
-                            ordSaveProdInCartHist();
-                        });
-                    };
-
-                    for (let s = 0; s < ordIceCart.length; s++) {
-                        // let ordToppingTxt = '';
-                        ordIceItem[s].addEventListener("click", function (e) {
-                            e.preventDefault();
-                            e.stopImmediatePropagation();
-                            // console.log("3333", document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1]);
-                            document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordIceCart[s].FILLING_ITEM_NAME} $${ordIceCart[s].FILLING_ITEM_PRICE}</span>`;
-
-                            let ordLightBlueNum = parseInt(document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].dataset.sec);
-
-                            ordProdCart[ordLightBlueNum].topping.push(`${ordIceCart[s].FILLING_ITEM_NAME} $${ordIceCart[s].FILLING_ITEM_PRICE}`);
-                            ordSaveProdInCartHist();
-                        });
-                    };
                 } else {
-                    ordToppingSecAside.style.display = "none";
-                    ordToppingSecSeasoning.style.display = "none";
-                    ordToppingSecSu.style.display = "none";
-                    ordToppingSecIce.style.display = "none";
+                    // 灰階的時候讓整個配料區都消失，點擊也不會出現
+                    ordToppingSec.style.display = "none";
                 };
             };
         });
@@ -960,11 +1223,6 @@ window.onload = function () {
         ordToKitchen = basicInfoGet.concat(ordGetOnProd);
         localStorage.setItem(`${ordList}`, JSON.stringify(ordToKitchen));
     });
-
-
-
-
-
 
 
     // 結帳
