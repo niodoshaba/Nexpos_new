@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, blockquote, pre,
@@ -125,7 +126,7 @@ a {
       font-weight: bold;
       color: #0a3264; }
     .c-sidebar ul .func .user {
-      font-size: 600;
+      font-weight: 600;
       margin: 5px 0;
       font-weight: bold;
       color: #0a3264; }
@@ -238,3 +239,108 @@ input#search-bar {
   height: 75px;
   top: -15px;
   right: -5px; }
+
+/* 整個日曆 */
+.S_calendarAll {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100px;
+  right: 30%;
+  width: 13%; }
+
+/* 標頭相關 */
+.S_calendarAll .S_calendarHeader {
+  font-size: 25px;
+  align-items: center;
+  display: flex;
+  padding: 0px 0px;
+  width: 60%;
+  margin: 10px auto;
+  cursor: pointer; }
+
+.S_calendarAll .S_calendarHeaderTop {
+  /* font-weight: bold; */
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
+  /* margin: 0px 15px; */ }
+
+/* 兩顆箭頭 */
+.S_calendarAll .S_calendarTopBtn {
+  background-color: #fff;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  cursor: pointer; }
+
+.S_calendarAll .S_calendarWeek {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px; }
+
+.S_calendarAll .S_calendarWeek span {
+  font-size: 16px;
+  /* font-weight: bold; */
+  text-align: center; }
+
+/* 日期文字相關 */
+.S_calendarAll .S_calendarDay {
+  /* background-color: ; */
+  display: flex;
+  flex-wrap: wrap; }
+
+.S_calendarAll .S_calendarDate {
+  box-sizing: border-box;
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 14.28%;
+  max-width: 14.28%;
+  margin: 5px 0;
+  padding: 5px 0;
+  font-size: 14px; }
+
+.S_calendarAll .S_calendarDate span {
+  font-size: 14px; }
+
+.S_calendarAll .calendarDate--selected {
+  border: 2px solid #b2ddea;
+  border-radius: 10px; }
+
+#yearCalendarSelect {
+  position: absolute;
+  background-color: #fff;
+  width: 0%;
+  height: 0%;
+  transition: all 0.3s linear;
+  text-align: center;
+  opacity: 0; }
+
+#eachYearDiv {
+  margin: 15px 0px;
+  display: inline-block;
+  /* display: none; */
+  cursor: pointer; }
+
+.eachYearClass {
+  font-size: 18px;
+  transition: all 0.1s linear;
+  padding: 10px 15px;
+  border-radius: 10px; }
+
+.eachYearClass:hover {
+  background-color: #effcff; }
+
+.yearPickScrollBar {
+  background: #f9f9f9;
+  overflow-y: scroll;
+  overflow-x: hidden; }
+
+#yearCalendarSelect::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f9f9f9; }
+
+#yearCalendarSelect::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #DDDDDD; }
