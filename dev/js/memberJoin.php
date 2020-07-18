@@ -1,33 +1,31 @@
 <?php 
 
 try {
-    $dsn = "mysql:host=localhost;port=3306;dbname=pos;charset=utf8";
+    $dsn = "mysql:host=localhost;port=8889;dbname=G4_nexpos;charset=utf8";
 	$user = "root";
 	$password = "root";
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);    
-    $pdo = new PDO( $dsn, $user, $password, $options); 
-    // $servername = "localhost:3306";
-	// $username = "root";
-	// $password = "root";
-	// $db="pos";
-	// $conn = mysqli_connect($servername, $username, $password,$db);
+	$pdo = new PDO( $dsn, $user, $password, $options); 
 
-    $CUS_FIRST = $_POST["CUS_FIRST"];
-    $CUS_LAST = $_POST["CUS_LAST"];
-    $CUS_GEN = $_POST["CUS_GEN"];
     $CUS_PHONE = $_POST["CUS_PHONE"];
+    $CUS_ID = $_POST["CUS_ID"];
+    $CUS_STATE = $_POST["CUS_STATE"];
+    $CUS_LAST = $_POST["CUS_LAST"];
+    $CUS_FIRST = $_POST["CUS_FIRST"];
+    $CUS_GEN = $_POST["CUS_GEN"];
     $CUS_BIRTH = $_POST["CUS_BIRTH"];
     $CUS_EMAIL = $_POST["CUS_EMAIL"];
+    $CUS_POINT = $_POST["CUS_POINT"];
 
     //insert member info to database
-	$sql = "INSERT into CUSTOMER value ('$CUS_PHONE', '$CUS_LAST', '$CUS_FIRST',  '$CUS_GEN', '$CUS_BIRTH', '$CUS_EMAIL')";
+	$sql = "INSERT into CUSTOMER value ('$CUS_PHONE','$CUS_ID','$CUS_STATE','$CUS_LAST' ,'$CUS_FIRST', '$CUS_GEN', '$CUS_BIRTH', '$CUS_EMAIL', '$CUS_POINT')";
 	$memInfo = $pdo->prepare ($sql);
     $memInfo->execute();
 
-    // echo 
-    // "<script> alert('送出成功');
-    // location.href='../../dest/memberJoin.html';
-    // </script>";
+    echo 
+    "<script> alert('送出成功');
+    location.href='../../dest/memberJoin.html';
+    </script>";
 
 } catch (PDOException $e) {
 	// echo "系統暫時無法提供服務, 請通知系統維護人員<br>";

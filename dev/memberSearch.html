@@ -10,20 +10,32 @@
     <!-- <link rel="stylesheet" href="css/style.css" /> -->
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/memberSearch.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <title> 會員資料查詢</title>
   </head>
+  <style>
+    .search-container {
+    width: 220px;
+    position: relative;
+    top: -40px;
+    right: 156px;
+}
+  </style>
 
   <body>
     <!-- 複製以下功能列 -->
-    @@include('./app/header.html', {
-      "nav2" : "actives" 
+  @@include('./app/header.html', {
+    "nav2" : "actives"
     })
-    <!-- 複製以上功能列 -->
+   <!-- 複製以上功能列 -->
     <!-- 以下為各分頁內容 -->
     <div class="c-wrapper">
       <div class="tablehead">
         <h1>會員資料查詢</h1> 
-        @@include('app/searchbar.html')
+        <div class="search-container">
+          <input type="text" id="search-bar" placeholder="輸入姓名或電話">
+          <img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" >
+        </div>
       </div>
       <div class="topFunc">
         <a href="memberSearch.html" class="topTablink" style="text-decoration: none;">
@@ -38,7 +50,7 @@
         </a>
       </div>
 
-      <form action="./js/memberSearch.php" id="myForm">
+      <div id="search_result">
         <div class="resScrollbar" id="resScrollstyle">
           <div class="resOverflow">
             <table id="resTable">
@@ -50,110 +62,43 @@
                     <td>e-mail</td>
                     <td>生日</td>
                     <td>點數</td>
-                    
-                </tr>
-                <tr>
-                    <td>Ching</td>
-                    <td>女</td>
-                    <td>0932123456</td>
-                    <td>hahaha@gmail.com</td>
-                    <td>2020/6/23</td>
-                    <td>3000點</td>
-                </tr>
-                <tr>
-                    <td>Lily</td>
-                    <td>女</td>
-                    <td>0932123456</td>
-                    <td>hahaha@gmail.com</td>
-                    <td>2020/6/23</td>
-                    <td>3000點</td>
-                </tr>
-                <tr>
-                    <td>小傑</td>
-                    <td>女</td>
-                    <td>0932123456</td>
-                    <td>hahaha@gmail.com</td>
-                    <td>2020/6/23</td>
-                    <td>3000點</td>
-                </tr>
-                <tr>
-                    <td>皮</td>
-                    <td>女</td>
-                    <td>0932123456</td>
-                    <td>hahaha@gmail.com</td>
-                    <td>2020/6/23</td>
-                    <td>3000點</td>
-                </tr>
-                <tr>
-                    <td>千金</td>
-                    <td>女</td>
-                    <td>0932123456</td>
-                    <td>hahaha@gmail.com</td>
-                    <td>2020/6/23</td>
-                    <td>3000點</td>
-                </tr>
-                <tr>
-                    <td>康哥</td>
-                    <td>女</td>
-                    <td>0932123456</td>
-                    <td>hahaha@gmail.com</td>
-                    <td>2020/6/23</td>
-                    <td>3000點</td>
-                </tr>
-                <tr>
-                    <td>Ching</td>
-                    <td>女</td>
-                    <td>0932123456</td>
-                    <td>hahaha@gmail.com</td>
-                    <td>2020/6/23</td>
-                    <td>3000點</td>
-                </tr>
-                <tr>
-                    <td>Lily</td>
-                    <td>女</td>
-                    <td>0932123456</td>
-                    <td>hahaha@gmail.com</td>
-                    <td>2020/6/23</td>
-                    <td>3000點</td>
-                </tr>
-                <tr>
-                    <td>小傑</td>
-                    <td>女</td>
-                    <td>0932123456</td>
-                    <td>hahaha@gmail.com</td>
-                    <td>2020/6/23</td>
-                    <td>3000點</td>
-                </tr>
-                <tr>
-                    <td>皮</td>
-                    <td>女</td>
-                    <td>0932123456</td>
-                    <td>hahaha@gmail.com</td>
-                    <td>2020/6/23</td>
-                    <td>3000點</td>
-                </tr>
-                <tr>
-                    <td>千金</td>
-                    <td>女</td>
-                    <td>0932123456</td>
-                    <td>hahaha@gmail.com</td>
-                    <td>2020/6/23</td>
-                    <td>3000點</td>
-                </tr>
-                <tr>
-                    <td>康哥</td>
-                    <td>女</td>
-                    <td>0932123456</td>
-                    <td>hahaha@gmail.com</td>
-                    <td>2020/6/23</td>
-                    <td>3000點</td>
                 </tr>
 
               </div>
             </table>
           </div>
         </div>
-      </form>
+      </div>
     </div>
+    <script>
+      // jquery 開始
+      $(document).ready(function () {
+          load_data();
+
+          function load_data(query) {
+              $.ajax({
+                  url: '../dev/js/memberSearch.php',
+                  method: "GET",
+                  data: {
+                      s: query
+                  },
+                  success: function (data) {
+                      $('#search_result').html(data);
+                  }
+              });
+              $('#search-bar').keydown(function (event) {
+                  if (event.which == 13) {
+                      var search = $(this).val();
+                      if (search != '') {
+                          load_data(search);
+                      } else {
+                          load_data();
+                      }
+                  }
+              });
+          }
+      })
+  </script>
+
   </body>
 </html>
