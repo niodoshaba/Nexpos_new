@@ -9,7 +9,7 @@ try{
     
     //搜尋紅利規則
     $bonusRule_sql = "SELECT BONUS_NAME 
-                      FROM bonus_rule;"
+                      FROM bonus_rule;";
 
     $bonusRule = $pdo->query($bonusRule_sql);
     $bonusRuleArr = array();
@@ -19,10 +19,8 @@ try{
     $sendBackbonusRule = array_pop($bonusRuleArr[0]); 
     
     print_r($sendBackbonusRule);
-    //搜尋會員，若會為會員則帶出X先生/小姐你好，顯示可用點數
-    // $search_sql = "SELECT  CUS_LAST,CUS_POINT,CUS_GEN
-    //                FROM    customer
-    //                WHERE   CUS_PHONE = $phone AND CUS_ID = 1;";
+
+    
 
 
 

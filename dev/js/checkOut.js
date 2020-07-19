@@ -21,56 +21,73 @@ window.addEventListener('load',function(){
     //剩餘品項
     let checkoutLeftSideBottomTop = document.getElementById('checkoutLeftSideBottomTop');
     
-    //----- 假資料 -----
-    var data = [
-        {
-            CUS_PHONE: "0931254698",
-            CUS_LAST: "千",
-            CUS_FIRST: "金",
-            CUS_GEN: "女",
-            CUS_BIRTH: "1993/06/22",
-            CUS_EMAIL: "a5487@gmail.com",
-            CUS_POINT: "5000",
-            CUS_ID: "1",
-            CUS_STATE: "1"
-        }];
-        
-    localStorage.setItem('cusData', JSON.stringify(data));
+    let checkoutLeftSideTopBtn = document.getElementById('checkoutLeftSideTopBtn');
+    //接從後端撈回的紅利規則
+    // let bonusRule = "";
 
-    let bonusRule = "消費500元累積1點，每300點可折抵1元";
-    localStorage.setItem('bonusRule', JSON.stringify(bonusRule));
-    
+    //接會員點數
+    // let cusPoint = 0;
+
     function bonusRuleGetData(){
         let xhr = new XMLHttpRequest();
         xhr.onload = function(){
             
             if(xhr.readyState == 4 && xhr.status == 200){
                 let result = xhr.responseText;
-                console.log(result);
-                return result;
+                bonusRule = result;
+                // console.log(bonusRule);
             }
         }
-        xhr.open("post","checkOut.php",true);
+        xhr.open("post","../dev/js/checkOut.php",false);
         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
         xhr.send(null);
+        
     }
     
     bonusRuleGetData();
     
+    function checkCustomer(data){
+        
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+            console.log(xhr.readyState);
+            if(xhr.readyState == 4 && xhr.status == 200){
+                let phone = JSON.parse(xhr.responseText);
+                
+                
+                if(phone == ""){
+                    //查無此會員
+                    checkoutLeftSideTopBtn.children[0].value = "無會員資料";
+                    checkoutLeftSideTopBtn.children[0].style.color = "#E98E89";
+                    checkoutLeftSideTopBtn.children[0].style.fontSize = "25px";
+
+                }else{
+                    checkoutLeftSideTopBtn.children[1].style.display = "none";
+                    checkoutLeftSideTopBtn.children[0].style.padding = "0";
+                    checkoutNowBouns.innerText = phone.CUS_POINT;
+                    cusPoint = phone.CUS_POINT;
+                    if(phone.CUS_GEN == "男"){
+                        checkoutLeftSideTopBtn.children[0].value = `${phone.CUS_LAST}先生您好`
+                    }else{
+                        checkoutLeftSideTopBtn.children[0].value = `${phone.CUS_LAST}小姐您好`
+                    }
+                    
+
+                }
+                
+            }
+        }
+        xhr.open("post","../dev/js/customerSearch.php",true);
+        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        xhr.send(`customer=${data}`);
+        
+    }
+
     //-------------------------- 紅利相關 --------------------------
-    //取得暫存區裡的紅利規則
-    bonusRule = localStorage.getItem('bonusRule');
     let bounsCom = parseInt(bonusRule.substring(bonusRule.indexOf('費')+1, bonusRule.indexOf('元')));
     let bonusExchange = parseInt(bonusRule.substring(bonusRule.indexOf('每')+1,bonusRule.lastIndexOf('點')));
-
-    let dbCusData = JSON.parse(localStorage.getItem('cusData'));
-    
-    let cus = {
-        phone: "",
-        id: "",
-        point: ""
-    };
-    
+    console.log(bounsCom);
+    console.log(bonusExchange);
     //let bonusRule = "消費500元累積1點，每300點可折抵1元";
     
     //輸入紅利點數
@@ -95,26 +112,6 @@ window.addEventListener('load',function(){
             }
             checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkOutTotalPrice}</span>`;
         })();
-    
-        //2. 暫時用立即函式，確認是否為會員
-        (function checkMem(){
-            //輸入手機查詢資料庫，確認是否為會員
-
-            cus.phone = dbCusData[0].CUS_PHONE;
-            cus.id = dbCusData[0].CUS_ID;
-            cus.point = parseInt(dbCusData[0].CUS_POINT); 
-        })();
-
-        //會員紅利 暫時串 
-        (function nowBonus(){
-            checkoutNowBouns.innerText = cus.point;
-        })();
-
-    
-   
-    
-    
-    
     
     // 點擊訂單項目反藍
     for(i=0;i<checkoutLeftSideMidItemTop.length;i++){
@@ -205,15 +202,16 @@ window.addEventListener('load',function(){
 
     //----- 紅利 -----
     //紅利折點
+    
     checkoutGetPoint.addEventListener('change',function(){
         
         //欲折抵點數
         var getPoint = parseInt(checkoutGetPoint.value); //輸入的紅利點數(整數)
-        var bonusPoint = cus.point - getPoint;           //扣掉後剩餘的紅利點數(整數) -- 第一筆
+        var bonusPoint = cusPoint - getPoint;           //扣掉後剩餘的紅利點數(整數) -- 第一筆
 
         //取第一個品項的金額
         var firstItem = parseInt(checkOutPrice[0].innerText.substring(1, checkOutPrice[0].innerText.length));
-
+       
 
         //會員有的紅利點數 - 會員逾兌換的紅利點數
         if(bonusPoint>0){   //可兌換
@@ -235,15 +233,15 @@ window.addEventListener('load',function(){
           //紅利折抵金額 用第一筆品項去扣
           checkOutPrice[0].innerText = "$" + (firstItem - parseInt(getPoint/bonusExchange));
         }
-        //取得會員逾兌換的紅利點數
-        // //紅利規則
-        // bonusRule
-        //___點可換1元
         
-        //折抵金額
-        //checkoutDiscountPrice
 
        
     });
-       
+    
+    checkoutLeftSideTopBtn.addEventListener('submit',e=>{
+        e.preventDefault();
+        let senddata = checkoutLeftSideTopBtn.children[0].value;
+        checkCustomer(senddata);
+        
+    });
 });

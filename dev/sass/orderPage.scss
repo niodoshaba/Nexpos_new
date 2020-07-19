@@ -181,6 +181,39 @@ body{
                 }
             }
         }
+        #ordIceAll{
+            display: none;
+            text-align: center;
+            .ordIceItem{
+                padding: 5px;
+                cursor: pointer;
+                &:hover{
+                    color: bisque;
+                }
+            }
+        }
+        #ordAsideAll{
+            display: none;
+            text-align: center;
+            .ordAsideItem{
+                padding: 5px;
+                cursor: pointer;
+                &:hover{
+                    color: bisque;
+                }
+            }
+        }
+        #ordSeasoningAll{
+            display: none;
+            text-align: center;
+            .ordSeasoningItem{
+                padding: 5px;
+                cursor: pointer;
+                &:hover{
+                    color: bisque;
+                }
+            }
+        }
     }
 
 }

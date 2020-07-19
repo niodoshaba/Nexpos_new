@@ -10,10 +10,81 @@ let tabAddBtn = document.getElementById('tabAddBtn');
 //儲存按鈕
 let tabSaveBtn = document.getElementById('tabSaveBtn');  
 let tabContainer = document.getElementById('resize-tabContainer');
+//編輯空桌/預約餐桌/關閉餐桌/清潔餐桌/餐桌用餐中
+let tabEditColor;
+//  = document.getElementById('tabEditColor');
+let tabResColor;
+//  = document.getElementById('tabResColor');
+let tabCloseColor;
+//  = document.getElementById('tabCloseColor');
+let tabEatColor;
+//  = document.getElementById('tabEatColor');
+let tabCleanColor;
+//  = document.getElementById('tabCleanColor');
+//餐桌編號
+let tabNumber = document.getElementById('tabNumber');
+let tbN = "";
 
+let TestArr;
 //計數按幾次
 var count = 0;
 var positionArr = [];
+
+window.addEventListener('load',e=>{
+  loadTabStatus();
+  getTabStatusColor(TestArr);
+  // console.log("test",TestArr);
+});
+
+function loadTabStatus(){
+  let xhr = new XMLHttpRequest();
+  
+  xhr.onload = function(){
+    if(xhr.readyState == 4 && xhr.status == 200){
+      
+      let result = JSON.parse(xhr.responseText);
+      TestArr = result;
+      // console.log("1",TestArr);
+      
+    }
+    
+  }
+  xhr.open("post","../dev/js/loadTabStatusColor.php",false);
+  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+  xhr.send(null);        
+}
+
+function getTabStatusColor(data){
+  for(i=0;i<data.length;i++){
+    switch (data[i].TAB_NAME){
+      case "空桌":
+        tabEditColor = data[i].TAB_SHOW;
+        console.log(tabEditColor);
+      break;
+        
+      case "清潔中":
+        tabCleanColor = data[i].TAB_SHOW;
+        console.log(tabCleanColor);
+      break;
+      
+      case "桌位預約":
+        tabResColor = data[i].TAB_SHOW;
+        console.log(tabResColor);
+      break;
+      
+      case "桌位不開放":
+        tabCloseColor = data[i].TAB_SHOW;
+        console.log(tabCloseColor);
+      break;  
+
+      case "用餐中":
+        tabEatColor = data[i].TAB_SHOW;
+        console.log(tabEatColor);
+      break;  
+    }
+  }
+}
+
 
 //interactjs
 //要讓不同形狀都可移動就是讓他們共用一個css樣式
@@ -40,6 +111,7 @@ interact(".tabragobj").draggable({
       x = (parseFloat(target.getAttribute('data-x')) || 0),
       y = (parseFloat(target.getAttribute('data-y')) || 0);
 
+
   // update the element's style
   target.style.width  = event.rect.width + 'px';
   target.style.height = event.rect.height + 'px';
@@ -62,7 +134,7 @@ function dragMoveListener (event) {
       // keep the dragged position in the data-x/data-y attributes
       x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
       y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
+     
   // translate the element
   target.style.webkitTransform =
   target.style.transform =
@@ -98,7 +170,7 @@ tabSaveBtn.addEventListener('click',function(){
   
   // console.log(tabContainer.childElementCount);
   if(tabContainer.childElementCount == 0){
-    console.log('至少要有一個位置才能儲存');
+    alert('至少要有一個位置才能儲存');
   }else{
   var positionArr = [];
   // console.log(tabContainer.childElementCount);
@@ -116,14 +188,51 @@ tabSaveBtn.addEventListener('click',function(){
           bgc: window.getComputedStyle(tabContainer.childNodes[i]).getPropertyValue('background-color'),
           height: window.getComputedStyle(tabContainer.childNodes[i]).getPropertyValue('height'),
           width: window.getComputedStyle(tabContainer.childNodes[i]).getPropertyValue('width'),
-          borderRadius: window.getComputedStyle(tabContainer.childNodes[i]).getPropertyValue('border-radius')
+          borderRadius: window.getComputedStyle(tabContainer.childNodes[i]).getPropertyValue('border-radius'),
+          // ==> 空桌/預約/關閉/清潔中/用餐中
+          selectEmptyColor: tabEditColor,
+          // .value,
+          selectResColor: tabResColor,
+          // .value,
+          selectCloseColor: tabCloseColor,
+          // .value,
+          selectCleanColor: tabCleanColor,
+          // .value,
+          selectEatColor: tabEatColor,
+          // .value,
+          //判斷預約餐桌/關閉餐桌/餐桌點餐
+          tabChangeCheckClose: true, //關閉餐桌boolean
+          tabChangeCheckRes: true,   //預約餐桌boolean
+          tabChangeCheckOrd: true,   //餐桌點餐boolean
+          //餐桌狀態，一開始預設為空桌
+          tabStatus: 0,
+          //-----------------------0703---------------
+          //餐桌綁訂單
+          tabOrdList: ' ',
+          //餐桌有無點擊出餐
+          tabClickOrder: false,
+          //餐桌有無點擊結帳
+          tabClickCheckOut: false,
+          basicInfo: {orderList: "",
+                      inOrOut: "",
+                      number: tabContainer.childNodes[i].innerText
+                     },
+          //-----------------------0704---------------
+          number: tabContainer.childNodes[i].innerText
+          
         }
       );
       
     }
     // console.log(positionArr);
     saveAllDataToJson(positionArr);
+    tabEditSave(JSON.stringify(positionArr));
   }
+  
+});
+
+tabNumber.addEventListener('keyup',e=>{
+  tbN = tabNumber.value;
   
 });
 
@@ -133,12 +242,36 @@ tabAddBtn.addEventListener('click',function(){
   //appendchild
   let tabItem = document.createElement('li');
   //餐桌編號
-  tabItem.textContent = `A${count}`;
-  //
+  // tabItem.textContent = `A${count}`;
+  tabItem.innerText = tbN;
+  
   tabItem.className = shapeText + " tabragobj" + " tabPosition";
 
   tabItem.id = `A${count}`;
   
+  tabItem.style.setProperty('background-color',tabEditColor);
+  
   tabContainer.appendChild(tabItem);
   
+  // console.log(window.getComputedStyle(tabItem).getPropertyValue('background-color'));
 });
+
+function tabEditSave(tabData){
+  
+  let xhr = new XMLHttpRequest();
+  
+  xhr.onload = function(){
+    if(xhr.readyState == 4 && xhr.status == 200){
+      
+      //確認資料是否正確存入資料庫
+      let result = xhr.responseText;
+      
+    }
+    
+  }
+  xhr.open("post","../dev/js/tabSpecSaveToDB.php",true);
+  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+  // xhr.send("tabData=" + tabData);
+  xhr.send(`tabData=${tabData}`);        
+  
+}

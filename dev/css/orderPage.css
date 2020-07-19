@@ -129,6 +129,30 @@ body {
         cursor: pointer; }
         #orderPageLeftSideMid #ordToppingSec #ordSugarAll .ordSugarItem:hover {
           color: bisque; }
+    #orderPageLeftSideMid #ordToppingSec #ordIceAll {
+      display: none;
+      text-align: center; }
+      #orderPageLeftSideMid #ordToppingSec #ordIceAll .ordIceItem {
+        padding: 5px;
+        cursor: pointer; }
+        #orderPageLeftSideMid #ordToppingSec #ordIceAll .ordIceItem:hover {
+          color: bisque; }
+    #orderPageLeftSideMid #ordToppingSec #ordAsideAll {
+      display: none;
+      text-align: center; }
+      #orderPageLeftSideMid #ordToppingSec #ordAsideAll .ordAsideItem {
+        padding: 5px;
+        cursor: pointer; }
+        #orderPageLeftSideMid #ordToppingSec #ordAsideAll .ordAsideItem:hover {
+          color: bisque; }
+    #orderPageLeftSideMid #ordToppingSec #ordSeasoningAll {
+      display: none;
+      text-align: center; }
+      #orderPageLeftSideMid #ordToppingSec #ordSeasoningAll .ordSeasoningItem {
+        padding: 5px;
+        cursor: pointer; }
+        #orderPageLeftSideMid #ordToppingSec #ordSeasoningAll .ordSeasoningItem:hover {
+          color: bisque; }
 
 #orderPageLeftSideBottom #orderPageLeftSideBottomTop {
   margin: 20px 20px 10px 0px;
