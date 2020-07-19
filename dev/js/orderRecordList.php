@@ -1,5 +1,22 @@
 <?php 
 
+// ORDER_LIST
+// ORDER_NO(PK), ORDER_INNOUT, ORDER_DATE
+
+// ORDER_ITEM
+// ORD_SERIAL_NO(PK), PRO_ITEM_NO(FK), ORD_PRO_ITEM_NUM, ORDER_NO(FK), 
+
+// ORDER_ITEM_DES
+// FILLING_ITEM_NO(PK,FK), ORD_SERIAL_NO(PK,FK)
+
+// PRODUCT_ITEM
+// PRO_ITEM_NO(PK), PRO_ITEM_NAME
+
+// FILLING_ITEM
+// FILLING_ITEM_NO(PK), FILLING_ITEM_NAME
+
+
+
 try {
     $dsn = "mysql:host=localhost;port=3306;dbname=g4_nexpos;charset=utf8";
 	$user = "root";
