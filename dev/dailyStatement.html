@@ -4,19 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-     <link
-       rel="stylesheet"
-       href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/minty/bootstrap.min.css"
-     />
-     <link
-       href="https://www.jqueryscript.net/css/jquerysctipttop.css"
-       rel="stylesheet"
-       type="text/css"
-     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/minty/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://www.jqueryscript.net/css/jquerysctipttop.css"/>
     <link rel="stylesheet" href="./css/style.css" />
-     <link rel="stylesheet" href="./css/dailyStatement.css" />
-     <title>dailyStatement</title>
-
+    <link rel="stylesheet" href="./css/dailyStatement.css" />
+    <title>dailyStatement</title>
   </head>
 
   <body>
@@ -27,148 +19,203 @@
     <!-- 複製以上功能列 -->
     <!-- 以下為各分頁內容 -->
     <div class="c-wrapper" style="margin-left: 300px;">
-        <div id="orderPageRightside" class="col-10">
-            <div id="orderPageRightSideTop">
-              <div class="col-8">
-                <ul>
-                  <li>總營業額</li>
-                  <li>現金支付</li>
-                  <li>信用卡</li>
-                  <li>電子支付</li>
-                </ul>
+      <div id="orderPageRightside" class="col-10">
+          <div id="orderPageRightSideTop">
+            <div class="col-8" showPrice>
+              <ul>
+                <li class="totalPrice">總營業額</li>
+                <li class="cash">現金支付</li>
+                <li class="creditCard">信用卡</li>
+                <li class="electro">電子支付</li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="orderPageRightSideMid">
+            <div class="col-10">
+              <table class="table table-responsive-sm table-striped">
+                <thead>
+                  <tr>
+                    <th>訂單編號</th>
+                    <th>日期</th>
+                    <th>桌號/外帶</th>
+                    <th>付款方式</th>
+                    <th>總金額</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="orderPageRightSideBottom">
+            <div class="col-1"></div>
+
+            <div class="col-1"></div>
+
+            <div class="col-1"></div>
+
+            <div class="col-1"></div>
+
+            <div class="col-4">
+              <button type="button" id="orderPageRightSideBottomBtn3" class="btn btn-danger mb-1" data-toggle="modal" data-target="#regular_modal">關帳</button>
+              <div class="modal fade" id="regular_modal" tabindex="-1" role="dialog" aria-labelledby="regular_modal" style="display:none">
+                  <div class="modal-dialog modal-dialog-centered modal-s" role="document" >
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title" style="margin: 0 109px;">今日帳務總計</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <div class="modal-body">
+                            <ul>
+                              <li class="totalPrice">總營業額</li>
+                              <li class="cash">現金支付</li>
+                              <li class="creditCard">信用卡</li>
+                              <li class="electro">電子支付</li>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">確定並列印</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                          </div>
+                      </div>
+                  </div>
               </div>
-            </div>
-  
-            <div id="orderPageRightSideMid">
-              <div class="col-10">
-                <table class="table table-responsive-sm table-striped">
-                  <thead>
-                    <tr>
-                      <th>訂單編號</th>
-                      <th>日期</th>
-                      <th>桌號/外帶</th>
-                      <th>付款方式</th>
-                      <th>總金額</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>008</td>
-                      <td>2012/01/01</td>
-                      <td>A12</td>
-                      <td>現金</td>
-                      <td>$7580</td>
-                    </tr>
-                    <tr>
-                      <td>008</td>
-                      <td>2012/01/01</td>
-                      <td>A12</td>
-                      <td>現金</td>
-                      <td>$7580</td>
-                    </tr>
-                    <tr>
-                      <td>008</td>
-                      <td>2012/01/01</td>
-                      <td>A12</td>
-                      <td>信用卡</td>
-                      <td>$7580</td>
-                    </tr>
-                    <tr>
-                      <td>008</td>
-                      <td>2012/01/01</td>
-                      <td>A12</td>
-                      <td>現金</td>
-                      <td>$7580</td>
-                    </tr>
-                    <tr>
-                      <td>008</td>
-                      <td>2012/01/01</td>
-                      <td>A12</td>
-                      <td>現金</td>
-                      <td>$7580</td>
-                    </tr>
-                    <tr>
-                      <td>008</td>
-                      <td>2012/01/01</td>
-                      <td>A12</td>
-                      <td>現金</td>
-                      <td>$7580</td>
-                    </tr>
-                    <tr>
-                      <td>008</td>
-                      <td>2012/01/01</td>
-                      <td>A12</td>
-                      <td>現金</td>
-                      <td>$7580</td>
-                    </tr>
-                    <tr>
-                      <td>008</td>
-                      <td>2012/01/01</td>
-                      <td>A12</td>
-                      <td>電子支付</td>
-                      <td>$7580</td>
-                    </tr>
-                    <tr>
-                      <td>008</td>
-                      <td>2012/01/01</td>
-                      <td>A12</td>
-                      <td>現金</td>
-                      <td>$7580</td>
-                    </tr>
-                    <tr>
-                      <td>008</td>
-                      <td>2012/01/01</td>
-                      <td>A12</td>
-                      <td>信用卡</td>
-                      <td>$7580</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-  
-            <div id="orderPageRightSideBottom">
-              <div class="col-1"></div>
-  
-              <div class="col-1"></div>
-  
-              <div class="col-1"></div>
-  
-              <div class="col-1"></div>
-  
-              <div class="col-4">
-                <button type="button" id="orderPageRightSideBottomBtn3" class="btn btn-danger mb-1" data-toggle="modal" data-target="#regular_modal">關帳</button>
-                <div class="modal fade" id="regular_modal" tabindex="-1" role="dialog" aria-labelledby="regular_modal" style="display:none">
-                    <div class="modal-dialog modal-dialog-centered modal-s" role="document" >
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" style="margin: 0 109px;">今日帳務總計</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                              <ul>
-                                <li>總營業額: $ 60000</li>
-                                <li>現金支付: $ 6000</li>
-                                <li>信 用 卡: $ 6000</li>
-                                <li>電子支付: $ 6000</li>
-                              </ul>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-primary">確定並列印</button>
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript"></script>
-  </body>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript"></script>
+<!-- 訂單資訊 -->
+  <script>
+    window.addEventListener('load', function(){
+      let xhr = new XMLHttpRequest();
+
+      xhr.onload = function(){
+        if(xhr.status = 200){
+          var DailyData = JSON.parse(xhr.responseText);
+          // console.log(DailyData);
+          var table = document.querySelector('.table');
+          
+          var len = DailyData.length;
+          var str = '';
+          for(i=0; i<len; i++){
+            var DailyOrder = ` <tr>
+                                  <td>${DailyData[i].OrderNo}</td>
+                                  <td>${DailyData[i].OrderDate}</td>
+                                  <td class="INOUT">${DailyData[i].InNOut}</td>
+                                  <td>${DailyData[i].PayMethod}</td>
+                                  <td>${DailyData[i].Price}</td>
+                                </tr>`
+            str += DailyOrder;
+            // console.log(str);
+          };
+          table.innerHTML += str;
+          
+          //狀態0顯示內用 狀態1顯示外帶
+          let INOUT = document.querySelectorAll('.INOUT');
+          for(i=0; i<INOUT.length; i++){
+            if(INOUT[i].innerHTML == 1){
+               INOUT[i].innerHTML = '外帶';
+            }else if(INOUT[i].innerHTML== 0){
+               INOUT[i].innerHTML = '內用';
+            }
+          }
+          
+        }
+      }
+      xhr.open("get", "../dev/js/dailyStatement.php", true);
+      xhr.send(null);
+    })
+  </script>
+<!-- 總營業額  -->
+  <script>
+     window.addEventListener('load', function(){
+      let xhr = new XMLHttpRequest();
+
+      xhr.onload = function(){
+        if(xhr.status = 200){
+          var dailyTotal = JSON.parse(xhr.responseText);
+          // console.log(dailyTotal);
+          var totalPrice = document.querySelectorAll('.totalPrice');
+          totalPrice[0].innerHTML = `總營業額：${dailyTotal[0].TotalPrice}`;
+          totalPrice[1].innerHTML = `總營業額：${dailyTotal[0].TotalPrice}`;
+        }
+      }
+      xhr.open("get", "../dev/js/dailyTotal.php", true);
+      xhr.send(null);
+    })
+  </script>
+<!-- 現金總額 -->  
+  <script>
+    window.addEventListener('load', function(){
+      let xhr = new XMLHttpRequest();
+
+      xhr.onload = function(){
+        if(xhr.status = 200){
+          var dailyCash = JSON.parse(xhr.responseText);
+          // console.log(dailyCash);
+          var cash = document.querySelectorAll('.cash');
+          cash[0].innerHTML = `現金：${dailyCash[0].Price}`;
+          cash[1].innerHTML = `現金：${dailyCash[0].Price}`;
+        }
+      }
+      xhr.open("get", "../dev/js/dailyCash.php", true);
+      xhr.send(null);
+    })
+  </script>
+<!-- 信用卡總額 -->  
+  <script>
+    window.addEventListener('load', function(){
+      let xhr = new XMLHttpRequest();
+
+      xhr.onload = function(){
+        if(xhr.status = 200){
+          var dailyCard = JSON.parse(xhr.responseText);
+          // console.log(dailyCard);
+          var card = document.querySelectorAll('.creditCard');
+          card[0].innerHTML = `信用卡：${dailyCard[0].Price}`;
+          card[1].innerHTML = `信用卡：${dailyCard[0].Price}`;
+        }
+      }
+      xhr.open("get", "../dev/js/dailyCard.php", true);
+      xhr.send(null);
+    })
+  </script>
+<!-- 電子支付總額 -->  
+  <script>
+    window.addEventListener('load', function(){
+      let xhr = new XMLHttpRequest();
+
+      xhr.onload = function(){
+        if(xhr.status = 200){
+          var dailyElectro = JSON.parse(xhr.responseText);
+          // console.log(dailyElectro);
+          var electro = document.querySelectorAll('.electro');
+          electro[0].innerHTML = `電子支付：${dailyElectro[0].Price}`;
+          electro[1].innerHTML = `電子支付：${dailyElectro[0].Price}`;
+        }
+      }
+      xhr.open("get", "../dev/js/dailyElectro.php", true);
+      xhr.send(null);
+    })
+  </script>
+  <script>
+     // 判斷登入人員並顯示於頁面
+     window.addEventListener("load", function(){
+        let username = sessionStorage.getItem('name');
+        
+        let loginName = document.querySelector('.user');
+        loginName.innerHTML = `Hi! ${username}`;
+    })
+  </script>
+
+
+</body>
 </html>
