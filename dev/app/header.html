@@ -53,3 +53,17 @@
     </ul>
   </nav>
 </div>
+
+
+<script>
+let el = document.querySelector('.date');
+let Today=new Date();
+el.textContent = Today.getFullYear()+ " / "+ (Today.getMonth()+1) + " / " + Today.getDate();
+
+let dt = document.querySelector('.clock');
+
+TodayHours = Today.getHours() < 10 ? '0' + Today.getHours() : Today.getHours();
+TodayMinutes = Today.getMinutes() < 10 ? '0' + Today.getMinutes() : Today.getMinutes();
+dt.textContent = TodayHours + " : " + TodayMinutes;
+
+</script>

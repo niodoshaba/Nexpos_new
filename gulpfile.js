@@ -92,7 +92,7 @@ gulp.task('default', ['copyimg'], function () {
     browserSync.init({
         server: {
             baseDir: "./dest",
-            index: "index.html"
+            index: "memberSearch.html"
         }
     });
     gulp.watch('./dev/css/*.css', ['concat']).on('change', reload); //當css有變動時 同步更新

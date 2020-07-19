@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,223 +10,416 @@
     <!-- <link rel="stylesheet" href="css/style.css" /> -->
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/kitchen.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>kitchen</title>
+    
   </head>
 
-  <body>
-    <!-- 複製以下功能列 -->
+<body>
+     <!-- 複製以下功能列 -->
      @@include('./app/header.html', {
-      "nav5" : "actives" 
-    })
-
+        "nav5" : "actives" 
+      })
     <!-- 複製以上功能列 -->
     <!-- 以下為各分頁內容 -->
     <div class="c-wrapper">
-      <div class="tablehead">
-        <h1>廚房出餐管理</h1>
-      </div>
-            <div class="topFunc">
-        <a href="./kitchen.html" class="topTablink" style="text-decoration: none;">
-          <div class="topTab" id="topTabactives">
-            <div class="toptabCaption">出餐<br />管理</div>
-          </div>
-        </a>
-        <a href="#" class="topTablink" style="text-decoration: none;">
-          <div class="topTab" >
-            <div class="toptabCaption">訂單<br />記錄</div>
-          </div>
-        </a>
-      </div>
-      <!-- 以下為訂單 -->
-      <div class="kPageContainer">
-        <div class="kContainer">
-          <div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-          <div class="kHead">
-            <div class="kHeadItem">
-              <h1>訂單：A10</h1>
-              <span>2020/06/02 10:26</span>
-            </div>
-            <div class="kHeadItem">
-              <h1>外帶：008</h1>
-              <span>店員：Lily</span>
-            </div>
-          </div>
-
-          <div class="kFood">
-            <ul>
-              <div class="kFoodBar">主餐</div>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>櫻桃鴨胸肉燉飯</h1>
-                  <span>去皮</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>咖哩雞肉飯</h1>
-                  <span>不要紅蘿蔔</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>蕃茄牛肉麵</h1>
-                  <span>不要牛肉 炒蛋</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>牛肉麵</h1>
-                  <span>不要酸菜</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <div class="kFoodBar">其他</div>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>珍珠鮮奶茶</h1>
-                  <span>去冰微糖</span>
-                </div>
-                <div class="kFoodNum">X2</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-            </ul>
-          </div>
-
-          <button class="kButton">訂單完成</button>
-
+        <div class="tablehead">
+          <h1>廚房出餐管理</h1>
         </div>
-        <div class="kContainer">
-          <div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-          <div class="kHead">
-            <div class="kHeadItem">
-              <h1>訂單：A10</h1>
-              <span>2020/06/02 10:26</span>
+              <div class="topFunc">
+          <a href="./kitchen.html" class="topTablink" style="text-decoration: none;">
+            <div class="topTab" id="topTabactives">
+              <div class="toptabCaption">出餐<br />管理</div>
             </div>
-            <div class="kHeadItem">
-              <h1>外帶：008</h1>
-              <span>店員：Lily</span>
+          </a>
+          <a href="./kitchenRecord.html" class="topTablink" style="text-decoration: none;">
+            <div class="topTab" >
+              <div class="toptabCaption">訂單<br />記錄</div>
             </div>
-          </div>
-
-          <div class="kFood">
-            <ul>
-              <div class="kFoodBar">主餐</div>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>櫻桃鴨胸肉燉飯</h1>
-                  <span>去皮</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>咖哩雞肉飯</h1>
-                  <span>不要紅蘿蔔</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>蕃茄牛肉麵</h1>
-                  <span>不要牛肉 炒蛋</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>牛肉麵</h1>
-                  <span>不要酸菜</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <div class="kFoodBar">其他</div>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>珍珠鮮奶茶</h1>
-                  <span>去冰微糖</span>
-                </div>
-                <div class="kFoodNum">X2</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-            </ul>
-          </div>
-
-          <button class="kButton">訂單完成</button>
-
+          </a>
         </div>
-        <div class="kContainer">
-          <div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-          <div class="kHead">
+     <!-- 以下為訂單 -->
+    <div class="kPageContainer" id="kPageContainer">
+        <div class="kContainer" id="kOrder">
+            <div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
+            <div class="kHead">
             <div class="kHeadItem">
-              <h1>訂單：A10</h1>
-              <span>2020/06/02 10:26</span>
+                <h1>訂單：A01 </h1>
+                <span> 10：35</span>
             </div>
             <div class="kHeadItem">
-              <h1>外帶：008</h1>
-              <span>店員：Lily</span>
+                <h1>外帶：008</h1>
+                <span>人數：3</span>
+                <span>店員：Lily</span>
             </div>
-          </div>
+            </div>
 
-          <div class="kFood">
-            <ul>
-              <div class="kFoodBar">主餐</div>
-              <li class="kFoodItem">
+
+
+            <div class="kFood">
+            <div class="kFoodBar">項 目</div>
+            <ul class="kFoodItem">
+                <li>
                 <div class="kFoodTitle">
-                  <h1>櫻桃鴨胸肉燉飯</h1>
-                  <span>去皮</span>
+                    <h1 class="kFoodValue">  薯條</h1>
+                    <span class="kFoodValueTopping"> 生菜 </span>
                 </div>
                 <div class="kFoodNum">X1</div>
                 <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>咖哩雞肉飯</h1>
-                  <span>不要紅蘿蔔</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>蕃茄牛肉麵</h1>
-                  <span>不要牛肉 炒蛋</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>牛肉麵</h1>
-                  <span>不要酸菜</span>
-                </div>
-                <div class="kFoodNum">X1</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
-              <div class="kFoodBar">其他</div>
-              <li class="kFoodItem">
-                <div class="kFoodTitle">
-                  <h1>珍珠鮮奶茶</h1>
-                  <span>去冰微糖</span>
-                </div>
-                <div class="kFoodNum">X2</div>
-                <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-              </li>
+                </li>
             </ul>
-          </div>
+            </div>
+            <button class="kButton" onclick="foodDone();">訂單完成</button>
+        </div> 
 
-          <button class="kButton">訂單完成</button>
+    </div>
 
-        </div>
-  </body>
+
+
+
+
+
+
+
+    <script>
+        // var data = [];
+
+        //get 點餐的key, 如果localstorage沒有值就return
+        // function load(){
+        //     if(!localStorage.getItem('data')) return 
+        //     data = JSON.parse(localStorage.getItem('data'))
+        // }
+        // load()
+
+       
+
+        var data = [
+            //第一張單
+            [{
+                    "orderList": 1,
+                    "number": "A1",
+                    "inOrOut": "in",
+                    "date": "2020/06/02 10:26",
+                    "pNum": "5"
+                },
+                {
+                    "PRO_ITEM_NO": "2",
+                    "PRO_CATA_NO": "1",
+                    "PRO_ITEM_NAME": "燻雞",
+                    "PRO_ITEM_PRICE": "45",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 1,
+                    "state": 0,
+                    "topping": [
+                        "生菜 $10",
+                        "培根 $15",
+                        "生菜 $10"
+                    ]
+                },
+                {
+                    "PRO_ITEM_NO": "30",
+                    "PRO_CATA_NO": "3",
+                    "PRO_ITEM_NAME": "日式燒肉",
+                    "PRO_ITEM_PRICE": "70",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 2,
+                    "state": 0,
+                    "topping": [
+                        "生菜 $10"
+                    ]
+                },
+                {
+                    "PRO_ITEM_NO": "28",
+                    "PRO_CATA_NO": "5",
+                    "PRO_ITEM_NAME": "司康",
+                    "PRO_ITEM_PRICE": "40",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 1,
+                    "state": 0,
+                    "topping": [
+                        "培根 $15"
+                    ]
+                },
+                {
+                    "PRO_ITEM_NO": "36",
+                    "PRO_CATA_NO": "6",
+                    "PRO_ITEM_NAME": "澳洲小拿鐵",
+                    "PRO_ITEM_PRICE": "60",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 1,
+                    "state": 0,
+                    "topping": [
+                        "少冰 $0",
+                        "正常冰 $0"
+                    ]
+                },
+                {
+                    "PRO_ITEM_NO": "44",
+                    "PRO_CATA_NO": "6",
+                    "PRO_ITEM_NAME": "榛果拿鐵",
+                    "PRO_ITEM_PRICE": "60",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 1,
+                    "state": 0,
+                    "topping": [
+                        "少冰 $0",
+                        "正常冰 $0"
+                    ]
+                },
+                {
+                    "PRO_ITEM_NO": "5",
+                    "PRO_CATA_NO": "6",
+                    "PRO_ITEM_NAME": "憤怒的牛奶",
+                    "PRO_ITEM_PRICE": "120",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 2,
+                    "state": 0,
+                    "topping": [
+                        "少冰 $0",
+                        "正常冰 $0"
+                    ]
+                },
+                {
+                    "PRO_ITEM_NO": "1",
+                    "PRO_CATA_NO": "6",
+                    "PRO_ITEM_NAME": "耶加雪菲",
+                    "PRO_ITEM_PRICE": "150",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 2,
+                    "state": 0,
+                    "topping": [
+                        "少冰 $0",
+                        "正常冰 $0"
+                    ]
+                }
+            ],
+            //第二張單
+            [{
+                    "orderList": 2,
+                    "number": "B1",
+                    "inOrOut": "in",
+                    "date": "2020/06/02 10:26",
+                    "pNum": "4"
+                },
+                {
+                    "PRO_ITEM_NO": "2",
+                    "PRO_CATA_NO": "1",
+                    "PRO_ITEM_NAME": "薯條",
+                    "PRO_ITEM_PRICE": "85",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 1,
+                    "state": 0,
+                    "topping": [
+                        "生菜 $10",
+                        "培根 $15",
+                        "生菜 $10"
+                    ]
+                },
+                {
+                    "PRO_ITEM_NO": "30",
+                    "PRO_CATA_NO": "3",
+                    "PRO_ITEM_NAME": "日式燒肉",
+                    "PRO_ITEM_PRICE": "70",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 2,
+                    "state": 0,
+                    "topping": [
+                        "生菜 $10"
+                    ]
+                },
+                {
+                    "PRO_ITEM_NO": "28",
+                    "PRO_CATA_NO": "5",
+                    "PRO_ITEM_NAME": "司康",
+                    "PRO_ITEM_PRICE": "40",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 1,
+                    "state": 0,
+                    "topping": [
+                        "培根 $15"
+                    ]
+                },
+                {
+                    "PRO_ITEM_NO": "36",
+                    "PRO_CATA_NO": "6",
+                    "PRO_ITEM_NAME": "澳洲小拿鐵",
+                    "PRO_ITEM_PRICE": "60",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 1,
+                    "state": 0,
+                    "topping": [
+                        "少冰 $0",
+                        "正常冰 $0"
+                    ]
+                },
+                {
+                    "PRO_ITEM_NO": "44",
+                    "PRO_CATA_NO": "6",
+                    "PRO_ITEM_NAME": "榛果拿鐵",
+                    "PRO_ITEM_PRICE": "60",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 1,
+                    "state": 0,
+                    "topping": [
+                        "少冰 $0",
+                        "正常冰 $0"
+                    ]
+                }
+            ],
+            //第三張單
+            [{
+                    "orderList": 3,
+                    "number": "1",
+                    "inOrOut": "out",
+                    "date": "2020/06/02 10:26",
+                    "pNum": "10"
+                },
+                {
+                    "PRO_ITEM_NO": "28",
+                    "PRO_CATA_NO": "5",
+                    "PRO_ITEM_NAME": "司康",
+                    "PRO_ITEM_PRICE": "40",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 1,
+                    "state": 1,
+                    "topping": [
+                        "培根 $15"
+                    ]
+                },
+                {
+                    "PRO_ITEM_NO": "36",
+                    "PRO_CATA_NO": "6",
+                    "PRO_ITEM_NAME": "澳洲小拿鐵",
+                    "PRO_ITEM_PRICE": "60",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 1,
+                    "state": 1,
+                    "topping": [
+                        "少冰 $0",
+                        "正常冰 $0"
+                    ]
+                },
+                {
+                    "PRO_ITEM_NO": "44",
+                    "PRO_CATA_NO": "6",
+                    "PRO_ITEM_NAME": "榛果拿鐵",
+                    "PRO_ITEM_PRICE": "60",
+                    "PRO_ITEM_ONOFF": "1",
+                    "PRO_PIC": null,
+                    "status": 1,
+                    "state": 1,
+                    "topping": [
+                        "少冰 $0",
+                        "正常冰 $0"
+                    ]
+                }
+            ]
+        ];
+
+
+
+
+      
+
+        var el2 = document.getElementById('kPageContainer');
+        var content = "";
+
+        //取得訂單(第1層loop)
+        for (let i = 0; i < data.length; i++) {
+            
+            //最外層html
+            content += '<div class="kContainer" id="kOrder"><div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div><div class="kHead"><div class="kHeadItem">';
+            //取得餐點(第2層loop)
+            for (let j = 0; j < data[i].length; j++) {
+                //取得配菜陣列
+                if (j > 0) { //餐點
+                    var item = data[i][j]["topping"];
+                    var topping = "";
+                    //將配菜塞入html(第3層loop)
+                    for (k = 0; k < item.length; k++) {
+                        topping += item[k].substring(0,item[k].indexOf(" ")) + ' ';
+                    }
+                    //底下菜項目名稱
+                    let myClolor;
+                    if(data[i][j].state == 1 && data[i][j].status == 1 ){
+                        myClolor=`style ="color:grey"`;
+
+                    }
+                    content +=  ` <li ${myClolor}><div class="kFoodTitle"><h1 class="kFoodValue"> ` + data[i][j]["PRO_ITEM_NAME"] +'</h1><span class="kFoodValueTopping"> '+  topping + '</span></div><div class="kFoodNum">X1</div><div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div></li>';
+                    
+                }else{//j==0
+                    //整張訂單基本資料
+                    content += '<h1>訂單:<span>' + data[i][j]["orderList"] + '</span></h1><span>' + data[i][j]["date"] + '</span></div>' ;
+                    content += ' <div class="kHeadItem"><h1>外帶/內用：'+data[i][0]["inOrOut"]+'</h1><span>人數'+ data[i][0]["pNum"] +'</span><span>店員：Lily</span></div></div>'
+                    content += ' <div class="kFood"><div class="kFoodBar">項 目</div><ul class="kFoodItem">';
+                }
+
+            }
+            content += '</ul></div>';
+            content += '<button class="kButton" onclick="foodDone(this);">訂單完成</button></div>';
+        }
+        
+        //渲染 status = 1, state = 0的在廚房待做訂單上
+        for(i=0;i<data.length;i++){
+                for(j=0;j<data[i].length;j++){
+                    let status = data[i][j].status;
+                    let state = data[i][j].state;
+                    if(status == 1 && state == 0){
+                        el2.innerHTML = content;
+                    }
+                }
+            }
+
+       
+        
+        //按下完成後，該單消失
+        $('.kButton').on('click' , function(){
+              $(this).parent('.kContainer').css('display' , 'none');
+            })
+
+        function foodDone(obj){
+            let orderNo = obj.parentNode.querySelector('.kHeadItem h1 span').innerHTML;
+            console.log(orderNo);
+            //state改值:1
+            for(i=0;i<data.length;i++){ 
+                // data[i][0]是訂單基本資料
+                if(data[i][0].orderList == orderNo){//如果是這一張單
+                    for(j=1;j<data[i].length;j++){ //從1才是所訂的餐點
+                    let status = data[i][j].status;
+                    let state = data[i][j].state;
+                    if(status == 1 && state == 0){
+                        data[i][j].state = 1;
+                    }
+                }
+                localStorage.setItem(`done_${orderNo}`,orderNo);
+                localStorage.setItem("data", JSON.stringify(data));
+                }
+                
+            }
+            console.log(data);
+            
+            // var newdata = JSON.stringify(newVal);
+            // localStorage.setItem('ordSaveProdInCartOnHist' , newdata);
+
+            $(".light > .fa-circle").fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250).fadeIn(250); 
+        }
+
+    </script>
+
+</body>
+
 </html>

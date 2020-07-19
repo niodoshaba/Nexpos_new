@@ -13,20 +13,57 @@
 </head>
 <style>
   /* 整個日曆 */
-  .S_calendarAll{
+  #S_calendarAll{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: absolute;
-    width:16%;
-    top:282px;
-    right:31%;
+    /* top: 500px; */
+    right: 0%;
+    width: 150%;
+    /* padding: 30px; */
   }
-
 </style>
 <body>
+    <div id="fullname">Amazing Spider man</div>
+    <div id="updatebtn">edit</div>
   <!-- 複製以下功能列 -->
-  @@include('./app/header.html', {
-  "nav2" : "actives"
-  })
+  <div class="header c-sidebar">
+    <nav id="sideMenu">
+        <div class="light">
+            <i class="fa fa-circle" aria-hidden="true"></i>
+
+        </div>
+        <ul>
+            <a href="./tabShow.html"><li class="@@nav0"><i class="fa fa-home" aria-hidden="true"></i>主畫面</li></a>
+            <a href="./reservationCalendar.html"><li class="@@nav1"><i class="fa fa-list-alt" aria-hidden="true"></i>訂位管理</li></a>
+            <a href="./memberJoin.html"><li class="actives"><i class="fa fa-users" aria-hidden="true"></i>會員管理</li></a>
+            <a href="./orderRecord.html"><li class="@@nav3"><i class="fa fa-calendar" aria-hidden="true"></i>歷史訂單</li></a>
+            <div class="func">
+                <div class="user">Hi, User</div>
+                <div class="date"></div>
+                <div class="clock"></div>
+            </div>
+            <a href="./tabShow.html"><li class="@@nav4"><i class="fa fa-times-circle" aria-hidden="true"></i>關閉餐桌</li></a>
+            <a href="./kitchen.html"><li class="@@nav5"><i class="fa fa-cutlery" aria-hidden="true"></i>出餐管理</li></a>
+            <a href="./dailyStatement.html"><li class="@@nav6"><i class="fa fa-calculator" aria-hidden="true"></i>日結</li></a>
+            <a href="./login.html"><li><i class="fa fa-sign-out" aria-hidden="true"></i>登出</li></a>
+        </ul>
+    </nav>
+</div>
+
+
+<script>
+let el = document.querySelector('.date');
+let Today=new Date();
+el.textContent = Today.getFullYear()+ " / "+ (Today.getMonth()+1) + " / " + Today.getDate();
+
+let dt = document.querySelector('.clock');
+
+TodayHours = Today.getHours() < 10 ? '0' + Today.getHours() : Today.getHours();
+TodayMinutes = Today.getMinutes() < 10 ? '0' + Today.getMinutes() : Today.getMinutes();
+dt.textContent = TodayHours + " : " + TodayMinutes;
+
+</script>
+
   <!-- 複製以上功能列 -->
   <!-- 以下為各分頁內容 -->
   <div class="c-wrapper">
@@ -46,6 +83,7 @@
       </a>
     </div>
     
+
     <form method="post" action="memberJoin.php" id="myForm" name="form1">
       <div class="resScrollbar" id="resScrollstyle">
         <div class="resOverflow">
@@ -58,76 +96,67 @@
                 <td>手機</td>
                 <td>生日</td>
                 <td>email</td>
-                <td>身份</td>
-                <td>狀態</td>
-                <td>點數</td>
                 <td></td>
               </tr>
 
               <tr class="spot">
                 <td>
-                  <input type="text" class="lastname" id="CUS_LAST" name="CUS_LAST" placeholder="" size="5" required />
-                  <span class="regUpdateLastName"></span>
+                  <input type="text" class="name" id="CUS_FIRST" name="CUS_FIRST" placeholder="" size="5" required />
+                  <span class="regUpdateName"></span>
                 </td>
                 <td>
-                  <input type="text" class="firstname" id="CUS_FIRST" name="CUS_FIRST" placeholder="" size="8" required />
-                  <span class="regUpdateFirstName"></span>
+                  <input type="text" class="name" id="CUS_LAST" name="CUS_LAST" placeholder="" size="8" required />
+                  <span class="regUpdateName"></span>
                 </td>
                 <td>
                   <select id="CUS_GEN" name="CUS_GEN">
-                    <option value="女">女</option>
-                    <option value="男">男</option>
+                    <option value="women">女</option>
+                    <option value="men">男</option>
                   </select>
                 </td>
                 <td>
-                  <input type="text" class="cell" id="CUS_PHONE" name="CUS_PHONE" placeholder="" size="13" required />
+                  <input type="text" class="cell" id="CUS_PHONE" name="CUS_PHONE" placeholder="" size="15" required />
                   <span class="regUpdateCell"></span>
                 </td>
                 <td>
-                  <input type="text" calendarLabel="picked" class="calendarPickDate" id="CUS_BIRTH" name="CUS_BIRTH" placeholder="" size="10"
-                    required /> <!--這裡是要填入日期的地方,calendarLabel="picked" class="calendarPickDate"都是必須-->
-
+                 
+                  <input type="text" class="result" calendarLabel="picked" id="calendarPickDate"  name="CUS_BIRTH" placeholder="" size="15"
+                    required />
+                  
+                    <!-- 插入小日曆 -->
+                  <div id="S_calendarAll">
+                    <div class="yearPickScrollBar" id="yearCalendarSelect"></div>
+                    <div class="S_calendarHeader">
+                      <button class="S_calendarTopBtn" calendarToggle="previous"> </button>
+              
+                      <div class="S_calendarHeaderTop" calendarLabel="month"></div>
+              
+                      <button class="S_calendarTopBtn" calendarToggle="next"> > </button>
+                    </div>
+                    <div class="S_calendarWeek">
+                      <span>一</span>
+                      <span>二</span>
+                      <span>三</span>
+                      <span>四</span>
+                      <span>五</span>
+                      <span>六</span>
+                      <span>日</span>
+                    </div>
+                    <div class="S_calendarDay" calendarArea="month"></div>
+                  </div>
+              
+                  <p class="result" style="position: absolute;top:50%;right: 50%;"> 
+                    <!--這塊是輸出日期的地方,class的result必須 style隨便改-->
+                    Date picked : 
+                    <span calendarLabel="picked" id="calendarPickDate"></span> 
+                    <!--這裡是要填入日期的地方,calendarLabel="picked" id="calendarPickDate"都是必須-->
+                  </p>
+                <!-- 小日曆結束 -->
                 </td>
-                <div class="S_calendarAll" style="display:none">
-                  <div class="yearPickScrollBar" id="yearCalendarSelect"></div>
-                  <div class="S_calendarHeader">
-                    <button type="button" class="S_calendarTopBtn" calendarToggle="previous"> < </button>
-          
-                    <div class="S_calendarHeaderTop" calendarLabel="month"></div>
-          
-                    <button type="button" class="S_calendarTopBtn" calendarToggle="next"> > </button>
-                  </div>
-                  <div class="S_calendarWeek">
-                  <span>一</span>
-                  <span>二</span>
-                  <span>三</span>
-                  <span>四</span>
-                  <span>五</span>
-                  <span>六</span>
-                  <span>日</span>
-                  </div>
-                  <div class="S_calendarDay" calendarArea="month"></div>
-                </div>
+                
                 <td>
-                  <input type="text" class="email" id="CUS_EMAIL" name="CUS_EMAIL" placeholder="" size="20" required />
+                  <input type="text" class="email" id="CUS_EMAIL" name="CUS_EMAIL" placeholder="" size="30" required />
                   <span class="regUpdateEmail"></span>
-                </td>
-                <td>
-                  <!-- <input type="text" id="CUS_ID" name="CUS_ID" placeholder="" size="3" required /> -->
-                  <select id="CUS_ID" name="CUS_ID">
-                    <option value="1">會員</option>
-                    <option value="0">非會員</option>
-                  </select>
-                </td>
-                <td>
-                  <!-- <input type="text" id="CUS_STATE" name="CUS_STATE" placeholder="" size="3" required /> -->
-                  <select id="CUS_STATE" name="CUS_STATE">
-                    <option value="1">正常</option>
-                    <option value="0">黑名單</option>
-                  </select>
-                </td>
-                <td>
-                  <input type="text" class="cuspoint" id="CUS_POINT" name="CUS_POINT" placeholder="0" size="5">
                 </td>
                 <td>
                   <input class="save" id="butsave" type="submit" src="./assets/save.png" alt="Submit" width="34" /><img
@@ -178,40 +207,21 @@
 
     //正規表達式
     //name
-    let lastname = document.querySelector('.lastname');
-    let updateLastName = document.querySelector('.regUpdateLastName');
+    let name = document.querySelector('.name');
+    let updateName = document.querySelector('.regUpdateName');
 
-    lastname.addEventListener('input', inputLastName);
+    name.addEventListener('input', inputName);
 
-    function inputLastName(e) {
-      let inputLastName = e.target.value;
-      if (inputLastName && /^[\u4e00-\u9fa5_a-zA-Z]/.test(inputLastName)) {
-        updateLastName.textContent = '有效姓名';
-        updateLastName.classList.add('success');
-        updateLastName.classList.remove('failure');
+    function inputName(e) {
+      let inputName = e.target.value;
+      if (inputName && /^[\u4e00-\u9fa5_a-zA-Z]/.test(inputName)) {
+        updateName.textContent = '有效姓名';
+        updateName.classList.add('success');
+        updateName.classList.remove('failure');
       } else {
-        updateLastName.textContent = '無效姓名';
-        updateLastName.classList.remove('success');
-        updateLastName.classList.add('failure');
-      }
-    };
-
-
-    let firstname = document.querySelector('.firstname');
-    let updateFirstName = document.querySelector('.regUpdateFirstName');
-
-    firstname.addEventListener('input', inputFirstName);
-
-    function inputFirstName(e) {
-      let inputFirstName = e.target.value;
-      if (inputFirstName && /^[\u4e00-\u9fa5_a-zA-Z]/.test(inputFirstName)) {
-        updateFirstName.textContent = '有效姓名';
-        updateFirstName.classList.add('success');
-        updateFirstName.classList.remove('failure');
-      } else {
-        updateFirstName.textContent = '無效姓名';
-        updateFirstName.classList.remove('success');
-        updateFirstName.classList.add('failure');
+        updateName.textContent = '無效姓名';
+        updateName.classList.remove('success');
+        updateName.classList.add('failure');
       }
     };
 
@@ -265,29 +275,22 @@
         var CUS_PHONE = $('#CUS_PHONE').val();
         var CUS_BIRTH = $('#CUS_BIRTH').val();
         var CUS_EMAIL = $('#CUS_EMAIL').val();
-        var CUS_ID = $('#CUS_ID').val();
-        var CUS_STATE = $('#CUS_STATE').val();
-        var CUS_POINT = $('#CUS_POINT').val();
 
         $.ajax({
           url: "../dev/js/memberJoin.php",
           type: "POST",
           data: {
-            CUS_PHONE: CUS_PHONE,
-            CUS_ID: CUS_ID,
-            CUS_STATE: CUS_STATE,
             CUS_FIRST: CUS_FIRST,
             CUS_LAST: CUS_LAST,
             CUS_GEN: CUS_GEN,
+            CUS_PHONE: CUS_PHONE,
             CUS_BIRTH: CUS_BIRTH,
-            CUS_EMAIL: CUS_EMAIL,
-            CUS_POINT:CUS_POINT
+            CUS_EMAIL: CUS_EMAIL
           },
           // cache: false,
 
           success: function (data) {
             alert('儲存成功！');
-            console.log(data);
           }
         });
       })
@@ -304,6 +307,33 @@
       });
 
     })
+  </script>
+  <script>
+      $('#updatebtn').click(function(){
+    var name = $('#fullname').text();
+    $('#fullname').html('');
+    $('<input></input>')
+        .attr({
+            'type': 'text',
+            'name': 'fname',
+            'id': 'txt_fullname',
+            'size': '30',
+            'value': name
+        })
+        .appendTo('#fullname');
+    $('#txt_fullname').focus();
+});
+
+// $(document).on('blur','#txt_fullname', function(){
+//     var name = $(this).val();
+//     $.ajax({
+//       type: 'post',
+//       url: 'change-name.xhr?name=' + name,
+//       success: function(){
+//         $('#fullname').text(name);
+//       }
+//     });
+// });
   </script>
 
 </body>
