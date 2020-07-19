@@ -3,13 +3,7 @@
 try {
     // require_once("ordCon.php");
 
-
-    $dsn = "mysql:host=pixiangwens-MacBook-Pro.local;port=3306;dbname=G4_nexpos;charset=utf8";
-	$user = "root";
-	$password = "6316444939";
-	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-    $pdo = new PDO( $dsn, $user, $password, $options); 
-    
+    require_once("generalConnectDB.php");
     
     
     $ordTotOrder = json_decode($_POST["ordTotOrder"]);
