@@ -1230,7 +1230,7 @@ orderPageRightSideBottomBtn1.addEventListener("click", function () {
     var ordToKitchen = [];
 
     ordToKitchen = basicInfoGet.concat(ordGetOnProd);
-    localStorage.setItem(`${ordList}`, JSON.stringify(ordToKitchen));
+    localStorage.setItem(`orderNo_${ordList}`, JSON.stringify(ordToKitchen));
 });
 
 
