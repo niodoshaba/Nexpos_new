@@ -48,7 +48,7 @@ try {
             ON DISCOUNT.DIS_NO = DIS_ITEM.DIS_NO
             right JOIN PRODUCT_ITEM
             ON PRO_ITEM_NUMBER = PRO_ITEM_NO
-            AND DISCOUNT.DIS_NO = $DIS_NO
+            AND DISCOUNT.DIS_NO = `$DIS_NO`
             JOIN PRODUCT_CATA
             ON PRODUCT_CATA.PRO_CATA_NO = PRODUCT_ITEM.PRO_CATA_NO
             WHERE PRO_ITEM_ONOFF = 1;";
@@ -63,7 +63,7 @@ try {
             echo json_encode($ordProdInfo);
     
         };
-    }elseif($DIS_NO == null){
+    }elseif(`$DIS_NO` == null){
         //如果沒有折扣，則顯示原價
         $sql = "SELECT *
         FROM PRODUCT_CATA JOIN PRODUCT_ITEM
