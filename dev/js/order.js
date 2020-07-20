@@ -348,7 +348,9 @@ window.onload = function () {
                 if (ordDisCount > Number(ordProdSan[g].PRO_ITEM_PRICE)) {
                     // 讓變數帶入css指令，讓他價錢變色
                     ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
-                } else { };
+                } else {
+                    ordDisCount = ""
+                };
                 // 渲染商品進HTML頁面
                 ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
                                         <img src="./assets/${ordProdSan[g].PRO_ITEM_NO}.jpg" alt="">
@@ -387,7 +389,9 @@ window.onload = function () {
             if (ordDisCount > Number(ordPasCart[g].PRO_ITEM_PRICE)) {
                 // 讓變數帶入css指令，讓他價錢變色
                 ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
-            } else { };
+            } else {
+                ordDisCount = ""
+            };
             // 渲染商品進HTML頁面
             ordProdItemDiv = `<div class="orderPageItemDiv"  style="${ordDisCount}">
                                             <img src="./assets/${ordPasCart[g].PRO_ITEM_NO}.jpg" alt="">
@@ -485,9 +489,7 @@ window.onload = function () {
             if (ordDisCount > Number(ordSweCart[g].PRO_ITEM_PRICE)) {
                 // 讓變數帶入css指令，讓他價錢變色
                 ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
-            } else {
-                ordDisCount = "";
-            };
+            } else { };
             // 渲染商品進HTML頁面
             ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
                                             <img src="./assets/${ordSweCart[g].PRO_ITEM_NO}.jpg" alt="">
@@ -521,9 +523,7 @@ window.onload = function () {
             if (ordDisCount > Number(ordCofCart[g].PRO_ITEM_PRICE)) {
                 // 讓變數帶入css指令，讓他價錢變色
                 ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
-            } else {
-                ordDisCount = "";
-            };
+            } else { };
             // 渲染商品進HTML頁面
             ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
                                             <img src="./assets/${ordCofCart[g].PRO_ITEM_NO}.jpg" alt="">
@@ -1225,7 +1225,7 @@ window.onload = function () {
         var ordToKitchen = [];
 
         ordToKitchen = basicInfoGet.concat(ordGetOnProd);
-        localStorage.setItem(`orderNo_${ordList}`, JSON.stringify(ordToKitchen));
+        localStorage.setItem(`${ordList}`, JSON.stringify(ordToKitchen));
     });
 
 
