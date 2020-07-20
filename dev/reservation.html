@@ -133,6 +133,7 @@
         <!-- <input type="submit" value="submit"> -->
       </form>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript">
       function $id(id) {
         return document.getElementById(id);
@@ -160,6 +161,15 @@
     
       window.addEventListener("load", function () {
         $id("btnAddSpot").onclick = addSpot;
+      })
+    </script>
+    <script>
+      // 判斷登入人員並顯示於頁面
+      window.addEventListener("load", function(){
+          let username = sessionStorage.getItem('name');
+          
+          let loginName = document.querySelector('.user');
+          loginName.innerHTML = `Hi! ${username}`;
       })
     </script>
   </body>

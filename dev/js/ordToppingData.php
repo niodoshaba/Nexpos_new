@@ -1,12 +1,12 @@
 <?php 
 try {
-	$dsn = "mysql:host=pixiangwens-MacBook-Pro.local;port=3306;dbname=G4_nexpos;charset=utf8";
-	$user = "root";
-	$password = "6316444939";
-	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO( $dsn, $user, $password, $options); 
+	require_once("generalConnectDB.php");
 
-	$sql = "select * from `FILLING_ITEM`";
+	$sql = "SELECT FILLING_CATA.FILLING_CATA_NO,FILLING_CATA.FILLING_CATA_NAME, FILLING_CATA.FILLING_CATA_ONOFF, 
+	FILLING_ITEM.FILLING_CATA_NO, FILLING_ITEM.FILLING_ITEM_NO, FILLING_ITEM.FILLING_ITEM_NAME, FILLING_ITEM.FILLING_ITEM_PRICE, FILLING_ITEM.FILLING_ITEM_ONOFF
+	FROM FILLING_CATA JOIN FILLING_ITEM
+	ON FILLING_CATA.FILLING_CATA_NO = FILLING_ITEM.FILLING_CATA_NO
+	WHERE FILLING_ITEM.FILLING_ITEM_ONOFF = 1;";
 	$ordTopping = $pdo->query($sql);
 
 

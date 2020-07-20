@@ -21,7 +21,36 @@ table {
   text-align: center; }
 
 td {
-  padding: 16px; }
+  padding: 16px;
+  position: relative; }
+  td .regUpdateCell {
+    position: absolute;
+    top: 50px;
+    left: 25px; }
+  td .regUpdateName {
+    position: absolute;
+    top: 50px;
+    left: 25px; }
+  td .regUpdateEmail {
+    position: absolute;
+    top: 50px;
+    left: 40px; }
+
+.failure {
+  font-size: 10px;
+  color: rgba(255, 0, 0, 0.6);
+  position: absolute;
+  top: 50px;
+  width: 50px;
+  left: 20px; }
+
+.success {
+  font-size: 10px;
+  color: rgba(0, 255, 0, 0.6);
+  position: absolute;
+  top: 50px;
+  width: 50px;
+  left: 20px; }
 
 td:last-child {
   padding: 5px; }
@@ -53,7 +82,7 @@ form {
   border-radius: 10px;
   float: left;
   height: 600px;
-  width: 1040px;
+  width: 1074px;
   overflow-y: scroll;
   overflow-x: hidden;
   margin-bottom: 25px; }
