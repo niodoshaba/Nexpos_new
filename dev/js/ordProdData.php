@@ -63,7 +63,7 @@ try {
             echo json_encode($ordProdInfo);
     
         };
-    }elseif(`$DIS_NO` == null){
+    }else{
         //如果沒有折扣，則顯示原價
         $sql = "SELECT *
         FROM PRODUCT_CATA JOIN PRODUCT_ITEM
