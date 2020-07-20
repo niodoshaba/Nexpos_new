@@ -13,7 +13,6 @@
 }
 #testQ{
     display: none;
-
     fill: #ff9c40;
     width: 60px;
 }
@@ -21,4 +20,16 @@
     display: none;
     fill: #face3d;
     width: 60px;
+}
+#topTapToGo{
+    cursor: pointer;
+}
+.topTabToGo{
+    cursor: pointer;
+}
+#showTableToResPage{
+    display: flex;
+    margin-left: 20px;
+    height: 1200px;
+    width: 900px;
 }

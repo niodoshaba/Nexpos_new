@@ -2,7 +2,8 @@
 var tabReceiveJson = (JSON.parse(localStorage.getItem("allData")));
 
 //新增外帶訂單
-var topTapToGo = document.getElementById('topTapToGo');
+var topTabToGo = document.getElementsByClassName('topTabToGo')[0]; 
+// document.getElementById('topTapToGo');
 
 //外帶訂單產生區域
 var toGoZone =　document.getElementById('toGoZone');
@@ -385,7 +386,7 @@ tabConstrainZone.addEventListener('click', e => {
 
 
 //點擊外帶區
-topTapToGo.addEventListener('click',e=>{
+topTabToGo.addEventListener('click',e=>{
     
     //訂單編號+1
     posHomePageOrd++;

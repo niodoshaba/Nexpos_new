@@ -65,11 +65,11 @@ body {
   overflow-y: scroll;
   overflow-x: hidden; }
 
-#style-3::-webkit-scrollbar {
+.style-3::-webkit-scrollbar {
   width: 10px;
   background-color: white; }
 
-#style-3::-webkit-scrollbar-thumb {
+.style-3::-webkit-scrollbar-thumb {
   border-radius: 50px;
   background-color: #DDDDDD; }
 
