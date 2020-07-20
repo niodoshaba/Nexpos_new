@@ -26,24 +26,34 @@ try {
 
     
     
-    $sql = " SELECT ORDER_DATE, ORDER_NO, ORDER_NUM, ORDER_TTL_PRICE
-             FROM ORDER_LIST
-             WHERE ORDER_DATE  BETWEEN :anaStart AND :anaEnd
-             ORDER BY ORDER_DATE DESC
+    $sql = "SELECT ORDER_LIST.ORDER_NO, ORDER_LIST.ORDER_INNOUT, ORDER_LIST.ORDER_DATE, ORDER_LIST.ORDER_TTL_PRICE,
+                    ORDER_ITEM.ORD_PRO_ITEM_NUM,
+                    PRODUCT_ITEM.PRO_ITEM_NAME,
+                    FILLING_ITEM.FILLING_ITEM_NAME
+            FROM   ORDER_LIST LEFT JOIN ORDER_ITEM
+            ON	   ORDER_LIST.ORDER_NO = ORDER_ITEM.ORDER_NO 
+            LEFT JOIN   PRODUCT_ITEM
+            ON     ORDER_ITEM.PRO_ITEM_NO = PRODUCT_ITEM.PRO_ITEM_NO
+            LEFT JOIN   ORDER_ITEM_DES
+            ON     ORDER_ITEM_DES.ORDER_SERIAL_NO = ORDER_ITEM.ORD_SERIAL_NO
+            LEFT JOIN   FILLING_ITEM
+            ON     FILLING_ITEM.FILLING_ITEM_NO = ORDER_ITEM_DES.FILLING_ITEM_NO
+            WHERE  ORDER_LIST.ORDER_NO = :ClickTrNo ;
+
+    
           ;";      
              
-    $orderRecord = $pdo->prepare($sql);
-    $orderRecord->bindValue(":anaStart", $_POST["anaStart"]);
-    $orderRecord->bindValue(":anaEnd", $_POST["anaEnd"]);
-    $orderRecord->execute();
+    $orderRecordList = $pdo->prepare($sql);
+    $orderRecordList->bindValue(":ClickTrNo", $_POST["ClickTrNo"]);
+    $orderRecordList->execute();
 
 
-    $orderRecordData = array();
-    while($row = $orderRecord->fetch(PDO::FETCH_ASSOC)){
-    $orderRecordData[] = $row;
+    $orderRecordListData = array();
+    while($row = $orderRecordList->fetch(PDO::FETCH_ASSOC)){
+    $orderRecordListData[] = $row;
     }
 
-    echo json_encode($orderRecordData);
+    echo json_encode($orderRecordListData);
 
 } catch (PDOException $e) {
 	// echo "系統暫時無法提供服務, 請通知系統維護人員<br>";
