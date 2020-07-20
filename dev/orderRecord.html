@@ -31,6 +31,17 @@
             outline:none;
             padding: 5px 10px
           }
+        .ordListScrollbar{
+          height: 400px;
+          overflow-y: scroll;
+          overflow-x: hidden;
+          margin: 0;
+          border: none;
+          width: 300px;
+        }
+        .kFoodItem{
+          margin-left: 15px;
+        }
       </style>
     <title>歷史訂單</title>
   </head>
@@ -61,64 +72,16 @@
             <div class="kContainer">
                 <div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
                 <div class="kHead">
-                    <div class="kHeadItem">
-                        <h1>訂單：A10</h1>
-                        <span>2020/06/02 10:26</span>
-                    </div>
-                    <div class="kHeadItem">
-                    <h1>外帶：008</h1>
-                    <span>店員：Lily</span>
-                    </div>
+                    
                 </div>
 
                 <div class="kFood">
-                    <ul>
-                        <div class="kFoodBar">主餐</div>
-                        <li class="kFoodItem">
-                            <div class="kFoodTitle">
-                            <h1>櫻桃鴨胸肉燉飯</h1>
-                            <span>去皮</span>
-                            </div>
-                            <div class="kFoodNum">X1</div>
-                            <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </li>
-                        <li class="kFoodItem">
-                            <div class="kFoodTitle">
-                            <h1>咖哩雞肉飯</h1>
-                            <span>不要紅蘿蔔</span>
-                            </div>
-                            <div class="kFoodNum">X1</div>
-                            <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </li>
-                        <li class="kFoodItem">
-                            <div class="kFoodTitle">
-                            <h1>蕃茄牛肉麵</h1>
-                            <span>不要牛肉 炒蛋</span>
-                            </div>
-                            <div class="kFoodNum">X1</div>
-                            <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </li>
-                        <li class="kFoodItem">
-                            <div class="kFoodTitle">
-                            <h1>牛肉麵</h1>
-                            <span>不要酸菜</span>
-                            </div>
-                            <div class="kFoodNum">X1</div>
-                            <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </li>
-                        <div class="kFoodBar">其他</div>
-                        <li class="kFoodItem">
-                            <div class="kFoodTitle">
-                            <h1>珍珠鮮奶茶</h1>
-                            <span>去冰微糖</span>
-                            </div>
-                            <div class="kFoodNum">X2</div>
-                            <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </li>
+                    
+                        <div class="kFoodBar">項目</div>
+                    <ul class="kFoodUl ordListScrollbar" id="resScrollstyle" >    
+
                     </ul>
                 </div>
-
-                <button class="kButton">訂單完成</button>
 
             </div>
 
@@ -206,14 +169,76 @@
             // $(':nth-child(2)', $(this)).text() //找到 點擊那欄的訂單編號
 
             let thistrNo = $(':nth-child(2)', $(this)).text()
-            
+            let kFoodUl = document.getElementsByClassName('kFoodUl')
+            let kHead = document.getElementsByClassName('kHead')
 
 
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+             console.log(12553); 
+            if(xhr.status == 200){
+              let orderListRecordJSON = JSON.parse(xhr.responseText);
+              var str= "";
+              console.log(orderListRecordJSON)
 
+              for(i=0;i<=orderListRecordJSON.length;i++){
+                if(orderListRecordJSON[i].ORDER_INNOUT == 0){
+                  orderListRecordJSON[i].ORDER_INNOUT = "外帶"
+              }else{
+                  orderListRecordJSON[i].ORDER_INNOUT = "內用"
+              }
+                if(orderListRecordJSON[i].FILLING_ITEM_NAME == null){
+                  orderListRecordJSON[i].FILLING_ITEM_NAME = "&nbsp;"
+                }
+
+                kHead[0].innerHTML = `
+                    <div class="kHeadItem">
+                      <h1>訂單：${orderListRecordJSON[i].ORDER_NO}</h1>
+                      <span class="kHeadInOrOut">${orderListRecordJSON[i].ORDER_INNOUT}</span>
+                    </div>
+                    <div class="kHeadItem">
+                      <h1>${orderListRecordJSON[i].ORDER_DATE}</h1>
+
+                    </div>
+                    `
+                
+                var content =
+                `
+                <li class="kFoodItem">
+                    <div class="kFoodTitle">
+                    <h1>${orderListRecordJSON[i].PRO_ITEM_NAME}</h1>
+                    <span class="kFoodListFill">${orderListRecordJSON[i].FILLING_ITEM_NAME}</span>
+                    </div>
+                    <div class="kFoodNum">x ${orderListRecordJSON[i].ORD_PRO_ITEM_NUM}</div>
+                </li>
+                `
+    
+
+                console.log(content);
+                str+=content;
+
+                kFoodUl[0].innerHTML ="";
+                kFoodUl[0].innerHTML =`${str}`;
+
+                // console.log(orderListRecordJSON[i].ORDER_INNOUT)
+                // console.log(orderListRecordJSON[i])
+            }
+
+            }
+
+
+            }
+          
+
+          xhr.open("POST", "../dev/js/orderRecordList.php", true);
+          xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+          xhr.send("ClickTrNo="+thistrNo);
         })
+
     }
+    
 
-
+ 
        
         
 
@@ -229,3 +254,14 @@
    </script>
   </body>
 </html>
+
+<!-- <div class="kHead">
+  <div class="kHeadItem">
+      <h1>訂單：A10</h1>
+      <span>2020/06/02 10:26</span>
+  </div>
+  <div class="kHeadItem">
+  <h1>外帶：008</h1>
+  <span>店員：Lily</span>
+  </div>
+</div> -->
