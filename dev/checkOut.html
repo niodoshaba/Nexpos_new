@@ -18,137 +18,23 @@
             <div id="checkoutLeftside" class="col-4">
                 <a href="./orderPage.html"><img src="./assets/checkout_back.png" alt=""></a>
                 <div id="checkoutLeftSideTop" class="row no-gutters">
-                    <span class="col-7">訂單編號：{{單編號}}</span>
-                    <span class="col-5">{{內/外}}</span>
+                    <span class="col-7" id="checkoutOrderListNo"></span>
+                    <span class="col-5" id="checkoutOrderInOrOut"></span>
                     <br>
-                    <span class="col-7">桌號：{{桌編號}}</span>
+                    <span class="col-7" id="checkoutTabNo"></span>
                     <span class="col-5">人數：{{人數}}</span>
                     <br>
                     <span class="col-2">會員：</span>
                     <form class="col-10">
                         <input type="text" class="col-5" pattern="^09[0-9]{8}$" title="請輸入正確的手機號碼" required>
-                        <!-- <button class="col-2" id="checkoutLeftSideTopBtn">輸入</button> -->
                         <input type="submit" class="col-2" id="checkoutLeftSideTopBtn" value="輸入">
                     </form>
                 </div>
 
                 <div id="checkoutLeftSideMid">
-                    <div class="checkoutScrollbar" id="style-3">
-                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
-                        <div>
-                            <div class="checkoutLeftSideMidItemTop">
-                                <span>ITEM NAME1</span>
-                                <span>1</span>
-                            </div>
-                            <div class="checkoutLeftSideMidItemBottom">
-                                <div class="checkoutLeftSideMidToppings">
-                                    <span>(加料1)</span>
-                                    <span>(加料2)</span>
-                                    <span>(加料2)</span>
-                                </div>
-                                <span class="checkOutPrice">$300</span>
-                            </div>
-                        </div>
-                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
+                    <div class="checkoutScrollbar style-3" id="checkoutLeftSideMidItemAll">
+                        
 
-                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
-                        <div>
-                            <div class="checkoutLeftSideMidItemTop">
-                                <span>ITEM NAME2</span>
-                                <span>1</span>
-                            </div>
-                            <div class="checkoutLeftSideMidItemBottom">
-                                <div class="checkoutLeftSideMidToppings">
-                                    <span>(加料1)</span>
-                                    <span>(加料2)</span>
-                                    <span>(加料2)</span>
-                                </div>
-                                <span class="checkOutPrice">$300</span>
-                            </div>
-                        </div>
-                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
-
-                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
-                        <div>
-                            <div class="checkoutLeftSideMidItemTop">
-                                <span>ITEM NAME3</span>
-                                <span>1</span>
-                            </div>
-                            <div class="checkoutLeftSideMidItemBottom">
-                                <div class="checkoutLeftSideMidToppings">
-                                    <span>(加料1)</span>
-                                    <span>(加料2)</span>
-                                    <span>(加料2)</span>
-                                </div>
-                                <span class="checkOutPrice">$300</span>
-                            </div>
-                        </div>
-                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
-
-                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
-                        <div>
-                            <div class="checkoutLeftSideMidItemTop">
-                                <span>ITEM NAME4</span>
-                                <span>1</span>
-                            </div>
-                            <div class="checkoutLeftSideMidItemBottom">
-                                <div class="checkoutLeftSideMidToppings">
-                                    <span>(加料1)</span>
-                                    <span>(加料2)</span>
-                                    <span>(加料2)</span>
-                                </div>
-                                <span class="checkOutPrice">$300</span>
-                            </div>
-                        </div>
-                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
-                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
-                        <div>
-                            <div class="checkoutLeftSideMidItemTop">
-                                <span>ITEM NAME5</span>
-                                <span>1</span>
-                            </div>
-                            <div class="checkoutLeftSideMidItemBottom">
-                                <div class="checkoutLeftSideMidToppings">
-                                    <span>(加料1)</span>
-                                    <span>(加料2)</span>
-                                    <span>(加料2)</span>
-                                </div>
-                                <span class="checkOutPrice">$300</span>
-                            </div>
-                        </div>
-                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
-                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
-                        <div>
-                            <div class="checkoutLeftSideMidItemTop">
-                                <span>ITEM NAME6</span>
-                                <span>1</span>
-                            </div>
-                            <div class="checkoutLeftSideMidItemBottom">
-                                <div class="checkoutLeftSideMidToppings">
-                                    <span>(加料1)</span>
-                                    <span>(加料2)</span>
-                                    <span>(加料2)</span>
-                                </div>
-                                <span class="checkOutPrice">$300</span>
-                            </div>
-                        </div>
-                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
-                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
-                        <div>
-                            <div class="checkoutLeftSideMidItemTop">
-                                <span>ITEM NAME7</span>
-                                <span>1</span>
-                            </div>
-                            <div class="checkoutLeftSideMidItemBottom">
-                                <div class="checkoutLeftSideMidToppings">
-                                    <span>(加料1)</span>
-                                    <span>(加料2)</span>
-                                    <span>(加料2)</span>
-                                </div>
-                                <span class="checkOutPrice">$300</span>
-                            </div>
-                        </div>
-                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
                     </div>
 
                 </div>
@@ -259,23 +145,8 @@
                 <div id="checkoutRightSideTop">
                     <button>統一編號</button>
                     <button>發票載具</button><br>
-                    <input type="text" id="checkoutGetPoint">
+                    <input type="text">
                 </div>
-                <!-- <div id="checkoutRightSideMid">
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>.</button>
-                <button>0</button>
-                <button>00</button>
-                <button>取消</button>
-                <button>確認</button>
             </div> -->
                 <div id="checkoutRightSideBottom">
                     <!-- <button id="checkoutLastBtn" type="submit">結帳</button> -->
