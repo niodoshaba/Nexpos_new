@@ -97,37 +97,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="../dev/js/calendar.js"></script>
 
-  <script type='text/javascript'> 
-
-    window.addEventListener('load', function () {
-
-        //撈資料
-        // Calendar.getCalendarData()
-        // console.log(Calendar.DAILY_RES)
 
 
-              // var calendarDataFromPHP = []
-      let xhr = new XMLHttpRequest();
-      
-      xhr.onload = function (){
-        if(xhr.status == 200){
-          Calendar.DAILY_RES = JSON.parse(xhr.responseText);
-                // console.log(Calendar.DAILY_RES)
-        }
-                //初始化日曆  
-                Calendar.init({
-            disablePastDays: true
-        });
-
-       //正規表達
-        Calendar.matchcalendarInfo()
-      }
-      xhr.open("get", "../dev/js/calendarData.php", true);
-      xhr.send(null);
-
-
-    })
-  </script>
   <script>
     // 判斷登入人員並顯示於頁面
     window.addEventListener("load", function(){

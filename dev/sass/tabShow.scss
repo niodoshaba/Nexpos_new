@@ -1,57 +1,40 @@
-@mixin center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform : translate(-50%, -50%);
-}
-
-.tablehead{
+.tablehead {
     margin-top: 20px;
     padding: 20px;
     margin-left: 180px;
-    width: 1040px;
-    // border-bottom: 1px solid red;
-    h1{
-    font-size: 35px;
-    }
+    width: 1040px; }
+    .tablehead h1 {
+      font-size: 35px; }
+#showTableToResPage{
+    display: flex;
+    position: relative;
+    left: 185px;
+    top: 25px;
+    width: 1000px;
+    height: 650px;
+    box-shadow: 0px 0px 10px #959595;
 }
 
-div.c-wrapper{
-    .mainTakeAwayBar{
-        // border: 1px solid red;
-        width: 900px;
-        height: 80px;
-        position: relative;
-        left:15%;
-        top: -50px;
-        z-index: -1;
-        &::after{
-            position: absolute;
-            content: "";
-            width:100%;
-            top: 10%;
-            height: 2px;
-            background: #1c5b9d;
-        }
-        // .mainTakeAwayBarList{
-        //     display: flex;
+#tabResOrCloseSelect{
+    margin-left: 200px;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,.3);
+    width: 200px;
+    font-family: "jf-openhuninn";
+}
 
-        // }
-        .mainTakeAwayOder{
-            position: relative;
-            margin:0 10px;
-            width: 60px;
-            top: 10px;
-            display: inline-block;
-        }
-
-    }
-    .mainTable{
-        position: relative;
-        left: 180px;
-        top: 30px;
-        width: 1000px;
-        height: 650px;
-        box-shadow: 1px 1px 10px ;
-    }
+#tabCloseBtn{
+    position: absolute;
+    bottom: 30px;
+    left: 750px;
+    padding: 20px;
+    width: 100px;
+    border-style:none;
+    background-color: #F8C54E;
+    border-radius: 20px;
+    color: white;
+    outline:none;
 }
