@@ -32,7 +32,7 @@ try{
             </script>";
     }else{
       echo "<script>
-              location.href='../tabShow.html?$useInfo';
+              location.href='../posHomeTab.html?$useInfo';
             </script>";
     }
   }

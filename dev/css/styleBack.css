@@ -1,0 +1,392 @@
+@import url("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: "jf-openhuninn", "cwTeXYen", "Microsoft JhengHei"; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1;
+  min-width: 1440px;
+  margin: 0 auto;
+  overflow: hidden; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: ""; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  box-sizing: border-box; }
+
+.gray-0 {
+  background-color: white; }
+
+.gray-10 {
+  background-color: #e6e6e6; }
+
+.gray-20 {
+  background-color: #cccccc; }
+
+.gray-30 {
+  background-color: #b3b3b3; }
+
+.gray-40 {
+  background-color: #999999; }
+
+.gray-50 {
+  background-color: gray; }
+
+.gray-60 {
+  background-color: #666666; }
+
+.gray-70 {
+  background-color: #4d4d4d; }
+
+.gray-80 {
+  background-color: #333333; }
+
+.gray-90 {
+  background-color: #1a1a1a; }
+
+.gray-100 {
+  background-color: black; }
+
+@font-face {
+  font-family: "jf-openhuninn";
+  src: url("dev/font/jf-openhuninn-1.1.ttf") format("truetype"); }
+
+.c-sidebar {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 0 0 227px;
+  flex: 0 0 227px;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-order: -1;
+  order: -1;
+  width: 227px;
+  padding: 0;
+  box-shadow: none;
+  color: #fff;
+  background: #28569A;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1030;
+  border: 1px solid #28569A;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px; }
+  .c-sidebar .light {
+    color: #9ff810;
+    padding-left: 46px;
+    padding-top: 20px; }
+  .c-sidebar ul .func {
+    text-align: center; }
+    .c-sidebar ul .func .clock {
+      font-size: 50px;
+      font-weight: 400;
+      margin: 5px 0;
+      color: #0a3264; }
+    .c-sidebar ul .func .date {
+      font-weight: 400;
+      margin: 5px 0;
+      font-weight: bold;
+      color: #0a3264; }
+    .c-sidebar ul .func .user {
+      font-weight: 600;
+      margin: 5px 0;
+      font-weight: bold;
+      color: #0a3264; }
+  .c-sidebar ul li {
+    height: 62px;
+    margin: 20px 0;
+    padding: 20px 0px 0px 46px;
+    position: relative; }
+    .c-sidebar ul li:first-child {
+      margin-top: 30px; }
+    .c-sidebar ul li i {
+      margin-right: 24px;
+      width: 10px; }
+    .c-sidebar ul li:hover, .c-sidebar ul li.actives {
+      color: #28569A;
+      cursor: pointer;
+      position: relative;
+      z-index: 1000; }
+      .c-sidebar ul li:hover::after, .c-sidebar ul li.actives::after {
+        content: '';
+        background-image: url("../assets/Union8.svg");
+        width: 219px;
+        height: 120px;
+        display: block;
+        position: absolute;
+        top: -29px;
+        left: 8px;
+        z-index: -10; }
+
+.c-wrapper {
+  position: relative;
+  margin-left: 227px;
+  transition: margin 0.3s;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 1;
+  flex: 1;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100vh;
+  background-color: #ffffff; }
+  .c-wrapper .topFunc {
+    display: flex;
+    justify-content: flex-end;
+    width: 500px;
+    position: absolute;
+    left: 1000px; }
+    .c-wrapper .topFunc .topTablink #topTabactives {
+      font-size: 20px;
+      color: #ffffff;
+      display: inline-block;
+      width: 79px;
+      height: 89px;
+      background-color: #28569a;
+      border-radius: 0 0 10px 10px;
+      box-shadow: #333333;
+      margin-left: 40px;
+      text-align: center;
+      box-shadow: 2px 2px 2px #888888; }
+    .c-wrapper .topFunc .topTablink .topTab {
+      border: solid 0.5px #cdd1d8;
+      background-color: #ffffff;
+      color: #28569a;
+      width: 79px;
+      height: 89px;
+      text-align: center;
+      box-shadow: 2px 2px 2px #888888;
+      border-radius: 0 0 10px 10px;
+      display: inline-block;
+      margin-left: 40px; }
+    .c-wrapper .topFunc .topTablink .toptabCaption {
+      margin: 0 auto;
+      margin-top: 22px; }
+
+.tablehead {
+  margin-top: 20px;
+  padding: 20px;
+  margin-left: 180px;
+  width: 1040px; }
+  .tablehead h1 {
+    font-size: 35px; }
+
+table,
+td {
+  border-bottom: 1px solid #cfcecd;
+  border-collapse: collapse; }
+
+tr {
+  vertical-align: middle; }
+
+table {
+  font-size: 20px;
+  color: grey;
+  width: 952px;
+  text-align: center; }
+
+td {
+  padding: 16px; }
+
+.save {
+  margin: 10px; }
+
+img {
+  cursor: pointer; }
+
+input,
+select {
+  border: 0.5px solid #bdbdbd;
+  padding: 5px;
+  border-radius: 8px; }
+
+form {
+  width: 952px;
+  margin: 0 auto; }
+
+.add {
+  margin-left: 50%;
+  transform: translateX(-50%); }
+
+.resScrollbar {
+  margin-top: 40px;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  float: left;
+  height: 600px;
+  width: 1040px;
+  overflow-y: scroll;
+  margin-bottom: 25px; }
+
+.resOverflow {
+  min-height: 600px; }
+
+#resScrollstyle::-webkit-scrollbar {
+  width: 10px; }
+
+#resScrollstyle::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #dddddd; }
+
+#ui-view {
+  min-width: 1180px;
+  min-height: 720px; }
+
+.card-body {
+  border: unset;
+  margin: 0; }
+
+input.proCataNo,
+input.proItemName,
+input.proItemPrice,
+input.proPic {
+  width: 120px; }
+
+.resScrollbar {
+  border-radius: 10px;
+  float: left;
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden; }
+
+.resOverflow {
+  min-height: 600px;
+  width: 100%; }
+
+#resScrollstyle::-webkit-scrollbar {
+  width: 10px; }
+
+#resScrollstyle::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #dddddd; }
+
+.btn-secondary {
+  color: #4f5d73;
+  background-color: #f9b115;
+  border-color: #f9b115;
+  margin: 0 auto; }
+
+.btn-warning {
+  width: 72px;
+  margin: 1px auto; }
+
+.addBtn {
+  display: block;
+  margin: auto;
+  background-color: white;
+  border: unset;
+  outline: none; }

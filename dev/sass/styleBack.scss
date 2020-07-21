@@ -1,0 +1,79 @@
+//=====================
+//基本設定
+//=====================
+
+// @import "coreui";
+
+//=================
+// reset setting
+//=================
+@import "base/resetBack";
+
+//=================
+// plugin setting
+//=================
+// @import "vender/bootstrap-sass/bootstrap";
+
+//=================
+// base setting
+//=================
+@import "base/settingBack";
+@import "mixin/mixinsBack";
+@import "base/colorBack";
+
+//=================
+//font setting
+//=================
+// @import "base/font_family";
+// @import "base/font";
+// @import "base/common";
+@import url("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
+@font-face {
+  font-family: "jf-openhuninn";
+  src: url("dev/font/jf-openhuninn-1.1.ttf") format("truetype");
+}
+
+//=================
+// vender setting
+//=================
+
+// @import "reference/styles";
+// @import "reference/plugins";
+
+// @import "../../node_modules/@fortawesome/fontawesome-free/scss/regular";
+// @import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+// @import "../../node_modules/@fortawesome/fontawesome-free/scss/brands";
+// @import "../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+// @import "../../node_modules/@fortawesome/fontawesome-free/scss/v4-shims";
+
+//=================
+// libary setting
+//=================
+// @import "libs/animate-sass/animate";
+// @import "libs/hover/scss/hover";
+// @import "libs/owl.carousel/src/scss/owl.carousel";
+// @import "libs/owl.carousel/src/scss/owl.theme.default";
+// @import "../../node_modules/hover.css/scss/hover";
+
+//=================
+// modules 模組 每個專案都會累積不同的
+// 要詳細寫說明
+//=================
+@import "modules/linkBack";
+
+//=================
+// layout
+//=================
+
+//請import進layout下的scss
+@import "layout/header";
+@import "layout/wrapperBack";
+@import "./styleForRightContentBack";
+
+// @import 'layout/footer';
+
+//other
+
+// @include margin(top,100);
+// @include margin(left,200);
+// @include margin(right,100);

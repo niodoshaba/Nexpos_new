@@ -5,8 +5,17 @@
 // $database = 'G4_nexpos';         // mysql使用者名稱密碼
 // $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $database);
 
+
+
+
+// $dsn = "mysql:host=pixiangwens-MacBook-Pro.local;port=3306;dbname=G4_nexpos;charset=utf8";
+// 	$user = "root";
+// 	$password = "6316444939";
+// 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
+//     $conn = new PDO( $dsn, $user, $password, $options); 
+
 // require_once("generalConnectDB.php");
-require_once("ordCon.php");
+// require_once("ordCon.php");
 
 
 if ($conn->connect_error) {
@@ -51,17 +60,7 @@ if (isset($_GET['s'])) {
     //查到資料時
     while ($row = mysqli_fetch_array($result)) {
 
-        echo "<tr>";
-        echo "<td>" . $row['CUS_LAST'] . "</td>";
-        echo "<td>" . $row['CUS_FIRST'] . "</td>";
-        echo "<td>" . $row['CUS_GEN'] . "</td>";
-        echo "<td>" . $row['CUS_PHONE'] . "</td>";
-        echo "<td>" . $row['CUS_BIRTH'] . "</td>"; 
-        echo "<td>" . $row['CUS_EMAIL'] . "</td>";
-        echo "<td>" . $row['CUS_ID'] . "</td>";
-        echo "<td>" . $row['CUS_STATE'] . "</td>";
-        echo "<td>" . $row['CUS_POINT'] . "</td>";
-        echo "</tr>";
+        
         
     }
 } else {

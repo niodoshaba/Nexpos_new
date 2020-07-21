@@ -465,7 +465,7 @@ function ordReceivePasInfo() {
         // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
         if (ordDisCount > Number(ordPasCart[g].PRO_ITEM_PRICE)) {
             // 讓變數帶入css指令，讓他價錢變色
-            ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+            ordDisCount = "border: 5px solid #319D8E; Box-sizing: border-box;"
         } else {
             ordDisCount = ""
         };
@@ -500,7 +500,7 @@ function ordReceiveHamInfo() {
         // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
         if (ordDisCount > Number(ordHamCart[g].PRO_ITEM_PRICE)) {
             // 讓變數帶入css指令，讓他價錢變色
-            ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+            ordDisCount = "border: 5px solid #319D8E; Box-sizing: border-box;"
         } else { };
         // 渲染商品進HTML頁面
         ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
@@ -533,7 +533,7 @@ function ordReceiveMufInfo() {
         // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
         if (ordDisCount > Number(ordMufCart[g].PRO_ITEM_PRICE)) {
             // 讓變數帶入css指令，讓他價錢變色
-            ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+            ordDisCount = "border: 5px solid #319D8E; Box-sizing: border-box;"
         } else { };
         // 渲染商品進HTML頁面
         ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
@@ -565,7 +565,7 @@ function ordReceiveSweInfo() {
         // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
         if (ordDisCount > Number(ordSweCart[g].PRO_ITEM_PRICE)) {
             // 讓變數帶入css指令，讓他價錢變色
-            ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+            ordDisCount = "border: 5px solid #319D8E; Box-sizing: border-box;"
         } else { };
         // 渲染商品進HTML頁面
         ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
@@ -599,7 +599,7 @@ function ordReceiveCofInfo() {
         // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
         if (ordDisCount > Number(ordCofCart[g].PRO_ITEM_PRICE)) {
             // 讓變數帶入css指令，讓他價錢變色
-            ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+            ordDisCount = "border: 5px solid #319D8E; Box-sizing: border-box;"
         } else { };
         // 渲染商品進HTML頁面
         ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
@@ -634,7 +634,7 @@ function ordReceiveDriInfo() {
         // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
         if (ordDisCount > Number(ordDriCart[g].PRO_ITEM_PRICE)) {
             // 讓變數帶入css指令，讓他價錢變色
-            ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+            ordDisCount = "border: 5px solid #319D8E; Box-sizing: border-box;"
         } else { };
         // 渲染商品進HTML頁面
         ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">

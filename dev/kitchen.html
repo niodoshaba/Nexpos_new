@@ -1,56 +1,54 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- <link rel="stylesheet" href="css/style.css" /> -->
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/kitchen.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>kitchen</title>
-    
-  </head>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- <link rel="stylesheet" href="css/style.css" /> -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/kitchen.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>kitchen</title>
+
+</head>
 
 <body>
-     <!-- 複製以下功能列 -->
-     @@include('./app/header.html', {
-        "nav5" : "actives" 
-      })
-    <!-- 複製以上功能列 -->
-    <!-- 以下為各分頁內容 -->
-    <div class="c-wrapper">
-        <div class="tablehead">
-          <h1>廚房出餐管理</h1>
+  <!-- 複製以下功能列 -->
+  @@include('./app/header.html', {
+  "nav5" : "actives"
+  })
+  <!-- 複製以上功能列 -->
+  <!-- 以下為各分頁內容 -->
+  <div class="c-wrapper">
+    <div class="tablehead">
+      <h1>廚房出餐管理</h1>
+    </div>
+    <div class="topFunc">
+      <a href="./kitchen.html" class="topTablink" style="text-decoration: none;">
+        <div class="topTab" id="topTabactives">
+          <div class="toptabCaption">出餐<br />管理</div>
         </div>
-              <div class="topFunc">
-          <a href="./kitchen.html" class="topTablink" style="text-decoration: none;">
-            <div class="topTab" id="topTabactives">
-              <div class="toptabCaption">出餐<br />管理</div>
-            </div>
-          </a>
-          <a href="./kitchenRecord.html" class="topTablink" style="text-decoration: none;">
-            <div class="topTab" >
-              <div class="toptabCaption">訂單<br />記錄</div>
-            </div>
-          </a>
+      </a>
+      <a href="./kitchenRecord.html" class="topTablink" style="text-decoration: none;">
+        <div class="topTab">
+          <div class="toptabCaption">訂單<br />記錄</div>
         </div>
-     <!-- 以下為訂單 -->
+      </a>
+    </div>
+    <!-- 以下為訂單 -->
     <div class="kPageContainer" id="kPageContainer"></div>
-    
+
     <script>
-        // 判斷登入人員並顯示於頁面
-        window.addEventListener("load", function(){
-           let username = sessionStorage.getItem('name');
-           
-           let loginName = document.querySelector('.user');
-           loginName.innerHTML = `Hi! ${username}`;
-       })
+      // 判斷登入人員並顯示於頁面
+      window.addEventListener("load", function () {
+        let username = sessionStorage.getItem('name');
+
+        let loginName = document.querySelector('.user');
+        loginName.innerHTML = `Hi! ${username}`;
+      })
     </script>
-    <script src="../dev/js/kitchen.js"></script>
+    <script src="./js/kitchen.js"></script>
 </body>
 
 </html>

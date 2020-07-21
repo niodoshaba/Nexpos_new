@@ -1,0 +1,140 @@
+//以下是右邊的頁籤
+
+.c-wrapper {
+  position: relative;
+  // width: 1300px;
+  margin-left: 227px;
+  transition: margin 0.3s;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 1;
+  flex: 1;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100vh;
+  background-color: #ffffff;
+  .topFunc {
+    display: flex;
+    justify-content: flex-end;
+    width: 500px;
+    position: absolute;
+    left: 1000px;
+
+    .topTablink {
+      #topTabactives {
+        font-size: 20px;
+        color: #ffffff;
+        display: inline-block;
+        width: 79px;
+        height: 89px;
+        background-color: #28569a;
+        border-radius: 0 0 10px 10px;
+        box-shadow: #333333;
+        margin-left: 40px;
+        text-align: center;
+        box-shadow: 2px 2px 2px #888888;
+      }
+      .topTab {
+        border: solid 0.5px #cdd1d8;
+        background-color: #ffffff;
+        color: #28569a;
+        width: 79px;
+        height: 89px;
+        text-align: center;
+        box-shadow: 2px 2px 2px #888888;
+        border-radius: 0 0 10px 10px;
+        display: inline-block;
+        margin-left: 40px;
+      }
+      .toptabCaption {
+        margin: 0 auto;
+        margin-top: 22px;
+      }
+    }
+  }
+}
+
+//以下各分頁新增css
+.tablehead {
+  margin-top: 20px;
+  padding: 20px;
+  margin-left: 180px;
+  width: 1040px;
+  // border-bottom: 1px solid red;
+  h1 {
+    font-size: 35px;
+  }
+}
+
+table,
+td {
+  border-bottom: 1px solid rgb(207, 206, 205);
+  border-collapse: collapse;
+}
+
+tr {
+  vertical-align: middle;
+}
+table {
+  // margin: 30px auto auto auto;
+  font-size: 20px;
+  color: grey;
+  width: 952px;
+  text-align: center;
+}
+
+td {
+  padding: 16px;
+}
+
+.save {
+  // border: none;
+  margin: 10px;
+  // vertical-align: sub;
+}
+
+img {
+  cursor: pointer;
+}
+
+input,
+select {
+  border: 0.5px solid rgb(189, 189, 189);
+  padding: 5px;
+  border-radius: 8px;
+}
+form {
+  width: 952px;
+  margin: 0 auto;
+  // border: 1px solid red;
+}
+
+.add {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.resScrollbar {
+  margin-top: 40px;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  float: left;
+  height: 600px;
+  width: 1040px;
+  overflow-y: scroll;
+  margin-bottom: 25px;
+}
+
+.resOverflow {
+  min-height: 600px;
+}
+
+#resScrollstyle::-webkit-scrollbar {
+  width: 10px;
+}
+
+#resScrollstyle::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #dddddd;
+}

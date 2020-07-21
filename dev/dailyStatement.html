@@ -1,96 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/minty/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://www.jqueryscript.net/css/jquerysctipttop.css"/>
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/dailyStatement.css" />
-    <title>dailyStatement</title>
-  </head>
 
-  <body>
-    <!-- 複製以下功能列 -->
-    @@include('./app/header.html', {
-      "nav6" : "actives" 
-    })
-    <!-- 複製以上功能列 -->
-    <!-- 以下為各分頁內容 -->
-    <div class="c-wrapper" style="margin-left: 300px;">
-      <div id="orderPageRightside" class="col-10">
-          <div id="orderPageRightSideTop">
-            <div class="col-8" showPrice>
-              <ul>
-                <li class="totalPrice">總營業額</li>
-                <li class="cash">現金支付</li>
-                <li class="creditCard">信用卡</li>
-                <li class="electro">電子支付</li>
-              </ul>
-            </div>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/minty/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://www.jqueryscript.net/css/jquerysctipttop.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/dailyStatement.css" />
+  <title>dailyStatement</title>
+</head>
 
-          <div id="orderPageRightSideMid">
-            <div class="col-10">
-              <table class="table table-responsive-sm table-striped">
-                <thead>
-                  <tr>
-                    <th>訂單編號</th>
-                    <th>日期</th>
-                    <th>桌號/外帶</th>
-                    <th>付款方式</th>
-                    <th>總金額</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-              </table>
-            </div>
-          </div>
+<body>
+  <!-- 複製以下功能列 -->
+  @@include('./app/header.html', {
+  "nav6" : "actives"
+  })
+  <!-- 複製以上功能列 -->
+  <!-- 以下為各分頁內容 -->
+  <div class="c-wrapper" style="margin-left: 300px;">
+    <div id="orderPageRightside" class="col-10">
+      <div id="orderPageRightSideTop">
+        <div class="col-8" showPrice>
+          <ul>
+            <li class="totalPrice">總營業額</li>
+            <li class="cash">現金支付</li>
+            <li class="creditCard">信用卡</li>
+            <li class="electro">電子支付</li>
+          </ul>
+        </div>
+      </div>
 
-          <div id="orderPageRightSideBottom">
-            <div class="col-1"></div>
+      <div id="orderPageRightSideMid">
+        <div class="col-10">
+          <table class="table table-responsive-sm table-striped">
+            <thead>
+              <tr>
+                <th>訂單編號</th>
+                <th>日期</th>
+                <th>桌號/外帶</th>
+                <th>付款方式</th>
+                <th>總金額</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-            <div class="col-1"></div>
+      <div id="orderPageRightSideBottom">
+        <div class="col-1"></div>
 
-            <div class="col-1"></div>
+        <div class="col-1"></div>
 
-            <div class="col-1"></div>
+        <div class="col-1"></div>
 
-            <div class="col-4">
-              <button type="button" id="orderPageRightSideBottomBtn3" class="btn btn-danger mb-1" data-toggle="modal" data-target="#regular_modal">關帳</button>
-              <div class="modal fade" id="regular_modal" tabindex="-1" role="dialog" aria-labelledby="regular_modal" style="display:none">
-                  <div class="modal-dialog modal-dialog-centered modal-s" role="document" >
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <h5 class="modal-title" style="margin: 0 109px;">今日帳務總計</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                              </button>
-                          </div>
-                          <div class="modal-body">
-                            <ul>
-                              <li class="totalPrice">總營業額</li>
-                              <li class="cash">現金支付</li>
-                              <li class="creditCard">信用卡</li>
-                              <li class="electro">電子支付</li>
-                            </ul>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">確定並列印</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                          </div>
-                      </div>
-                  </div>
+        <div class="col-1"></div>
+
+        <div class="col-4">
+          <button type="button" id="orderPageRightSideBottomBtn3" class="btn btn-danger mb-1" data-toggle="modal"
+            data-target="#regular_modal">關帳</button>
+          <div class="modal fade" id="regular_modal" tabindex="-1" role="dialog" aria-labelledby="regular_modal"
+            style="display:none">
+            <div class="modal-dialog modal-dialog-centered modal-s" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" style="margin: 0 109px;">今日帳務總計</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <ul>
+                    <li class="totalPrice">總營業額</li>
+                    <li class="cash">現金支付</li>
+                    <li class="creditCard">信用卡</li>
+                    <li class="electro">電子支付</li>
+                  </ul>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">確定並列印</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                </div>
               </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-  <script src="../dev/js/dailyStatement.js"></script>
+  <script src="./js/dailyStatement.js"></script>
 </body>
+
 </html>
