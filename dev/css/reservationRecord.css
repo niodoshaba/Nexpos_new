@@ -6,14 +6,15 @@
   .tablehead h1 {
     font-size: 35px; }
 
-table, td {
+table,
+td {
   border-collapse: collapse; }
 
 tr {
   vertical-align: middle; }
 
 tr:nth-child(even) {
-  background: #F3F8FF; }
+  background: #f3f8ff; }
 
 tr:nth-child(odd) {
   background-color: #ffffff; }
@@ -36,7 +37,8 @@ td {
 img {
   cursor: pointer; }
 
-input, select {
+input,
+select {
   border: 0.5px solid #bdbdbd;
   padding: 5px;
   border-radius: 8px; }
@@ -68,4 +70,4 @@ form {
 
 #resScrollstyle::-webkit-scrollbar-thumb {
   border-radius: 50px;
-  background-color: #DDDDDD; }
+  background-color: #dddddd; }

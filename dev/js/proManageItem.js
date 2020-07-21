@@ -73,6 +73,7 @@ window.addEventListener("load", function () {
       };
       //把輸入的值存成物件
       let proManageItemInputData = {};
+      proManageItemInputData.proCataNo = $(".proCataNo").val();
       proManageItemInputData.proItemName = $(".proCataName").val();
       proManageItemInputData.proItemName = $(".proItemName").val();
       proManageItemInputData.proItemPrice = $(".proItemPrice").val();
