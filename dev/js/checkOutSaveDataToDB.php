@@ -9,6 +9,7 @@ try{
 
     $orderListData = $_POST["orderList"];
 
+    
     $bonusRule_sql = "INSERT INTO order_list 
                       VALUES ($ORDER_NO , $CUS_PHONE_NUMBER, $PAY_NO, $EMP_NO, $BONUS_NAME,
                               $ORDER_FEEDBACK, $ORDER_TAX_ID, $ORDER_DEVICE_NO, $ORDER_INNOUT,

@@ -34,6 +34,13 @@ window.addEventListener('load',function(){
     let ordHTML;
     let checkoutLeftSideMidItemAll = document.getElementById('checkoutLeftSideMidItemAll');
 
+    let cusPhoneNumber;
+
+    let cusNowDay = new Date();
+
+    let ppl;
+
+    let sendDataToDB;
     // console.log(checkoutLeftSideMidItemTop);
     //紀錄傳到點餐頁面的資訊
     var loadOrdListTips = JSON.parse(localStorage.getItem('ordlistTips'));
@@ -175,6 +182,8 @@ window.addEventListener('load',function(){
     let checkOutPrice = document.getElementsByClassName('checkOutPrice');
     //總金額
     let checkOutTotalPrice = 0;
+    //紀錄總金額 不變動的金額
+    let checkOutTotalPriceSendToDB = 0;
     //折扣總金額
     let checkoutDiscountTotalPrice = 0;
     
@@ -261,6 +270,7 @@ window.addEventListener('load',function(){
         for(i=0;i<checkOutPrice.length;i++){
         checkOutTotalPrice = checkOutTotalPrice+parseInt(checkOutPrice[i].innerText.substring(1, checkOutPrice[i].innerText.length));
         }
+        checkOutTotalPriceSendToDB = checkOutTotalPrice;
         checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkOutTotalPrice}</span>`;
     }
     checkOutSum();
@@ -298,7 +308,56 @@ window.addEventListener('load',function(){
 
     //送資料給後端程式同時
     checkoutLastBtn.addEventListener('click',function(){   
-         //點過結帳按鈕bool
+         
+        //訂單編號
+        // checkoutOrderListNo.innerText
+
+        //內用/外帶
+        //checkoutOrderInOrOut.innerText
+
+        // 紅利折抵名稱
+        // bonusRule
+
+        //顧客手機
+        //cusPhoneNumber
+
+        //PAY_NO
+        //1
+
+        //總金額
+        //checkOutTotalPriceSendToDB
+
+        //日期
+        let tmpDate = `${cusNowDay.getFullYear()}-${cusNowDay.getMonth()+1}-${cusNowDay.getDate()}`;
+        
+        //人數
+        if(ordlistTips.ppl == undefined){
+            ppl = 0;
+        }else{
+            ppl = ordlistTips.ppl;
+        }
+
+        let tmpInOrOut;
+
+        if(ordlistTips.inOrOut == "in"){
+            tmpInOrOut = 0;
+        }else{
+            tmpInOrOut = 1;
+        }
+
+        sendDataToDB = [
+            "ORDER_NO" : checkoutOrderListNo.innerText,
+            "CUS_PHONE_NUMBER" : cusPhoneNumber,
+            "PAY_NO" : 1,
+            "EMP_NO" : 
+            "BONUS_NAME" : bonusRule,
+            "ORDER_TAX_ID": "",
+            "ORDER_DEVICE_NO" : "",
+            "ORDER_INNOUT" : tmpInOrOut,
+            "ORDER_"
+        ]
+
+        //點過結帳按鈕bool
          ordCheckOutBool = true;
          //關閉出餐按鈕bool
          ordPostBool = false;
@@ -348,7 +407,7 @@ window.addEventListener('load',function(){
 
 
 
-         location.replace('http://localhost/phplab/Table0716/Table/html/posHomeTab.html');
+        //  location.replace('http://localhost/phplab/Table0716/Table/html/posHomeTab.html');
     });
 
     //----- 拆帳 -----
@@ -445,7 +504,7 @@ window.addEventListener('load',function(){
         
         
         let senddata = checkoutLeftSideTopBtn.parentElement.children[0].value;
-        
+        cusPhoneNumber = senddata;
         checkCustomer(senddata);
         
     });
