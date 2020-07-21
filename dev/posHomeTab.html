@@ -66,10 +66,26 @@
     <script>
         // 判斷登入人員並顯示於頁面
         window.addEventListener("load", function () {
-            let username = sessionStorage.getItem('name');
+            if (sessionStorage.getItem('name')) {
+                let username = sessionStorage.getItem('name');
+                // console.log(username);
 
-            let loginName = document.querySelector('.user');
-            loginName.innerHTML = `Hi! ${username}`;
+                let loginName = document.querySelector('.user');
+                loginName.innerHTML = `Hi! ${username}`;
+            } else {
+                let tempStr = decodeURIComponent(location.search.substr(1));
+                let arr = tempStr.split("&");
+                // let EMP_TITLE = arr[0].split("=")[1];
+                let EMP_NAME = arr[1].split("=")[1];
+                // console.log("NAME:", EMP_NAME);
+
+                sessionStorage.setItem('name', EMP_NAME);
+                let username = sessionStorage.getItem('name');
+                // console.log(username);
+
+                let loginName = document.querySelector('.user');
+                loginName.innerHTML = `Hi! ${username}`;
+            }
         })
     </script>
 </body>
