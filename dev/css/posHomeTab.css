@@ -1,4 +1,10 @@
 @charset "UTF-8";
+html {
+  background-color: #2e2d2e; }
+
+body {
+  background-color: #fff; }
+
 #toGoZone {
   list-style: none;
   width: 900px;
