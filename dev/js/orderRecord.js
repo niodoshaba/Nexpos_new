@@ -1,4 +1,4 @@
-<script>
+
 
 document.getElementById('anaResBtn').addEventListener('click',function(){
 showRow();
@@ -131,8 +131,8 @@ xhr.send("ClickTrNo="+thistrNo);
 
 
 
-</script>
-<script>
+
+
 // 判斷登入人員並顯示於頁面
 window.addEventListener("load", function(){
 let username = sessionStorage.getItem('name');
@@ -140,4 +140,3 @@ let username = sessionStorage.getItem('name');
 let loginName = document.querySelector('.user');
 loginName.innerHTML = `Hi! ${username}`;
 })
-</script>
