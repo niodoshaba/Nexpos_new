@@ -79,7 +79,7 @@
 #resize-tabContainer {
   position: relative;
   left: 65px;
-  top: 35px;
+  top: 15px;
   width: 1000px;
   height: 650px;
   box-shadow: 1px 1px 10px;
@@ -103,7 +103,7 @@
   font-size: 20px; }
 
 #tabSaveBtn, #tabToolTipBtn {
-  margin-top: 0px; }
+  margin-top: -5px; }
 
 #tabToolTipBtn {
   margin-left: 80px;
@@ -126,7 +126,7 @@
   transition: background-color 0.3s;
   position: absolute;
   right: -30px;
-  bottom: 30px; }
+  bottom: 35px; }
   .dropzone img {
     width: 100%; }
 

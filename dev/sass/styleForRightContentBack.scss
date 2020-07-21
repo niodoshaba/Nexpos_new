@@ -2,6 +2,7 @@
 #ui-view {
   min-width: 1180px;
   min-height: 720px;
+  // padding: 0 120px;
 }
 .card-body {
   border: unset;
@@ -23,7 +24,12 @@ input.proPic {
   // width: 1040px;
   overflow-y: scroll;
   overflow-x: hidden;
+  margin-left: 125px;
   // margin-bottom: 25px;
+}
+
+#calendarPickDateTop{
+  margin-left: 135px;
 }
 
 .resOverflow {

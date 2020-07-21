@@ -113,6 +113,9 @@ a {
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   height: 900px; }
+  .c-sidebar #sideMenu .loginName {
+    position: relative;
+    margin: 25px 40px 15px; }
   .c-sidebar .light {
     color: #9ff810;
     padding-left: 46px;

@@ -8,7 +8,7 @@ tabShapeSelect.addEventListener('change', (e) => {
 //產生餐桌按鈕
 let tabAddBtn = document.getElementById('tabAddBtn');
 //儲存按鈕
-let tabSaveBtn = document.getElementById('tabSaveBtn');  
+let tabSaveBtn = document.getElementById('tabSaveBtn');
 let tabContainer = document.getElementById('resize-tabContainer');
 //編輯空桌/預約餐桌/關閉餐桌/清潔餐桌/餐桌用餐中
 let tabEditColor;
@@ -30,83 +30,83 @@ let TestArr;
 var count = 0;
 var positionArr = [];
 
-let tabToolTipBtn =document.getElementById('tabToolTipBtn')
+let tabToolTipBtn = document.getElementById('tabToolTipBtn')
 let tabEditToolTip = document.getElementById('tabEditToolTip')
 
 
-$('#tabToolTipBtn').on('click',function(){
-  $('#tabEditToolTip').toggle() 
+$('#tabToolTipBtn').on('click', function () {
+  $('#tabEditToolTip').toggle()
 })
-$('#tabAddBtn').on('click',function(){
+$('#tabAddBtn').on('click', function () {
   $('#tabEditToolTip').toggle()
 })
 
-window.addEventListener('load',e=>{
+window.addEventListener('load', e => {
   loadTabStatus();
   getTabStatusColor(TestArr);
   // console.log("test",TestArr);
   editTabRender();
-  
+
 });
 
-function loadTabStatus(){
+function loadTabStatus() {
   let xhr = new XMLHttpRequest();
-  
-  xhr.onload = function(){
-    if(xhr.readyState == 4 && xhr.status == 200){
-      
+
+  xhr.onload = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+
       let result = JSON.parse(xhr.responseText);
       TestArr = result;
       // console.log("1",TestArr);
-      
+
     }
-    
+
   }
-  xhr.open("post","../php/loadTabStatusColor.php",false);
-  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-  xhr.send(null);        
+  xhr.open("post", "./js/loadTabStatusColor.php", false);
+  xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+  xhr.send(null);
 }
 
-function getTabStatusColor(data){
-  for(i=0;i<data.length;i++){
-    switch (data[i].TAB_NAME){
+function getTabStatusColor(data) {
+  for (i = 0; i < data.length; i++) {
+    switch (data[i].TAB_NAME) {
       case "空桌":
         tabEditColor = data[i].TAB_SHOW;
-        
-      break;
-        
+
+        break;
+
       case "清潔中":
         tabCleanColor = data[i].TAB_SHOW;
-        
-      break;
-      
+
+        break;
+
       case "桌位預約":
         tabResColor = data[i].TAB_SHOW;
-        
-      break;
-      
+
+        break;
+
       case "桌位不開放":
         tabCloseColor = data[i].TAB_SHOW;
-        
-      break;  
+
+        break;
 
       case "用餐中":
         tabEatColor = data[i].TAB_SHOW;
-        
-      break;  
+
+        break;
     }
   }
 }
 
-function editTabRender(){
-  if(localStorage.getItem('allData') == undefined){
+function editTabRender() {
+  if (localStorage.getItem('allData') == undefined) {
 
-  }else{
+  } else {
     var tabReceiveJson = (JSON.parse(localStorage.getItem("allData")));
-    for(i=0;i<tabReceiveJson.length;i++){
+    for (i = 0; i < tabReceiveJson.length; i++) {
       let tabElement = document.createElement('li');
       tabElement.id = tabReceiveJson[i].id;
-      tabElement.style.width =  tabReceiveJson[i].width;
+      tabElement.style.width = tabReceiveJson[i].width;
       tabElement.style.height = tabReceiveJson[i].height;
       tabElement.style.backgroundColor = tabEditColor;
       tabElement.style.borderRadius = tabReceiveJson[i].borderRadius;
@@ -129,7 +129,7 @@ function editTabRender(){
       tabElement.innerText = tabReceiveJson[i].number;
       tabElement.className = tabReceiveJson[i].shape + " tabragobj" + " tabPosition";
       tabContainer.appendChild(tabElement);
-  }
+    }
   }
 }
 
@@ -146,45 +146,45 @@ interact(".tabragobj").draggable({
   ]
 })
 
-.draggable({
-  onmove: window.dragMoveListener
-})
-.resizable({
-  preserveAspectRatio: false,
-  edges: { left: false, right: false, bottom: false, top: false }
-})
-.on('resizemove', function (event) {
-  var target = event.target,
+  .draggable({
+    onmove: window.dragMoveListener
+  })
+  .resizable({
+    preserveAspectRatio: false,
+    edges: { left: false, right: false, bottom: false, top: false }
+  })
+  .on('resizemove', function (event) {
+    var target = event.target,
       x = (parseFloat(target.getAttribute('data-x')) || 0),
       y = (parseFloat(target.getAttribute('data-y')) || 0);
 
 
-  // update the element's style
-  target.style.width  = event.rect.width + 'px';
-  target.style.height = event.rect.height + 'px';
+    // update the element's style
+    target.style.width = event.rect.width + 'px';
+    target.style.height = event.rect.height + 'px';
 
-  // translate when resizing from top or left edges
-  x += event.deltaRect.left;
-  y += event.deltaRect.top;
+    // translate when resizing from top or left edges
+    x += event.deltaRect.left;
+    y += event.deltaRect.top;
 
-  target.style.webkitTransform = target.style.transform =
+    target.style.webkitTransform = target.style.transform =
       'translate(' + x + 'px,' + y + 'px)';
 
-  target.setAttribute('data-x', x);
-  target.setAttribute('data-y', y);
-  //target.textContent = event.rect.width + '×' + event.rect.height;
-  
-});
+    target.setAttribute('data-x', x);
+    target.setAttribute('data-y', y);
+    //target.textContent = event.rect.width + '×' + event.rect.height;
 
-function dragMoveListener (event) {
+  });
+
+function dragMoveListener(event) {
   var target = event.target,
-      // keep the dragged position in the data-x/data-y attributes
-      x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-      y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-     
+    // keep the dragged position in the data-x/data-y attributes
+    x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+    y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
   // translate the element
   target.style.webkitTransform =
-  target.style.transform =
+    target.style.transform =
     'translate(' + x + 'px, ' + y + 'px)';
 
   // update the posiion attributes
@@ -192,36 +192,36 @@ function dragMoveListener (event) {
   target.setAttribute('data-y', y);
 }
 
-  //刪除餐桌
-  interact('.dropzone')
+//刪除餐桌
+interact('.dropzone')
   .dropzone({
-    ondragenter: function (event){
-    //var draggableElement = event.relatedTarget
-    var draggableElement = event.relatedTarget.parentNode
-    var dropzoneElement = event.target
+    ondragenter: function (event) {
+      //var draggableElement = event.relatedTarget
+      var draggableElement = event.relatedTarget.parentNode
+      var dropzoneElement = event.target
 
-    // feedback the possibility of a drop
-    dropzoneElement.classList.add('drop-target')
-    // draggableElement.classList.add('hidden')
-    draggableElement.removeChild(event.relatedTarget)
-  
+      // feedback the possibility of a drop
+      dropzoneElement.classList.add('drop-target')
+      // draggableElement.classList.add('hidden')
+      draggableElement.removeChild(event.relatedTarget)
+
     }
-  })                                  
+  })
 
 
-function saveAllDataToJson(data){
-  localStorage.setItem("allData",JSON.stringify(data));
-} 
+function saveAllDataToJson(data) {
+  localStorage.setItem("allData", JSON.stringify(data));
+}
 
-tabSaveBtn.addEventListener('click',function(){
-  
+tabSaveBtn.addEventListener('click', function () {
+
   // console.log(tabContainer.childElementCount);
-  if(tabContainer.childElementCount == 0){
+  if (tabContainer.childElementCount == 0) {
     alert('至少要有一個位置才能儲存');
-  }else{
-  var positionArr = [];
-  // console.log(tabContainer.childElementCount);
-    for(i=0;i<tabContainer.childElementCount;i++){
+  } else {
+    var positionArr = [];
+    // console.log(tabContainer.childElementCount);
+    for (i = 0; i < tabContainer.childElementCount; i++) {
       var tabShapeName = tabContainer.childNodes[i].getAttribute('class');
       console.log(tabShapeName);
       positionArr.push(
@@ -261,66 +261,67 @@ tabSaveBtn.addEventListener('click',function(){
           tabClickOrder: false,
           //餐桌有無點擊結帳
           tabClickCheckOut: false,
-          basicInfo: {orderList: "",
-                      inOrOut: "",
-                      number: tabContainer.childNodes[i].innerText
-                     },
+          basicInfo: {
+            orderList: "",
+            inOrOut: "",
+            number: tabContainer.childNodes[i].innerText
+          },
           //-----------------------0704---------------
           number: tabContainer.childNodes[i].innerText
-          
+
         }
       );
-      
+
     }
     // console.log(positionArr);
     saveAllDataToJson(positionArr);
     tabEditSave(JSON.stringify(positionArr));
   }
-  
+
 });
 
-tabNumber.addEventListener('keyup',e=>{
+tabNumber.addEventListener('keyup', e => {
   tbN = tabNumber.value;
-  
+
 });
 
-tabAddBtn.addEventListener('click',function(){
+tabAddBtn.addEventListener('click', function () {
 
-  count ++;
+  count++;
   //appendchild
   let tabItem = document.createElement('li');
   //餐桌編號
   // tabItem.textContent = `A${count}`;
   tabItem.innerText = tbN;
-  
+
   tabItem.className = shapeText + " tabragobj" + " tabPosition";
 
   tabItem.id = `A${count}`;
-  
-  tabItem.style.setProperty('background-color',tabEditColor);
-  
+
+  tabItem.style.setProperty('background-color', tabEditColor);
+
   tabContainer.appendChild(tabItem);
-  
+
   // console.log(window.getComputedStyle(tabItem).getPropertyValue('background-color'));
 });
 
-function tabEditSave(tabData){
-  
+function tabEditSave(tabData) {
+
   let xhr = new XMLHttpRequest();
-  
-  xhr.onload = function(){
-    if(xhr.readyState == 4 && xhr.status == 200){
-      
+
+  xhr.onload = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+
       //確認資料是否正確存入資料庫
       let result = xhr.responseText;
-      
+
     }
-    
+
   }
-  xhr.open("post","../php/tabSpecSaveToDB.php",true);
-  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+  xhr.open("post", "./js/tabSpecSaveToDB.php", true);
+  xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
   // xhr.send("tabData=" + tabData);
-  xhr.send(`tabData=${tabData}`);        
-  
+  xhr.send(`tabData=${tabData}`);
+
 }
 
