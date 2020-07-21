@@ -6,7 +6,9 @@ try{
   // $password = "root";
   // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   // $pdo = new PDO($dsn, $user, $password, $options);
-  require_once("generalConnectDB.php");
+  
+  // require_once("generalConnectDB.php");
+  require_once("ordCon.php");
 
 //抓出所有商品資訊
 $sql = "SELECT A2.PRO_ITEM_NO ItemNo, A1.PRO_CATA_NAME CataName, A2.PRO_ITEM_NAME ItemName, A2.PRO_ITEM_PRICE ItemPrice

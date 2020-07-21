@@ -1,12 +1,17 @@
 <?php
 
 try{
-	$dsn = "mysql:host=localhost;port=8889;dbname=G4_nexpos;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-  $pdo = new PDO( $dsn, $user, $password, $options); 
+	// $dsn = "mysql:host=localhost;port=8889;dbname=G4_nexpos;charset=utf8";
+	// $user = "root";
+	// $password = "root";
+	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
+  // $pdo = new PDO( $dsn, $user, $password, $options); 
   
+  
+  // require_once("generalConnectDB.php");
+  require_once("ordCon.php");
+
+
   $sql = "SELECT * FROM CUSTOMER WHERE CUS_ID = '1'";
 
   $proInfo = $pdo->query($sql);

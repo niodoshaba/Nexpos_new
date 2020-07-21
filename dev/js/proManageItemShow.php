@@ -1,11 +1,17 @@
 <?php
 
 try{
-	$dsn = "mysql:host=localhost;port=3306;dbname=G4_nexpos;charset=utf8";
-	$user = "root";
-	$password = "lily12345";
-	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-  $pdo = new PDO( $dsn, $user, $password, $options); 
+	// $dsn = "mysql:host=localhost;port=3306;dbname=G4_nexpos;charset=utf8";
+	// $user = "root";
+	// $password = "lily12345";
+	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
+  // $pdo = new PDO( $dsn, $user, $password, $options); 
+
+
+
+  // require_once("generalConnectDB.php");
+  require_once("ordCon.php");
+
   
   $sql = "SELECT PRODUCT_ITEM.PRO_ITEM_NO,PRODUCT_CATA.PRO_CATA_NAME,PRODUCT_ITEM.PRO_ITEM_NAME,PRODUCT_ITEM.PRO_ITEM_PRICE,PRODUCT_ITEM.PRO_ITEM_ONOFF
           FROM PRODUCT_CATA,PRODUCT_ITEM

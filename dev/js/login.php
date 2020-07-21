@@ -28,11 +28,11 @@ try{
     if($EMP->rowCount()==0){
       echo "<script>
               alert('請輸入正確的帳號、密碼>_<');
-              location.href='../../dest/login.html';
+              location.href='../login.html';
             </script>";
     }else{
       echo "<script>
-              location.href='../../dest/tabShow.html?$useInfo';
+              location.href='../tabShow.html?$useInfo';
             </script>";
     }
   }
@@ -48,11 +48,11 @@ try{
     if($EMP->rowCount()==0){
       echo "<script>
               alert('請輸入正確的帳號、密碼>_<');
-              location.href='../../dest/login.html';
+              location.href='../login.html';
             </script>";
     }else {
       echo "<script>
-              location.href='../../dest/proManage.html?$useInfo';
+              location.href='../proManage.html?$useInfo';
             </script>";
     }
   }

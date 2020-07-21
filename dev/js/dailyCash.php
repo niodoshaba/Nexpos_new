@@ -2,12 +2,14 @@
 session_start();
 
 try{
-  require_once("ordCon.php");
   // $dsn = "mysql:host=localhost; port=3306; dbname=G4_nexpos; charset=utf8";
   // $user = "root";
   // $password = "root";
   // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   // $pdo = new PDO($dsn, $user, $password, $options);
+  
+  // require_once("generalConnectDB.php");
+  require_once("ordCon.php");
   
   //現金總額
   $sqlCash = "SELECT A2.PAY_METHOD PayMethod, SUM(A1.ORDER_TTL_PRICE) Price

@@ -2,11 +2,15 @@
 $fillingItemUpdateData = json_decode($_POST['fillingItemUpdateData']);
 
 try{
-    $dsn = "mysql:host=localhost;port=3306;dbname=G4_nexpos;charset=utf8";
-    $user = "root";
-    $password = "lily12345";
-    $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-    $pdo = new PDO( $dsn, $user, $password, $options); 
+    // $dsn = "mysql:host=localhost;port=3306;dbname=G4_nexpos;charset=utf8";
+    // $user = "root";
+    // $password = "lily12345";
+    // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
+    // $pdo = new PDO( $dsn, $user, $password, $options); 
+
+
+    // require_once("generalConnectDB.php");
+    require_once("ordCon.php");
   
   $fillingItemName = $fillingItemUpdateData->fillingItemName;
   $fillingItemPrice = $fillingItemUpdateData->fillingItemPrice;

@@ -4,6 +4,8 @@
 // $dbpass = 'root';
 // $database = 'G4_nexpos';         // mysql使用者名稱密碼
 // $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $database);
+
+// require_once("generalConnectDB.php");
 require_once("ordCon.php");
 
 
