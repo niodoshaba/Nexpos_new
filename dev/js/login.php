@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 try{
 
   require_once("ordCon.php");
@@ -10,6 +11,7 @@ try{
   // $password = "root";
   // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   // $pdo = new PDO($dsn, $user, $password, $options);
+  // require_once("generalConnectDB.php");
 
   //取得input輸入的帳密
   $loginId = $_POST["loginId"];
@@ -26,14 +28,12 @@ try{
     if($EMP->rowCount()==0){
       echo "<script>
               alert('請輸入正確的帳號、密碼>_<');
-              location.href='../login.html';
+              location.href='../../dest/login.html';
             </script>";
     }else{
-      // echo "<script>
-      //         location.href='./tabShow.html?$useInfo';
-      //       </script>";
-
-      header("location:../posHomeTab.html?$useInfo");
+      echo "<script>
+              location.href='../../dest/tabShow.html?$useInfo';
+            </script>";
     }
   }
 
@@ -48,15 +48,12 @@ try{
     if($EMP->rowCount()==0){
       echo "<script>
               alert('請輸入正確的帳號、密碼>_<');
-              location.href='../login.html';
+              location.href='../../dest/login.html';
             </script>";
     }else {
-      // echo "<script>
-      //         location.href='../proManage.html?$useInfo';
-      //       </script>";
-    
-      header("location:../proManage.html?$useInfo");
-
+      echo "<script>
+              location.href='../../dest/proManage.html?$useInfo';
+            </script>";
     }
   }
 }catch(PDOException $e){
