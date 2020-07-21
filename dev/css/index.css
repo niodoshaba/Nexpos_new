@@ -139,7 +139,7 @@ section.login .loginBlock {
     section.login .loginBlock .loginBtn .loginSudo {
       position: relative;
       outline: none;
-      margin-top: 20px; }
+      margin-top: 25px; }
       section.login .loginBlock .loginBtn .loginSudo::before {
         content: "";
         position: absolute;

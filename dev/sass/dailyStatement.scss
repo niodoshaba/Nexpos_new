@@ -14,7 +14,7 @@ body {
 
 #orderPageLeftSide {
   // border: 1px solid red;
-  height: 100vh;
+  height: 900px;
   background-color: #28569a;
   // img:first-child{
   //     margin-left: -15px;
@@ -102,9 +102,9 @@ body {
   #orderPageRightSideTop {
     display: flex;
     justify-content: center;
-    margin: 0 auto;
-    height: 10vh;
-    width: 70vw;
+    margin: 10px auto;
+    height: 90px; // before: 10vh
+    width: 980px; // 修改
     border-radius: 10px;
     box-shadow: 4px 4px 3px rgba(20%, 20%, 40%, 0.2);
     div {
@@ -125,7 +125,7 @@ body {
 
   #orderPageRightSideMid {
     display: flex;
-    height: 75vh;
+    // height: 75vh;
     // border: 1px solid blue;
     div {
       height: 100%;
@@ -137,6 +137,8 @@ body {
     .col-10 {
       overflow: scroll;
       overflow-x: hidden;
+      width: 850px; // 新增
+      height: 675px; // 新增
     }
     th,
     td {
@@ -160,7 +162,7 @@ body {
 
   #orderPageRightSideBottom {
     display: flex;
-    height: 15vh;
+    height: 90px; // before: 15vh
     // border: 1px solid blue;
     div {
       display: flex;

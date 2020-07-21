@@ -9589,7 +9589,6 @@ table {
   width: 1300px;
   height: 900px;
   position: relative;
-  overflow: hidden;
   background-color: #ffffff; }
   .c-wrapper .topFunc {
     display: flex;

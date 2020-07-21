@@ -10,7 +10,7 @@ body {
   background-color: #ffffff; }
 
 #orderPageLeftSide {
-  height: 100vh;
+  height: 900px;
   background-color: #28569a; }
   #orderPageLeftSide #style-3::-webkit-scrollbar {
     width: 10px;
@@ -74,9 +74,9 @@ body {
   #orderPageRightside #orderPageRightSideTop {
     display: flex;
     justify-content: center;
-    margin: 0 auto;
-    height: 10vh;
-    width: 70vw;
+    margin: 10px auto;
+    height: 90px;
+    width: 980px;
     border-radius: 10px;
     box-shadow: 4px 4px 3px rgba(51, 51, 102, 0.2); }
     #orderPageRightside #orderPageRightSideTop div {
@@ -90,8 +90,7 @@ body {
         #orderPageRightside #orderPageRightSideTop div ul li {
           font-size: 25px; }
   #orderPageRightside #orderPageRightSideMid {
-    display: flex;
-    height: 75vh; }
+    display: flex; }
     #orderPageRightside #orderPageRightSideMid div {
       height: 100%;
       margin: 10px auto;
@@ -99,7 +98,9 @@ body {
       box-shadow: 4px 4px 3px rgba(51, 51, 51, 0.2); }
     #orderPageRightside #orderPageRightSideMid .col-10 {
       overflow: scroll;
-      overflow-x: hidden; }
+      overflow-x: hidden;
+      width: 850px;
+      height: 675px; }
     #orderPageRightside #orderPageRightSideMid th,
     #orderPageRightside #orderPageRightSideMid td {
       color: #707070;
@@ -115,7 +116,7 @@ body {
       background: #f3f8ff; }
   #orderPageRightside #orderPageRightSideBottom {
     display: flex;
-    height: 15vh; }
+    height: 90px; }
     #orderPageRightside #orderPageRightSideBottom div {
       display: flex;
       justify-content: center;
