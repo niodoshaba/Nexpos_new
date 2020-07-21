@@ -1,11 +1,12 @@
 <?php 
 
 try {
-    $dsn = "mysql:host=localhost;port=8889;dbname=G4_nexpos;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);    
-	$pdo = new PDO( $dsn, $user, $password, $options); 
+    // $dsn = "mysql:host=localhost;port=8889;dbname=G4_nexpos;charset=utf8";
+	// $user = "root";
+	// $password = "root";
+	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);    
+    // $pdo = new PDO( $dsn, $user, $password, $options); 
+    require_once("ordCon.php");
 
     $CUS_PHONE = $_POST["CUS_PHONE"];
     $CUS_ID = $_POST["CUS_ID"];

@@ -67,36 +67,37 @@ var orderPageArrowDR = document.getElementById("orderPageArrowDR"); // 品項的
 
 // 把basicInfo存進localStorage
 function ordSaveBasicInfo() {
-    localStorage.setItem("basicInfo", JSON.stringify(basicInfoGet));
+    localStorage.setItem("ordlistTips", JSON.stringify(basicInfoGet));
+    // console.log("23", basicInfoGet);
 };
 
 // 把basicInfo從localStorage裡抓出來
 function ordLoadBasicInfo() {
-    basicInfoGet = JSON.parse(localStorage.getItem("basicInfo"));
+    basicInfoGet = JSON.parse(localStorage.getItem("ordlistTips"));
 }
 ordLoadBasicInfo();
 
 
 
-var ordList = basicInfoGet[0].orderList;// 訂單編號
+var ordList = basicInfoGet.orderList;// 訂單編號
 
 // 接收basicInfo資料
 function ordReceiveBasicInfo() {
     // 把basicInfo的資料先推入購物車陣列
-    ordProdCartWithBasicInfo.push(basicInfoGet[0]);
+    ordProdCartWithBasicInfo.push(basicInfoGet);
     localStorage.setItem("ordProdCartWithBasicInfo", JSON.stringify(ordProdCartWithBasicInfo));
 
     // 輸入訂單編號
-    orderList.innerHTML = basicInfoGet[0].orderList;
+    orderList.innerHTML = basicInfoGet.orderList;
 
     // 輸入內用外帶
-    if (basicInfoGet[0].inOrOut == 'in') {
+    if (basicInfoGet.inOrOut == 'in') {
         inOrOut.innerHTML = "內用";
     } else {
         inOrOut.innerHTML = "外帶";
     };
     // 輸入桌號
-    number.innerHTML = basicInfoGet[0].number;
+    number.innerHTML = basicInfoGet.number;
 
 };
 ordReceiveBasicInfo();
@@ -113,7 +114,7 @@ function ordPplAdjust() {
     ordPplPlus.addEventListener("click", function () {
         ordPplAmtShow++;
         ordPplAmt.innerHTML = ordPplAmtShow;
-        basicInfoGet[0].ppl = ordPplAmtShow;
+        basicInfoGet.ppl = ordPplAmtShow;
 
         ordSaveBasicInfo();
         localStorage.setItem(`ordSavePpl_${ordList}`, JSON.stringify(ordPplAmtShow));
@@ -125,13 +126,13 @@ function ordPplAdjust() {
         if (ordPplAmtShow < 0) {
             ordPplAmtShow = 0;
             ordPplAmt.innerHTML = ordPplAmtShow;
-            basicInfoGet[0].ppl = ordPplAmtShow;
+            basicInfoGet.ppl = ordPplAmtShow;
 
             ordSaveBasicInfo();
             localStorage.setItem(`ordSavePpl_${ordList}`, JSON.stringify(ordPplAmtShow));
         };
         ordPplAmt.innerHTML = ordPplAmtShow;
-        basicInfoGet[0].ppl = ordPplAmtShow;
+        basicInfoGet.ppl = ordPplAmtShow;
 
         ordSaveBasicInfo();
         localStorage.setItem(`ordSavePpl_${ordList}`, JSON.stringify(ordPplAmtShow));
@@ -145,7 +146,7 @@ function ordReloadPpl() {
     ordPplAmt.innerHTML = ordReloadPplAmt;
 
     // 把人數放進basicInfo的ppl裡面
-    basicInfoGet[0].ppl = ordReloadPplAmt;
+    basicInfoGet.ppl = ordReloadPplAmt;
 
     ordSaveBasicInfo();
 };
@@ -163,7 +164,7 @@ var ordNavList = document.querySelector(".ordNavList");
 function ordReceiveProdInfo() {
     var ajax = new XMLHttpRequest();
     var method = "GET";
-    var url = "ordProdData.php";
+    var url = "./js/ordProdData.php";
     var asynchronous = true;
 
     ajax.open(method, url, asynchronous);
@@ -221,7 +222,7 @@ ordReceiveProdInfo();
 function ordReceiveToppingInfo() {
     var ajax = new XMLHttpRequest();
     var method = "GET";
-    var url = "ordToppingData.php";
+    var url = "./js/ordToppingData.php";
     var asynchronous = true;
 
     ajax.open(method, url, asynchronous);
@@ -395,7 +396,7 @@ function ordReceiveSanInfo() {
         // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
         if (ordDisCount > Number(ordProdSan[g].PRO_ITEM_PRICE)) {
             // 讓變數帶入css指令，讓他價錢變色
-            ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+            ordDisCount = "border: 5px solid #319D8E; Box-sizing: border-box;"
         } else { };
         // 渲染商品進HTML頁面
         ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
@@ -423,7 +424,7 @@ function ordSanShow() {
             // 如果before的價錢（未折價錢的價錢）> 折價後的價錢，即代表該商品有參與折扣
             if (ordDisCount > Number(ordProdSan[g].PRO_ITEM_PRICE)) {
                 // 讓變數帶入css指令，讓他價錢變色
-                ordDisCount = "border: 5px solid #F8C54E; Box-sizing: border-box;"
+                ordDisCount = "border: 5px solid #319D8E; Box-sizing: border-box;"
             } else {
                 ordDisCount = ""
             };
@@ -1228,9 +1229,14 @@ orderPageRightSideBottomBtn1.addEventListener("click", function () {
 
     // 要傳給廚房的資料
     var ordToKitchen = [];
+    var basicInfoArr = [];
+    basicInfoArr.push(basicInfoGet)
 
-    ordToKitchen = basicInfoGet.concat(ordGetOnProd);
+    ordToKitchen = basicInfoArr.concat(ordGetOnProd);
     localStorage.setItem(`orderNo_${ordList}`, JSON.stringify(ordToKitchen));
+
+    // 跳轉回餐桌頁面
+    location.replace('./posHomeTab.html');
 });
 
 
@@ -1241,12 +1247,15 @@ orderPageRightSideBottomBtn3.addEventListener("click", function () {
 
     // 把點餐資訊輸入資料庫
     ordSentInfotoDb();
+
+    // 前往結帳頁面
+    location.replace('./checkOut.html');
 });
 
 function ordSentInfotoDb() {
     // Creating a XHR object 
     let ordTotOrderProd = new XMLHttpRequest();
-    let url = "ordSetData.php";
+    let url = "./js/ordSetData.php";
     // open a connection 
     ordTotOrderProd.open("POST", url, true);
     // Set the request header i.e. which type of content you are sending 

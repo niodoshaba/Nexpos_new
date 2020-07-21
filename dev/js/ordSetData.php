@@ -1,8 +1,8 @@
 <?php
 
 try {
-    require_once("ordCon.php");
-	// require_once("generalConnectDB.php");
+    // require_once("ordCon.php");
+	require_once("ordCon.php");
     
     
     

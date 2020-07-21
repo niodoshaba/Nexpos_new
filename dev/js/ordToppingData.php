@@ -1,7 +1,7 @@
 <?php 
 try {
+	// require_once("ordCon.php");
 	require_once("ordCon.php");
-	// require_once("generalConnectDB.php");
     
 
 	$sql = "SELECT FILLING_CATA.FILLING_CATA_NO,FILLING_CATA.FILLING_CATA_NAME, FILLING_CATA.FILLING_CATA_ONOFF, 
