@@ -7,7 +7,6 @@ try{
   // $password = "root";
   // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   // $pdo = new PDO($dsn, $user, $password, $options);
-  // require_once("generalConnectDB.php");
 
   // require_once("generalConnectDB.php");
   require_once("ordCon.php");
@@ -17,7 +16,7 @@ try{
   $memPsw = $_POST["memPsw"];
 
   //撈店長帳密
-  $sql = "SELECT * FROM EMP WHERE EMP_NO='$memId' AND EMP_PWD='$memPsw' AND EMP_TITLE = '店長'; ";
+  $sql = "SELECT * FROM EMP WHERE EMP_NO='$memId' AND EMP_PWD='$memPsw' AND EMP_TITLE = '店長' ";
   $EMP = $pdo->prepare($sql);
   $EMP->execute();
 
@@ -38,16 +37,17 @@ try{
 
   if($_SESSION['login_limit']<=0){
     //撈老闆帳密
-    $sql = "SELECT * FROM EMP WHERE EMP_NO='$memId' AND EMP_PWD='$memPsw' AND EMP_TITLE = '老闆'; ";
-    $EMP = $pdo->prepare($sql);
-    $EMP->execute();
+    $sql = "SELECT * FROM EMP WHERE EMP_NO='$memId' AND EMP_PWD='$memPsw' AND EMP_TITLE = '老闆';" ;
+    $EMPBoss = $pdo->prepare($sql);
+    $EMPBoss->execute();
     //如果限制值<0，請輸入老闆帳密登入
-    echo "<script>
-            alert('您的登入次數超過限制，請輸入老闆的帳號密碼!');
-            location.href='../dailyStatementLogin.html';
-          </script>";
-    if($EMP->rowCount()!=0){
+    if($EMPBoss->rowCount()== 0){
       echo "<script>
+              alert('您的登入次數超過限制，請輸入老闆的帳號密碼!');
+              location.href='../dailyStatementLogin.html';
+            </script>";
+    }else{
+     echo "<script>
               alert('登入成功');
               location.href='../dailyStatement.html';
             </script>";
