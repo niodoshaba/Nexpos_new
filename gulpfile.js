@@ -42,7 +42,12 @@ gulp.task('moveJs', function () {
         .pipe(gulp.dest('./dest/js')) //目的地
 });
 
-
+// 移動＝拷貝 src下的font 經由pipe 到dest
+gulp.task('moveFont', function () {
+    //do
+    return gulp.src('./dev/font/*.ttf') //來源
+        .pipe(gulp.dest('./dest/font')) //目的地
+});
 
 // 壓縮 css
 gulp.task('minicss', function () {
