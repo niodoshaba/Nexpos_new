@@ -10,6 +10,10 @@
 
 .kHead{
     padding: 20px;
+    display: flex;
+    .kHeadItem{
+        display: flex;
+    }
 }
 
 .kFoodItem{
@@ -89,6 +93,7 @@ span{
 }
 
 .kButton{
+    cursor: pointer;
     padding: 12px;
     border-radius: 20px;
     background-color: #EFA25F;

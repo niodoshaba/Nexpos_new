@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/checkOut.css">
     <title>結帳</title>
 </head>
@@ -18,137 +17,23 @@
             <div id="checkoutLeftside" class="col-4">
                 <a href="./orderPage.html"><img src="./assets/checkout_back.png" alt=""></a>
                 <div id="checkoutLeftSideTop" class="row no-gutters">
-                    <span class="col-7">訂單編號：{{單編號}}</span>
-                    <span class="col-5">{{內/外}}</span>
+                    <span class="col-7" id="checkoutOrderListNo"></span>
+                    <span class="col-5" id="checkoutOrderInOrOut"></span>
                     <br>
-                    <span class="col-7">桌號：{{桌編號}}</span>
+                    <span class="col-7" id="checkoutTabNo"></span>
                     <span class="col-5">人數：{{人數}}</span>
                     <br>
                     <span class="col-2">會員：</span>
                     <form class="col-10">
                         <input type="text" class="col-5" pattern="^09[0-9]{8}$" title="請輸入正確的手機號碼" required>
-                        <!-- <button class="col-2" id="checkoutLeftSideTopBtn">輸入</button> -->
                         <input type="submit" class="col-2" id="checkoutLeftSideTopBtn" value="輸入">
                     </form>
                 </div>
 
                 <div id="checkoutLeftSideMid">
-                    <div class="checkoutScrollbar" id="style-3">
-                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
-                        <div>
-                            <div class="checkoutLeftSideMidItemTop">
-                                <span>ITEM NAME1</span>
-                                <span>1</span>
-                            </div>
-                            <div class="checkoutLeftSideMidItemBottom">
-                                <div class="checkoutLeftSideMidToppings">
-                                    <span>(加料1)</span>
-                                    <span>(加料2)</span>
-                                    <span>(加料2)</span>
-                                </div>
-                                <span class="checkOutPrice">$300</span>
-                            </div>
-                        </div>
-                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
+                    <div class="checkoutScrollbar style-3" id="checkoutLeftSideMidItemAll">
+                        
 
-                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
-                        <div>
-                            <div class="checkoutLeftSideMidItemTop">
-                                <span>ITEM NAME2</span>
-                                <span>1</span>
-                            </div>
-                            <div class="checkoutLeftSideMidItemBottom">
-                                <div class="checkoutLeftSideMidToppings">
-                                    <span>(加料1)</span>
-                                    <span>(加料2)</span>
-                                    <span>(加料2)</span>
-                                </div>
-                                <span class="checkOutPrice">$300</span>
-                            </div>
-                        </div>
-                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
-
-                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
-                        <div>
-                            <div class="checkoutLeftSideMidItemTop">
-                                <span>ITEM NAME3</span>
-                                <span>1</span>
-                            </div>
-                            <div class="checkoutLeftSideMidItemBottom">
-                                <div class="checkoutLeftSideMidToppings">
-                                    <span>(加料1)</span>
-                                    <span>(加料2)</span>
-                                    <span>(加料2)</span>
-                                </div>
-                                <span class="checkOutPrice">$300</span>
-                            </div>
-                        </div>
-                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
-
-                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
-                        <div>
-                            <div class="checkoutLeftSideMidItemTop">
-                                <span>ITEM NAME4</span>
-                                <span>1</span>
-                            </div>
-                            <div class="checkoutLeftSideMidItemBottom">
-                                <div class="checkoutLeftSideMidToppings">
-                                    <span>(加料1)</span>
-                                    <span>(加料2)</span>
-                                    <span>(加料2)</span>
-                                </div>
-                                <span class="checkOutPrice">$300</span>
-                            </div>
-                        </div>
-                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
-                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
-                        <div>
-                            <div class="checkoutLeftSideMidItemTop">
-                                <span>ITEM NAME5</span>
-                                <span>1</span>
-                            </div>
-                            <div class="checkoutLeftSideMidItemBottom">
-                                <div class="checkoutLeftSideMidToppings">
-                                    <span>(加料1)</span>
-                                    <span>(加料2)</span>
-                                    <span>(加料2)</span>
-                                </div>
-                                <span class="checkOutPrice">$300</span>
-                            </div>
-                        </div>
-                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
-                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
-                        <div>
-                            <div class="checkoutLeftSideMidItemTop">
-                                <span>ITEM NAME6</span>
-                                <span>1</span>
-                            </div>
-                            <div class="checkoutLeftSideMidItemBottom">
-                                <div class="checkoutLeftSideMidToppings">
-                                    <span>(加料1)</span>
-                                    <span>(加料2)</span>
-                                    <span>(加料2)</span>
-                                </div>
-                                <span class="checkOutPrice">$300</span>
-                            </div>
-                        </div>
-                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
-                        <!--↓↓↓↓ 這樣為一筆訂單資料 ↓↓↓↓ -->
-                        <div>
-                            <div class="checkoutLeftSideMidItemTop">
-                                <span>ITEM NAME7</span>
-                                <span>1</span>
-                            </div>
-                            <div class="checkoutLeftSideMidItemBottom">
-                                <div class="checkoutLeftSideMidToppings">
-                                    <span>(加料1)</span>
-                                    <span>(加料2)</span>
-                                    <span>(加料2)</span>
-                                </div>
-                                <span class="checkOutPrice">$300</span>
-                            </div>
-                        </div>
-                        <!--↑↑↑↑ 這樣為一筆訂單資料 ↑↑↑↑ -->
                     </div>
 
                 </div>
@@ -259,23 +144,8 @@
                 <div id="checkoutRightSideTop">
                     <button>統一編號</button>
                     <button>發票載具</button><br>
-                    <input type="text" id="checkoutGetPoint">
+                    <input type="text">
                 </div>
-                <!-- <div id="checkoutRightSideMid">
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>.</button>
-                <button>0</button>
-                <button>00</button>
-                <button>取消</button>
-                <button>確認</button>
             </div> -->
                 <div id="checkoutRightSideBottom">
                     <!-- <button id="checkoutLastBtn" type="submit">結帳</button> -->
@@ -321,16 +191,18 @@
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="../dev/js/checkOut.js"></script>
+    <script>
+        // 判斷登入人員並顯示於頁面
+        window.addEventListener("load", function(){
+           let username = sessionStorage.getItem('name');
+           
+           let loginName = document.querySelector('.user');
+           loginName.innerHTML = `Hi! ${username}`;
+       })
+     </script>
 </body>
-
 </html>

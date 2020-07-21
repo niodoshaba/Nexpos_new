@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/browse/@coreui/coreui@2.1.16/dist/css/coreui.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>店長帳密管理</title>
+  </head>
+
+<body>
+  <!-- 複製以下功能列 -->
+  @@include('app/headerBack.html',{"nav2":"actives"})
+  <!-- 複製以上功能列 -->
+  <!-- 以下為各分頁內容 -->
+  <div class="c-wrapper">
+    <div class="tablehead">
+      <h1>店長帳密管理</h1>
+    </div>
+    <!-- <div class="input-group" style="box-shadow: 2px 2px 1px rgba(30, 30, 70, 0.2);"> -->
+
+    <div class="c-body">
+      <main class="c-main">
+        <div class="container-fluid">
+          <div id="ui-view">
+            <div class="card managerIdPswManage">
+              <div class="card-body managerIdPswManage">
+
+                <table class="table table-responsive-sm managerData">
+                  <thead>
+                    <tr class="title">
+                      <th>編號</th>
+                      <th>職位</th>
+                      <th>名稱</th>
+                      <th>手機</th>
+                      <th>密碼</th>
+                      <th>狀態</th>
+                      <th>修改</th>
+                    </tr>
+                  </thead>
+                </table>
+
+              </div>
+            </div>
+            <div style="text-align:center">
+              <button class="addbtn">
+                <img src="./assets/add.png">
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- </div> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/managerIdPsw.js"></script>
+</body>
+
+</html>

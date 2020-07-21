@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/browse/@coreui/coreui@2.1.16/dist/css/coreui.min.css"
+    />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>餐桌訂單狀態</title>
+  </head>
+
+  <body>
+    <!-- 複製以下功能列 -->
+    @@include('app/headerBack.html',{"nav5":"actives"})
+    <!-- 複製以上功能列 -->
+    <!-- 以下為各分頁內容 -->
+    <div class="c-wrapper">
+      <div class="tablehead">
+        <h1>訂單狀態管理</h1>
+      </div>
+
+      <div class="topFunc">
+        <a
+          href="./tableOrderStatus.html"
+          class="topTablink"
+          style="text-decoration: none;"
+        >
+          <div class="topTab">
+            <div class="toptabCaption">餐桌<br />排列<br />管理</div>
+          </div>
+        </a>
+        <a
+          href="./tableStatus.html"
+          class="topTablink"
+          style="text-decoration: none;"
+        >
+          <div class="topTab">
+            <div class="toptabCaption">餐桌<br />狀態<br />顯示</div>
+          </div>
+        </a>
+        <a
+          href="./orderStatus.html"
+          class="topTablink"
+          style="text-decoration: none;"
+        >
+          <div class="topTab" id="topTabactives">
+            <div class="toptabCaption">訂單<br />狀態<br />管理</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="c-body">
+        <main class="c-main">
+          <div class="container-fluid">
+            <div id="ui-view" style="min-height: 750px;">
+              <div class="card" style="min-height: 750px;">
+                <div class="card-body"></div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

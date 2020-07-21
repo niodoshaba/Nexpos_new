@@ -129,6 +129,30 @@ body {
         cursor: pointer; }
         #orderPageLeftSideMid #ordToppingSec #ordSugarAll .ordSugarItem:hover {
           color: bisque; }
+    #orderPageLeftSideMid #ordToppingSec #ordIceAll {
+      display: none;
+      text-align: center; }
+      #orderPageLeftSideMid #ordToppingSec #ordIceAll .ordIceItem {
+        padding: 5px;
+        cursor: pointer; }
+        #orderPageLeftSideMid #ordToppingSec #ordIceAll .ordIceItem:hover {
+          color: bisque; }
+    #orderPageLeftSideMid #ordToppingSec #ordAsideAll {
+      display: none;
+      text-align: center; }
+      #orderPageLeftSideMid #ordToppingSec #ordAsideAll .ordAsideItem {
+        padding: 5px;
+        cursor: pointer; }
+        #orderPageLeftSideMid #ordToppingSec #ordAsideAll .ordAsideItem:hover {
+          color: bisque; }
+    #orderPageLeftSideMid #ordToppingSec #ordSeasoningAll {
+      display: none;
+      text-align: center; }
+      #orderPageLeftSideMid #ordToppingSec #ordSeasoningAll .ordSeasoningItem {
+        padding: 5px;
+        cursor: pointer; }
+        #orderPageLeftSideMid #ordToppingSec #ordSeasoningAll .ordSeasoningItem:hover {
+          color: bisque; }
 
 #orderPageLeftSideBottom #orderPageLeftSideBottomTop {
   margin: 20px 20px 10px 0px;
@@ -159,7 +183,8 @@ body {
       height: 100%;
       padding: 0; }
       #orderPageRightside #orderPageRightSideTop div ul {
-        width: 100%;
+        width: 800px;
+        overflow-x: auto;
         height: 100%;
         list-style-type: none;
         display: flex;
@@ -170,7 +195,7 @@ body {
         overflow: hidden; }
         #orderPageRightside #orderPageRightSideTop div ul li {
           font-size: 25px;
-          margin-right: 70px;
+          margin-right: 55px;
           padding: 0;
           border-bottom: 3px solid #E98E89;
           border-radius: 5px;

@@ -1,3 +1,28 @@
+window.addEventListener('load', function () {
+
+  // var calendarDataFromPHP = []
+let xhr = new XMLHttpRequest();
+
+xhr.onload = function (){
+if(xhr.status == 200){
+Calendar.DAILY_RES = JSON.parse(xhr.responseText);
+    // console.log(Calendar.DAILY_RES)
+}
+    //初始化日曆  
+    Calendar.init({
+disablePastDays: true
+});
+
+//正規表達
+Calendar.matchcalendarInfo()
+}
+xhr.open("get", "../dev/js/calendarData.php", true);
+xhr.send(null);
+
+
+})
+
+
 
     var Calendar = {
     month: document.querySelectorAll('[calendarArea="month"]')[0],

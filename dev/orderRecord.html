@@ -1,175 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- <link rel="stylesheet" href="css/style.css" /> -->
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/orderRecord.css">
-    <title>歷史訂單</title>
-  </head>
 
-  <body>
-    <!-- 複製以下功能列 -->
-     @@include('./app/header.html', {
-      "nav3" : "actives" 
-    })
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- <link rel="stylesheet" href="css/style.css" /> -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/orderRecord.css">
+  <style>
+    #calendarPickDateTop {
+      margin-left: 150px;
+      margin-top: 20px;
+    }
 
-    <!-- 複製以上功能列 -->
-    <!-- 以下為各分頁內容 -->
-    <div class="c-wrapper">
-        <div class="tablehead">
-            <h1>歷史訂單資料</h1>
-            @@include('app/searchbar.html')
-        </div>
+    .calendarPickDate {
+      border: none;
+      border-bottom: 1px solid gray;
+      border-radius: 0px;
+      outline: none;
+      text-align: center;
+    }
 
-      <!-- 以下為訂單 -->
-        <div class="kPageContainer">
-            <div class="kContainer">
-                <div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-                <div class="kHead">
-                    <div class="kHeadItem">
-                        <h1>訂單：A10</h1>
-                        <span>2020/06/02 10:26</span>
-                    </div>
-                    <div class="kHeadItem">
-                    <h1>外帶：008</h1>
-                    <span>店員：Lily</span>
-                    </div>
-                </div>
-                <div class="kFood">
-                    <ul>
-                        <div class="kFoodBar">主餐</div>
-                        <li class="kFoodItem">
-                            <div class="kFoodTitle">
-                            <h1>櫻桃鴨胸肉燉飯</h1>
-                            <span>去皮</span>
-                            </div>
-                            <div class="kFoodNum">X1</div>
-                            <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </li>
-                        <li class="kFoodItem">
-                            <div class="kFoodTitle">
-                            <h1>咖哩雞肉飯</h1>
-                            <span>不要紅蘿蔔</span>
-                            </div>
-                            <div class="kFoodNum">X1</div>
-                            <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </li>
-                        <li class="kFoodItem">
-                            <div class="kFoodTitle">
-                            <h1>蕃茄牛肉麵</h1>
-                            <span>不要牛肉 炒蛋</span>
-                            </div>
-                            <div class="kFoodNum">X1</div>
-                            <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </li>
-                        <li class="kFoodItem">
-                            <div class="kFoodTitle">
-                            <h1>牛肉麵</h1>
-                            <span>不要酸菜</span>
-                            </div>
-                            <div class="kFoodNum">X1</div>
-                            <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </li>
-                        <div class="kFoodBar">其他</div>
-                        <li class="kFoodItem">
-                            <div class="kFoodTitle">
-                            <h1>珍珠鮮奶茶</h1>
-                            <span>去冰微糖</span>
-                            </div>
-                            <div class="kFoodNum">X2</div>
-                            <div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </li>
-                    </ul>
-                </div>
+    .anaBtnAll {
+      font-size: 20px;
+      border-style: none;
+      background-color: #FE9F4B;
+      border-radius: 50px;
+      color: white;
+      outline: none;
+      padding: 5px 10px
+    }
 
-                <button class="kButton">訂單完成</button>
+    .ordListScrollbar {
+      height: 400px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      margin: 0;
+      border: none;
+      width: 300px;
+    }
 
-            </div>
+    .kFoodItem {
+      margin-left: 15px;
+    }
+  </style>
+  <title>歷史訂單</title>
+</head>
 
-            <form action="reservation.php" id="myForm">
-                <div class="resScrollbar" id="resScrollstyle">
-                  <div class="resOverflow">
-                    <table id="resTable">
-                      <div>
-                        <tr>
-                            <td>日期</td>
-                            <td>訂單編號</td>
-                            <td>桌號/外帶</td>
-                            <td>人數</td>
-                            <td>總金額</td>
-    
-                        </tr>
-                        <tr>
-                            <td>2020/6/23</td>
-                            <td>008</td>
-                            <td>A12</td>
-                            <td>3</td>
-                            <td>1,200</td>
-                        </tr>
-                        <tr>
-                            <td>2020/6/23</td>
-                            <td>008</td>
-                            <td>A12</td>
-                            <td>3</td>
-                            <td>1,200</td>
-                        </tr>
-                        <tr>
-                            <td>2020/6/23</td>
-                            <td>008</td>
-                            <td>A12</td>
-                            <td>3</td>
-                            <td>1,200</td>
-                        </tr>
-                        <tr>
-                            <td>2020/6/23</td>
-                            <td>008</td>
-                            <td>A12</td>
-                            <td>3</td>
-                            <td>1,200</td>
-                        </tr>
-                        <tr>
-                            <td>2020/6/23</td>
-                            <td>008</td>
-                            <td>A12</td>
-                            <td>3</td>
-                            <td>1,200</td>
-                        </tr>
-                        <tr>
-                            <td>2020/6/23</td>
-                            <td>008</td>
-                            <td>A12</td>
-                            <td>3</td>
-                            <td>1,200</td>
-                        </tr>
-                        <tr>
-                            <td>2020/6/23</td>
-                            <td>008</td>
-                            <td>A12</td>
-                            <td>3</td>
-                            <td>1,200</td>
-                        </tr>
-                        <tr>
-                            <td>2020/6/23</td>
-                            <td>008</td>
-                            <td>A12</td>
-                            <td>3</td>
-                            <td>1,200</td>
-                        </tr>
-    
-                      </div>
-                    </table>
-                  </div>
-                </div>
-            </form>
-        </div>
+<body>
+  <!-- 複製以下功能列 -->
+  @@include('./app/header.html', {
+  "nav3" : "actives"
+  })
 
-       
+  <!-- 複製以上功能列 -->
+  <!-- 以下為各分頁內容 -->
+  <div class="c-wrapper">
+
+    <div class="tablehead">
+      <h1>歷史訂單資料</h1>
+
     </div>
-  </body>
+
+    <div id="calendarPickDateTop">
+      開始：<input type="date" name="anaStart" id="anaStart" calendarLabel="picked" class="calendarPickDate">
+
+      結束：<input type="date" name="anaEnd" id="anaEnd" calendarLabel="picked" class="calendarPickDate">
+      <input type="button" id="anaResBtn" class="anaBtnAll" value="送出">
+    </div>
+    <!-- 以下為訂單 -->
+    <div class="kPageContainer">
+      <div class="kContainer">
+        <div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
+        <div class="kHead">
+
+        </div>
+
+        <div class="kFood">
+
+          <div class="kFoodBar">項目</div>
+          <ul class="kFoodUl ordListScrollbar" id="resScrollstyle">
+
+          </ul>
+        </div>
+
+      </div>
+
+      <form action="./js/orderRecord.php" id="myForm">
+        <div class="resScrollbar" id="resScrollstyle">
+
+          <div class="resOverflow">
+            <table id="resTable" class="table1 table-responsive-sm resList">
+              <thead>
+                <tr class='title'>
+                  <td>日期</td>
+                  <td>訂單編號</td>
+                  <td>人數</td>
+                  <td>總金額</td>
+                </tr>
+
+              </thead>
+            </table>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+  </div>
+  <script src="./js/orderRecord.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
 </html>

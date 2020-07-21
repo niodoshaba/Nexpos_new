@@ -31,8 +31,17 @@ gulp.task('move', function () {
 gulp.task('movePhp', function () {
     //do
     return gulp.src('./dev/js/*.php') //來源
-        .pipe(gulp.dest('./dest')) //目的地
+        .pipe(gulp.dest('./dest/js')) //目的地
 });
+
+
+// 移動＝拷貝 src下的js 經由pipe 到dest
+gulp.task('moveJs', function () {
+    //do
+    return gulp.src('./dev/js/*.js') //來源
+        .pipe(gulp.dest('./dest/js')) //目的地
+});
+
 
 
 // 壓縮 css
@@ -92,7 +101,7 @@ gulp.task('default', ['copyimg'], function () {
     browserSync.init({
         server: {
             baseDir: "./dest",
-            index: "index.html"
+            index: "memberSearch.html"
         }
     });
     gulp.watch('./dev/css/*.css', ['concat']).on('change', reload); //當css有變動時 同步更新

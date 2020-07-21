@@ -30,10 +30,23 @@ let TestArr;
 var count = 0;
 var positionArr = [];
 
+let tabToolTipBtn =document.getElementById('tabToolTipBtn')
+let tabEditToolTip = document.getElementById('tabEditToolTip')
+
+
+$('#tabToolTipBtn').on('click',function(){
+  $('#tabEditToolTip').toggle() 
+})
+$('#tabAddBtn').on('click',function(){
+  $('#tabEditToolTip').toggle()
+})
+
 window.addEventListener('load',e=>{
   loadTabStatus();
   getTabStatusColor(TestArr);
   // console.log("test",TestArr);
+  editTabRender();
+  
 });
 
 function loadTabStatus(){
@@ -49,7 +62,7 @@ function loadTabStatus(){
     }
     
   }
-  xhr.open("post","../dev/js/loadTabStatusColor.php",false);
+  xhr.open("post","../php/loadTabStatusColor.php",false);
   xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
   xhr.send(null);        
 }
@@ -59,32 +72,66 @@ function getTabStatusColor(data){
     switch (data[i].TAB_NAME){
       case "空桌":
         tabEditColor = data[i].TAB_SHOW;
-        console.log(tabEditColor);
+        
       break;
         
       case "清潔中":
         tabCleanColor = data[i].TAB_SHOW;
-        console.log(tabCleanColor);
+        
       break;
       
       case "桌位預約":
         tabResColor = data[i].TAB_SHOW;
-        console.log(tabResColor);
+        
       break;
       
       case "桌位不開放":
         tabCloseColor = data[i].TAB_SHOW;
-        console.log(tabCloseColor);
+        
       break;  
 
       case "用餐中":
         tabEatColor = data[i].TAB_SHOW;
-        console.log(tabEatColor);
+        
       break;  
     }
   }
 }
 
+function editTabRender(){
+  if(localStorage.getItem('allData') == undefined){
+
+  }else{
+    var tabReceiveJson = (JSON.parse(localStorage.getItem("allData")));
+    for(i=0;i<tabReceiveJson.length;i++){
+      let tabElement = document.createElement('li');
+      tabElement.id = tabReceiveJson[i].id;
+      tabElement.style.width =  tabReceiveJson[i].width;
+      tabElement.style.height = tabReceiveJson[i].height;
+      tabElement.style.backgroundColor = tabEditColor;
+      tabElement.style.borderRadius = tabReceiveJson[i].borderRadius;
+      tabElement.style.position = "absolute";
+      tabElement.style.transform = `translate(${tabReceiveJson[i].x}px,${tabReceiveJson[i].y}px)`;
+      tabElement.style.listStyle = "none";
+      tabElement.tabChangeCheckClose = true;
+      tabElement.tabChangeCheckRes = true;
+      tabElement.tabChangeCheckOrd = true;
+      tabElement.shape = tabReceiveJson[i].shape;
+      //餐桌綁訂單
+      tabElement.tabOrdList = tabReceiveJson[i].tabOrdList;
+      //餐桌有無點擊出餐
+      tabElement.tabClickOrder = tabReceiveJson[i].tabClickOrder;
+      //餐桌有無點擊結帳
+      tabElement.tabClickCheckOut = tabReceiveJson[i].tabClickCheckOut;
+      //餐桌綁訂單
+      tabElement.basicInfo = tabReceiveJson[i].basicInfo;
+
+      tabElement.innerText = tabReceiveJson[i].number;
+      tabElement.className = tabReceiveJson[i].shape + " tabragobj" + " tabPosition";
+      tabContainer.appendChild(tabElement);
+  }
+  }
+}
 
 //interactjs
 //要讓不同形狀都可移動就是讓他們共用一個css樣式
@@ -176,6 +223,7 @@ tabSaveBtn.addEventListener('click',function(){
   // console.log(tabContainer.childElementCount);
     for(i=0;i<tabContainer.childElementCount;i++){
       var tabShapeName = tabContainer.childNodes[i].getAttribute('class');
+      console.log(tabShapeName);
       positionArr.push(
         {
           id: tabContainer.childNodes[i].getAttribute('id'),
@@ -269,9 +317,10 @@ function tabEditSave(tabData){
     }
     
   }
-  xhr.open("post","../dev/js/tabSpecSaveToDB.php",true);
+  xhr.open("post","../php/tabSpecSaveToDB.php",true);
   xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
   // xhr.send("tabData=" + tabData);
   xhr.send(`tabData=${tabData}`);        
   
 }
+
