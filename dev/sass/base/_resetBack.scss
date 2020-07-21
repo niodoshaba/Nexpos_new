@@ -86,6 +86,13 @@ video {
   font-family: "jf-openhuninn", "cwTeXYen", "Microsoft JhengHei";
 }
 
+// 增加背景顏色
+html{
+	background-color: rgba(46, 45, 46, 1);
+}
+
+
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -102,9 +109,12 @@ section {
 }
 body {
   line-height: 1;
-  min-width: 1440px;
+  width:1440px; // before: max-width:1440px;
+	height:900px; // before: none;
   margin: 0 auto;
   overflow: hidden;
+
+  background-color: #fff;
 }
 ol,
 ul {

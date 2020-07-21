@@ -9424,6 +9424,9 @@ video {
   font-size: 100%;
   font-family: "jf-openhuninn", "cwTeXYen", "Microsoft JhengHei"; }
 
+html {
+  background-color: #2e2d2e; }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -9440,9 +9443,11 @@ section {
 
 body {
   line-height: 1;
-  min-width: 1440px;
+  width: 1440px;
+  height: 900px;
   margin: 0 auto;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: #fff; }
 
 ol,
 ul {
@@ -9500,7 +9505,7 @@ table {
 
 @font-face {
   font-family: "jf-openhuninn";
-  src: url("dev/font/jf-openhuninn-1.1.ttf") format("truetype"); }
+  src: url("../font/jf-openhuninn-1.1.ttf") format("truetype"); }
 
 .c-sidebar {
   display: -ms-flexbox;
@@ -9581,8 +9586,10 @@ table {
   flex: 1;
   -ms-flex-direction: column;
   flex-direction: column;
-  min-width: 0;
-  min-height: 100vh;
+  width: 1300px;
+  height: 900px;
+  position: relative;
+  overflow: hidden;
   background-color: #ffffff; }
   .c-wrapper .topFunc {
     display: flex;
