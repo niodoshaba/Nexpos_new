@@ -198,6 +198,7 @@ section.login{
             .loginSudo{
             position: relative;  
             outline: none;
+            margin-top: 20px; //原先沒有
             &::before{
                 content:"";
                 position: absolute;
@@ -207,7 +208,7 @@ section.login{
                 background-color: $primary_db;
                 opacity: .8;
                 border-radius: 50%;
-                top: -40px;
+                top: -30px; //before: -40px
                 left: 50px;
                 }
             &::after{
