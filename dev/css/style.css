@@ -23,11 +23,15 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block; }
 
+html {
+  background-color: #2e2d2e; }
+
 body {
   line-height: 1;
-  max-width: 1440px;
-  max-height: 900px;
-  margin: 0 auto; }
+  width: 1440px;
+  height: 900px;
+  margin: 0 auto;
+  background-color: #fff; }
 
 ol, ul {
   list-style: none; }
