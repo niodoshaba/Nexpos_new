@@ -29,22 +29,22 @@ table, td {
   }
   
   td{
-    padding: 16px;
+    padding: 16px 10px;
     position: relative;
     .regUpdateCell{
       position: absolute;
-      top: 50px;
-      left: 25px;
+      // top: 50px;
+      // left: 25px;
     }
     .regUpdateName{
       position: absolute;
-      top: 50px;
-      left: 25px;
+      // top: 50px;
+      // left: 25px;
     }
     .regUpdateEmail{
       position: absolute;
-      top: 50px;
-      left: 40px;
+      // top: 50px;
+      // left: 40px;
     }
   }
 
@@ -54,16 +54,16 @@ table, td {
     font-size: 10px;
     color: rgba(255, 0, 0, .6);
     position: absolute;
-    top: 50px;
-    width: 50px;
+    top: 64px;
+    // width: 50px;
     left: 20px;
   }
   .success {
     font-size: 10px;
     color: rgba(0, 255, 0, 0.6);
     position: absolute;
-    top: 50px;
-    width: 50px;
+    top: 64px;
+    // width: 50px;
     left: 20px;
   }
   td:last-child{

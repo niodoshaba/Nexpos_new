@@ -46,7 +46,7 @@
       </a>
     </div>
 
-    <form method="post" action="./js/memberJoin.php" id="myForm" name="form1">
+    <form method="post" action="memberJoin.php" id="myForm" name="form1">
       <div class="resScrollbar" id="resScrollstyle">
         <div class="resOverflow">
           <table id="resTable">
@@ -81,36 +81,34 @@
                   </select>
                 </td>
                 <td>
-                  <input type="text" class="cell" id="CUS_PHONE" name="CUS_PHONE" placeholder="" size="13" required />
+                  <input type="text" class="cell" id="CUS_PHONE" name="CUS_PHONE" placeholder="" size="10" required />
                   <span class="regUpdateCell"></span>
                 </td>
                 <td>
-                  <input type="text" calendarLabel="picked" class="calendarPickDate" id="CUS_BIRTH" name="CUS_BIRTH"
-                    placeholder="" size="10" required />
+                  <input type="date" id="CUS_BIRTH" name="CUS_BIRTH" placeholder="" size="7" required />
                   <!--這裡是要填入日期的地方,calendarLabel="picked" class="calendarPickDate"都是必須-->
 
                 </td>
-                <div class="S_calendarAll" style="display:none">
+                <!-- <div class="S_calendarAll" style="display:none">
                   <div class="yearPickScrollBar" id="yearCalendarSelect"></div>
                   <div class="S_calendarHeader">
-                    <button type="button" class="S_calendarTopBtn" calendarToggle="previous">
-                      < </button>
-
-                        <div class="S_calendarHeaderTop" calendarLabel="month"></div>
-
-                        <button type="button" class="S_calendarTopBtn" calendarToggle="next"> > </button>
+                    <button type="button" class="S_calendarTopBtn" calendarToggle="previous"> < </button>
+          
+                    <div class="S_calendarHeaderTop" calendarLabel="month"></div>
+          
+                    <button type="button" class="S_calendarTopBtn" calendarToggle="next"> > </button>
                   </div>
                   <div class="S_calendarWeek">
-                    <span>一</span>
-                    <span>二</span>
-                    <span>三</span>
-                    <span>四</span>
-                    <span>五</span>
-                    <span>六</span>
-                    <span>日</span>
+                  <span>一</span>
+                  <span>二</span>
+                  <span>三</span>
+                  <span>四</span>
+                  <span>五</span>
+                  <span>六</span>
+                  <span>日</span>
                   </div>
                   <div class="S_calendarDay" calendarArea="month"></div>
-                </div>
+                </div> -->
                 <td>
                   <input type="text" class="email" id="CUS_EMAIL" name="CUS_EMAIL" placeholder="" size="20" required />
                   <span class="regUpdateEmail"></span>
@@ -133,7 +131,7 @@
                   <input type="text" class="cuspoint" id="CUS_POINT" name="CUS_POINT" placeholder="0" size="5">
                 </td>
                 <td>
-                  <input class="save" id="butsave" type="submit" src="./assets/save.png" alt="Submit" width="34" /><img
+                  <input class="save" id="butsave" type="image" img src="./assets/save.png" width="34" /><img
                     class="trashcan" src="./assets/trashcan.png" />
                 </td>
               </tr>
@@ -298,7 +296,7 @@
 
 
   </script>
-  <script src="../dev/js/calendarSmall.js"></script>
+  <script src="./js/calendarSmall.js"></script>
   <script>
     window.addEventListener('load', function () {
 
@@ -306,15 +304,6 @@
         disablePastDays: true
       });
 
-    })
-  </script>
-  <script>
-    // 判斷登入人員並顯示於頁面
-    window.addEventListener("load", function () {
-      let username = sessionStorage.getItem('name');
-
-      let loginName = document.querySelector('.user');
-      loginName.innerHTML = `Hi! ${username}`;
     })
   </script>
 

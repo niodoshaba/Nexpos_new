@@ -1,33 +1,33 @@
-window.addEventListener('load', function(){
+window.addEventListener('load', function () {
   showRowAllDis();
-  
-  function showRowAllDis(){
+
+  function showRowAllDis() {
     //清除表格內容
     $('table tr').not('tr.title').remove();
 
     //顯示資料
     let xhr = new XMLHttpRequest();
-    xhr.onload = function(){
-      if(xhr.status == 200){
-          let allDisItem = JSON.parse(xhr.responseText);
-          // console.log(allDisItem);
-          let allItem = document.querySelector('.allItem');
-          let str = '';
-          for(i=0; i<allDisItem.length; i++){
-            let allItem = 
-              `<tr>
+    xhr.onload = function () {
+      if (xhr.status == 200) {
+        let allDisItem = JSON.parse(xhr.responseText);
+        // console.log(allDisItem);
+        let allItem = document.querySelector('.allItem');
+        let str = '';
+        for (i = 0; i < allDisItem.length; i++) {
+          let allItem =
+            `<tr>
                 <td>${allDisItem[i].DIS_NO}</td>
                 <td>${allDisItem[i].DIS_NAME}</td>
                 <td>${allDisItem[i].DIS_START}</td>
                 <td>${allDisItem[i].DIS_END}</td>
                 <td>全館品項</td>
-                <td id="dis_pctall">${allDisItem[i].DIS_PCTALL*10} 折</td>
+                <td id="dis_pctall">${allDisItem[i].DIS_PCTALL * 10} 折</td>
                 <td><button class="btn btn-block btn-warning edit" type="button" style="width: 72px; margin: 0 auto;">編輯</button></td>
               </tr>`;
-            str += allItem;
-          };
-          allItem.innerHTML += str;
-          edit();
+          str += allItem;
+        };
+        allItem.innerHTML += str;
+        edit();
       }
     }
     xhr.open("get", "../dev/js/discountManageShow.php", true);
@@ -36,9 +36,9 @@ window.addEventListener('load', function(){
   //顯示資料
 
   //按下新增鈕出現input表單欄位
-  $('.addbtn').click(function(){
+  $('.addBtn').click(function () {
 
-    $('.addbtn').attr('disabled', true);//disabled新增鈕
+    $('.addBtn').attr('disabled', true);//disabled新增鈕
     $('.edit').attr('disabled', true);//disabled編輯鈕
     //顯示input表單欄位
     $('.title').after(`
@@ -59,26 +59,26 @@ window.addEventListener('load', function(){
     //   }
     // })
     //按下儲存
-    $('.save').click(function(){
+    $('.save').click(function () {
       let xhr = new XMLHttpRequest();
-      xhr.onload = function(){
-        if(xhr.status == 200){
+      xhr.onload = function () {
+        if (xhr.status == 200) {
           $('tr.input').remove();
           showRowAllDis();
-          $('.addbtn').removeAttr('disabled');//恢復新增按鈕
+          $('.addBtn').removeAttr('disabled');//恢復新增按鈕
         }
-        else{
+        else {
           // alert(xhr.status);
         }
       };
       // 將輸入的值存成物件形式
       let allDisInputData = {};
-          allDisInputData.allDisName = $('.allDisName').val();
-          allDisInputData.allDisStart = $('.allDisStart').val();
-          allDisInputData.allDisEnd = $('.allDisEnd').val();
-          allDisInputData.allDiscount = $('.allDiscount').val();
-          // console.log(allDisInputData);
-      
+      allDisInputData.allDisName = $('.allDisName').val();
+      allDisInputData.allDisStart = $('.allDisStart').val();
+      allDisInputData.allDisEnd = $('.allDisEnd').val();
+      allDisInputData.allDiscount = $('.allDiscount').val();
+      // console.log(allDisInputData);
+
       //設定文件格式
       xhr.open("post", "../dev/js/discountManageInsert.php", true);
       xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
@@ -89,19 +89,19 @@ window.addEventListener('load', function(){
       xhr.send(data);
     });
     // 取消新增
-    $('.cancel').click(function() {
+    $('.cancel').click(function () {
       $('.input').remove();
-      $('.addbtn').removeAttr('disabled');//恢復新增按鈕
+      $('.addBtn').removeAttr('disabled');//恢復新增按鈕
       $('.edit').removeAttr('disabled');//恢復編輯按鈕
     });
 
   });
   //按下新增鈕出現input表單欄位
-  
+
   //按下編輯鈕更新資料
-  function edit(){
-    $('.edit').click(function(){
-      $('.addbtn').attr('disabled', true)//disabled新增鈕
+  function edit() {
+    $('.edit').click(function () {
+      $('.addBtn').attr('disabled', true)//disabled新增鈕
       $('.edit').attr('disabled', true); //disabled其他編輯鈕
 
       let tr = $(this).parent().parent(); //找到當下那層tr
@@ -125,24 +125,24 @@ window.addEventListener('load', function(){
       //編輯
       tr.find('td:eq(6)').text("");
       tr.find('td:eq(6)').append(`<button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button>`);
-    
+
       //儲存
-      $('.save').click(function(){
+      $('.save').click(function () {
         let xhr = new XMLHttpRequest();
-        xhr.onload = function(){
-          if(xhr.status == 200){
+        xhr.onload = function () {
+          if (xhr.status == 200) {
             showRowAllDis();
-            $('.addbtn').removeAttr('disabled');//恢復新增按鈕
-          }else{
+            $('.addBtn').removeAttr('disabled');//恢復新增按鈕
+          } else {
             // alert(xhr.status);
           }
         }
         let allDisUpdateData = {};
-            allDisUpdateData.allDisNo = $('td:eq(0)').text();
-            allDisUpdateData.allDisName = $('.allDisName').val();
-            allDisUpdateData.allDisStart = $('.allDisStart').val();
-            allDisUpdateData.allDisEnd = $('.allDisEnd').val();
-            allDisUpdateData.allDiscount = $('.allDiscount').val();
+        allDisUpdateData.allDisNo = $('td:eq(0)').text();
+        allDisUpdateData.allDisName = $('.allDisName').val();
+        allDisUpdateData.allDisStart = $('.allDisStart').val();
+        allDisUpdateData.allDisEnd = $('.allDisEnd').val();
+        allDisUpdateData.allDiscount = $('.allDiscount').val();
         console.log(allDisUpdateData);
 
         // 設定文件格式
@@ -155,9 +155,9 @@ window.addEventListener('load', function(){
         xhr.send(dataUpdate);
       });
       // 按下取消鈕
-      $('.cancel').click(function(){
+      $('.cancel').click(function () {
         showRowAllDis();
-        $('.addbtn').removeAttr('disabled');//恢復新增按鈕
+        $('.addBtn').removeAttr('disabled');//恢復新增按鈕
       });
 
     });

@@ -28,7 +28,7 @@ try {
 
     echo 
     "<script> alert('送出成功');
-    location.href='../memberJoin.html';
+    location.href='../../dest/memberJoin.html';
     </script>";
 
 } catch (PDOException $e) {

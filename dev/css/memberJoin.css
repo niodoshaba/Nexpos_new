@@ -21,35 +21,27 @@ table {
   text-align: center; }
 
 td {
-  padding: 16px;
+  padding: 16px 10px;
   position: relative; }
   td .regUpdateCell {
-    position: absolute;
-    top: 50px;
-    left: 25px; }
+    position: absolute; }
   td .regUpdateName {
-    position: absolute;
-    top: 50px;
-    left: 25px; }
+    position: absolute; }
   td .regUpdateEmail {
-    position: absolute;
-    top: 50px;
-    left: 40px; }
+    position: absolute; }
 
 .failure {
   font-size: 10px;
   color: rgba(255, 0, 0, 0.6);
   position: absolute;
-  top: 50px;
-  width: 50px;
+  top: 64px;
   left: 20px; }
 
 .success {
   font-size: 10px;
   color: rgba(0, 255, 0, 0.6);
   position: absolute;
-  top: 50px;
-  width: 50px;
+  top: 64px;
   left: 20px; }
 
 td:last-child {
