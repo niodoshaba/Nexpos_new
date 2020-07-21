@@ -59,20 +59,6 @@ window.addEventListener("load", function () {
                         <td><select name="fillingItemOnOff" class="fillingItemOnOff"><option value="1">上架</option><option value="0">下架</option></select></td>
                         <td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td>
                         </tr>`);
-    //判定種類編號對應種類名稱
-    let fillingCataNo = document.querySelectorAll(".fillingCataNo");
-    console.log(fillingCataNo);
-    for (i = 0; i < fillingCataNo.length; i++) {
-      if (fillingCataNo[i].innerHTML == 1) {
-        fillingCataNo[i].innerHTML = "糖度";
-      } else if (fillingCataNo[i].innerHTML == 2) {
-        fillingCataNo[i].innerHTML = "冰塊";
-      } else if (fillingCataNo[i].innerHTML == 3) {
-        fillingCataNo[i].innerHTML = "配料";
-      } else {
-        fillingCataNo[i].innerHTML = "調味";
-      }
-    }
 
     //按下儲存
     $(".save").click(function () {
@@ -88,6 +74,7 @@ window.addEventListener("load", function () {
       };
       //把輸入的值存成物件
       let fillingItemInputData = {};
+      fillingItemInputData.fillingCataNo = $(".fillingCataNo").val();
       fillingItemInputData.fillingItemName = $(".fillingItemName").val();
       fillingItemInputData.fillingItemPrice = $(".fillingItemPrice").val();
       fillingItemInputData.fillingItemOnOff = $(".fillingItemOnOff").val();
