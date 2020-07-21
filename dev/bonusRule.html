@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/browse/@coreui/coreui@2.1.16/dist/css/coreui.min.css"
+    />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>折扣管理</title>
+  </head>
+
+  <body>
+    <!-- 複製以下功能列 -->
+    @@include('app/headerBack.html',{"nav6":"actives"})
+
+    <!-- 複製以上功能列 -->
+    <!-- 以下為各分頁內容 -->
+    <div class="c-wrapper">
+      <div class="tablehead">
+        <h1>點數折扣管理</h1>
+      </div>
+      
+      <div class="topFunc">
+        <a href="./discountManage.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab">
+            <div class="toptabCaption">全館<br />折扣</div>
+          </div>
+        </a>
+        <a href="./discountItem.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab">
+            <div class="toptabCaption">限定<br />商品<br />折扣</div>
+          </div>
+        </a>
+        <a href="./bonusRule.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab" id="topTabactives">
+            <div class="toptabCaption">點數<br />折扣<br />管理</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="c-body">
+        <main class="c-main">
+          <div class="container-fluid">
+            <div id="ui-view">
+              <div class="card ">
+                <div class="card-body" style="min-height: 600px;">
+                  <table class="table table-responsive-sm">
+                    <thead>
+                      <tr>
+                        <th>編號</th>
+                        <th>折扣名稱</th>
+                        <th>優惠方式</th>
+                        <th>修改</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>D01</td>
+                        <td>會員點數折扣</td>
+                        <td>
+                          消費1元累計1點, 每100點可折扣1元
+                        </td>
+                        <td>
+                            <button
+                              class="btn btn-block btn-warning"
+                              type="button" style="width: 72px;margin: 0 auto;"
+                            >
+                              編輯
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  </body>
+</html>
