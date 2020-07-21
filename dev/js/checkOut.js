@@ -51,12 +51,20 @@ window.addEventListener('load',function(){
         ordlistTips = loadOrdListTips;
     } 
 
-    
+    var toGoArr = JSON.parse(localStorage.getItem('toGoArr'));
+
+    var tmpBackKitchen = [];
+    //確認是否有後廚完成訂單，有渲染內用外帶訂單
+    var tmpBackKitchenDone = [];
+    var tabReceiveJson = (JSON.parse(localStorage.getItem("allData")));
+    var ordPostBool = false;
+    var ordCheckOutBool = false; 
+
     checkoutOrderListNo.innerText = `訂單編號: ${ordlistTips.orderList}`;
     
     if(ordlistTips.inOrOut == "in"){
         checkoutOrderInOrOut.innerText = "內用";
-        checkoutTabNo.innerText = ordlistTips.number;
+        checkoutTabNo.innerText = `桌號: ${ordlistTips.number}`;
     }else{
         checkoutOrderInOrOut.innerText = "外帶";
         checkoutTabNo.innerText = `桌號: ${ordlistTips.number}`;
@@ -78,7 +86,9 @@ window.addEventListener('load',function(){
         }
     
     }
-    
+    function saveDataToLocal(name,data){  
+        localStorage.setItem(name,JSON.stringify(data));            
+   }
     
     //接會員點數
     // let cusPoint = 0;
@@ -140,6 +150,23 @@ window.addEventListener('load',function(){
         xhr.send(`customer=${data}`);
         
     }
+
+    function checkoutSaveDataToDB(Data){
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+            
+            if(xhr.readyState == 4 && xhr.status == 200){
+                let result = xhr.responseText;
+                bonusRule = result;
+                
+            }
+        }
+        xhr.open("post","../dev/js/checkOutSaveDataToDB.php",true);
+        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        xhr.send(`orderList=${Data}`);
+        
+    }
+
 
     //-------------------------- 紅利相關 --------------------------
     //輸入紅利點數
@@ -281,7 +308,7 @@ window.addEventListener('load',function(){
          //判斷是要刪除內用訂單或外帶訂單
          //刪除內用訂單
          for(i=0;i<tabReceiveJson.length;i++){
-             if(tabReceiveJson[i].number == ordlistTipsData.number){
+             if(tabReceiveJson[i].number == ordlistTips.number){
                  tabReceiveJson[i].basicInfo.inOrOut = "";
                  tabReceiveJson[i].basicInfo.orderList = "";
                  //將餐桌改為清潔中
@@ -295,7 +322,7 @@ window.addEventListener('load',function(){
 
          }else{
              for(j=0;j<toGoArr.length;j++){
-                 if(toGoArr[j].orderList == ordlistTipsData.orderList){
+                 if(toGoArr[j].orderList == ordlistTips.orderList){
                      toGoArr.splice(j,1);
                  
                  }
@@ -307,17 +334,17 @@ window.addEventListener('load',function(){
          //刪除localstorage裡的done_訂單編號
          for(k=0;k<tmpBackKitchenDone.length;k++){
              let checktmpBack = tmpBackKitchenDone[k].substring(5,tmpBackKitchenDone[k].length);
-                 if(ordlistTipsData.orderList == checktmpBack){
+                 if(ordlistTips.orderList == checktmpBack){
                      localStorage.removeItem(`done_${checktmpBack}`);
                  } 
          }
          
          //刪除點餐暫存資料
-         localStorage.removeItem(`ordSaveProdInCart_${ordlistTipsData.orderList}`);
-         localStorage.removeItem(`ordSaveProdInTempCart${ordlistTipsData.orderList}`);
-         localStorage.removeItem(`SavePpl${ordlistTipsData.orderList}`);
-         localStorage.removeItem(`ordSaveProdInCartOnHist${ordlistTipsData.orderList}`);
-         localStorage.removeItem(`orderNo${ordlistTipsData.orderList}`);
+         localStorage.removeItem(`ordSaveProdInCart_${ordlistTips.orderList}`);
+         localStorage.removeItem(`ordSaveProdInTempCart${ordlistTips.orderList}`);
+         localStorage.removeItem(`SavePpl${ordlistTips.orderList}`);
+         localStorage.removeItem(`ordSaveProdInCartOnHist${ordlistTips.orderList}`);
+         localStorage.removeItem(`orderNo${ordlistTips.orderList}`);
 
 
 
