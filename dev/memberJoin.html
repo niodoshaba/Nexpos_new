@@ -13,15 +13,15 @@
 </head>
 <style>
   /* 整個日曆 */
-  .S_calendarAll{
+  .S_calendarAll {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: absolute;
-    width:16%;
-    top:282px;
-    right:31%;
+    width: 16%;
+    top: 282px;
+    right: 31%;
   }
-
 </style>
+
 <body>
   <!-- 複製以下功能列 -->
   @@include('./app/header.html', {
@@ -45,8 +45,8 @@
         </div>
       </a>
     </div>
-    
-    <form method="post" action="memberJoin.php" id="myForm" name="form1">
+
+    <form method="post" action="./js/memberJoin.php" id="myForm" name="form1">
       <div class="resScrollbar" id="resScrollstyle">
         <div class="resOverflow">
           <table id="resTable">
@@ -70,7 +70,8 @@
                   <span class="regUpdateLastName"></span>
                 </td>
                 <td>
-                  <input type="text" class="firstname" id="CUS_FIRST" name="CUS_FIRST" placeholder="" size="8" required />
+                  <input type="text" class="firstname" id="CUS_FIRST" name="CUS_FIRST" placeholder="" size="8"
+                    required />
                   <span class="regUpdateFirstName"></span>
                 </td>
                 <td>
@@ -84,27 +85,29 @@
                   <span class="regUpdateCell"></span>
                 </td>
                 <td>
-                  <input type="text" calendarLabel="picked" class="calendarPickDate" id="CUS_BIRTH" name="CUS_BIRTH" placeholder="" size="10"
-                    required /> <!--這裡是要填入日期的地方,calendarLabel="picked" class="calendarPickDate"都是必須-->
+                  <input type="text" calendarLabel="picked" class="calendarPickDate" id="CUS_BIRTH" name="CUS_BIRTH"
+                    placeholder="" size="10" required />
+                  <!--這裡是要填入日期的地方,calendarLabel="picked" class="calendarPickDate"都是必須-->
 
                 </td>
                 <div class="S_calendarAll" style="display:none">
                   <div class="yearPickScrollBar" id="yearCalendarSelect"></div>
                   <div class="S_calendarHeader">
-                    <button type="button" class="S_calendarTopBtn" calendarToggle="previous"> < </button>
-          
-                    <div class="S_calendarHeaderTop" calendarLabel="month"></div>
-          
-                    <button type="button" class="S_calendarTopBtn" calendarToggle="next"> > </button>
+                    <button type="button" class="S_calendarTopBtn" calendarToggle="previous">
+                      < </button>
+
+                        <div class="S_calendarHeaderTop" calendarLabel="month"></div>
+
+                        <button type="button" class="S_calendarTopBtn" calendarToggle="next"> > </button>
                   </div>
                   <div class="S_calendarWeek">
-                  <span>一</span>
-                  <span>二</span>
-                  <span>三</span>
-                  <span>四</span>
-                  <span>五</span>
-                  <span>六</span>
-                  <span>日</span>
+                    <span>一</span>
+                    <span>二</span>
+                    <span>三</span>
+                    <span>四</span>
+                    <span>五</span>
+                    <span>六</span>
+                    <span>日</span>
                   </div>
                   <div class="S_calendarDay" calendarArea="month"></div>
                 </div>
@@ -281,7 +284,7 @@
             CUS_GEN: CUS_GEN,
             CUS_BIRTH: CUS_BIRTH,
             CUS_EMAIL: CUS_EMAIL,
-            CUS_POINT:CUS_POINT
+            CUS_POINT: CUS_POINT
           },
           // cache: false,
 
@@ -293,27 +296,27 @@
       })
     });
 
-    
+
   </script>
   <script src="../dev/js/calendarSmall.js"></script>
   <script>
     window.addEventListener('load', function () {
 
       Calendar.init({
-          disablePastDays: true
+        disablePastDays: true
       });
 
     })
   </script>
   <script>
     // 判斷登入人員並顯示於頁面
-    window.addEventListener("load", function(){
-       let username = sessionStorage.getItem('name');
-       
-       let loginName = document.querySelector('.user');
-       loginName.innerHTML = `Hi! ${username}`;
-   })
- </script>
+    window.addEventListener("load", function () {
+      let username = sessionStorage.getItem('name');
+
+      let loginName = document.querySelector('.user');
+      loginName.innerHTML = `Hi! ${username}`;
+    })
+  </script>
 
 </body>
 
