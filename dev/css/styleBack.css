@@ -9522,7 +9522,8 @@ table {
   z-index: 1030;
   border: 1px solid #28569A;
   border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px; }
+  border-bottom-right-radius: 30px;
+  height: 900px; }
   .c-sidebar .light {
     color: #9ff810;
     padding-left: 46px;
