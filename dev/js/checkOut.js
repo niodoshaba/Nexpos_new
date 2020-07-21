@@ -269,9 +269,60 @@ window.addEventListener('load',function(){
         checkoutSeparateBtn.style.display = "initial";
     });
 
-    // //送資料給後端程式同時
-    // checkoutLastBtn.addEventListener('click',function(){   
-    // });
+    //送資料給後端程式同時
+    checkoutLastBtn.addEventListener('click',function(){   
+         //點過結帳按鈕bool
+         ordCheckOutBool = true;
+         //關閉出餐按鈕bool
+         ordPostBool = false;
+         saveDataToLocal("ordCheckOutBool",ordCheckOutBool);
+         localStorage.setItem('ordPostBool',ordPostBool);
+
+         //判斷是要刪除內用訂單或外帶訂單
+         //刪除內用訂單
+         for(i=0;i<tabReceiveJson.length;i++){
+             if(tabReceiveJson[i].number == ordlistTipsData.number){
+                 tabReceiveJson[i].basicInfo.inOrOut = "";
+                 tabReceiveJson[i].basicInfo.orderList = "";
+                 //將餐桌改為清潔中
+                 tabReceiveJson[i].bgc = tabCleanColor;
+             }
+         }
+         saveDataToLocal("allData",tabReceiveJson);
+
+         //刪除外帶訂單
+         if(toGoArr == undefined){
+
+         }else{
+             for(j=0;j<toGoArr.length;j++){
+                 if(toGoArr[j].orderList == ordlistTipsData.orderList){
+                     toGoArr.splice(j,1);
+                 
+                 }
+             }
+             localStorage.setItem('toGoArr',JSON.stringify(toGoArr));
+
+         }
+         
+         //刪除localstorage裡的done_訂單編號
+         for(k=0;k<tmpBackKitchenDone.length;k++){
+             let checktmpBack = tmpBackKitchenDone[k].substring(5,tmpBackKitchenDone[k].length);
+                 if(ordlistTipsData.orderList == checktmpBack){
+                     localStorage.removeItem(`done_${checktmpBack}`);
+                 } 
+         }
+         
+         //刪除點餐暫存資料
+         localStorage.removeItem(`ordSaveProdInCart_${ordlistTipsData.orderList}`);
+         localStorage.removeItem(`ordSaveProdInTempCart${ordlistTipsData.orderList}`);
+         localStorage.removeItem(`SavePpl${ordlistTipsData.orderList}`);
+         localStorage.removeItem(`ordSaveProdInCartOnHist${ordlistTipsData.orderList}`);
+         localStorage.removeItem(`orderNo${ordlistTipsData.orderList}`);
+
+
+
+         location.replace('http://localhost/phplab/Table0716/Table/html/posHomeTab.html');
+    });
 
     //----- 拆帳 -----
     //拆帳刪除選擇的品項
