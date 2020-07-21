@@ -1,9 +1,10 @@
 <?php
-$dbhost = 'localhost:8889';  // mysql伺服器主機地址
-$dbuser = 'root';            // mysql使用者名稱
-$dbpass = 'root';
-$database = 'G4_nexpos';         // mysql使用者名稱密碼
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $database);
+// $dbhost = 'localhost:8889';  // mysql伺服器主機地址
+// $dbuser = 'root';            // mysql使用者名稱
+// $dbpass = 'root';
+// $database = 'G4_nexpos';         // mysql使用者名稱密碼
+// $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $database);
+require_once("ordCon.php");
 
 
 if ($conn->connect_error) {

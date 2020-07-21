@@ -258,7 +258,8 @@ body{
             padding: 0;
             // border: 1px solid red;
             ul{
-                width: 100%;
+                width: 800px;
+                overflow-x: auto;
                 height: 100%;
                 list-style-type: none;
                 display: flex;
@@ -271,7 +272,7 @@ body{
                 li{
                     // width: 16.66%;
                     font-size: 25px;
-                    margin-right: 70px;
+                    margin-right: 55px;
                     padding: 0;
                     // margin: 5px;
                     border-bottom: 3px solid #E98E89;

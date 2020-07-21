@@ -2,11 +2,13 @@
 session_start();
 
 try{
-  $dsn = "mysql:host=localhost; port=3306; dbname=G4_nexpos; charset=utf8";
-  $user = "root";
-  $password = "root";
-  $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-  $pdo = new PDO($dsn, $user, $password, $options);
+
+  require_once("ordCon.php");
+  // $dsn = "mysql:host=localhost; port=3306; dbname=G4_nexpos; charset=utf8";
+  // $user = "root";
+  // $password = "root";
+  // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
+  // $pdo = new PDO($dsn, $user, $password, $options);
   // 總金額
   $sqlTotal = "SELECT SUM(ORDER_TTL_PRICE) TotalPrice FROM ORDER_LIST WHERE ORDER_DATE = CURDATE();" ;
 

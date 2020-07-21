@@ -2,11 +2,12 @@
 session_start();
 
 try{
-  $dsn = "mysql:host=localhost; port=3306; dbname=G4_nexpos; charset=utf8";
-  $user = "root";
-  $password = "root";
-  $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-  $pdo = new PDO($dsn, $user, $password, $options);
+  require_once("ordCon.php");
+  // $dsn = "mysql:host=localhost; port=3306; dbname=G4_nexpos; charset=utf8";
+  // $user = "root";
+  // $password = "root";
+  // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
+  // $pdo = new PDO($dsn, $user, $password, $options);
 
   //抓出日結資訊
   $sql = "SELECT A1.ORDER_NO OrderNo, A1.ORDER_DATE OrderDate, A1.ORDER_INNOUT InNOut, A2.PAY_METHOD PayMethod, A1.ORDER_TTL_PRICE Price
