@@ -17,7 +17,7 @@ try{
   $memPsw = $_POST["memPsw"];
 
   //撈店長帳密
-  $sql = "SELECT * FROM EMP WHERE EMP_NO='$memId' AND EMP_PWD='$memPsw' AND EMP_TITLE = '店長' ";
+  $sql = "SELECT * FROM EMP WHERE EMP_NO='$memId' AND EMP_PWD='$memPsw' AND EMP_TITLE = '店長'; ";
   $EMP = $pdo->prepare($sql);
   $EMP->execute();
 
@@ -38,7 +38,7 @@ try{
 
   if($_SESSION['login_limit']<=0){
     //撈老闆帳密
-    $sql = "SELECT * FROM EMP WHERE EMP_NO='$memId' AND EMP_PWD='$memPsw' AND EMP_TITLE = '老闆' ";
+    $sql = "SELECT * FROM EMP WHERE EMP_NO='$memId' AND EMP_PWD='$memPsw' AND EMP_TITLE = '老闆'; ";
     $EMP = $pdo->prepare($sql);
     $EMP->execute();
     //如果限制值<0，請輸入老闆帳密登入
