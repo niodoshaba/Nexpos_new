@@ -34,6 +34,13 @@ window.addEventListener('load',function(){
     let ordHTML;
     let checkoutLeftSideMidItemAll = document.getElementById('checkoutLeftSideMidItemAll');
 
+    let cusPhoneNumber;
+
+    let cusNowDay = new Date();
+
+    let ppl;
+
+    let sendDataToDB;
     // console.log(checkoutLeftSideMidItemTop);
     //紀錄傳到點餐頁面的資訊
     var loadOrdListTips = JSON.parse(localStorage.getItem('ordlistTips'));
@@ -51,12 +58,20 @@ window.addEventListener('load',function(){
         ordlistTips = loadOrdListTips;
     } 
 
-    
+    var toGoArr = JSON.parse(localStorage.getItem('toGoArr'));
+
+    var tmpBackKitchen = [];
+    //確認是否有後廚完成訂單，有渲染內用外帶訂單
+    var tmpBackKitchenDone = [];
+    var tabReceiveJson = (JSON.parse(localStorage.getItem("allData")));
+    var ordPostBool = false;
+    var ordCheckOutBool = false; 
+
     checkoutOrderListNo.innerText = `訂單編號: ${ordlistTips.orderList}`;
     
     if(ordlistTips.inOrOut == "in"){
         checkoutOrderInOrOut.innerText = "內用";
-        checkoutTabNo.innerText = ordlistTips.number;
+        checkoutTabNo.innerText = `桌號: ${ordlistTips.number}`;
     }else{
         checkoutOrderInOrOut.innerText = "外帶";
         checkoutTabNo.innerText = `桌號: ${ordlistTips.number}`;
@@ -78,7 +93,9 @@ window.addEventListener('load',function(){
         }
     
     }
-    
+    function saveDataToLocal(name,data){  
+        localStorage.setItem(name,JSON.stringify(data));            
+   }
     
     //接會員點數
     // let cusPoint = 0;
@@ -141,6 +158,23 @@ window.addEventListener('load',function(){
         
     }
 
+    function checkoutSaveDataToDB(Data){
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+            
+            if(xhr.readyState == 4 && xhr.status == 200){
+                let result = xhr.responseText;
+                bonusRule = result;
+                
+            }
+        }
+        xhr.open("post","../dev/js/checkOutSaveDataToDB.php",true);
+        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        xhr.send(`orderList=${Data}`);
+        
+    }
+
+
     //-------------------------- 紅利相關 --------------------------
     //輸入紅利點數
     let checkoutGetPoint = document.getElementById('checkoutGetPoint');
@@ -148,6 +182,8 @@ window.addEventListener('load',function(){
     let checkOutPrice = document.getElementsByClassName('checkOutPrice');
     //總金額
     let checkOutTotalPrice = 0;
+    //紀錄總金額 不變動的金額
+    let checkOutTotalPriceSendToDB = 0;
     //折扣總金額
     let checkoutDiscountTotalPrice = 0;
     
@@ -234,6 +270,7 @@ window.addEventListener('load',function(){
         for(i=0;i<checkOutPrice.length;i++){
         checkOutTotalPrice = checkOutTotalPrice+parseInt(checkOutPrice[i].innerText.substring(1, checkOutPrice[i].innerText.length));
         }
+        checkOutTotalPriceSendToDB = checkOutTotalPrice;
         checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkOutTotalPrice}</span>`;
     }
     checkOutSum();
@@ -271,7 +308,56 @@ window.addEventListener('load',function(){
 
     //送資料給後端程式同時
     checkoutLastBtn.addEventListener('click',function(){   
-         //點過結帳按鈕bool
+         
+        //訂單編號
+        // checkoutOrderListNo.innerText
+
+        //內用/外帶
+        //checkoutOrderInOrOut.innerText
+
+        // 紅利折抵名稱
+        // bonusRule
+
+        //顧客手機
+        //cusPhoneNumber
+
+        //PAY_NO
+        //1
+
+        //總金額
+        //checkOutTotalPriceSendToDB
+
+        //日期
+        let tmpDate = `${cusNowDay.getFullYear()}-${cusNowDay.getMonth()+1}-${cusNowDay.getDate()}`;
+        
+        //人數
+        if(ordlistTips.ppl == undefined){
+            ppl = 0;
+        }else{
+            ppl = ordlistTips.ppl;
+        }
+
+        let tmpInOrOut;
+
+        if(ordlistTips.inOrOut == "in"){
+            tmpInOrOut = 0;
+        }else{
+            tmpInOrOut = 1;
+        }
+
+        sendDataToDB = [
+            "ORDER_NO" : checkoutOrderListNo.innerText,
+            "CUS_PHONE_NUMBER" : cusPhoneNumber,
+            "PAY_NO" : 1,
+            "EMP_NO" : 
+            "BONUS_NAME" : bonusRule,
+            "ORDER_TAX_ID": "",
+            "ORDER_DEVICE_NO" : "",
+            "ORDER_INNOUT" : tmpInOrOut,
+            "ORDER_"
+        ]
+
+        //點過結帳按鈕bool
          ordCheckOutBool = true;
          //關閉出餐按鈕bool
          ordPostBool = false;
@@ -281,7 +367,7 @@ window.addEventListener('load',function(){
          //判斷是要刪除內用訂單或外帶訂單
          //刪除內用訂單
          for(i=0;i<tabReceiveJson.length;i++){
-             if(tabReceiveJson[i].number == ordlistTipsData.number){
+             if(tabReceiveJson[i].number == ordlistTips.number){
                  tabReceiveJson[i].basicInfo.inOrOut = "";
                  tabReceiveJson[i].basicInfo.orderList = "";
                  //將餐桌改為清潔中
@@ -295,7 +381,7 @@ window.addEventListener('load',function(){
 
          }else{
              for(j=0;j<toGoArr.length;j++){
-                 if(toGoArr[j].orderList == ordlistTipsData.orderList){
+                 if(toGoArr[j].orderList == ordlistTips.orderList){
                      toGoArr.splice(j,1);
                  
                  }
@@ -307,21 +393,21 @@ window.addEventListener('load',function(){
          //刪除localstorage裡的done_訂單編號
          for(k=0;k<tmpBackKitchenDone.length;k++){
              let checktmpBack = tmpBackKitchenDone[k].substring(5,tmpBackKitchenDone[k].length);
-                 if(ordlistTipsData.orderList == checktmpBack){
+                 if(ordlistTips.orderList == checktmpBack){
                      localStorage.removeItem(`done_${checktmpBack}`);
                  } 
          }
          
          //刪除點餐暫存資料
-         localStorage.removeItem(`ordSaveProdInCart_${ordlistTipsData.orderList}`);
-         localStorage.removeItem(`ordSaveProdInTempCart${ordlistTipsData.orderList}`);
-         localStorage.removeItem(`SavePpl${ordlistTipsData.orderList}`);
-         localStorage.removeItem(`ordSaveProdInCartOnHist${ordlistTipsData.orderList}`);
-         localStorage.removeItem(`orderNo${ordlistTipsData.orderList}`);
+         localStorage.removeItem(`ordSaveProdInCart_${ordlistTips.orderList}`);
+         localStorage.removeItem(`ordSaveProdInTempCart${ordlistTips.orderList}`);
+         localStorage.removeItem(`SavePpl${ordlistTips.orderList}`);
+         localStorage.removeItem(`ordSaveProdInCartOnHist${ordlistTips.orderList}`);
+         localStorage.removeItem(`orderNo${ordlistTips.orderList}`);
 
 
 
-         location.replace('http://localhost/phplab/Table0716/Table/html/posHomeTab.html');
+        //  location.replace('http://localhost/phplab/Table0716/Table/html/posHomeTab.html');
     });
 
     //----- 拆帳 -----
@@ -418,7 +504,7 @@ window.addEventListener('load',function(){
         
         
         let senddata = checkoutLeftSideTopBtn.parentElement.children[0].value;
-        
+        cusPhoneNumber = senddata;
         checkCustomer(senddata);
         
     });
