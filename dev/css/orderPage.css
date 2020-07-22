@@ -1,3 +1,6 @@
+html {
+  background-color: #2e2d2e; }
+
 body {
   width: 1440px;
   height: 900px;
@@ -10,6 +13,7 @@ body {
   padding: 0; }
 
 #orderPageLeftSide {
+  width: 460px;
   height: 900px;
   background-color: #F9F9F9; }
   #orderPageLeftSide #orderPageLeftSideTop {
@@ -39,7 +43,7 @@ body {
     width: 85%;
     height: 2px; }
   #orderPageLeftSide .orderPageScrollbar {
-    height: 65vh;
+    height: 585px;
     width: 100%;
     background: #f9f9f9;
     overflow-y: scroll;
@@ -101,7 +105,7 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
     color: #959595;
     width: 150px;
-    max-height: 70vh;
+    max-height: 630px;
     display: none;
     position: absolute;
     top: 0;
@@ -177,10 +181,10 @@ body {
   background-image: url("../assets/bg_dots.png");
   display: flex;
   flex-direction: column;
-  height: 900px; }
+  width: 960px; }
   #orderPageRightside #orderPageRightSideTop {
     display: flex;
-    height: 110px; }
+    height: 90px; }
     #orderPageRightside #orderPageRightSideTop div {
       height: 100%;
       padding: 0; }
@@ -212,7 +216,7 @@ body {
         cursor: pointer; }
   #orderPageRightside #orderPageRightSideMid {
     display: flex;
-    height: 670px; }
+    height: 675px; }
     #orderPageRightside #orderPageRightSideMid div {
       height: 100%; }
     #orderPageRightside #orderPageRightSideMid .orderPageArrow {
@@ -249,7 +253,7 @@ body {
         text-align: center; }
   #orderPageRightside #orderPageRightSideBottom {
     display: flex;
-    height: 15vh; }
+    height: 135px; }
     #orderPageRightside #orderPageRightSideBottom div {
       margin-top: -25px;
       display: flex;

@@ -89,17 +89,6 @@ window.addEventListener('load', function () {
     let checkoutGetCash = document.getElementById('checkoutGetCash');
     let checkoutChangeDiv = document.getElementById('checkoutChangeDiv').children[1];
 
-    let checkoutSendNo = document.getElementById('checkoutSendNo');
-    let checkoutSendPayNo = document.getElementById('checkoutSendPayNo');
-    let checkoutSendGetPrice = document.getElementById('checkoutSendGetPrice');
-    let checkoutSendCoin = document.getElementById('checkoutSendCoin');
-    let checkoutSendDiscount = document.getElementById('checkoutSendDiscount');
-    let checkoutSendBonus = document.getElementById('checkoutSendBonus');
-    let checkoutSendLastBonus = document.getElementById('checkoutSendLastBonus');
-    let checkoutSendTotalPrice = document.getElementById('checkoutSendTotalPrice');
-
-    let checkoutGetCash = document.getElementById('checkoutGetCash');
-    let checkoutChangeDiv = document.getElementById('checkoutChangeDiv').children[1];
 
     checkoutOrderListNo.innerText = `訂單編號: ${ordlistTips.orderList}`;
 
@@ -559,13 +548,13 @@ window.addEventListener('load', function () {
 
         //刪除點餐暫存資料
         localStorage.removeItem(`ordSaveProdInCart_${ordlistTips.orderList}`);
-        localStorage.removeItem(`ordSaveProdInTempCart${ordlistTips.orderList}`);
-        localStorage.removeItem(`SavePpl${ordlistTips.orderList}`);
-        localStorage.removeItem(`ordSaveProdInCartOnHist${ordlistTips.orderList}`);
+        localStorage.removeItem(`ordSaveProdInTempCart_${ordlistTips.orderList}`);
+        localStorage.removeItem(`ordSavePpl_${ordlistTips.orderList}`);
+        localStorage.removeItem(`ordSaveProdInCartOnHist_${ordlistTips.orderList}`);
         localStorage.removeItem(`orderNo_${ordlistTips.orderList}`);
 
 
-        location.replace('http://localhost/G4_final/dev/posHomeTab.html');
+        location.replace('./posHomeTab.html');
     });
 
     //----- 拆帳 -----

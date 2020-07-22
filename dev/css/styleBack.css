@@ -9528,10 +9528,10 @@ table {
   border: 1px solid #28569A;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
-  height: 900px; }
+  height: 900px;
+  font-size: 20px; }
   .c-sidebar #sideMenu .loginName {
-    position: relative;
-    margin: 25px 40px 15px; }
+    margin: 25px 0 0 40px; }
   .c-sidebar .light {
     color: #9ff810;
     padding-left: 46px;
@@ -9554,7 +9554,7 @@ table {
       font-weight: bold;
       color: #0a3264; }
   .c-sidebar ul li {
-    height: 62px;
+    height: 58px;
     margin: 20px 0;
     padding: 20px 0px 0px 46px;
     position: relative; }
@@ -9710,8 +9710,7 @@ input.proPic {
   float: left;
   height: 600px;
   overflow-y: scroll;
-  overflow-x: hidden;
-  margin-left: 125px; }
+  overflow-x: hidden; }
 
 #calendarPickDateTop {
   margin-left: 135px; }

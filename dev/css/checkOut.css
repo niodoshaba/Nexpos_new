@@ -228,7 +228,10 @@ body {
     #checkoutRightSide #checkoutRightSideTop input {
       background-color: #F9F9F9;
       margin-top: 15px;
-      width: 200px; }
+      width: 200px;
+      border: none;
+      border-bottom: 1px solid #959595;
+      outline: none; }
   #checkoutRightSide #checkoutRightSideMid {
     width: 70%;
     margin: 15%;
