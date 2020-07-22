@@ -27,6 +27,7 @@ gulp.task('move', function () {
 });
 
 
+
 // 移動＝拷貝 src下的php 經由pipe 到dest
 gulp.task('movePhp', function () {
     //do
