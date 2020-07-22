@@ -19,11 +19,14 @@ try{
   $resFormPeopleCount = $_POST["resFormPeopleCount"];
   $resFormTextArea = $_POST["resFormTextArea"];
 
-  //預約手機進入顧客表單
-  $sql = "INSERT into CUSTOMER(CUS_PHONE,CUS_ID,CUS_STATE,CUS_GEN,CUS_FIRST,CUS_LAST) value ('$resFormPhone',1,1,'$sex','$resFormFirstName','$resFormLastName')";  
   //更新當日可預約人數
   $sql = "UPDATE DAILY_RES SET DAILY_NUM = DAILY_NUM + '$resFormPeopleCount' WHERE DAILY_DATE = '$calendarPickDate'";
 
+  $daily_state = $pdo->prepare( $sql );
+  $daily_state->execute();
+    //預約手機進入顧客表單
+
+  $sql = "INSERT into CUSTOMER(CUS_PHONE,CUS_ID,CUS_STATE,CUS_GEN,CUS_FIRST,CUS_LAST) value ('$resFormPhone',1,1,'$sex','$resFormFirstName','$resFormLastName')";  
 
   $daily_state = $pdo->prepare( $sql );
   $daily_state->execute();
