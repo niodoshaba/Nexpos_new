@@ -246,17 +246,6 @@ window.addEventListener('load', function () {
         }
     }
 
-    function orderBlue() {
-
-        // for(i=0;i<checkoutLeftSideMidItemTop.length;i++){
-        //     checkoutLeftSideMidItemTop[i].addEventListener("click",function(){
-        //         console.log(1);
-        //         $(this).toggleClass("-toblue");
-        //     });
-        // }
-    }
-
-
     for (k = 1; k < tmpcontent.length; k++) {
 
         if (tmpcontent[k].status != 2) {
@@ -275,8 +264,8 @@ window.addEventListener('load', function () {
                 };
 
                 ordHTML += `
-                                <div class="checkoutLeftSideMidItem" style="pointer-events:none; color:#ccc">
-                                    <div class="checkoutLeftSideMidItemTop"  onclick='orderBlue()'>
+                                <div class="checkoutLeftSideMidItem" color:#ccc">
+                                    <div class="checkoutLeftSideMidItemTop">
                                         <span class="ordSele ${tmpcontent[k].PRO_CATA_NO}" data-itemno=${tmpcontent[k].PRO_ITEM_NO}>${tmpcontent[k].PRO_ITEM_NAME}</span>
                                         <span data-count=${k}>1</span>
                                     </div>
@@ -295,7 +284,7 @@ window.addEventListener('load', function () {
             } else {
 
                 ordHTML += `
-                        <div class="checkoutLeftSideMidItem" style="pointer-events:none; color:#ccc">
+                        <div class="checkoutLeftSideMidItem" color:#ccc">
                             <div class="checkoutLeftSideMidItemTop">
                                 <span class="ordSele ${tmpcontent[k].PRO_CATA_NO}" data-itemno=${tmpcontent[k].PRO_ITEM_NO}>${tmpcontent[k].PRO_ITEM_NAME}</span>
                                 <span>1</span>
@@ -316,79 +305,14 @@ window.addEventListener('load', function () {
 
     };
 
-    checkoutScrollbar.addEventListener('click', function (e) {
-
-        const li = e.target.closest();
-        console.log(li);
-        const thisindex = Array.prototype.indexOf.call(li.parentNode.children, li);
-        // console.log(thisindex);
-        // for(i=0;i<li.length;i++){
-        //     li[i]
-        // }
-
-    });
-    // for(i=0;i<checkoutScrollbar.childElementCount;i++){
-    //     checkoutScrollbar.children[i].addEventListener('click',function(){
-    //         alert(123);
-    //     });
-    // }
-
-    // const index = Array.prototype.indexOf.call(li.parentNode.children, li);
-    // console.log(index);
-
-
-
-    // setTimeout(() => {
-
-    //     checkoutLeftSideMidItemTop[0].addEventListener("click",function(){
-    //         // $(this).toggleClass("-toblue");
-    //     });
-    //     // for(i=0;i<tmpcontent.length-1;i++){
-    //     //     console.log(i);
-    //     //     checkoutLeftSideMidItemTop[i].addEventListener("click",function(){
-    //     //         console.log(1);
-    //     //         // $(this).toggleClass("-toblue");
-    //     //     });
-    //     // }
-    // }, 10);
-
-
-    checkoutScrollbar.addEventListener('click', function (e) {
-
-        const li = e.target.closest();
-        console.log(li);
-        const thisindex = Array.prototype.indexOf.call(li.parentNode.children, li);
-        // console.log(thisindex);
-        // for(i=0;i<li.length;i++){
-        //     li[i]
-        // }
-
-    });
-    // for(i=0;i<checkoutScrollbar.childElementCount;i++){
-    //     checkoutScrollbar.children[i].addEventListener('click',function(){
-    //         alert(123);
-    //     });
-    // }
-
-    // const index = Array.prototype.indexOf.call(li.parentNode.children, li);
-    // console.log(index);
-
-
-
-    // setTimeout(() => {
-
-    //     checkoutLeftSideMidItemTop[0].addEventListener("click",function(){
-    //         // $(this).toggleClass("-toblue");
-    //     });
-    //     // for(i=0;i<tmpcontent.length-1;i++){
-    //     //     console.log(i);
-    //     //     checkoutLeftSideMidItemTop[i].addEventListener("click",function(){
-    //     //         console.log(1);
-    //     //         // $(this).toggleClass("-toblue");
-    //     //     });
-    //     // }
-    // }, 10);
-
+    console.log(checkoutLeftSideMidItemTop);
+    
+    for(i=0;i<checkoutLeftSideMidItemTop.length;i++){
+        checkoutLeftSideMidItemTop[i].addEventListener("click",function(){
+            $(this).toggleClass("-toblue");
+        });
+    }
+  
 
 
     //立即函式 
