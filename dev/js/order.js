@@ -1246,35 +1246,35 @@ orderPageRightSideBottomBtn3.addEventListener("click", function () {
     orderPageLeftSideMidItemAll.innerHTML = " ";
 
     // 把點餐資訊輸入資料庫
-    ordSentInfotoDb();
+    // ordSentInfotoDb();
 
     // 前往結帳頁面
     location.replace('./checkOut.html');
 });
 
-function ordSentInfotoDb() {
-    // Creating a XHR object 
-    let ordTotOrderProd = new XMLHttpRequest();
-    let url = "./js/ordSetData.php";
-    // open a connection 
-    ordTotOrderProd.open("POST", url, true);
-    // Set the request header i.e. which type of content you are sending 
-    ordTotOrderProd.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+// function ordSentInfotoDb() {
+//     // Creating a XHR object 
+//     let ordTotOrderProd = new XMLHttpRequest();
+//     let url = "./js/ordSetData.php";
+//     // open a connection 
+//     ordTotOrderProd.open("POST", url, true);
+//     // Set the request header i.e. which type of content you are sending 
+//     ordTotOrderProd.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-    // 傳送資料去php
-    ordTotOrderProd.send("ordTotOrder=" + JSON.stringify(ordProdCartOn));
-    // 測試傳送的陣列內是否有資料
-    console.log(ordProdCartOn);
+//     // 傳送資料去php
+//     ordTotOrderProd.send("ordTotOrder=" + JSON.stringify(ordProdCartOn));
+//     // 測試傳送的陣列內是否有資料
+//     console.log(ordProdCartOn);
 
 
-    // 測試有php有沒有接到資料
-    ordTotOrderProd.onload = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            ordReceiveOrder = JSON.parse(this.responseText);
-            console.log(ordReceiveOrder); // for debugging
-        };
-    };
-};
+//     // 測試有php有沒有接到資料
+//     ordTotOrderProd.onload = function () {
+//         if (this.readyState == 4 && this.status == 200) {
+//             ordReceiveOrder = JSON.parse(this.responseText);
+//             console.log(ordReceiveOrder); // for debugging
+//         };
+//     };
+// };
 
 
 // 把購物車資訊存進localStorage

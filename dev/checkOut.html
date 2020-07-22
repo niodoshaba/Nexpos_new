@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/checkOut.css">
     <title>結帳</title>
@@ -15,7 +16,11 @@
         <div class="row no-gutters">
 
             <div id="checkoutLeftside" class="col-4">
+<<<<<<< HEAD
                 <!-- <a href="./orderPage.html"><img src="./assets/checkout_back.png" alt=""></a> -->
+=======
+                <a href="#"><img src="./assets/checkout_back.png" alt="" style="opacity: 0;"></a>
+>>>>>>> selfDev_dont-push
                 <div id="checkoutLeftSideTop" class="row no-gutters">
                     <span class="col-7" id="checkoutOrderListNo"></span>
                     <span class="col-5" id="checkoutOrderInOrOut"></span>
@@ -32,7 +37,7 @@
 
                 <div id="checkoutLeftSideMid">
                     <div class="checkoutScrollbar style-3" id="checkoutLeftSideMidItemAll">
-                        
+
 
                     </div>
 
@@ -146,10 +151,10 @@
                     <button>發票載具</button><br>
                     <input type="text">
                 </div>
-            </div> -->
                 <div id="checkoutRightSideBottom">
                     <!-- <button id="checkoutLastBtn" type="submit">結帳</button> -->
                     <!-- <form method="post" action="../php/checkOut.php">
+<<<<<<< HEAD
                         <table class="test">
                             <tr>
                                 <td>訂單編號:</td>
@@ -209,28 +214,139 @@
                         </div>
 
                         <button id="checkoutLastBtn" type="submit" class="btn btn-danger mb-1" data-toggle="modal" data-target="#regular_modal">結帳</button>
+=======
+                            <table class="test">
+                                <tr>
+                                    <td>訂單編號:</td>
+                                    <td><input type="text" name="orderNo"></td>
+                                </tr>
+                                <tr>
+                                    <td>付款方式:</td>
+                                    <td><input type="text" name="payNo"></td>
+                                </tr>
+                                <tr>
+                                    <td>收款金額:</td>
+                                    <td><input type="text" name="amountReceived"></td>
+                                </tr>
+                                <tr>
+                                    <td>找零:</td>
+                                    <td><input type="text" name="change"></td>
+                                </tr>
+                                <tr>
+                                    <td>折扣總計:</td>
+                                    <td><input type="text" name="disTotal"></td>
+                                </tr>
+                                <tr>
+                                    <td>紅利折抵</td>
+                                    <td><input type="text" name="bonusExchange"></td>
+                                </tr>
+                                <tr>
+                                    <td>剩餘紅利</td>
+                                    <td><input type="text" name="rewardPoints"></td>
+                                </tr>
+                            </table> -->
+                    <div class="modal fade" id="regular_modal" tabindex="-1" role="dialog"
+                        aria-labelledby="regular_modal" style="display:none">
+                        <div class="modal-dialog modal-dialog-centered modal-s" role="document">
+                            <div class="modal-content" id="checkOutDoneContainer">
+                                <!-- <div class="modal-header"> -->
+                                <h1 class="modal-title" style="margin: 0 109px;">付款成功</h1>
+
+                                <!-- </div> -->
+                                <div class="modal-body" id="checkOutDoneBox">
+                                    <table>
+                                        <tr>
+                                            <th>訂單編號：</th>
+                                            <td id="checkoutSendNo"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>付款方式：</th>
+                                            <td id="checkoutSendPayNo"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>收款金額：</th>
+                                            <td id="checkoutSendGetPrice"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>找零：</th>
+                                            <td id="checkoutSendCoin"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>折扣總計：</th>
+                                            <td id="checkoutSendDiscount"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>紅利折抵：</th>
+                                            <td id="checkoutSendBonus"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>剩餘紅利：</th>
+                                            <td id="checkoutSendLastBonus"></td>
+                                        </tr>
+                                    </table>
+                                    <table class="total">
+                                        <tr>
+                                            <th>總計：</th>
+                                            <td id="checkoutSendTotalPrice"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!-- <div class="modal-footer"> -->
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    id="checkOutDone">完成</button>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="checkoutLastBtn" type="submit" class="btn btn-danger mb-1" data-toggle="modal"
+                        data-target="#regular_modal">結帳</button>
+>>>>>>> selfDev_dont-push
                     <!-- </form> -->
                     <button id="checkoutSeparateBtn">拆單結帳</button>
                 </div>
-
             </div>
 
+
         </div>
+
+    </div>
     </div>
 
 
+<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+=======
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+>>>>>>> selfDev_dont-push
     <script src="./js/checkOut.js"></script>
     <script>
     //判斷登入人員並顯示於頁面
     //     window.addEventListener("load", function(){
     //        let username = sessionStorage.getItem('name');
+<<<<<<< HEAD
            
     //        let loginName = document.querySelector('.user');
     //        loginName.innerHTML = `Hi! ${username}`;
     //    })
      </script>
+=======
+
+    //        let loginName = document.querySelector('.user');
+    //        loginName.innerHTML = `Hi! ${username}`;
+    //    })
+    </script>
+>>>>>>> selfDev_dont-push
 </body>
+
 </html>

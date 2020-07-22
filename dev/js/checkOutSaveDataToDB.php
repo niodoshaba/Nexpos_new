@@ -25,6 +25,7 @@ try{
     $ORDER_TTL_PRICE = $orderListData->ORDER_TTL_PRICE;
     $ORDER_DATE = $orderListData->ORDER_DATE;
 
+<<<<<<< HEAD
     echo json_encode($orderListData);
     // $bonusRule_sql = "INSERT INTO order_list 
     //                   VALUES ($ORDER_NO , $CUS_PHONE_NUMBER, $PAY_NO, $EMP_NO, $BONUS_NAME,
@@ -36,13 +37,28 @@ try{
     // $bonusRuleArr = array();
     // while($pdoRow = $bonusRule->fetch(PDO::FETCH_ASSOC)){
     // $bonusRuleArr[] = $pdoRow;
-    // }
-    // $sendBackbonusRule = array_pop($bonusRuleArr[0]); 
+=======
+    // echo json_encode($orderListData);
+    // $orderList_sql = "INSERT INTO order_list 
+    //                   VALUES ($ORDER_NO , '$CUS_PHONE_NUMBER', '$PAY_NO, $EMP_NO', '$BONUS_NAME',
+    //                           '$ORDER_FEEDBACK', '$ORDER_TAX_ID', '$ORDER_DEVICE_NO', '$ORDER_INNOUT',
+    //                           '$ORDER_NUM', '$ORDER_TTL_PRICE', '$ORDER_DATE'  
+    //                   );";
 
-    // print_r($sendBackbonusRule);
+    // $orderList = $pdo->prepare($orderList_sql);
+    // $orderList->execute();
+
+    // while($pdoRow = $orderList->fetch(PDO::FETCH_ASSOC)){
+    //     $orderListArr[] = $pdoRow;
+>>>>>>> selfDev_dont-push
+    // }
+    // $sendBackorderList = array_pop($orderListArr[0]); 
+
+    // print_r($sendBackorderList);
 
 }catch (PDOException $e){
-    echo $e->getMessage();
+    echo "錯誤行號" , $e->getLine(), "<br>";
+    echo "錯誤原因", $e->getMessage();
 
 }
 

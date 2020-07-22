@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 window.addEventListener('load',function(){
     
     let checkoutLeftSideMid = document.getElementById('checkoutLeftSideMid');
     let checkoutScrollbar = document.getElementsByClassName("checkoutScrollbar")[0];
     let checkoutLeftSideMidItemTop =document.getElementsByClassName("checkoutLeftSideMidItemTop");
+=======
+window.addEventListener('load', function () {
+
+    let checkoutLeftSideMid = document.getElementById('checkoutLeftSideMid');
+    let checkoutScrollbar = document.getElementsByClassName("checkoutScrollbar")[0];
+    let checkoutLeftSideMidItemTop = document.getElementsByClassName("checkoutLeftSideMidItemTop");
+>>>>>>> selfDev_dont-push
     let checkoutIfEachCheck = document.getElementById("checkoutIfEachCheck");
     let checkoutIfDiscount = document.getElementById("checkoutIfDiscount");
     let checkoutIfPoint = document.getElementById("checkoutIfPoint");
@@ -21,7 +29,7 @@ window.addEventListener('load',function(){
     let checkoutBtn = document.getElementById('checkoutBtn');
     //剩餘品項
     let checkoutLeftSideBottomTop = document.getElementById('checkoutLeftSideBottomTop');
-    
+
     let checkoutLeftSideTopBtn = document.getElementById('checkoutLeftSideTopBtn');
     // console.log(checkoutLeftSideTopBtn);
     //接從後端撈回的紅利規則
@@ -46,19 +54,21 @@ window.addEventListener('load',function(){
     // console.log(checkoutLeftSideMidItemTop);
     //紀錄傳到點餐頁面的資訊
     var loadOrdListTips = JSON.parse(localStorage.getItem('ordlistTips'));
-    var ordlistTips = {orderList: ' ',
-                       inOrOut: ' ',
-                       number: ' '
-                      };
+    var ordlistTips = {
+        orderList: ' ',
+        inOrOut: ' ',
+        number: ' '
+    };
 
-    if(loadOrdListTips == undefined){
-        ordlistTips = {orderList: ' ',
-                       inOrOut: ' ',
-                       number: ' '
-                      };
-    }else{
+    if (loadOrdListTips == undefined) {
+        ordlistTips = {
+            orderList: ' ',
+            inOrOut: ' ',
+            number: ' '
+        };
+    } else {
         ordlistTips = loadOrdListTips;
-    } 
+    }
 
     var toGoArr = JSON.parse(localStorage.getItem('toGoArr'));
 
@@ -73,7 +83,19 @@ window.addEventListener('load',function(){
     var tabCleanColor = tabReceiveJson[0].selectCleanColor;
     var tabEatColor = tabReceiveJson[0].selectEatColor;
     var ordPostBool = false;
-    var ordCheckOutBool = false; 
+    var ordCheckOutBool = false;
+
+    let checkoutSendNo = document.getElementById('checkoutSendNo');
+    let checkoutSendPayNo = document.getElementById('checkoutSendPayNo');
+    let checkoutSendGetPrice = document.getElementById('checkoutSendGetPrice');
+    let checkoutSendCoin = document.getElementById('checkoutSendCoin');
+    let checkoutSendDiscount = document.getElementById('checkoutSendDiscount');
+    let checkoutSendBonus = document.getElementById('checkoutSendBonus');
+    let checkoutSendLastBonus = document.getElementById('checkoutSendLastBonus');
+    let checkoutSendTotalPrice = document.getElementById('checkoutSendTotalPrice');
+
+    let checkoutGetCash = document.getElementById('checkoutGetCash');
+    let checkoutChangeDiv = document.getElementById('checkoutChangeDiv').children[1];
 
     let checkoutSendNo = document.getElementById('checkoutSendNo');
     let checkoutSendPayNo = document.getElementById('checkoutSendPayNo');
@@ -88,33 +110,45 @@ window.addEventListener('load',function(){
     let checkoutChangeDiv = document.getElementById('checkoutChangeDiv').children[1];
     
     checkoutOrderListNo.innerText = `訂單編號: ${ordlistTips.orderList}`;
+<<<<<<< HEAD
     
     
     if(ordlistTips.inOrOut == "in"){
+=======
+
+
+    if (ordlistTips.inOrOut == "in") {
+>>>>>>> selfDev_dont-push
         checkoutOrderInOrOut.innerText = "內用";
         checkoutTabNo.innerText = `桌號: ${ordlistTips.number}`;
-    }else{
+    } else {
         checkoutOrderInOrOut.innerText = "外帶";
         checkoutTabNo.innerText = `桌號: ${ordlistTips.number}`;
     }
-    
+
     var tmpOrderManu = [];
     //確認是否有後廚完成訂單，有渲染內用外帶訂單
     var tmpOrderManuDone = [];
 
+<<<<<<< HEAD
     function checkOrderDone(){
         for(var i = 0; i < localStorage.length; i++){
+=======
+    function checkOrderDone() {
+        for (var i = 0; i < localStorage.length; i++) {
+>>>>>>> selfDev_dont-push
             tmpOrderManu.push(localStorage.key(i));
         }
-    
-        for(j=0;j<tmpOrderManu.length;j++){
-            if(tmpOrderManu[j].includes('orderNo_')){
+
+        for (j = 0; j < tmpOrderManu.length; j++) {
+            if (tmpOrderManu[j].includes('orderNo_')) {
                 tmpOrderManuDone.push(tmpOrderManu[j]);
             }
         }
-    
+
     }
 
+<<<<<<< HEAD
     function checkBackKitchenDone(){
         for(var i = 0; i < localStorage.length; i++){
             tmpBackKitchen.push(localStorage.key(i));
@@ -131,81 +165,109 @@ window.addEventListener('load',function(){
         localStorage.setItem(name,JSON.stringify(data));            
    }
     
+=======
+    function checkBackKitchenDone() {
+        for (var i = 0; i < localStorage.length; i++) {
+            tmpBackKitchen.push(localStorage.key(i));
+        }
+
+        for (j = 0; j < tmpBackKitchen.length; j++) {
+            if (tmpBackKitchen[j].includes('done_')) {
+                tmpBackKitchenDone.push(tmpBackKitchen[j]);
+            }
+        }
+
+    }
+    function saveDataToLocal(name, data) {
+        localStorage.setItem(name, JSON.stringify(data));
+    }
+
+>>>>>>> selfDev_dont-push
     //接會員點數
     // let cusPoint = 0;
 
-    function bonusRuleGetData(){
+    function bonusRuleGetData() {
         let xhr = new XMLHttpRequest();
-        xhr.onload = function(){
-            
-            if(xhr.readyState == 4 && xhr.status == 200){
+        xhr.onload = function () {
+
+            if (xhr.readyState == 4 && xhr.status == 200) {
                 let result = xhr.responseText;
                 bonusRule = result;
-                
-                           
-                let bounsCom = parseInt(bonusRule.substring(bonusRule.indexOf('費')+1, bonusRule.indexOf('元')));
-                let bonusExchange = parseInt(bonusRule.substring(bonusRule.indexOf('每')+1,bonusRule.lastIndexOf('點')));
 
-               
+
+                let bounsCom = parseInt(bonusRule.substring(bonusRule.indexOf('費') + 1, bonusRule.indexOf('元')));
+                let bonusExchange = parseInt(bonusRule.substring(bonusRule.indexOf('每') + 1, bonusRule.lastIndexOf('點')));
+
+
             }
         }
+<<<<<<< HEAD
         xhr.open("post","./js/checkOut.php",true);
         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+=======
+        xhr.open("post", "./js/checkOut.php", true);
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+>>>>>>> selfDev_dont-push
         xhr.send(null);
-        
+
     }
     bonusRuleGetData();
-    function checkCustomer(data){
-        
+    function checkCustomer(data) {
+
         let xhr = new XMLHttpRequest();
-        xhr.onload = function(){
+        xhr.onload = function () {
             console.log(xhr.readyState);
-            if(xhr.readyState == 4 && xhr.status == 200){
+            if (xhr.readyState == 4 && xhr.status == 200) {
                 let phone = JSON.parse(xhr.responseText);
-                
-                
-                if(phone == ""){
+
+
+                if (phone == "") {
                     //查無此會員
                     checkoutLeftSideTopBtn.parentElement.children[0].value = "無會員資料";
                     checkoutLeftSideTopBtn.parentElement.children[0].style.color = "#E98E89";
                     checkoutLeftSideTopBtn.parentElement.children[0].style.fontSize = "25px";
 
-                }else{
+                } else {
                     checkoutLeftSideTopBtn.parentElement.children[1].style.display = "none";
                     checkoutLeftSideTopBtn.parentElement.children[0].style.padding = "0";
                     checkoutNowBouns.innerText = phone.CUS_POINT;
                     cusPoint = phone.CUS_POINT;
-                    if(phone.CUS_GEN == "男"){
+                    if (phone.CUS_GEN == "男") {
                         checkoutLeftSideTopBtn.parentElement.children[0].value = `${phone.CUS_LAST}先生您好`
-                    }else{
+                    } else {
                         checkoutLeftSideTopBtn.parentElement.children[0].value = `${phone.CUS_LAST}小姐您好`
                     }
-                    
+
 
                 }
-                
+
             }
         }
+<<<<<<< HEAD
         xhr.open("post","./js/customerSearch.php",true);
         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+=======
+        xhr.open("post", "./js/customerSearch.php", true);
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+>>>>>>> selfDev_dont-push
         xhr.send(`customer=${data}`);
-        
+
     }
 
-    function checkoutSaveDataToDB(Data){
+    function checkoutSaveDataToDB(Data) {
         let xhr = new XMLHttpRequest();
-        xhr.onload = function(){
-            
-            if(xhr.readyState == 4 && xhr.status == 200){
+        xhr.onload = function () {
+
+            if (xhr.readyState == 4 && xhr.status == 200) {
                 let result = xhr.responseText;
                 bonusRule = result;
-                
+
             }
         }
-        xhr.open("post","../dev/js/checkOutSaveDataToDB.php",true);
-        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        xhr.open("post", "./js/checkOutSaveDataToDB.php", true);
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(`orderList=${Data}`);
-        
+
     }
 
 
@@ -220,32 +282,50 @@ window.addEventListener('load',function(){
     let checkOutTotalPriceSendToDB = 0;
     //折扣總金額
     let checkoutDiscountTotalPrice = 0;
-    
+
     let checkoutNowBouns = document.getElementById('checkoutNowBouns');
-    
+
     let checkoutDiscountPrice = document.getElementById('checkoutDiscountPrice');
-    
+
     checkBackKitchenDone();
     checkOrderDone();
+<<<<<<< HEAD
     
+=======
 
-    
+
+>>>>>>> selfDev_dont-push
+
 
     ordHTML = "";
     checkoutLeftSideMidItemAll.innerHTML = "";
+<<<<<<< HEAD
     
     let tmpcontent;
    
     for(i=0;i<tmpOrderManuDone.length;i++){
         let tmpstr = tmpOrderManuDone[i].indexOf('_')+1;
         if(tmpOrderManuDone[i].substring(tmpstr) == ordlistTips.orderList){
+=======
+
+    let tmpcontent;
+
+    for (i = 0; i < tmpOrderManuDone.length; i++) {
+        let tmpstr = tmpOrderManuDone[i].indexOf('_') + 1;
+        if (tmpOrderManuDone[i].substring(tmpstr) == ordlistTips.orderList) {
+>>>>>>> selfDev_dont-push
             tmpcontent = JSON.parse(localStorage.getItem(`orderNo_${ordlistTips.orderList}`));
-            
+
         }
     }
 
+<<<<<<< HEAD
     function orderBlue(){
       
+=======
+    function orderBlue() {
+
+>>>>>>> selfDev_dont-push
         // for(i=0;i<checkoutLeftSideMidItemTop.length;i++){
         //     checkoutLeftSideMidItemTop[i].addEventListener("click",function(){
         //         console.log(1);
@@ -253,20 +333,24 @@ window.addEventListener('load',function(){
         //     });
         // }
     }
+<<<<<<< HEAD
    
+=======
+
+>>>>>>> selfDev_dont-push
 
     for (k = 1; k < tmpcontent.length; k++) {
-        
+
         if (tmpcontent[k].status != 2) {
-            
+
             if (tmpcontent[k].topping.length > 0) {
                 // 把裝配料的容器清空
-                
+
                 let ordtoppingReloadHTML = '';
                 let ordToppingTtlNum = 0;
 
                 for (let s = 0; s < tmpcontent[k].topping.length; s++) {
-                    
+
                     ordtoppingReloadHTML += `<span class="ordToppingSec"> ${tmpcontent[k].topping[s]}</span>`;
                     // 把配料的價錢將加算出總價
                     ordToppingTtlNum += parseInt(tmpcontent[k].topping[s].split("$")[1]);
@@ -286,12 +370,19 @@ window.addEventListener('load',function(){
                                     </div> 
                                 </div>
                             `;
+<<<<<<< HEAD
                             checkoutLeftSideMidItemAll.innerHTML = ordHTML;
                             
 
                             // setTimeout(orderBlue,0);
+=======
+                checkoutLeftSideMidItemAll.innerHTML = ordHTML;
+
+
+                // setTimeout(orderBlue,0);
+>>>>>>> selfDev_dont-push
             } else {
-                
+
                 ordHTML += `
                         <div class="checkoutLeftSideMidItem" style="pointer-events:none; color:#ccc">
                             <div class="checkoutLeftSideMidItemTop">
@@ -305,6 +396,7 @@ window.addEventListener('load',function(){
                             </div> 
                         </div>
                     `;
+<<<<<<< HEAD
                     checkoutLeftSideMidItemAll.innerHTML = ordHTML;
 
             };
@@ -312,6 +404,15 @@ window.addEventListener('load',function(){
         
         // checkoutLeftSideMidItemAll.insertAdjacentHTML("beforeend", `${ordHTML}`)
                
+=======
+                checkoutLeftSideMidItemAll.innerHTML = ordHTML;
+
+            };
+        };
+
+        // checkoutLeftSideMidItemAll.insertAdjacentHTML("beforeend", `${ordHTML}`)
+
+>>>>>>> selfDev_dont-push
     };
     
         checkoutScrollbar.addEventListener('click',function(e){
@@ -351,39 +452,81 @@ window.addEventListener('load',function(){
     // }, 10);
     
 
-    
+    checkoutScrollbar.addEventListener('click', function (e) {
+
+        const li = e.target.closest();
+        console.log(li);
+        const thisindex = Array.prototype.indexOf.call(li.parentNode.children, li);
+        // console.log(thisindex);
+        // for(i=0;i<li.length;i++){
+        //     li[i]
+        // }
+
+    });
+    // for(i=0;i<checkoutScrollbar.childElementCount;i++){
+    //     checkoutScrollbar.children[i].addEventListener('click',function(){
+    //         alert(123);
+    //     });
+    // }
+
+    // const index = Array.prototype.indexOf.call(li.parentNode.children, li);
+    // console.log(index);
+
+
+
+    // setTimeout(() => {
+
+    //     checkoutLeftSideMidItemTop[0].addEventListener("click",function(){
+    //         // $(this).toggleClass("-toblue");
+    //     });
+    //     // for(i=0;i<tmpcontent.length-1;i++){
+    //     //     console.log(i);
+    //     //     checkoutLeftSideMidItemTop[i].addEventListener("click",function(){
+    //     //         console.log(1);
+    //     //         // $(this).toggleClass("-toblue");
+    //     //     });
+    //     // }
+    // }, 10);
+
+
+
     //立即函式 
     //1. 計算總金額
-    function checkOutSum(){
-        for(i=0;i<checkOutPrice.length;i++){
-        checkOutTotalPrice = checkOutTotalPrice+parseInt(checkOutPrice[i].innerText.substring(1, checkOutPrice[i].innerText.length));
+    function checkOutSum() {
+        for (i = 0; i < checkOutPrice.length; i++) {
+            checkOutTotalPrice = checkOutTotalPrice + parseInt(checkOutPrice[i].innerText.substring(1, checkOutPrice[i].innerText.length));
         }
         checkOutTotalPriceSendToDB = checkOutTotalPrice;
         checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkOutTotalPrice}</span>`;
     }
     checkOutSum();
-    
-    
+
+
     // 點擊訂單項目反藍
+<<<<<<< HEAD
    
     
+=======
+
+
+>>>>>>> selfDev_dont-push
 
     //切換三種結帳模式
-    checkoutDiscountBtn.addEventListener("click",function(){
+    checkoutDiscountBtn.addEventListener("click", function () {
         checkoutIfEachCheck.style.display = "none";
         checkoutIfDiscount.style.display = "initial";
         checkoutIfPoint.style.display = "none";
         checkoutLastBtn.style.display = "initial";
         checkoutSeparateBtn.style.display = "none";
     });
-    checkoutPointBtn.addEventListener("click",function(){
+    checkoutPointBtn.addEventListener("click", function () {
         checkoutIfEachCheck.style.display = "none";
         checkoutIfDiscount.style.display = "none";
         checkoutIfPoint.style.display = "initial";
         checkoutLastBtn.style.display = "initial";
         checkoutSeparateBtn.style.display = "none";
     });
-    checkoutEachCheckBtn.addEventListener("click",function(){
+    checkoutEachCheckBtn.addEventListener("click", function () {
         checkoutIfEachCheck.style.display = "initial";
         checkoutIfDiscount.style.display = "none";
         checkoutIfPoint.style.display = "none";
@@ -392,6 +535,7 @@ window.addEventListener('load',function(){
     });
 
     //送資料給後端程式同時
+<<<<<<< HEAD
     checkoutLastBtn.addEventListener('click',function(){   
         
         checkoutSendNo.innerText = checkoutOrderListNo.innerText;
@@ -402,6 +546,18 @@ window.addEventListener('load',function(){
         checkoutSendBonus.innerText =  checkoutGetPoint.value; 
         checkoutSendLastBonus.innerText = parseInt(checkoutNowBouns)-parseInt(checkoutGetPoint.value);
         checkoutSendTotalPrice.innerText =  checkOutTotalPrice; 
+=======
+    checkoutLastBtn.addEventListener('click', function () {
+
+        checkoutSendNo.innerText = checkoutOrderListNo.innerText;
+        checkoutSendPayNo.innerText = "現金";
+        checkoutSendGetPrice.innerText = checkoutGetCash.value;
+        checkoutSendCoin.innerText = checkoutChangeDiv.innerText;
+        checkoutSendDiscount.innerText = checkoutDiscountTotalPrice.innerText;
+        checkoutSendBonus.innerText = checkoutGetPoint.value;
+        checkoutSendLastBonus.innerText = parseInt(checkoutNowBouns) - parseInt(checkoutGetPoint.value);
+        checkoutSendTotalPrice.innerText = checkOutTotalPrice;
+>>>>>>> selfDev_dont-push
 
 
         //訂單編號
@@ -426,24 +582,30 @@ window.addEventListener('load',function(){
         // console.log(ordlistTips.number);
         // console.log(tabReceiveJson[2].number);
         console.log(`orderNo_${ordlistTips.orderList}`);
+<<<<<<< HEAD
         let tmpDate = `${cusNowDay.getFullYear()}-${cusNowDay.getMonth()+1}-${cusNowDay.getDate()}`;
         
+=======
+        let tmpDate = `${cusNowDay.getFullYear()}-${cusNowDay.getMonth() + 1}-${cusNowDay.getDate()}`;
+
+>>>>>>> selfDev_dont-push
         //人數
-        if(ordlistTips.ppl == undefined){
+        if (ordlistTips.ppl == undefined) {
             ppl = 0;
-        }else{
+        } else {
             ppl = ordlistTips.ppl;
         }
 
         let tmpInOrOut;
 
-        if(ordlistTips.inOrOut == "in"){
+        if (ordlistTips.inOrOut == "in") {
             tmpInOrOut = 0;
-        }else{
+        } else {
             tmpInOrOut = 1;
         }
 
         sendDataToDB = {
+<<<<<<< HEAD
             "ORDER_NO" : checkoutOrderListNo.innerText,
             "CUS_PHONE" : cusPhoneNumber,
             "PAY_NO" : 1,
@@ -455,10 +617,24 @@ window.addEventListener('load',function(){
             "ORDER_NUM" : ppl,
             "ORDER_TTL_PRICE" : checkOutTotalPriceSendToDB,
             "ORDER_DATE" : tmpDate
+=======
+            "ORDER_NO": checkoutOrderListNo.innerText,
+            "CUS_PHONE": cusPhoneNumber,
+            "PAY_NO": 1,
+            "EMP_NO": 1,
+            "BONUS_NAME": bonusRule,
+            "ORDER_TAX_ID": "",
+            "ORDER_DEVICE_NO": "",
+            "ORDER_INNOUT": tmpInOrOut,
+            "ORDER_NUM": ppl,
+            "ORDER_TTL_PRICE": checkOutTotalPriceSendToDB,
+            "ORDER_DATE": tmpDate
+>>>>>>> selfDev_dont-push
         }
 
         checkoutSaveDataToDB(JSON.stringify(sendDataToDB));
         //點過結帳按鈕bool
+<<<<<<< HEAD
          ordCheckOutBool = true;
          //關閉出餐按鈕bool
          ordPostBool = false;
@@ -469,19 +645,38 @@ window.addEventListener('load',function(){
     });
 
     checkOutDone.addEventListener('click',function(){
+=======
+        ordCheckOutBool = true;
+        //關閉出餐按鈕bool
+        ordPostBool = false;
+        localStorage.setItem("ordCheckOutBool", JSON.stringify(ordCheckOutBool));
+        //  saveDataToLocal("ordCheckOutBool",ordCheckOutBool);
+        localStorage.setItem('ordPostBool', ordPostBool);
+
+    });
+
+    checkOutDone.addEventListener('click', function () {
+>>>>>>> selfDev_dont-push
 
         console.log(tmpBackKitchenDone);
         console.log(tmpOrderManuDone);
         //刪除內用訂單
+<<<<<<< HEAD
         for(i=0;i<tabReceiveJson.length;i++){
              
             if(tabReceiveJson[i].number == ordlistTips.number){
+=======
+        for (i = 0; i < tabReceiveJson.length; i++) {
+
+            if (tabReceiveJson[i].number == ordlistTips.number) {
+>>>>>>> selfDev_dont-push
                 tabReceiveJson[i].basicInfo.inOrOut = "";
                 tabReceiveJson[i].basicInfo.orderList = "";
                 //將餐桌改為清潔中
                 tabReceiveJson[i].bgc = tabCleanColor;
             }
         }
+<<<<<<< HEAD
         localStorage.setItem("allData",JSON.stringify(tabReceiveJson)); 
         
         //刪除外帶訂單
@@ -507,64 +702,96 @@ window.addEventListener('load',function(){
                 } 
         }
         
+=======
+        localStorage.setItem("allData", JSON.stringify(tabReceiveJson));
+
+        //刪除外帶訂單
+        if (toGoArr == undefined) {
+
+        } else {
+            for (j = 0; j < toGoArr.length; j++) {
+                if (toGoArr[j].orderList == ordlistTips.orderList) {
+                    toGoArr.splice(j, 1);
+
+                }
+            }
+            localStorage.setItem('toGoArr', JSON.stringify(toGoArr));
+
+        }
+
+        //刪除localstorage裡的done_訂單編號
+        for (k = 0; k < tmpBackKitchenDone.length; k++) {
+            let checktmpBack = tmpBackKitchenDone[k].substring(5, tmpBackKitchenDone[k].length);
+
+            if (ordlistTips.orderList == checktmpBack) {
+                localStorage.removeItem(`done_${checktmpBack}`);
+            }
+        }
+
+>>>>>>> selfDev_dont-push
         //刪除點餐暫存資料
         localStorage.removeItem(`ordSaveProdInCart_${ordlistTips.orderList}`);
         localStorage.removeItem(`ordSaveProdInTempCart${ordlistTips.orderList}`);
         localStorage.removeItem(`SavePpl${ordlistTips.orderList}`);
         localStorage.removeItem(`ordSaveProdInCartOnHist${ordlistTips.orderList}`);
         localStorage.removeItem(`orderNo_${ordlistTips.orderList}`);
+<<<<<<< HEAD
         
         
+=======
+
+
+>>>>>>> selfDev_dont-push
         location.replace('http://localhost/G4_final/dev/posHomeTab.html');
     });
 
     //----- 拆帳 -----
     //拆帳刪除選擇的品項
     //從陣列後面開始刪除就可以排除index亂跑的問題
-    checkoutSeparateBtn.addEventListener('click',function(e){
+    checkoutSeparateBtn.addEventListener('click', function (e) {
         //拆單
         let checkOutSepratePrice = parseInt(0);
-        
-        for(i=checkoutLeftSideMidItemTop.length-1; i>=0; i--){
+
+        for (i = checkoutLeftSideMidItemTop.length - 1; i >= 0; i--) {
             //品項是否有被點選
-            if(checkoutLeftSideMidItemTop[i].className.match('-toblue') != null){
+            if (checkoutLeftSideMidItemTop[i].className.match('-toblue') != null) {
                 //子單加總
-                checkOutSepratePrice = checkOutSepratePrice+parseInt(checkoutLeftSideMidItemTop[i].nextSibling.nextSibling.children[1].innerText.substring(1, checkoutLeftSideMidItemTop[i].nextSibling.nextSibling.children[1].innerText.length));
+                checkOutSepratePrice = checkOutSepratePrice + parseInt(checkoutLeftSideMidItemTop[i].nextSibling.nextSibling.children[1].innerText.substring(1, checkoutLeftSideMidItemTop[i].nextSibling.nextSibling.children[1].innerText.length));
                 console.log(checkOutSepratePrice);
-                checkoutLeftSideMidItemTop[i].parentNode.parentNode.removeChild(checkoutLeftSideMidItemTop[i].parentNode);                    
+                checkoutLeftSideMidItemTop[i].parentNode.parentNode.removeChild(checkoutLeftSideMidItemTop[i].parentNode);
             }
-            checkoutLeftSideBottomTop.innerHTML = `<div></div><span>剩餘品項:${checkoutLeftSideMidItemTop.length}</span>`; 
-            if(checkoutLeftSideMidItemTop.length == 0){
+            checkoutLeftSideBottomTop.innerHTML = `<div></div><span>剩餘品項:${checkoutLeftSideMidItemTop.length}</span>`;
+            if (checkoutLeftSideMidItemTop.length == 0) {
                 checkoutLastBtn.style.display = "initial";
                 checkoutSeparateBtn.style.display = "none";
             }
         }
         document.getElementById('checkoutEachTotal').innerHTML = `<span>拆單總計：</span><span>${checkOutSepratePrice}</span>`
-        checkOutTotalPrice = checkOutTotalPrice-checkOutSepratePrice;
+        checkOutTotalPrice = checkOutTotalPrice - checkOutSepratePrice;
         checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkOutTotalPrice}</span>`;
         //console.log(checkOutTotalPrice);
     });
-    
-    checkoutLeftSideBottomTop.innerHTML = `<div></div><span>剩餘品項:${checkoutLeftSideMidItemTop.length}</span>`; 
-    
+
+    checkoutLeftSideBottomTop.innerHTML = `<div></div><span>剩餘品項:${checkoutLeftSideMidItemTop.length}</span>`;
+
     //----- 折扣 -----
     //單品項價錢
 
-    checkOutDiscountInput.addEventListener('change',function(){
+    checkOutDiscountInput.addEventListener('change', function () {
         //取得輸入的折扣%數
         var discount = checkOutDiscountInput.value;
         //清空總金額
         checkoutDiscountTotalPrice = parseInt(0);
         // console.log(discount);
-        for(i=0;i<checkOutPrice.length;i++){
+        for (i = 0; i < checkOutPrice.length; i++) {
             var x = parseInt(checkOutPrice[i].innerText.substring(1, checkOutPrice[i].innerText.length));
-            x = Math.round(x*discount);
+            x = Math.round(x * discount);
             //折扣後品項加總
             checkoutDiscountTotalPrice += x;
-            checkOutPrice[i].innerText = "$"+x;
+            checkOutPrice[i].innerText = "$" + x;
         }
         //寫回折扣總價
-        document.getElementById('checkoutDiscountTotalPrice').innerText = checkOutTotalPrice-checkoutDiscountTotalPrice;
+        document.getElementById('checkoutDiscountTotalPrice').innerText = checkOutTotalPrice - checkoutDiscountTotalPrice;
         checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkoutDiscountTotalPrice}</span>`;
         // var afterPrice = parseInt(document.getElementById('checkOutTotalPriceShow').innerText); 
         checkOutTotalPrice = checkoutDiscountTotalPrice;
@@ -573,52 +800,51 @@ window.addEventListener('load',function(){
 
     //----- 紅利 -----
     //紅利折點
-    
-    checkoutGetPoint.addEventListener('change',function(){
-        
+
+    checkoutGetPoint.addEventListener('change', function () {
+
         //欲折抵點數
         var getPoint = parseInt(checkoutGetPoint.value); //輸入的紅利點數(整數)
         var bonusPoint = cusPoint - getPoint;           //扣掉後剩餘的紅利點數(整數) -- 第一筆
 
         //取第一個品項的金額
         var firstItem = parseInt(checkOutPrice[0].innerText.substring(1, checkOutPrice[0].innerText.length));
-       
+
 
         //會員有的紅利點數 - 會員逾兌換的紅利點數
-        if(bonusPoint>0){   //可兌換
-          //折抵流程
-          //1. 輸入的紅利點數 / __點可換1元
-          //console.log(parseInt(getPoint/bonusExchange)); //折抵金額
-          console.log(getPoint%bonusExchange);           //折抵後剩餘的紅利點數 -- 第二筆
-          
-          //寫入折抵金額 與 折扣總計一致
-          checkoutDiscountPrice.innerText = parseInt(getPoint/bonusExchange);
-          //寫回折扣總計 與 折扣折抵金額
-          document.getElementById('checkoutDiscountTotalPrice').innerText = parseInt(getPoint/bonusExchange);
+        if (bonusPoint > 0) {   //可兌換
+            //折抵流程
+            //1. 輸入的紅利點數 / __點可換1元
+            //console.log(parseInt(getPoint/bonusExchange)); //折抵金額
+            console.log(getPoint % bonusExchange);           //折抵後剩餘的紅利點數 -- 第二筆
 
-          checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkOutTotalPrice - parseInt(getPoint/bonusExchange)}</span>`; 
-          
-          //
-          checkOutTotalPrice = checkOutTotalPrice - parseInt(getPoint/bonusExchange);
-         
-          //紅利折抵金額 用第一筆品項去扣
-          checkOutPrice[0].innerText = "$" + (firstItem - parseInt(getPoint/bonusExchange));
+            //寫入折抵金額 與 折扣總計一致
+            checkoutDiscountPrice.innerText = parseInt(getPoint / bonusExchange);
+            //寫回折扣總計 與 折扣折抵金額
+            document.getElementById('checkoutDiscountTotalPrice').innerText = parseInt(getPoint / bonusExchange);
+
+            checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkOutTotalPrice - parseInt(getPoint / bonusExchange)}</span>`;
+
+            //
+            checkOutTotalPrice = checkOutTotalPrice - parseInt(getPoint / bonusExchange);
+
+            //紅利折抵金額 用第一筆品項去扣
+            checkOutPrice[0].innerText = "$" + (firstItem - parseInt(getPoint / bonusExchange));
         }
-    
+
     });
-    
-    checkoutLeftSideTopBtn.addEventListener('click',e=>{
+
+    checkoutLeftSideTopBtn.addEventListener('click', e => {
         e.preventDefault();
-        
-        
+
+
         let senddata = checkoutLeftSideTopBtn.parentElement.children[0].value;
         cusPhoneNumber = senddata;
         checkCustomer(senddata);
-        
+
     });
 
-    
-    
+
+
 });
 
-    
