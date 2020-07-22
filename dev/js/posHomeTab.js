@@ -248,7 +248,7 @@ function loadEditTab() {
         tabElement.style.backgroundColor = tabReceiveJson[i].bgc;
         tabElement.style.borderRadius = tabReceiveJson[i].borderRadius;
         tabElement.style.position = "absolute";
-        tabElement.style.transform = `translate(${tabReceiveJson[i].x + 120}px,${tabReceiveJson[i].y + 155}px)`;
+        tabElement.style.transform = `translate(${tabReceiveJson[i].x + 324}px,${tabReceiveJson[i].y + 167}px)`;
         tabElement.style.listStyle = "none";
         tabElement.tabChangeCheckClose = true;
         tabElement.tabChangeCheckRes = true;
