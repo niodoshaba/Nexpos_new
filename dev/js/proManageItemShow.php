@@ -1,6 +1,6 @@
 <?php
 
-// try{
+try{
 // 	$dsn = "mysql:host=localhost;port=3306;dbname=G4_nexpos;charset=utf8";
 // 	$user = "root";
 // 	$password = "lily12345";

@@ -24,7 +24,9 @@ try{
   $fillingItemStatus->execute();
   
   //同時重整頁面
-  header("location= ../fillingItem.html");
+  echo "<script> alert('送出成功');
+  location.href='../fillingItem.html'
+</script>" ;
 
   
 }catch(PDOException $e){

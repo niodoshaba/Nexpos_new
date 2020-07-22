@@ -32,13 +32,13 @@ if(isset($_GET['s'])){
         <table>
             <tr>
                 <td>姓</td>
-                <td>名</td>
-                <td>性別</td>
+                <td style='width: 75px'>名</td>
+                <td style='width: 75px'>性別</td>
                 <td>手機</td>
                 <td>生日</td>
                 <td>e-mail</td>
-                <td>身份</td>
-                <td>狀態</td>
+                <td style='width: 75px'>身份</td>
+                <td style='width: 75px'>狀態</td>
                 <td>點數</td>
             </tr>
 
@@ -61,17 +61,17 @@ if(isset($_GET['s'])){
     // 表頭
     echo "
     <table>
-        <tr>
-            <td>姓</td>
-            <td>名</td>
-            <td>性別</td>
-            <td>手機</td>
-            <td>生日</td>
-            <td>e-mail</td>
-            <td>身份</td>
-            <td>狀態</td>
-            <td>點數</td>
-        </tr>
+            <tr>
+                <td>姓</td>
+                <td style='width: 7px'>名</td>
+                <td style='width: 75px'>性別</td>
+                <td>手機</td>
+                <td>生日</td>
+                <td>e-mail</td>
+                <td style='width: 75px'>身份</td>
+                <td style='width: 75px'>狀態</td>
+                <td>點數</td>
+            </tr>
 
     ";
 

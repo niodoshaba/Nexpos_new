@@ -9563,7 +9563,7 @@ table {
       margin-right: 24px;
       width: 10px; }
     .c-sidebar ul li:hover, .c-sidebar ul li.actives {
-      color: #319d8e;
+      color: #28569a;
       cursor: pointer;
       position: relative;
       z-index: 1000; }
@@ -9597,7 +9597,7 @@ table {
     justify-content: flex-end;
     width: 500px;
     position: absolute;
-    left: 700px; }
+    left: 615px; }
     .c-wrapper .topFunc .topTablink #topTabactives {
       font-size: 20px;
       color: #ffffff;
@@ -9623,12 +9623,13 @@ table {
       margin-left: 40px; }
     .c-wrapper .topFunc .topTablink .toptabCaption {
       margin: 0 auto;
-      margin-top: 22px; }
+      margin-top: 15px;
+      font-size: 20px; }
 
 .tablehead {
   margin-top: 20px;
   padding: 20px;
-  margin-left: 180px;
+  margin-left: 95px;
   width: 1040px; }
   .tablehead h1 {
     font-size: 35px; }
@@ -9699,6 +9700,9 @@ form {
   height: 600px;
   margin-left: 30px;
   margin-top: 30px; }
+
+.c-sidebar ul li.actives {
+  color: #319d8e; }
 
 input.proCataNo,
 input.proItemName,

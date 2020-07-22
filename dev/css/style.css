@@ -148,7 +148,7 @@ a {
       margin-right: 24px;
       width: 10px; }
     .c-sidebar ul li:hover, .c-sidebar ul li.actives {
-      color: #319d8e;
+      color: #28569a;
       cursor: pointer;
       position: relative;
       z-index: 1000; }
@@ -165,7 +165,7 @@ a {
 
 .c-wrapper {
   margin-left: 140px;
-  transition: margin .3s;
+  transition: margin 0.3s;
   display: -ms-flexbox;
   display: flex;
   -ms-flex: 1;
@@ -187,7 +187,7 @@ a {
       display: inline-block;
       width: 79px;
       height: 89px;
-      background-color: #28569A;
+      background-color: #28569a;
       border-radius: 0 0 10px 10px;
       box-shadow: #333333;
       margin-left: 40px;
@@ -196,7 +196,7 @@ a {
     .c-wrapper .topFunc .topTablink .topTab {
       border: solid 0.5px #cdd1d8;
       background-color: #ffffff;
-      color: #28569A;
+      color: #28569a;
       width: 79px;
       height: 89px;
       text-align: center;
@@ -206,7 +206,10 @@ a {
       margin-left: 40px; }
     .c-wrapper .topFunc .topTablink .toptabCaption {
       margin: 0 auto;
-      margin-top: 10px; }
+      margin-top: 15px;
+      font-size: 20px; }
+    .c-wrapper .topFunc .topTablink .tablehead h1 {
+      color: #3c4b64; }
 
 .search-container {
   width: 220px;

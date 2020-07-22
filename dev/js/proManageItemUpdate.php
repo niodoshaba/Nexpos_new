@@ -24,6 +24,10 @@ try{
 
   $proItemStatus = $pdo->prepare( $sql );
   $proItemStatus->execute();
+ 
+  echo "<script> alert('送出成功');
+  location.href='../proManageItem.html'
+</script>" ;
 
 }catch(PDOException $e){
   echo "錯誤行號", $e->getLine(), "<br>";

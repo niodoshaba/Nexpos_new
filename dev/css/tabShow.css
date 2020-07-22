@@ -31,13 +31,17 @@
 
 #tabCloseBtn {
   position: absolute;
-  bottom: 10px;
+  bottom: 25px;
   left: 650px;
-  padding: 20px;
+  padding: 15px;
   width: 100px;
   border-style: none;
   background-color: #F8C54E;
   border-radius: 20px;
   color: white;
   outline: none;
+<<<<<<< HEAD
   cursor: pointer; }
+=======
+  font-size: 20px; }
+>>>>>>> dev_lily
