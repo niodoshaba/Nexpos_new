@@ -1,40 +1,42 @@
 .tablehead {
-    margin-top: 20px;
-    padding: 20px;
-    margin-left: 180px;
-    width: 1040px; }
-    .tablehead h1 {
-      font-size: 35px; }
-#showTableToResPage{
-    display: flex;
-    position: relative;
-    left: 185px;
-    top: 25px;
-    width: 1000px;
-    height: 650px;
-    box-shadow: 0px 0px 10px #959595;
+  margin-top: 20px;
+  padding: 20px;
+  margin-left: 180px;
+  width: 1040px;
+}
+.tablehead h1 {
+  font-size: 35px;
+}
+#showTableToResPage {
+  display: flex;
+  position: relative;
+  left: 195px; //before:185px
+  top: 10px; //before: 25px
+  width: 1000px;
+  height: 650px;
+  box-shadow: 0px 0px 10px #959595;
 }
 
-#tabResOrCloseSelect{
-    margin-left: 200px;
-    margin-top: 10px;
-    padding: 5px;
-    font-size: 20px;
-    border-radius: 10px;
-    border: 1px solid rgba(0,0,0,.3);
-    width: 200px;
-    font-family: "jf-openhuninn";
+#tabResOrCloseSelect {
+  margin-left: 200px;
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 200px;
+  font-family: "jf-openhuninn";
 }
 
-#tabCloseBtn{
-    position: absolute;
-    bottom: 10px;
-    left: 650px;
-    padding: 20px;
-    width: 100px;
-    border-style:none;
-    background-color: #F8C54E;
-    border-radius: 20px;
-    color: white;
-    outline:none;
+#tabCloseBtn {
+  position: absolute;
+  bottom: 10px;
+  left: 650px;
+  padding: 20px;
+  width: 100px;
+  border-style: none;
+  background-color: #f8c54e;
+  border-radius: 20px;
+  color: white;
+  outline: none;
 }

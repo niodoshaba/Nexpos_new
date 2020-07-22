@@ -14,11 +14,9 @@
   width: 1300px; // before: 0
   height: 900px; // before: 100vh
   position: relative; // 新增 為了訂位
-  
 
   background-color: #ffffff;
 
-  
   .topFunc {
     display: flex;
     justify-content: flex-end;
@@ -33,7 +31,7 @@
         display: inline-block;
         width: 79px;
         height: 89px;
-        background-color: #28569a;
+        background-color: #319d8e;
         border-radius: 0 0 10px 10px;
         box-shadow: #333333;
         margin-left: 40px;
@@ -43,7 +41,7 @@
       .topTab {
         border: solid 0.5px #cdd1d8;
         background-color: #ffffff;
-        color: #28569a;
+        color: #319d8e;
         width: 79px;
         height: 89px;
         text-align: center;

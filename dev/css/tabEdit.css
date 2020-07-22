@@ -78,7 +78,7 @@
 
 #resize-tabContainer {
   position: relative;
-  left: 65px;
+  left: 80px;
   top: 15px;
   width: 1000px;
   height: 650px;
@@ -92,17 +92,20 @@
   touch-action: none;
   list-style: none; }
 
-#tabAddBtn, #tabSaveBtn, #tabToolTipBtn {
+#tabAddBtn,
+#tabSaveBtn,
+#tabToolTipBtn {
   height: 50px;
   width: 100px;
   border-style: none;
-  background-color: #F8C54E;
+  background-color: #f8c54e;
   border-radius: 20px;
   color: white;
   outline: none;
   font-size: 20px; }
 
-#tabSaveBtn, #tabToolTipBtn {
+#tabSaveBtn,
+#tabToolTipBtn {
   margin-top: -5px; }
 
 #tabToolTipBtn {
@@ -110,7 +113,7 @@
   margin-right: 20px; }
 
 #tabSaveBtn {
-  background-color: #FF9F4B;
+  background-color: #ff9f4b;
   margin-left: 60%; }
 
 #tabAddBtn {

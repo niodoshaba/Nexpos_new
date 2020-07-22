@@ -1,12 +1,15 @@
 // 主要寫的地方
-#ui-view {
-  min-width: 1180px;
-  min-height: 720px;
-  // padding: 0 120px;
-}
+
 .card-body {
   border: unset;
   margin: 0;
+}
+
+.card {
+  width: 1100px;
+  height: 600px;
+  margin-left: 30px;
+  margin-top: 30px;
 }
 
 input.proCataNo,
@@ -28,7 +31,7 @@ input.proPic {
   // margin-bottom: 25px;
 }
 
-#calendarPickDateTop{
+#calendarPickDateTop {
   margin-left: 135px;
 }
 
