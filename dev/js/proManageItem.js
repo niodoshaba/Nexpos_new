@@ -40,7 +40,7 @@ window.addEventListener("load", function () {
         }
       }
     };
-    xhr.open("get", "../dev/js/proManageItemShow.php", true);
+    xhr.open("get", "./js/proManageItemShow.php", true);
     xhr.send(null);
   } //show data from db-end
 
@@ -81,7 +81,7 @@ window.addEventListener("load", function () {
       console.log(proManageItemInputData);
 
       //設定文件格式
-      xhr.open("post", "../dev/js/proManageItemToDb.php", true);
+      xhr.open("post", "./js/proManageItemToDb.php", true);
       xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
       //把要傳送的物件資料轉為字串型別;
       let str = JSON.stringify(proManageItemInputData);
@@ -155,7 +155,7 @@ window.addEventListener("load", function () {
           .val();
 
         //設定文件格式
-        xhr.open("post", "../dev/js/proManageItemUpdate.php", true);
+        xhr.open("post", "./js/proManageItemUpdate.php", true);
         xhr.setRequestHeader(
           "content-type",
           "application/x-www-form-urlencoded"

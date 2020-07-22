@@ -1,7 +1,7 @@
 //用來裝後台餐桌資料
 var tabReceiveJson = (JSON.parse(localStorage.getItem("allData")));
-        
-        
+
+
 //取出餐桌資料並畫回桌面
 var tabConstrainZone = document.getElementById('showTableToResPage');
 var tabBgc = tabReceiveJson[0].bgc;
@@ -35,11 +35,11 @@ function rgbToHex(r, g, b) {
 //Ajax從資料庫撈餐桌狀態顏色
 
 //從localstorage撈出資料後渲染畫面
-for(i=0;i<tabReceiveJson.length;i++){
-    
+for (i = 0; i < tabReceiveJson.length; i++) {
+
     let tabElement = document.createElement('li');
     tabElement.id = tabReceiveJson[i].id;
-    tabElement.style.width =  tabReceiveJson[i].width;
+    tabElement.style.width = tabReceiveJson[i].width;
     tabElement.style.height = tabReceiveJson[i].height;
     tabElement.style.backgroundColor = tabReceiveJson[i].bgc;
     tabElement.style.borderRadius = tabReceiveJson[i].borderRadius;
@@ -61,7 +61,7 @@ for(i=0;i<tabReceiveJson.length;i++){
 
     tabElement.innerText = tabReceiveJson[i].number;
     tabConstrainZone.appendChild(tabElement);
-    
+
 }
 
 // console.log(tabConstrainZone.childNodes[0].shape);
@@ -69,119 +69,119 @@ for(i=0;i<tabReceiveJson.length;i++){
 //給下拉式選單初值
 tabChangeStatus("tabRes");
 // console.log(tabResOrCloseSelect);
-tabResOrCloseSelect.addEventListener('change', function(e){
+tabResOrCloseSelect.addEventListener('change', function (e) {
     var ResOrClose = e.target.value; //tabClose || tabRes
-    
-    if(ResOrClose == "tabClose"){
-        
+
+    if (ResOrClose == "tabClose") {
+
         tabChangeStatus(tabCloseColor);
-        
-    }else{
-        
+
+    } else {
+
         tabChangeStatus(tabResColor);
-        
+
     }
 });
 
-function tabChangeStatus(bgc){
+function tabChangeStatus(bgc) {
     // console.log(bgc);
-    tabConstrainZone.addEventListener('click',function(e){
+    tabConstrainZone.addEventListener('click', function (e) {
         var test = tabResOrCloseSelect.value;
         e.preventDefault();
         e.stopImmediatePropagation();
-        
+
         // console.log(bgc);
         const li = e.target.closest('li');
-        
+
         var color = li.style.backgroundColor;
         var start = color.indexOf('(');
         var stop = color.lastIndexOf(')');
-        var d = color.substring(start+1, stop);
-        var bColor = parseInt(d.substring(d.lastIndexOf(' ')+1,d.length));
-        var gColor = parseInt(d.substring(d.indexOf(' ')+1,d.lastIndexOf(',')));
-        var rColor = parseInt(d.substring(0,d.indexOf(',')));
+        var d = color.substring(start + 1, stop);
+        var bColor = parseInt(d.substring(d.lastIndexOf(' ') + 1, d.length));
+        var gColor = parseInt(d.substring(d.indexOf(' ') + 1, d.lastIndexOf(',')));
+        var rColor = parseInt(d.substring(0, d.indexOf(',')));
         //轉換後的值
         var transformColor = rgbToHex(rColor, gColor, bColor);
 
         //判斷目前在預約頁面或在關閉頁面
-        if(test == "tabClose"){
+        if (test == "tabClose") {
             li.tabChangeCheckClose = true;
-           
+
             // if(li.style.backgroundColor == tabBgc){
             //     li.style.backgroundColor = tabCloseColor;
             //     li.tabChangeCheckClose = false;
-                
+
             // }
             // console.log(li.style.backgroundColor);
-            if(transformColor == tabEditColor){
+            if (transformColor == tabEditColor) {
 
                 li.style.backgroundColor = tabCloseColor;
                 li.tabChangeCheckClose = false;
 
-            }else if(transformColor == tabCloseColor){
+            } else if (transformColor == tabCloseColor) {
                 li.style.backgroundColor = tabEditColor;
 
             }
             // else if(li.tabChangeCheckRes == false){
             //     alert('此桌已被預約無法關閉');
-                
+
             // }
-            else{
+            else {
                 alert('此桌預約/用餐/清潔中無法關閉');
             }
             // else{
             //     li.style.backgroundColor = tabBgc;
-                
+
             // } 
         }
 
-        if(test == "tabRes"){
+        if (test == "tabRes") {
             // li.tabChangeCheckRes = true;
 
             // if(li.style.backgroundColor == tabBgc){
             //     li.style.backgroundColor = tabResColor;
             //     li.tabChangeCheckRes = false;
-                
+
             // }
-            if(transformColor == tabEditColor){
+            if (transformColor == tabEditColor) {
 
                 li.style.backgroundColor = tabResColor;
                 // li.tabChangeCheckRes = false;
 
-            }else if(transformColor == tabResColor){
-                
+            } else if (transformColor == tabResColor) {
+
                 li.style.backgroundColor = tabEditColor;
 
-            }       
+            }
 
             // else if(li.tabChangeCheckClose == false){
             //     alert('此桌已被關閉無法預約');
-                
+
             // }
-            else{
+            else {
                 alert('此桌關閉/用餐/清潔中無法預約');
             }
             // else{
             //     li.style.backgroundColor = tabBgc;
-                
+
             // }  
         }
-        
+
     });
 }
-function saveAllDataToJson(data){
-    localStorage.setItem("allData",JSON.stringify(data));
-} 
-tabCloseBtn.addEventListener('click', function(e){
+function saveAllDataToJson(data) {
+    localStorage.setItem("allData", JSON.stringify(data));
+}
+tabCloseBtn.addEventListener('click', function (e) {
     // var positionArr = [];
     e.preventDefault();
     e.stopImmediatePropagation();
     // console.log(tabConstrainZone.childElementCount);
-    for(i=0;i<tabConstrainZone.childElementCount;i++){
+    for (i = 0; i < tabConstrainZone.childElementCount; i++) {
         var tabShapeName = tabConstrainZone.childNodes[i].getAttribute('class');
         //tabConstrainZone.childNodes[i].style.backgroundColor 顏色是對的
         tabReceiveJson[i].bgc = tabConstrainZone.childNodes[i].style.backgroundColor;
-        
+
     }
 
     saveAllDataToJson(tabReceiveJson);

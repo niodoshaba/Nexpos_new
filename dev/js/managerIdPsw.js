@@ -39,7 +39,7 @@ window.addEventListener('load', function () {
         }
       }
     }
-    xhr.open("get", "../dev/js/managerIdPswShow.php", true);
+    xhr.open("get", "./js/managerIdPswShow.php", true);
     xhr.send(null);
   }
   //顯示資料庫撈出來的資料
@@ -82,7 +82,7 @@ window.addEventListener('load', function () {
       // console.log(managerInputData); //測試按下按下儲存時可以接收到資料
 
       //設定文件格式
-      xhr.open("post", "../dev/js/managerIdPswInsert.php", true);
+      xhr.open("post", "./js/managerIdPswInsert.php", true);
       xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
       //將要傳送的物件資料轉為字串型別
       let str = JSON.stringify(managerInputData);
@@ -153,7 +153,7 @@ window.addEventListener('load', function () {
         // console.log(managerIdPswUpdate); //確認按下儲存時有抓到資料
 
         // 設定文件格式
-        xhr.open("post", "../dev/js/managerIdPswUpdate.php", true);
+        xhr.open("post", "./js/managerIdPswUpdate.php", true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         //將要傳送的物件資料轉為字串型別
         let strUpdate = JSON.stringify(managerIdPswUpdate);

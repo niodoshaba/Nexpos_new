@@ -30,7 +30,7 @@ window.addEventListener('load', function () {
         edit();
       }
     }
-    xhr.open("get", "../dev/js/discountManageShow.php", true);
+    xhr.open("get", "./js/discountManageShow.php", true);
     xhr.send(null);
   }
   //顯示資料
@@ -80,7 +80,7 @@ window.addEventListener('load', function () {
       // console.log(allDisInputData);
 
       //設定文件格式
-      xhr.open("post", "../dev/js/discountManageInsert.php", true);
+      xhr.open("post", "./js/discountManageInsert.php", true);
       xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
       //將要傳送的物件資料轉為字串型別
       let str = JSON.stringify(allDisInputData);
@@ -146,7 +146,7 @@ window.addEventListener('load', function () {
         console.log(allDisUpdateData);
 
         // 設定文件格式
-        xhr.open("post", "../dev/js/discountManageUpdate.php", true);
+        xhr.open("post", "./js/discountManageUpdate.php", true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         //將要傳送的物件資料轉為字串型別
         let strUpdate = JSON.stringify(allDisUpdateData);

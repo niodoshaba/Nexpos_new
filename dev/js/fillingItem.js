@@ -41,7 +41,7 @@ window.addEventListener("load", function () {
         }
       }
     };
-    xhr.open("get", "../dev/js/fillingItemShow.php", true);
+    xhr.open("get", "./js/fillingItemShow.php", true);
     xhr.send(null);
   } //show data from db-end
 
@@ -81,7 +81,7 @@ window.addEventListener("load", function () {
       console.log(fillingItemInputData);
 
       //設定文件格式
-      xhr.open("post", "../dev/js/fillingItemToDb.php", true);
+      xhr.open("post", "./js/fillingItemToDb.php", true);
       xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
       //把要傳送的物件資料轉為字串型別
       let str = JSON.stringify(fillingItemInputData);
@@ -157,7 +157,7 @@ window.addEventListener("load", function () {
           .val();
 
         //設定文件格式
-        xhr.open("post", "../dev/js/fillingItemUpdate.php", true);
+        xhr.open("post", "./js/fillingItemUpdate.php", true);
         xhr.setRequestHeader(
           "content-type",
           "application/x-www-form-urlencoded"

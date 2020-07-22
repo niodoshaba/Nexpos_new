@@ -40,7 +40,7 @@ window.addEventListener('load', function () {
         }
       }
     }
-    xhr.open("get", "../dev/js/idPswManageShow.php", true);
+    xhr.open("get", "./js/idPswManageShow.php", true);
     xhr.send(null);
   }
   //顯示資料
@@ -86,7 +86,7 @@ window.addEventListener('load', function () {
       // console.log(idPswInputData);
 
       //設定文件格式
-      xhr.open("post", "../dev/js/idPswManageInsert.php", true);
+      xhr.open("post", "./js/idPswManageInsert.php", true);
       xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
       //將要傳送的物件資料轉為字串型別
       let str = JSON.stringify(idPswInputData);
@@ -159,7 +159,7 @@ window.addEventListener('load', function () {
         // console.log(idPswUpdateData); //確認按下儲存時有抓到資料
 
         // 設定文件格式
-        xhr.open("post", "../dev/js/idPswManageUpdate.php", true);
+        xhr.open("post", "./js/idPswManageUpdate.php", true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         //將要傳送的物件資料轉為字串型別
         let strUpdate = JSON.stringify(idPswUpdateData);

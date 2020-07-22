@@ -271,7 +271,7 @@
         var CUS_POINT = $('#CUS_POINT').val();
 
         $.ajax({
-          url: "../dev/js/memberJoin.php",
+          url: "./js/memberJoin.php",
           type: "POST",
           data: {
             CUS_PHONE: CUS_PHONE,
@@ -303,6 +303,12 @@
       Calendar.init({
         disablePastDays: true
       });
+
+      // 判斷登入人員並顯示於頁面
+      let username = sessionStorage.getItem('name');
+
+      let loginName = document.querySelector('.user');
+      loginName.innerHTML = `Hi! ${username}`;
 
     })
   </script>

@@ -37,7 +37,7 @@ window.addEventListener("load", function () {
         }
       }
     };
-    xhr.open("get", "../dev/js/proManageShow.php", true);
+    xhr.open("get", "./js/proManageShow.php", true);
     xhr.send(null);
   } //show data from db-end
 
@@ -86,7 +86,7 @@ window.addEventListener("load", function () {
         proUpdateData.proCataOnOff = tr.find(".proCataOnOff :selected").val();
 
         //設定文件格式
-        xhr.open("post", "../dev/js/proManageUpdate.php", true);
+        xhr.open("post", "./js/proManageUpdate.php", true);
         xhr.setRequestHeader(
           "content-type",
           "application/x-www-form-urlencoded"

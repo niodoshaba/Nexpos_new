@@ -38,7 +38,7 @@ window.addEventListener("load", function () {
         }
       }
     };
-    xhr.open("get", "../dev/js/fillingCataShow.php", true);
+    xhr.open("get", "./js/fillingCataShow.php", true);
     xhr.send(null);
   } //show data from db-end
 
@@ -88,7 +88,7 @@ window.addEventListener("load", function () {
           .val();
 
         //設定文件格式
-        xhr.open("post", "../dev/js/fillingCataUpdate.php", true);
+        xhr.open("post", "./js/fillingCataUpdate.php", true);
         xhr.setRequestHeader(
           "content-type",
           "application/x-www-form-urlencoded"
