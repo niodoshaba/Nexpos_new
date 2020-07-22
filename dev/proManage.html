@@ -76,6 +76,31 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
   <script src="./js/proManage.js"></script>
+  <script>
+    //判斷登入若為店長則只可瀏覽前三行
+    window.addEventListener("load", function () {
+      if (sessionStorage.getItem('title')) {
+        let usertitle = sessionStorage.getItem('title');
+
+        if (usertitle == '店長') {
+          $("li").slice(3, 8).css("visibility", "hidden");
+        }
+      } else {
+        let tempStr = decodeURIComponent(location.search.substr(1));
+        let arr = tempStr.split("&");
+        let EMP_TITLE = arr[0].split("=")[1];
+        // console.log (EMP_TITLE);
+
+        sessionStorage.setItem('title', EMP_TITLE);
+        let usertitle = sessionStorage.getItem('title');
+        // alert(usertitle);
+
+        if (usertitle == '店長') {
+          $("li").slice(3, 8).css("visibility", "hidden");
+        }
+      }
+    })
+  </script>
 </body>
 
 </html>
