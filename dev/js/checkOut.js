@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-window.addEventListener('load',function(){
-    
-    let checkoutLeftSideMid = document.getElementById('checkoutLeftSideMid');
-    let checkoutScrollbar = document.getElementsByClassName("checkoutScrollbar")[0];
-    let checkoutLeftSideMidItemTop =document.getElementsByClassName("checkoutLeftSideMidItemTop");
-=======
 window.addEventListener('load', function () {
 
     let checkoutLeftSideMid = document.getElementById('checkoutLeftSideMid');
     let checkoutScrollbar = document.getElementsByClassName("checkoutScrollbar")[0];
     let checkoutLeftSideMidItemTop = document.getElementsByClassName("checkoutLeftSideMidItemTop");
->>>>>>> selfDev_dont-push
     let checkoutIfEachCheck = document.getElementById("checkoutIfEachCheck");
     let checkoutIfDiscount = document.getElementById("checkoutIfDiscount");
     let checkoutIfPoint = document.getElementById("checkoutIfPoint");
@@ -108,17 +100,11 @@ window.addEventListener('load', function () {
 
     let checkoutGetCash = document.getElementById('checkoutGetCash');
     let checkoutChangeDiv = document.getElementById('checkoutChangeDiv').children[1];
-    
+
     checkoutOrderListNo.innerText = `訂單編號: ${ordlistTips.orderList}`;
-<<<<<<< HEAD
-    
-    
-    if(ordlistTips.inOrOut == "in"){
-=======
 
 
     if (ordlistTips.inOrOut == "in") {
->>>>>>> selfDev_dont-push
         checkoutOrderInOrOut.innerText = "內用";
         checkoutTabNo.innerText = `桌號: ${ordlistTips.number}`;
     } else {
@@ -130,13 +116,8 @@ window.addEventListener('load', function () {
     //確認是否有後廚完成訂單，有渲染內用外帶訂單
     var tmpOrderManuDone = [];
 
-<<<<<<< HEAD
-    function checkOrderDone(){
-        for(var i = 0; i < localStorage.length; i++){
-=======
     function checkOrderDone() {
         for (var i = 0; i < localStorage.length; i++) {
->>>>>>> selfDev_dont-push
             tmpOrderManu.push(localStorage.key(i));
         }
 
@@ -148,24 +129,6 @@ window.addEventListener('load', function () {
 
     }
 
-<<<<<<< HEAD
-    function checkBackKitchenDone(){
-        for(var i = 0; i < localStorage.length; i++){
-            tmpBackKitchen.push(localStorage.key(i));
-        }
-    
-        for(j=0;j<tmpBackKitchen.length;j++){
-            if(tmpBackKitchen[j].includes('done_')){
-                tmpBackKitchenDone.push(tmpBackKitchen[j]);
-            }
-        }
-    
-    }
-    function saveDataToLocal(name,data){  
-        localStorage.setItem(name,JSON.stringify(data));            
-   }
-    
-=======
     function checkBackKitchenDone() {
         for (var i = 0; i < localStorage.length; i++) {
             tmpBackKitchen.push(localStorage.key(i));
@@ -182,7 +145,6 @@ window.addEventListener('load', function () {
         localStorage.setItem(name, JSON.stringify(data));
     }
 
->>>>>>> selfDev_dont-push
     //接會員點數
     // let cusPoint = 0;
 
@@ -201,13 +163,8 @@ window.addEventListener('load', function () {
 
             }
         }
-<<<<<<< HEAD
-        xhr.open("post","./js/checkOut.php",true);
-        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-=======
         xhr.open("post", "./js/checkOut.php", true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
->>>>>>> selfDev_dont-push
         xhr.send(null);
 
     }
@@ -243,13 +200,8 @@ window.addEventListener('load', function () {
 
             }
         }
-<<<<<<< HEAD
-        xhr.open("post","./js/customerSearch.php",true);
-        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-=======
         xhr.open("post", "./js/customerSearch.php", true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
->>>>>>> selfDev_dont-push
         xhr.send(`customer=${data}`);
 
     }
@@ -289,43 +241,24 @@ window.addEventListener('load', function () {
 
     checkBackKitchenDone();
     checkOrderDone();
-<<<<<<< HEAD
-    
-=======
 
-
->>>>>>> selfDev_dont-push
 
 
     ordHTML = "";
     checkoutLeftSideMidItemAll.innerHTML = "";
-<<<<<<< HEAD
-    
-    let tmpcontent;
-   
-    for(i=0;i<tmpOrderManuDone.length;i++){
-        let tmpstr = tmpOrderManuDone[i].indexOf('_')+1;
-        if(tmpOrderManuDone[i].substring(tmpstr) == ordlistTips.orderList){
-=======
 
     let tmpcontent;
 
     for (i = 0; i < tmpOrderManuDone.length; i++) {
         let tmpstr = tmpOrderManuDone[i].indexOf('_') + 1;
         if (tmpOrderManuDone[i].substring(tmpstr) == ordlistTips.orderList) {
->>>>>>> selfDev_dont-push
             tmpcontent = JSON.parse(localStorage.getItem(`orderNo_${ordlistTips.orderList}`));
 
         }
     }
 
-<<<<<<< HEAD
-    function orderBlue(){
-      
-=======
     function orderBlue() {
 
->>>>>>> selfDev_dont-push
         // for(i=0;i<checkoutLeftSideMidItemTop.length;i++){
         //     checkoutLeftSideMidItemTop[i].addEventListener("click",function(){
         //         console.log(1);
@@ -333,11 +266,7 @@ window.addEventListener('load', function () {
         //     });
         // }
     }
-<<<<<<< HEAD
-   
-=======
 
->>>>>>> selfDev_dont-push
 
     for (k = 1; k < tmpcontent.length; k++) {
 
@@ -370,17 +299,10 @@ window.addEventListener('load', function () {
                                     </div> 
                                 </div>
                             `;
-<<<<<<< HEAD
-                            checkoutLeftSideMidItemAll.innerHTML = ordHTML;
-                            
-
-                            // setTimeout(orderBlue,0);
-=======
                 checkoutLeftSideMidItemAll.innerHTML = ordHTML;
 
 
                 // setTimeout(orderBlue,0);
->>>>>>> selfDev_dont-push
             } else {
 
                 ordHTML += `
@@ -396,15 +318,6 @@ window.addEventListener('load', function () {
                             </div> 
                         </div>
                     `;
-<<<<<<< HEAD
-                    checkoutLeftSideMidItemAll.innerHTML = ordHTML;
-
-            };
-        };
-        
-        // checkoutLeftSideMidItemAll.insertAdjacentHTML("beforeend", `${ordHTML}`)
-               
-=======
                 checkoutLeftSideMidItemAll.innerHTML = ordHTML;
 
             };
@@ -412,33 +325,32 @@ window.addEventListener('load', function () {
 
         // checkoutLeftSideMidItemAll.insertAdjacentHTML("beforeend", `${ordHTML}`)
 
->>>>>>> selfDev_dont-push
     };
-    
-        checkoutScrollbar.addEventListener('click',function(e){
-            
-            const li = e.target.closest();
-            console.log(li);
-            const thisindex = Array.prototype.indexOf.call(li.parentNode.children, li);
-            // console.log(thisindex);
-            // for(i=0;i<li.length;i++){
-            //     li[i]
-            // }
-        
-        });  
-        // for(i=0;i<checkoutScrollbar.childElementCount;i++){
-        //     checkoutScrollbar.children[i].addEventListener('click',function(){
-        //         alert(123);
-        //     });
+
+    checkoutScrollbar.addEventListener('click', function (e) {
+
+        const li = e.target.closest();
+        console.log(li);
+        const thisindex = Array.prototype.indexOf.call(li.parentNode.children, li);
+        // console.log(thisindex);
+        // for(i=0;i<li.length;i++){
+        //     li[i]
         // }
-        
-        // const index = Array.prototype.indexOf.call(li.parentNode.children, li);
-        // console.log(index);
-    
+
+    });
+    // for(i=0;i<checkoutScrollbar.childElementCount;i++){
+    //     checkoutScrollbar.children[i].addEventListener('click',function(){
+    //         alert(123);
+    //     });
+    // }
+
+    // const index = Array.prototype.indexOf.call(li.parentNode.children, li);
+    // console.log(index);
+
 
 
     // setTimeout(() => {
-       
+
     //     checkoutLeftSideMidItemTop[0].addEventListener("click",function(){
     //         // $(this).toggleClass("-toblue");
     //     });
@@ -450,7 +362,7 @@ window.addEventListener('load', function () {
     //     //     });
     //     // }
     // }, 10);
-    
+
 
     checkoutScrollbar.addEventListener('click', function (e) {
 
@@ -503,13 +415,8 @@ window.addEventListener('load', function () {
 
 
     // 點擊訂單項目反藍
-<<<<<<< HEAD
-   
-    
-=======
 
 
->>>>>>> selfDev_dont-push
 
     //切換三種結帳模式
     checkoutDiscountBtn.addEventListener("click", function () {
@@ -535,18 +442,6 @@ window.addEventListener('load', function () {
     });
 
     //送資料給後端程式同時
-<<<<<<< HEAD
-    checkoutLastBtn.addEventListener('click',function(){   
-        
-        checkoutSendNo.innerText = checkoutOrderListNo.innerText;
-        checkoutSendPayNo.innerText = "現金";  
-        checkoutSendGetPrice.innerText =  checkoutGetCash.value; 
-        checkoutSendCoin.innerText = checkoutChangeDiv.innerText;  
-        checkoutSendDiscount.innerText = checkoutDiscountTotalPrice.innerText;  
-        checkoutSendBonus.innerText =  checkoutGetPoint.value; 
-        checkoutSendLastBonus.innerText = parseInt(checkoutNowBouns)-parseInt(checkoutGetPoint.value);
-        checkoutSendTotalPrice.innerText =  checkOutTotalPrice; 
-=======
     checkoutLastBtn.addEventListener('click', function () {
 
         checkoutSendNo.innerText = checkoutOrderListNo.innerText;
@@ -557,7 +452,6 @@ window.addEventListener('load', function () {
         checkoutSendBonus.innerText = checkoutGetPoint.value;
         checkoutSendLastBonus.innerText = parseInt(checkoutNowBouns) - parseInt(checkoutGetPoint.value);
         checkoutSendTotalPrice.innerText = checkOutTotalPrice;
->>>>>>> selfDev_dont-push
 
 
         //訂單編號
@@ -582,13 +476,8 @@ window.addEventListener('load', function () {
         // console.log(ordlistTips.number);
         // console.log(tabReceiveJson[2].number);
         console.log(`orderNo_${ordlistTips.orderList}`);
-<<<<<<< HEAD
-        let tmpDate = `${cusNowDay.getFullYear()}-${cusNowDay.getMonth()+1}-${cusNowDay.getDate()}`;
-        
-=======
         let tmpDate = `${cusNowDay.getFullYear()}-${cusNowDay.getMonth() + 1}-${cusNowDay.getDate()}`;
 
->>>>>>> selfDev_dont-push
         //人數
         if (ordlistTips.ppl == undefined) {
             ppl = 0;
@@ -605,19 +494,6 @@ window.addEventListener('load', function () {
         }
 
         sendDataToDB = {
-<<<<<<< HEAD
-            "ORDER_NO" : checkoutOrderListNo.innerText,
-            "CUS_PHONE" : cusPhoneNumber,
-            "PAY_NO" : 1,
-            "EMP_NO" : 1,
-            "BONUS_NAME" : bonusRule,
-            "ORDER_TAX_ID": "",
-            "ORDER_DEVICE_NO" : "",
-            "ORDER_INNOUT" : tmpInOrOut,
-            "ORDER_NUM" : ppl,
-            "ORDER_TTL_PRICE" : checkOutTotalPriceSendToDB,
-            "ORDER_DATE" : tmpDate
-=======
             "ORDER_NO": checkoutOrderListNo.innerText,
             "CUS_PHONE": cusPhoneNumber,
             "PAY_NO": 1,
@@ -629,23 +505,10 @@ window.addEventListener('load', function () {
             "ORDER_NUM": ppl,
             "ORDER_TTL_PRICE": checkOutTotalPriceSendToDB,
             "ORDER_DATE": tmpDate
->>>>>>> selfDev_dont-push
         }
 
         checkoutSaveDataToDB(JSON.stringify(sendDataToDB));
         //點過結帳按鈕bool
-<<<<<<< HEAD
-         ordCheckOutBool = true;
-         //關閉出餐按鈕bool
-         ordPostBool = false;
-         localStorage.setItem("ordCheckOutBool",JSON.stringify(ordCheckOutBool));
-        //  saveDataToLocal("ordCheckOutBool",ordCheckOutBool);
-         localStorage.setItem('ordPostBool',ordPostBool);
-
-    });
-
-    checkOutDone.addEventListener('click',function(){
-=======
         ordCheckOutBool = true;
         //關閉出餐按鈕bool
         ordPostBool = false;
@@ -656,53 +519,19 @@ window.addEventListener('load', function () {
     });
 
     checkOutDone.addEventListener('click', function () {
->>>>>>> selfDev_dont-push
 
         console.log(tmpBackKitchenDone);
         console.log(tmpOrderManuDone);
         //刪除內用訂單
-<<<<<<< HEAD
-        for(i=0;i<tabReceiveJson.length;i++){
-             
-            if(tabReceiveJson[i].number == ordlistTips.number){
-=======
         for (i = 0; i < tabReceiveJson.length; i++) {
 
             if (tabReceiveJson[i].number == ordlistTips.number) {
->>>>>>> selfDev_dont-push
                 tabReceiveJson[i].basicInfo.inOrOut = "";
                 tabReceiveJson[i].basicInfo.orderList = "";
                 //將餐桌改為清潔中
                 tabReceiveJson[i].bgc = tabCleanColor;
             }
         }
-<<<<<<< HEAD
-        localStorage.setItem("allData",JSON.stringify(tabReceiveJson)); 
-        
-        //刪除外帶訂單
-         if(toGoArr == undefined){
-
-        }else{
-            for(j=0;j<toGoArr.length;j++){
-                if(toGoArr[j].orderList == ordlistTips.orderList){
-                    toGoArr.splice(j,1);
-                
-                }
-            }
-            localStorage.setItem('toGoArr',JSON.stringify(toGoArr));
-
-        }
-        
-        //刪除localstorage裡的done_訂單編號
-        for(k=0;k<tmpBackKitchenDone.length;k++){
-            let checktmpBack = tmpBackKitchenDone[k].substring(5,tmpBackKitchenDone[k].length);
-            
-                if(ordlistTips.orderList == checktmpBack){
-                    localStorage.removeItem(`done_${checktmpBack}`);
-                } 
-        }
-        
-=======
         localStorage.setItem("allData", JSON.stringify(tabReceiveJson));
 
         //刪除外帶訂單
@@ -728,20 +557,14 @@ window.addEventListener('load', function () {
             }
         }
 
->>>>>>> selfDev_dont-push
         //刪除點餐暫存資料
         localStorage.removeItem(`ordSaveProdInCart_${ordlistTips.orderList}`);
         localStorage.removeItem(`ordSaveProdInTempCart${ordlistTips.orderList}`);
         localStorage.removeItem(`SavePpl${ordlistTips.orderList}`);
         localStorage.removeItem(`ordSaveProdInCartOnHist${ordlistTips.orderList}`);
         localStorage.removeItem(`orderNo_${ordlistTips.orderList}`);
-<<<<<<< HEAD
-        
-        
-=======
 
 
->>>>>>> selfDev_dont-push
         location.replace('http://localhost/G4_final/dev/posHomeTab.html');
     });
 
