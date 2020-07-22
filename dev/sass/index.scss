@@ -686,6 +686,49 @@ section.fpHomepage4{
         }
 
 }
+html.fixWindow{
+    position: fixed;
+    width: 100%;
+}
+#indexBlackBlock{
+    // display: none;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 0vw;
+    height: 0vh;
+    border-radius: 20px;
+    background-color: rgba(0,0,0,.9);
+    text-align: center;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.5s linear;
+
+    #indexBlackBlockText{
+        margin-top: 50%;
+        // transform: translateY(-50%);
+        p{
+            color: white;
+            font-size: 30px;
+        }   
+        span{
+            color: white;
+            font-size: 50px;
+        }
+        #indexBlackBlockBack{
+            border: 3px solid white;
+            color: white;
+            background-color: black;
+            font-size: 30px;
+            border-radius: 20px;
+            // color: black;
+            // background-color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    }
+}
 
 @media screen and (min-width: 577px) and (max-width: 768px){
     .fpSlogan{

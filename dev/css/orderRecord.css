@@ -71,9 +71,10 @@ span {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 30px; }
+  bottom: 30px;
+  cursor: pointer; }
 
-able, td {
+table, td {
   border-collapse: collapse; }
 
 tr {
