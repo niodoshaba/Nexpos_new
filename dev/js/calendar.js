@@ -8,7 +8,7 @@ window.addEventListener('load', function () {
       Calendar.DAILY_RES = JSON.parse(xhr.responseText);
       // console.log(Calendar.DAILY_RES)
     }
-    //初始化日曆
+    //初始化日曆  
     Calendar.init({
       disablePastDays: true
     });
@@ -21,6 +21,7 @@ window.addEventListener('load', function () {
 
 
 })
+
 
 
 var Calendar = {
@@ -119,7 +120,7 @@ var Calendar = {
       var resAbleCountRander = DAILY_TABLE.find(function (item, index, array) {
         return item.DAILY_DATE === resAbleDateRander
       });
-      let resDateOpenRander = resAbleCountRander.DAILY_STA;
+      let resDateOpenRander = resAbleCountRander.DAILY_STA
       console.log(resDateOpenRander)
 
       resAbleNumRander = resAbleCountRander.DAILY_AVA - resAbleCountRander.DAILY_NUM
