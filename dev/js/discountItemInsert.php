@@ -9,9 +9,8 @@ try{
   // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   // $pdo = new PDO($dsn, $user, $password, $options);
 
-
-  require_once("generalConnectDB.php");
-  // require_once("ordCon.php");
+// require_once("generalConnectDB.php");
+require_once("ordCon.php");
 
   $productsNo = $ItemInputData->disItemNo; //品項編號
   $discount = $ItemInputData->disItemdiscount * 0.1; //輸入的折扣金額

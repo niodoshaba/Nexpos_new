@@ -4,8 +4,8 @@ session_start();
 
 try{
 
-  require_once("generalConnectDB.php");
-    // require_once("ordCon.php");
+  // require_once("generalConnectDB.php");
+  require_once("ordCon.php");
 
     
   // $dsn = "mysql:host=localhost; port=3306; dbname=G4_nexpos; charset=utf8";

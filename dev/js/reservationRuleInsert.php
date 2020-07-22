@@ -8,8 +8,8 @@ try{
   // $pdo = new PDO( $dsn, $user, $password, $options); 
 
 
-  require_once("generalConnectDB.php");
-  // require_once("ordCon.php");
+  // require_once("generalConnectDB.php");
+  require_once("ordCon.php");
   
 
   $resStartDate =$_POST["resStartDate"];
@@ -24,9 +24,10 @@ try{
 
   $daily_state = $pdo->prepare( $sql );
   $daily_state->execute();
+
   
 echo "<script> alert('送出成功');
-
+location.href='../reservationRule.html'
 </script>" ;
 
   

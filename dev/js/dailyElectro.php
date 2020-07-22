@@ -8,8 +8,8 @@ try{
   // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   // $pdo = new PDO($dsn, $user, $password, $options);
 
-  require_once("generalConnectDB.php");
-  // require_once("ordCon.php");
+  // require_once("generalConnectDB.php");
+  require_once("ordCon.php");
   
   //電子支付總額
   $sqlElectro = "SELECT A2.PAY_METHOD PayMethod, SUM(A1.ORDER_TTL_PRICE) Price

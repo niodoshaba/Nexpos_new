@@ -8,9 +8,8 @@ try{
   // $pdo = new PDO( $dsn, $user, $password, $options); 
   
   
-  require_once("generalConnectDB.php");
-  // require_once("ordCon.php");
-
+  // require_once("generalConnectDB.php");
+  require_once("ordCon.php");
 
   $sql = "SELECT * FROM CUSTOMER WHERE CUS_ID = '1'";
 

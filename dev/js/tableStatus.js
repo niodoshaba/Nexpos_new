@@ -36,9 +36,9 @@ window.addEventListener('load', function () {
   //顯示資料
 
   //按下新增鈕出現input表單欄位
-  $('.addbtn').click(function () {
+  $('.addBtn').click(function () {
 
-    $('.addbtn').attr('disabled', true);//disabled新增鈕
+    $('.addBtn').attr('disabled', true);//disabled新增鈕
     $('.edit').attr('disabled', true);//disabled編輯鈕
     //顯示input表單欄位
     $('.title').after(`
@@ -58,7 +58,7 @@ window.addEventListener('load', function () {
         if (xhr.status == 200) {
           $('tr.input').remove();
           showRow();
-          $('.addbtn').removeAttr('disabled');//恢復新增按鈕
+          $('.addBtn').removeAttr('disabled');//恢復新增按鈕
         }
         else {
           // alert(xhr.status);
@@ -84,7 +84,7 @@ window.addEventListener('load', function () {
     // 取消新增
     $('.cancel').click(function () {
       $('.input').remove();
-      $('.addbtn').removeAttr('disabled');//恢復新增按鈕
+      $('.addBtn').removeAttr('disabled');//恢復新增按鈕
       $('.edit').removeAttr('disabled');//恢復編輯按鈕
     });
 
@@ -95,7 +95,7 @@ window.addEventListener('load', function () {
   function edit() {
     $('.edit').click(function () {
       // alert('haha');
-      $('.addbtn').attr('disabled', true)//disabled新增鈕
+      $('.addBtn').attr('disabled', true)//disabled新增鈕
       $('.edit').attr('disabled', true); //disabled其他編輯鈕
 
       let tr = $(this).parent().parent(); //找到當下那層tr
@@ -121,7 +121,7 @@ window.addEventListener('load', function () {
         xhr.onload = function () {
           if (xhr.status == 200) {
             showRow();
-            $('.addbtn').removeAttr('disabled');//恢復新增按鈕
+            $('.addBtn').removeAttr('disabled');//恢復新增按鈕
           } else {
             // alert(xhr.status);
           }
@@ -149,7 +149,7 @@ window.addEventListener('load', function () {
       // 按下取消鈕
       $('.cancel').click(function () {
         showRow();
-        $('.addbtn').removeAttr('disabled');//恢復新增按鈕
+        $('.addBtn').removeAttr('disabled');//恢復新增按鈕
       });
 
     });

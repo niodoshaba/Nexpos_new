@@ -7,10 +7,10 @@ try{
     // $password = "lily12345";
     // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
     // $pdo = new PDO( $dsn, $user, $password, $options); 
+    
+// require_once("generalConnectDB.php");
+require_once("ordCon.php");
 
-    require_once("generalConnectDB.php");
-    // require_once("ordCon.php");
-  
   $fillingCataNo = $fillingUpdateData->fillingCataNo;
   $fillingCataName = $fillingUpdateData->fillingCataName;
   $fillingCataOnOff = $fillingUpdateData->fillingCataOnOff;

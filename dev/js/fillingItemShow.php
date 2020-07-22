@@ -7,9 +7,8 @@ try{
 	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   // $pdo = new PDO( $dsn, $user, $password, $options); 
 
-
-  require_once("generalConnectDB.php");
-  // require_once("ordCon.php");
+// require_once("generalConnectDB.php");
+require_once("ordCon.php");
   
   $sql = "SELECT FILLING_ITEM.FILLING_ITEM_NO,FILLING_CATA.FILLING_CATA_NAME,FILLING_ITEM.FILLING_ITEM_NAME,FILLING_ITEM.FILLING_ITEM_PRICE,FILLING_ITEM.FILLING_ITEM_ONOFF
           FROM FILLING_CATA,FILLING_ITEM

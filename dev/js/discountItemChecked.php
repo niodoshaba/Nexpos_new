@@ -10,8 +10,8 @@ try{
   // $pdo = new PDO($dsn, $user, $password,$options);
 
 
-  require_once("generalConnectDB.php");
-    // require_once("ordCon.php");
+  // require_once("generalConnectDB.php");
+  require_once("ordCon.php");
 
   // //抓出期間折扣被選取的商品資料
   $sql = "SELECT A1.DIS_NO, A2.PRO_ITEM_NO, A3.PRO_CATA_NAME, A2.PRO_ITEM_NAME, A2.PRO_ITEM_PRICE

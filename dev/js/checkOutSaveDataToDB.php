@@ -8,9 +8,8 @@ try{
     // $pdo = new PDO($dsn, $user, $password, $options);
 
 
-    require_once("generalConnectDB.php");
-    // require_once("ordCon.php");
-
+   // require_once("generalConnectDB.php");
+  require_once("ordCon.php");
     $orderListData = json_decode($_POST["orderList"]);
 
     $ORDER_NO = $orderListData->ORDER_NO;
