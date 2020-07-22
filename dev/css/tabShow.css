@@ -10,8 +10,8 @@
 #showTableToResPage {
   display: flex;
   position: relative;
-  left: 185px;
-  top: 25px;
+  left: 195px;
+  top: 10px;
   width: 1000px;
   height: 650px;
   box-shadow: 0px 0px 10px #959595; }
@@ -33,7 +33,7 @@
   padding: 20px;
   width: 100px;
   border-style: none;
-  background-color: #F8C54E;
+  background-color: #f8c54e;
   border-radius: 20px;
   color: white;
   outline: none;
