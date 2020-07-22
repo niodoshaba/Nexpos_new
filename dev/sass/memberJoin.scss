@@ -1,131 +1,122 @@
 //以下各分頁新增css
-.tablehead{
-    margin-top: 20px;
-    padding: 20px;
-    margin-left: 180px;
-    width: 1040px;
-    // border-bottom: 1px solid red;
-    h1{
+.tablehead {
+  margin-top: 20px;
+  padding: 20px;
+  margin-left: 180px;
+  width: 1040px;
+  // border-bottom: 1px solid red;
+  h1 {
     font-size: 35px;
-    }
+  }
 }
 
+table,
+td {
+  border-bottom: 1px solid rgb(207, 206, 205);
+  border-collapse: collapse;
+}
 
-table, td {
-    border-bottom: 1px solid rgb(207, 206, 205);
-    border-collapse:collapse;
-  }
-  
-  tr{
-    vertical-align: middle;
-  }
- 
-  table{
-    margin: 30px auto auto auto;
-    font-size: 20px;
-    color: rgb(73, 73, 73);
-    width: 952px;
-    text-align: center;
-  }
-  
-  td{
-    padding: 16px 10px;
-    position: relative;
-    .regUpdateCell{
-      position: absolute;
-      // top: 50px;
-      // left: 25px;
-    }
-    .regUpdateName{
-      position: absolute;
-      // top: 50px;
-      // left: 25px;
-    }
-    .regUpdateEmail{
-      position: absolute;
-      // top: 50px;
-      // left: 40px;
-    }
-  }
+tr {
+  vertical-align: middle;
+}
 
-  
+table {
+  margin: 30px auto auto auto;
+  font-size: 20px;
+  color: rgb(73, 73, 73);
+  width: 952px;
+  text-align: center;
+}
 
-  .failure {
-    font-size: 10px;
-    color: rgba(255, 0, 0, .6);
+td {
+  padding: 16px 10px;
+  position: relative;
+  .regUpdateCell {
     position: absolute;
-    top: 64px;
-    // width: 50px;
-    left: 15px;
+    // top: 50px;
+    // left: 25px;
   }
-  .success {
-    font-size: 10px;
-    color: #319D8E;
+  .regUpdateName {
     position: absolute;
-    top: 64px;
-    // width: 50px;
-    left: 15px;
+    // top: 50px;
+    // left: 25px;
   }
-  td:last-child{
-    padding: 5px;
+  .regUpdateEmail {
+    position: absolute;
+    // top: 50px;
+    // left: 40px;
   }
-  
-  .save{
+}
+
+.failure {
+  font-size: 10px;
+  color: rgba(255, 0, 0, 0.6);
+  position: absolute;
+  top: 64px;
+  // width: 50px;
+  left: 15px;
+}
+.success {
+  font-size: 10px;
+  color: #319d8e;
+  position: absolute;
+  top: 64px;
+  // width: 50px;
+  left: 15px;
+}
+td:last-child {
+  padding: 5px;
+}
+
+.save {
   border: none;
   margin-bottom: 10px;
   vertical-align: sub;
-  }
-  
-  img{
-    cursor: pointer;
-  }
-  
-  input,select{
-    border: 0.5px solid rgb(189, 189, 189);
-    padding: 5px;
-    border-radius: 8px;
-  
-  }
-  form{
-    width:952px;
-    margin: 0 auto;
-    // border: 1px solid red;
-  }
-  
-  .add{
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  
-  .resScrollbar{
-    margin-top: 40px;
-    border: 1px solid #e2e2e2;
-    border-radius: 10px;
-    float: left;
-    height: 600px;
-    width: 1074px;
-    overflow-y: scroll;
-    overflow-x : hidden;
-    margin-bottom: 25px;
-  }
-  
-  .resOverflow
-  {
-    width:100%;
-      min-height: 600px;
-  }
-  
-  
-  #resScrollstyle::-webkit-scrollbar
-  {
-      width: 10px;
-  
-  }
-  
-  #resScrollstyle::-webkit-scrollbar-thumb
-  {
-    border-radius:50px;
-      background-color: #DDDDDD;
-  }
-  
+}
+
+img {
+  cursor: pointer;
+}
+
+input,
+select {
+  border: 0.5px solid rgb(189, 189, 189);
+  padding: 5px;
+  border-radius: 8px;
+}
+form {
+  width: 952px;
+  margin: 0 auto;
+  // border: 1px solid red;
+}
+
+.add {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.resScrollbar {
+  margin-top: 70px; //before:40px;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  float: left;
+  height: 600px;
+  width: 1070px; //before:1074px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-bottom: 25px;
+}
+
+.resOverflow {
+  width: 100%;
+  min-height: 600px;
+}
+
+#resScrollstyle::-webkit-scrollbar {
+  width: 10px;
+}
+
+#resScrollstyle::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #dddddd;
+}

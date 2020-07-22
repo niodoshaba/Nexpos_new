@@ -65,8 +65,7 @@ window.addEventListener("load", function () {
       //編輯按鈕
       tr.find("td:eq(3)").text("");
       tr.find("td:eq(3)").append(
-        `<button type="submit" class="btn btn-block btn-warning save">確認</button>
-           <button type="button" class="btn btn-block btn-warning cancel">取消</button>`
+        `<button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button>`
       );
 
       //儲存
@@ -96,8 +95,9 @@ window.addEventListener("load", function () {
         //將要傳送的物件資料轉為字串型別
         let strUpdate = JSON.stringify(fillingUpdateData);
         let dataUpdate = `fillingUpdateData=${strUpdate}`;
-        console.log(dataUpdate);
+        // console.log(dataUpdate);
         xhr.send(dataUpdate);
+        alert("送出成功");
       });
 
       //按下取消按紐

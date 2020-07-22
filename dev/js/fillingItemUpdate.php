@@ -23,6 +23,10 @@ try{
   $fillingItemStatus = $pdo->prepare( $sql );
   $fillingItemStatus->execute();
 
+  echo "<script> alert('送出成功');
+  location.href='../fillingItem.html'
+</script>" ;
+
 }catch(PDOException $e){
   echo "錯誤行號", $e->getLine(), "<br>";
   echo "錯誤原因", $e->getMessage();

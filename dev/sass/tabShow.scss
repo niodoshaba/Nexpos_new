@@ -30,13 +30,14 @@
 
 #tabCloseBtn {
   position: absolute;
-  bottom: 10px;
+  bottom: 25px; //before:10px
   left: 650px;
-  padding: 20px;
+  padding: 15px; //before:20px
   width: 100px;
   border-style: none;
   background-color: #f8c54e;
   border-radius: 20px;
   color: white;
   outline: none;
+  font-size: 20px;
 }
