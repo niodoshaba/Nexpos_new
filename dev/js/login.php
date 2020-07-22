@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 try{
 
   require_once("ordCon.php");
@@ -10,6 +11,7 @@ try{
   // $password = "root";
   // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   // $pdo = new PDO($dsn, $user, $password, $options);
+  // require_once("generalConnectDB.php");
 
   //取得input輸入的帳密
   $loginId = $_POST["loginId"];
@@ -29,11 +31,9 @@ try{
               location.href='../login.html';
             </script>";
     }else{
-      // echo "<script>
-      //         location.href='./tabShow.html?$useInfo';
-      //       </script>";
-
-      header("location:../posHomeTab.html?$useInfo");
+      echo "<script>
+              location.href='../posHomeTab.html?$useInfo';
+            </script>";
     }
   }
 
@@ -51,12 +51,9 @@ try{
               location.href='../login.html';
             </script>";
     }else {
-      // echo "<script>
-      //         location.href='../proManage.html?$useInfo';
-      //       </script>";
-    
-      header("location:../proManage.html?$useInfo");
-
+      echo "<script>
+              location.href='../proManage.html?$useInfo';
+            </script>";
     }
   }
 }catch(PDOException $e){

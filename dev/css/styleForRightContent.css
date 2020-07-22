@@ -1,0 +1,48 @@
+#ui-view {
+  min-width: 1180px;
+  min-height: 720px; }
+
+.card-body {
+  border: unset;
+  margin: 0; }
+
+input.proCataNo,
+input.proItemName,
+input.proItemPrice,
+input.proPic {
+  width: 120px; }
+
+.resScrollbar {
+  border-radius: 10px;
+  float: left;
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden; }
+
+.resOverflow {
+  min-height: 600px;
+  width: 100%; }
+
+#resScrollstyle::-webkit-scrollbar {
+  width: 10px; }
+
+#resScrollstyle::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #dddddd; }
+
+.btn-secondary {
+  color: #4f5d73;
+  background-color: #f9b115;
+  border-color: #f9b115;
+  margin: 0 auto; }
+
+.btn-warning {
+  width: 72px;
+  margin: 1px auto; }
+
+.addBtn {
+  display: block;
+  margin: auto;
+  background-color: white;
+  border: unset;
+  outline: none; }

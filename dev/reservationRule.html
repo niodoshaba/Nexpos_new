@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/browse/@coreui/coreui@2.1.16/dist/css/coreui.min.css" />
+  <!-- <link rel="stylesheet" href="css/style.css" /> -->
+  <link rel="stylesheet" href="./css/styleBack.css" />
+
+  <style>
+    .calendarPickDate {
+      border: none;
+      border-bottom: 1px solid gray;
+      border-radius: 0px;
+      outline: none;
+      text-align: center;
+    }
+
+    .anaBtnAll {
+      font-size: 20px;
+      border-style: none;
+      background-color: #FE9F4B;
+      border-radius: 50px;
+      color: white;
+      outline: none;
+      padding: 5px 10px
+    }
+  </style>
+
+  <title>預約規則管理</title>
+</head>
+
+<body>
+  <!-- 複製以下功能列 -->
+  @@include('app/headerBack.html',{"nav3":"actives"})
+  <!-- 複製以上功能列 -->
+  <!-- 以下為各分頁內容 -->
+  <div class="c-wrapper">
+    <div class="tablehead">
+      <h1>預約規則管理</h1>
+    </div>
+
+    <div class="topFunc">
+      <a href="#" class="topTablink" style="text-decoration: none;" id="resRuleUpdateTag">
+        <div class="topTab" id="topTabactives">
+          <div class="toptabCaption">查詢<br />編輯</div>
+        </div>
+      </a>
+      <a href="#" class="topTablink" style="text-decoration: none;" id="resRuleInsertTag">
+        <div class="topTab">
+          <div class="toptabCaption">新增<br />資料</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="c-body">
+      <main class="c-main">
+        <div class="container-fluid">
+          <div id="ui-view">
+            <div id="calendarPickDateTop">
+              開始：<input type="date" name="anaStart" id="anaStart" calendarLabel="picked" class="calendarPickDate">
+
+              結束：<input type="date" name="anaEnd" id="anaEnd" calendarLabel="picked" class="calendarPickDate">
+              <input type="button" id="anaResBtn" class="anaBtnAll" value="送出">
+            </div>
+            <div class="card IdPswManage resScrollbar" id="resScrollstyle">
+
+              <form action="./js/reservationRuleUpdate.php" method="POST" id="resRuleUpdate">
+                <table class="table1 table-responsive-sm resList">
+                  <thead>
+                    <tr class='title'>
+                      <th>日期</th>
+                      <th>狀態</th>
+                      <th>可預約人數</th>
+                      <th>修改</th>
+                    </tr>
+                  </thead>
+                </table>
+              </form>
+
+              <form action="./js/reservationRuleInsert.php" method="POST" id="resRuleInsert" style="display: none;">
+                <table class="table2 table-responsive-sm resList2">
+                  <thead>
+                    <tr class='title2'>
+                      <th>日期(起)</th>
+                      <th>日期(迄)</th>
+                      <th>狀態</th>
+                      <th>可預約人數</th>
+                      <th> </th>
+                    </tr>
+                    <tr class="input">
+
+                    </tr>
+                  </thead>
+
+                </table>
+              </form>
+
+
+            </div>
+
+          </div>
+      </main>
+    </div>
+  </div>
+  <script src="./js/reservationRule.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

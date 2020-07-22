@@ -1,116 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- <link rel="stylesheet" href="css/style.css" /> -->
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/orderRecord.css">
-    <style>
-        #calendarPickDateTop{
-            margin-left: 150px;
-            margin-top: 20px;
-        }
-        .calendarPickDate{
-          border: none;
-          border-bottom:1px solid gray ;
-          border-radius: 0px;
-          outline: none;
-          text-align: center;
-        }
-        .anaBtnAll{
-            font-size: 20px;
-            border-style:none;
-            background-color: #FE9F4B;
-            border-radius: 50px;
-            color: white;
-            outline:none;
-            padding: 5px 10px
-          }
-        .ordListScrollbar{
-          height: 400px;
-          overflow-y: scroll;
-          overflow-x: hidden;
-          margin: 0;
-          border: none;
-          width: 300px;
-        }
-        .kFoodItem{
-          margin-left: 15px;
-        }
-      </style>
-    <title>歷史訂單</title>
-  </head>
 
-  <body>
-    <!-- 複製以下功能列 -->
-     @@include('./app/header.html', {
-      "nav3" : "actives" 
-    })
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- <link rel="stylesheet" href="css/style.css" /> -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/orderRecord.css">
+  <style>
+    #calendarPickDateTop {
+      margin-left: 150px;
+      margin-top: 20px;
+    }
 
-    <!-- 複製以上功能列 -->
-    <!-- 以下為各分頁內容 -->
-    <div class="c-wrapper">
+    .calendarPickDate {
+      border: none;
+      border-bottom: 1px solid gray;
+      border-radius: 0px;
+      outline: none;
+      text-align: center;
+    }
 
-        <div class="tablehead">
-            <h1>歷史訂單資料</h1>
+    .anaBtnAll {
+      font-size: 20px;
+      border-style: none;
+      background-color: #FE9F4B;
+      border-radius: 50px;
+      color: white;
+      outline: none;
+      padding: 5px 10px
+    }
 
-        </div>
+    .ordListScrollbar {
+      height: 400px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      margin: 0;
+      border: none;
+      width: 300px;
+    }
 
-        <div id="calendarPickDateTop">
-            開始：<input type="date" name="anaStart" id="anaStart" calendarLabel="picked" class="calendarPickDate">
+    .kFoodItem {
+      margin-left: 15px;
+    }
+  </style>
+  <title>歷史訂單</title>
+</head>
 
-            結束：<input type="date" name="anaEnd" id="anaEnd" calendarLabel="picked" class="calendarPickDate">
-            <input type="button" id="anaResBtn" class="anaBtnAll" value="送出">
-        </div>
-      <!-- 以下為訂單 -->
-        <div class="kPageContainer">
-            <div class="kContainer">
-                <div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-                <div class="kHead">
-                    
-                </div>
+<body>
+  <!-- 複製以下功能列 -->
+  @@include('./app/header.html', {
+  "nav3" : "actives"
+  })
 
-                <div class="kFood">
-                    
-                        <div class="kFoodBar">項目</div>
-                    <ul class="kFoodUl ordListScrollbar" id="resScrollstyle" >    
+  <!-- 複製以上功能列 -->
+  <!-- 以下為各分頁內容 -->
+  <div class="c-wrapper">
 
-                    </ul>
-                </div>
+    <div class="tablehead">
+      <h1>歷史訂單資料</h1>
 
-            </div>
-
-            <form action="../dev/js/orderRecord.php" id="myForm">
-                <div class="resScrollbar" id="resScrollstyle">
-                
-                  <div class="resOverflow">
-                    <table id="resTable" class="table1 table-responsive-sm resList">
-                      <thead>
-                        <tr class='title'>
-                            <td>日期</td>
-                            <td>訂單編號</td>
-                            <td>人數</td>
-                            <td>總金額</td>
-                        </tr>
-                    
-                      </thead>
-                    </table>
-                  </div>
-                </div>
-            </form>
-        </div>
-
-       
     </div>
-        <script src="./js/orderRecord.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-       
-  </body>
-</html>
 
+    <div id="calendarPickDateTop">
+      開始：<input type="date" name="anaStart" id="anaStart" calendarLabel="picked" class="calendarPickDate">
+
+      結束：<input type="date" name="anaEnd" id="anaEnd" calendarLabel="picked" class="calendarPickDate">
+      <input type="button" id="anaResBtn" class="anaBtnAll" value="送出">
+    </div>
+    <!-- 以下為訂單 -->
+    <div class="kPageContainer">
+      <div class="kContainer">
+        <div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
+        <div class="kHead">
+
+        </div>
+
+        <div class="kFood">
+
+          <div class="kFoodBar">項目</div>
+          <ul class="kFoodUl ordListScrollbar" id="resScrollstyle">
+
+          </ul>
+        </div>
+
+      </div>
+
+      <form action="./js/orderRecord.php" id="myForm">
+        <div class="resScrollbar" id="resScrollstyle">
+
+          <div class="resOverflow">
+            <table id="resTable" class="table1 table-responsive-sm resList">
+              <thead>
+                <tr class='title'>
+                  <td>日期</td>
+                  <td>訂單編號</td>
+                  <td>人數</td>
+                  <td>總金額</td>
+                </tr>
+
+              </thead>
+            </table>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+  </div>
+  <script src="./js/orderRecord.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

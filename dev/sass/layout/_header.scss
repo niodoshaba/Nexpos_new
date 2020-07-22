@@ -22,6 +22,16 @@
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
 
+    height: 900px; // 新增
+
+    #sideMenu{
+        .loginName{
+            position: relative;
+            margin: 25px 40px 15px;
+        }
+    }
+
+ 
 .light{
     color: rgb(159, 248, 16);
     padding-left: 46px;

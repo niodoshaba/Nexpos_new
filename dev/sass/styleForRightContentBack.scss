@@ -1,0 +1,70 @@
+// 主要寫的地方
+#ui-view {
+  min-width: 1180px;
+  min-height: 720px;
+  // padding: 0 120px;
+}
+.card-body {
+  border: unset;
+  margin: 0;
+}
+
+input.proCataNo,
+input.proItemName,
+input.proItemPrice,
+input.proPic {
+  width: 120px;
+}
+.resScrollbar {
+  // margin-top: 40px;
+  // border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  float: left;
+  height: 600px;
+  // width: 1040px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-left: 125px;
+  // margin-bottom: 25px;
+}
+
+#calendarPickDateTop{
+  margin-left: 135px;
+}
+
+.resOverflow {
+  min-height: 600px;
+  width: 100%;
+}
+
+#resScrollstyle::-webkit-scrollbar {
+  width: 10px;
+}
+
+#resScrollstyle::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #dddddd;
+}
+
+.btn-secondary {
+  color: #4f5d73;
+  background-color: #f9b115;
+  border-color: #f9b115;
+  margin: 0 auto;
+}
+
+// .editBtn.hidden {
+//   display: none;
+// }
+
+.btn-warning {
+  width: 72px;
+  margin: 1px auto;
+}
+.addBtn {
+  display: block;
+  margin: auto;
+  background-color: white;
+  border: unset;
+  outline: none;
+}

@@ -138,7 +138,8 @@ section.login .loginBlock {
     font-size: 23px; }
     section.login .loginBlock .loginBtn .loginSudo {
       position: relative;
-      outline: none; }
+      outline: none;
+      margin-top: 25px; }
       section.login .loginBlock .loginBtn .loginSudo::before {
         content: "";
         position: absolute;
@@ -148,7 +149,7 @@ section.login .loginBlock {
         background-color: #1c5b9d;
         opacity: .8;
         border-radius: 50%;
-        top: -40px;
+        top: -30px;
         left: 50px; }
       section.login .loginBlock .loginBtn .loginSudo::after {
         content: "";

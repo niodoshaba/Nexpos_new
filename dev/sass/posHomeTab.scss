@@ -1,3 +1,9 @@
+html{
+    background-color: rgba(46, 45, 46, 1);
+}
+
+
+
 #toGoZone{
     list-style: none;
     width: 900px;
@@ -42,4 +48,14 @@
     width: 1000px;
     height: 650px;
     box-shadow: 0px 0px 10px #959595;
+}
+
+
+// 修改外帶按鈕位置
+.topTunc{
+    position: relative;
+}
+
+.topTablink.topTabToGo{
+    position: absolute;
 }

@@ -25,11 +25,16 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+html{
+	background-color: rgba(46, 45, 46, 1);
+}
+
 body {
 	line-height: 1;
-	    max-width:1440px;
-		max-height:900px;
-		margin:0 auto;
+	width:1440px; // before: max-width:1440px;
+	height:900px; // before: max-height:900px;
+	margin:0 auto;
+	background-color: #fff;
 }
 ol, ul {
 	list-style: none;

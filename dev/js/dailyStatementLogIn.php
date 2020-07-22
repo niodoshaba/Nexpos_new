@@ -2,13 +2,14 @@
 session_start();
 
 try{
-
-  require_once("ordCon.php");
   // $dsn = "mysql:host=localhost; port=3306; dbname=G4_nexpos; charset=utf8";
   // $user = "root";
   // $password = "root";
   // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   // $pdo = new PDO($dsn, $user, $password, $options);
+
+  // require_once("generalConnectDB.php");
+  require_once("ordCon.php");
 
   //取得input輸入的帳密
   $memId = $_POST["memId"];
@@ -36,15 +37,19 @@ try{
 
   if($_SESSION['login_limit']<=0){
     //撈老闆帳密
-    $sql = "SELECT * FROM EMP WHERE EMP_NO='$memId' AND EMP_PWD='$memPsw' AND EMP_TITLE = '老闆' ";
-    $EMP = $pdo->prepare($sql);
-    $EMP->execute();
+    $sql = "SELECT * FROM EMP WHERE EMP_NO='$memId' AND EMP_PWD='$memPsw' AND EMP_TITLE = '老闆';" ;
+    $EMPBoss = $pdo->prepare($sql);
+    $EMPBoss->execute();
     //如果限制值<0，請輸入老闆帳密登入
-    echo "您的登入次數超過限制，請輸入老闆的帳號密碼!";
-    if($EMP->rowCount()!==0){
+    if($EMPBoss->rowCount()== 0){
       echo "<script>
+              alert('您的登入次數超過限制，請輸入老闆的帳號密碼!');
+              location.href='../dailyStatementLogin.html';
+            </script>";
+    }else{
+     echo "<script>
               alert('登入成功');
-              location.href='./dailyStatement.html';
+              location.href='../dailyStatement.html';
             </script>";
     }
   }else{
@@ -52,7 +57,11 @@ try{
     if($EMP->rowCount()==0){
       if($userip == $_SESSION['userip']){
         $_SESSION['login_limit']--;
-        echo "您還有", $_SESSION['login_limit'], "次的登入機會";
+        // echo "您還有", $_SESSION['login_limit'], "次的登入機會";
+        echo "<script>
+                alert('您還有", $_SESSION['login_limit'], "次的登入機會');
+                location.href='../dailyStatementLogin.html';
+              </script>";
       ;
       }else{
         $_SESSION['userip'] = $userip;
@@ -61,7 +70,7 @@ try{
     }else{
       echo "<script>
               alert('登入成功');
-              location.href='./dailyStatement.html';
+              location.href='../dailyStatement.html';
             </script>";
       $_SESSION['login_limit'] = 3;
     }

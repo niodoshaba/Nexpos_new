@@ -4,66 +4,63 @@
       <i class="fa fa-circle" aria-hidden="true"></i>
     </div>
     <ul>
-      <a href="./posHomeTab.html"
-        ><li class="@@nav0">
-          <i class="fa fa-home" aria-hidden="true"></i>主畫面
-        </li></a
-      >
-      <a href="./reservationCalendar.html"
-        ><li class="@@nav1">
+      <a href="./posHomeTab.html"></a>
+      <li class="@@nav0">
+        <i class="fa fa-home" aria-hidden="true"></i>主畫面
+      </li>
+      </a>
+      <a href="./reservationCalendar.html">
+        <li class="@@nav1">
           <i class="fa fa-list-alt" aria-hidden="true"></i>訂位管理
-        </li></a
-      >
-      <a href="./memberJoin.html"
-        ><li class="@@nav2">
+        </li>
+      </a>
+      <a href="./memberJoin.html">
+        <li class="@@nav2">
           <i class="fa fa-users" aria-hidden="true"></i>會員管理
-        </li></a
-      >
-      <a href="./orderRecord.html"
-        ><li class="@@nav3">
+        </li>
+      </a>
+      <a href="./orderRecord.html">
+        <li class="@@nav3">
           <i class="fa fa-calendar" aria-hidden="true"></i>歷史訂單
-        </li></a
-      >
+        </li>
+      </a>
       <div class="func">
         <div class="user"></div>
         <div class="date">2020/6/17</div>
         <div class="clock">10 : 35</div>
       </div>
-      <a href="./tabShow.html"
-        ><li class="@@nav4">
+      <a href="./tabShow.html">
+        <li class="@@nav4">
           <i class="fa fa-times-circle" aria-hidden="true"></i>關閉餐桌
-        </li></a
-      >
-      <a href="./kitchen.html"
-        ><li class="@@nav5">
+        </li>
+      </a>
+      <a href="./kitchen.html">
+        <li class="@@nav5">
           <i class="fa fa-cutlery" aria-hidden="true"></i>出餐管理
-        </li></a
-      >
-      <a
-        href="./dailyStatementLogIn.html"
-        data-toggle="modal"
-        data-target="#regular_modal"
-        ><li class="@@nav6">
-          <i class="fa fa-calculator" aria-hidden="true"></i><span>日結</span>
-        </li></a
-      >
-      <a href="./login.html"
-        ><li><i class="fa fa-sign-out" aria-hidden="true"></i>登出</li></a
-      >
+        </li>
+      </a>
+      <a href="./dailyStatementLogIn.html" data-toggle="modal" data-target="#regular_modal">
+        <li class="@@nav6">
+          <i class="fa fa-calculator" aria-hidden="true"></i>日結
+        </li>
+      </a>
+      <a href="./login.html">
+        <li><i class="fa fa-sign-out" aria-hidden="true"></i>登出</li>
+      </a>
     </ul>
   </nav>
 </div>
 
 
 <script>
-let el = document.querySelector('.date');
-let Today=new Date();
-el.textContent = Today.getFullYear()+ " / "+ (Today.getMonth()+1) + " / " + Today.getDate();
+  let el = document.querySelector('.date');
+  let Today = new Date();
+  el.textContent = Today.getFullYear() + " / " + (Today.getMonth() + 1) + " / " + Today.getDate();
 
-let dt = document.querySelector('.clock');
+  let dt = document.querySelector('.clock');
 
-TodayHours = Today.getHours() < 10 ? '0' + Today.getHours() : Today.getHours();
-TodayMinutes = Today.getMinutes() < 10 ? '0' + Today.getMinutes() : Today.getMinutes();
-dt.textContent = TodayHours + " : " + TodayMinutes;
+  TodayHours = Today.getHours() < 10 ? '0' + Today.getHours() : Today.getHours();
+  TodayMinutes = Today.getMinutes() < 10 ? '0' + Today.getMinutes() : Today.getMinutes();
+  dt.textContent = TodayHours + " : " + TodayMinutes;
 
 </script>

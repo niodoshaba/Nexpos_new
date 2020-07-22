@@ -1,113 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- <link rel="stylesheet" href="css/style.css" /> -->
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/memberSearch.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <title> 會員資料查詢</title>
-  </head>
-  <style>
-    .search-container {
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- <link rel="stylesheet" href="css/style.css" /> -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/memberSearch.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <title> 會員資料查詢</title>
+</head>
+<style>
+  .search-container {
     width: 220px;
     position: relative;
     top: -40px;
     right: 156px;
-}
-  </style>
+  }
+</style>
 
-  <body>
-    <!-- 複製以下功能列 -->
+<body>
+  <!-- 複製以下功能列 -->
   @@include('./app/header.html', {
-    "nav2" : "actives"
-    })
-   <!-- 複製以上功能列 -->
-    <!-- 以下為各分頁內容 -->
-    <div class="c-wrapper">
-      <div class="tablehead">
-        <h1>會員資料查詢</h1> 
-        <div class="search-container">
-          <input type="text" id="search-bar" placeholder="輸入姓名或電話">
-          <img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" >
+  "nav2" : "actives"
+  })
+  <!-- 複製以上功能列 -->
+  <!-- 以下為各分頁內容 -->
+  <div class="c-wrapper">
+    <div class="tablehead">
+      <h1>會員資料查詢</h1>
+      <div class="search-container">
+        <input type="text" id="search-bar" placeholder="輸入姓名或電話">
+        <img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png">
+      </div>
+    </div>
+    <div class="topFunc">
+      <a href="memberSearch.html" class="topTablink" style="text-decoration: none;">
+        <div class="topTab" id="topTabactives">
+          <div class="toptabCaption">會員<br />查詢</div>
         </div>
-      </div>
-      <div class="topFunc">
-        <a href="memberSearch.html" class="topTablink" style="text-decoration: none;">
-          <div class="topTab" id="topTabactives">
-            <div class="toptabCaption">會員<br />查詢</div>
-          </div>
-        </a>
-        <a href="memberJoin.html" class="topTablink" style="text-decoration: none;">
-          <div class="topTab">
-            <div class="toptabCaption">會員<br />新增</div>
-          </div>
-        </a>
-      </div>
+      </a>
+      <a href="memberJoin.html" class="topTablink" style="text-decoration: none;">
+        <div class="topTab">
+          <div class="toptabCaption">會員<br />新增</div>
+        </div>
+      </a>
+    </div>
 
-      <div id="search_result">
-        <div class="resScrollbar" id="resScrollstyle">
-          <div class="resOverflow">
-            <table id="resTable">
-              <div>
-                <tr>
-                    <td>姓名</td>
-                    <td>性別</td>
-                    <td>手機</td>
-                    <td>e-mail</td>
-                    <td>生日</td>
-                    <td>點數</td>
-                </tr>
+    <div id="search_result">
+      <div class="resScrollbar" id="resScrollstyle">
+        <div class="resOverflow">
+          <table id="resTable">
+            <div>
+              <tr>
+                <td>姓名</td>
+                <td>性別</td>
+                <td>手機</td>
+                <td>e-mail</td>
+                <td>生日</td>
+                <td>點數</td>
+              </tr>
 
-              </div>
-            </table>
-          </div>
+            </div>
+          </table>
         </div>
       </div>
     </div>
-    <script>
-      // jquery 開始
-      $(document).ready(function () {
-          load_data();
-
-          function load_data(query) {
-              $.ajax({
-                  url: '../dev/js/memberSearch.php',
-                  method: "GET",
-                  data: {
-                      s: query
-                  },
-                  success: function (data) {
-                      $('#search_result').html(data);
-                  }
-              });
-              $('#search-bar').keydown(function (event) {
-                  if (event.which == 13) {
-                      var search = $(this).val();
-                      if (search != '') {
-                          load_data(search);
-                      } else {
-                          load_data();
-                      }
-                  }
-              });
-          }
-      })
-  </script>
+  </div>
   <script>
-    // 判斷登入人員並顯示於頁面
-    window.addEventListener("load", function(){
-       let username = sessionStorage.getItem('name');
-       
-       let loginName = document.querySelector('.user');
-       loginName.innerHTML = `Hi! ${username}`;
-   })
- </script>
+    // jquery 開始
+    $(document).ready(function () {
+      load_data();
 
-  </body>
+      function load_data(query) {
+        $.ajax({
+          url: './js/memberSearch.php',
+          method: "GET",
+          data: {
+            s: query
+          },
+          success: function (data) {
+            console.log(data);
+            if (Number(data) == 1) {
+              alert('查無資料')
+            } else {
+              $('#resTable').html(data);
+            }
+
+          }
+        });
+        $('#search-bar').keydown(function (event) {
+          if (event.which == 13) {
+            var search = $(this).val();
+            if (search != '') {
+              load_data(search);
+            } else {
+              load_data();
+            }
+          }
+        });
+      }
+    })
+  </script>
+
+</body>
+
 </html>

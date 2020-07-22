@@ -1,0 +1,75 @@
+/*!
+ * CoreUI - HTML, CSS, and JavaScript UI Components Library
+ * @version v3.2.0
+ * @link https://coreui.io/
+ * Copyright (c) 2020 creativeLabs Łukasz Holeczek
+ * License MIT  (https://coreui.io/license/)
+ */
+
+@import "vendors/@coreui/coreui/scss/functions";
+@import "vendors/@coreui/coreui/scss/variables";
+@import "vendors/@coreui/coreui/scss/mixins";
+@import "vendors/@coreui/coreui/scss/root";
+@import "vendors/@coreui/coreui/scss/app";
+@import "vendors/@coreui/coreui/scss/reboot";
+
+// Vendors
+@import "vendors/@coreui/coreui/scss/vendors";
+
+// Components
+// @import "vendors/@coreui/coreui/scss/alert";  
+// @import "vendors/@coreui/coreui/scss/avatars";
+@import "vendors/@coreui/coreui/scss/badge";
+// @import "vendors/@coreui/coreui/scss/breadcrumb-menu";
+// @import "vendors/@coreui/coreui/scss/breadcrumb";
+@import "vendors/@coreui/coreui/scss/button-group";
+@import "vendors/@coreui/coreui/scss/buttons";
+// @import "vendors/@coreui/coreui/scss/callout";
+@import "vendors/@coreui/coreui/scss/card";
+// @import "vendors/@coreui/coreui/scss/carousel";
+// @import "vendors/@coreui/coreui/scss/charts";
+// @import "vendors/@coreui/coreui/scss/close";
+// @import "vendors/@coreui/coreui/scss/code";
+@import "vendors/@coreui/coreui/scss/custom-forms";
+// @import "vendors/@coreui/coreui/scss/dropdown";
+// @import "vendors/@coreui/coreui/scss/footer";
+@import "vendors/@coreui/coreui/scss/forms";
+@import "vendors/@coreui/coreui/scss/grid";
+@import "vendors/@coreui/coreui/scss/header";
+@import "vendors/@coreui/coreui/scss/icon";
+@import "vendors/@coreui/coreui/scss/input-group";
+// @import "vendors/@coreui/coreui/scss/images";
+@import "vendors/@coreui/coreui/scss/jumbotron";
+@import "vendors/@coreui/coreui/scss/list-group";
+// @import "vendors/@coreui/coreui/scss/media";
+// @import "vendors/@coreui/coreui/scss/modal";
+@import "vendors/@coreui/coreui/scss/nav";
+@import "vendors/@coreui/coreui/scss/navbar";
+@import "vendors/@coreui/coreui/scss/pagination";
+@import "vendors/@coreui/coreui/scss/popover";
+// @import "vendors/@coreui/coreui/scss/progress";
+// @import "vendors/@coreui/coreui/scss/progress-group";
+// @import "vendors/@coreui/coreui/scss/sidebar";
+// @import "vendors/@coreui/coreui/scss/spinners";
+// @import "vendors/@coreui/coreui/scss/subheader";
+// @import "vendors/@coreui/coreui/scss/switches";
+@import "vendors/@coreui/coreui/scss/tables";
+// @import "vendors/@coreui/coreui/scss/toasts";
+// @import "vendors/@coreui/coreui/scss/tooltip";
+// @import "vendors/@coreui/coreui/scss/transitions";
+@import "vendors/@coreui/coreui/scss/type";
+// @import "vendors/@coreui/coreui/scss/widgets";
+
+// Layout Options
+@import "vendors/@coreui/coreui/scss/layouts";
+
+// Utility classes
+@import "vendors/@coreui/coreui/scss/utilities";
+
+// Right-to-left
+@import "vendors/@coreui/coreui/scss/rtl";
+
+// Custom Properties support for Internet Explorer
+@import "vendors/@coreui/coreui/scss/ie-custom-properties";
+
+// @import "vendors/@coreui/coreui/scss/print";

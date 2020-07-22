@@ -69,6 +69,9 @@ form {
   border-radius: 50px;
   background-color: #DDDDDD; }
 
+#search_result {
+  margin-left: 180px; }
+
 input#search-bar {
   position: relative;
   left: 370px;
