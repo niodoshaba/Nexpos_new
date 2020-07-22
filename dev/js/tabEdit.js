@@ -111,7 +111,7 @@ function editTabRender() {
       tabElement.style.backgroundColor = tabEditColor;
       tabElement.style.borderRadius = tabReceiveJson[i].borderRadius;
       tabElement.style.position = "absolute";
-      tabElement.style.transform = `translate(${tabReceiveJson[i].x + 310}px,${tabReceiveJson[i].y + 160}px)`;
+      tabElement.style.transform = `translate(${tabReceiveJson[i].x + 319}px,${tabReceiveJson[i].y + 147}px)`;
       tabElement.style.listStyle = "none";
       tabElement.tabChangeCheckClose = true;
       tabElement.tabChangeCheckRes = true;
@@ -227,8 +227,8 @@ tabSaveBtn.addEventListener('click', function () {
       positionArr.push(
         {
           id: tabContainer.childNodes[i].getAttribute('id'),
-          x: parseFloat(tabContainer.childNodes[i].getAttribute('data-x')) - 310.0,
-          y: parseFloat(tabContainer.childNodes[i].getAttribute('data-y')) - 160.0,
+          x: parseFloat(tabContainer.childNodes[i].getAttribute('data-x')) - 319.0,
+          y: parseFloat(tabContainer.childNodes[i].getAttribute('data-y')) - 147.0,
           test: tabContainer.childNodes[i].getAttribute('style'),
           top: window.getComputedStyle(tabContainer.childNodes[i]).getPropertyValue('top'),
           left: window.getComputedStyle(tabContainer.childNodes[i]).getPropertyValue('left'),
