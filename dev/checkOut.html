@@ -15,7 +15,7 @@
         <div class="row no-gutters">
 
             <div id="checkoutLeftside" class="col-4">
-                <a href="./orderPage.html"><img src="./assets/checkout_back.png" alt=""></a>
+                <!-- <a href="./orderPage.html"><img src="./assets/checkout_back.png" alt=""></a> -->
                 <div id="checkoutLeftSideTop" class="row no-gutters">
                     <span class="col-7" id="checkoutOrderListNo"></span>
                     <span class="col-5" id="checkoutOrderInOrOut"></span>
@@ -76,7 +76,7 @@
                             <span>收款金額：</span> <input type="text" id="checkoutGetCash">
                         </div>
                         <div id="checkoutChangeDiv">
-                            <span>找零：</span> <span>${{count}}</span>
+                            <span>找零：</span> <span></span>
                         </div>
                         <div id="checkoutDiscountDiv">
                             <span>折扣總計：</span> <span id="checkoutDiscountTotalPrice"></span>
@@ -180,7 +180,35 @@
                                 <td><input type="text" name="rewardPoints"></td>
                             </tr>
                         </table> -->
-                        <button id="checkoutLastBtn" type="submit">結帳</button>
+                        <div class="modal fade" id="regular_modal" tabindex="-1" role="dialog" aria-labelledby="regular_modal" style="display:none">
+                            <div class="modal-dialog modal-dialog-centered modal-s" role="document" >
+                                <div class="modal-content" id="checkOutDoneContainer">
+                                    <!-- <div class="modal-header"> -->
+                                    <h1 class="modal-title" style="margin: 0 109px;">付款成功</h1>
+                                        
+                                    <!-- </div> -->
+                                    <div class="modal-body" id="checkOutDoneBox">
+                                        <table>
+                                            <tr><th>訂單編號：</th><td id="checkoutSendNo"></td></tr>
+                                            <tr><th>付款方式：</th><td id="checkoutSendPayNo"></td></tr>
+                                            <tr><th>收款金額：</th><td id="checkoutSendGetPrice"></td></tr>
+                                            <tr><th>找零：</th><td id="checkoutSendCoin"></td></tr>
+                                            <tr><th>折扣總計：</th><td id="checkoutSendDiscount"></td></tr>
+                                            <tr><th>紅利折抵：</th><td id="checkoutSendBonus"></td></tr>
+                                            <tr><th>剩餘紅利：</th><td id="checkoutSendLastBonus"></td></tr>
+                                        </table>
+                                        <table class="total">
+                                            <tr><th>總計：</th><td id="checkoutSendTotalPrice"></td></tr>
+                                        </table>
+                                    </div>
+                                    <!-- <div class="modal-footer"> -->
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="checkOutDone">完成</button>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="checkoutLastBtn" type="submit" class="btn btn-danger mb-1" data-toggle="modal" data-target="#regular_modal">結帳</button>
                     <!-- </form> -->
                     <button id="checkoutSeparateBtn">拆單結帳</button>
                 </div>
@@ -194,15 +222,15 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="../dev/js/checkOut.js"></script>
+    <script src="./js/checkOut.js"></script>
     <script>
-        // 判斷登入人員並顯示於頁面
-        window.addEventListener("load", function(){
-           let username = sessionStorage.getItem('name');
+    //判斷登入人員並顯示於頁面
+    //     window.addEventListener("load", function(){
+    //        let username = sessionStorage.getItem('name');
            
-           let loginName = document.querySelector('.user');
-           loginName.innerHTML = `Hi! ${username}`;
-       })
+    //        let loginName = document.querySelector('.user');
+    //        loginName.innerHTML = `Hi! ${username}`;
+    //    })
      </script>
 </body>
 </html>
