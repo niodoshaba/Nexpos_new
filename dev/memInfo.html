@@ -20,8 +20,13 @@
       /* overflow-x: hidden;  */
     }
 
-    .tableshrink {
-      padding: 0.3rem;
+    .CUS_BIRTH {
+      width: 158px;
+    }
+
+    .CUS_ID,
+    .CUS_STATE {
+      width: 72px;
     }
   </style>
 </head>
@@ -141,12 +146,12 @@
                 <td><input name="CUS_LAST" class="CUS_LAST" type="text" size="3"></td>
                 <td><input name="CUS_FIRST" class="CUS_FIRST" type="text" size="5"></td>
                 <td><select name="CUS_GEN" class="CUS_GEN"><option>男</option><option>女</option></select></td>
-                <td><input name="CUS_BIRTH" style="width:158px" class="CUS_BIRTH" type="date" size="3"></td>
+                <td><input name="CUS_BIRTH" class="CUS_BIRTH" type="date" size="3"></td>
                 <td><input name="CUS_PHONE" class="CUS_PHONE" type="text" size="9"></td>
                 <td><input name="CUS_EMAIL" class="CUS_EMAIL" type="text" size="13"></td>
                 <td><input name="CUS_POINT" class="CUS_POINT" type="text" size="3"></td>
-                <td><select name="CUS_ID" style="width:72px" class="CUS_ID" type="text"><option value="1">會員</option><option value="0">非會員</option></select></td>
-                <td><select name="CUS_STATE" style="width:72px" class="CUS_STATE"><option value="1">正常</option><option value="0">黑名單</option></select></td>
+                <td><select name="CUS_ID" class="CUS_ID" type="text"><option value="1">會員</option><option value="0">非會員</option></select></td>
+                <td><select name="CUS_STATE" class="CUS_STATE"><option value="1">正常</option><option value="0">黑名單</option></select></td>
                 <td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td>
             </tr>
           `);
