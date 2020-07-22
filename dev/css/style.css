@@ -148,12 +148,12 @@ a {
       margin-right: 24px;
       width: 10px; }
     .c-sidebar ul li:hover, .c-sidebar ul li.actives {
-      color: #28569A;
+      color: #319d8e;
       cursor: pointer;
       position: relative;
       z-index: 1000; }
       .c-sidebar ul li:hover::after, .c-sidebar ul li.actives::after {
-        content: '';
+        content: "";
         background-image: url("../assets/Union8.svg");
         width: 219px;
         height: 120px;
