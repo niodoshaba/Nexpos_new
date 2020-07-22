@@ -52,7 +52,7 @@ window.addEventListener("load", function () {
     //顯示input表單欄位
     $(".title").after(` <tr class="input">
                           <td></td>
-                          <td><select name="proCataNo" class="fillingCataNo"><option value="1">三明治</option><option value="2">義大利麵</option><option value="3">漢堡</option><option value="4">馬芬堡</option><option value="5">甜點</option><option value="6">咖啡</option><option value="7">飲料</option></select></td>
+                          <td><select name="proCataNo" class="proCataNo"><option value="1">三明治</option><option value="2">義大利麵</option><option value="3">漢堡</option><option value="4">馬芬堡</option><option value="5">甜點</option><option value="6">咖啡</option><option value="7">飲料</option></select></td>
                           <td><input style="width:180px;" name="proItemName" class="proItemName" type="text"></td>
                           <td><input style="width:180px;" name="proItemPrice" class="proItemPrice" type="text"></td>
                           <td><select name="proItemOnoff" class="proItemOnoff"><option value="1">上架</option><option value="0">下架</option></select></td>
