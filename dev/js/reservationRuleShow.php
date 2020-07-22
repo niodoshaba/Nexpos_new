@@ -7,8 +7,8 @@ try{
 	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   // $pdo = new PDO( $dsn, $user, $password, $options); 
 
-  require_once("generalConnectDB.php");
-  // require_once("ordCon.php");
+  // require_once("generalConnectDB.php");
+  require_once("ordCon.php");
 
   $sql = "SELECT DAILY_DATE,DAILY_AVA,DAILY_STA 
           FROM DAILY_RES

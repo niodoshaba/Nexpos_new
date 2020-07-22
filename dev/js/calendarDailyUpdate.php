@@ -6,8 +6,9 @@ try{
 	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   // $pdo = new PDO( $dsn, $user, $password, $options); 
 
-  require_once("generalConnectDB.php");
-  // require_once("ordCon.php");
+  
+  // require_once("generalConnectDB.php");
+  require_once("ordCon.php");
   
 
   $calendarPickDate = $_POST["calendarPickDate"];

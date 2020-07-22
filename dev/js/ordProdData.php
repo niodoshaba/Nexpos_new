@@ -1,8 +1,7 @@
 <?php 
 try {
-    require_once("generalConnectDB.php");
-  // require_once("ordCon.php");
-    
+    // require_once("generalConnectDB.php");
+    require_once("ordCon.php");
 
 
     // 先看看日期內有沒有折扣活動
