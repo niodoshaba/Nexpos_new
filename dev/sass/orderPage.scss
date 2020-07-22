@@ -1,5 +1,6 @@
 body{
-    max-width: 1440px;
+    width: 1440px;
+    height: 900px;
     font-family:"jf-openhuninn-1.1";
     font-size: 20px;
     color:#959595;
@@ -12,7 +13,7 @@ body{
 
 #orderPageLeftSide{
     // border: 1px solid red;
-    height: 100vh;
+    height: 900px;
     background-color: #F9F9F9;
     // img:first-child{
     //     margin-left: -15px;
@@ -249,9 +250,10 @@ body{
     background-image: url("../assets/bg_dots.png");
     display: flex;
     flex-direction: column;
+    height: 900px;
     #orderPageRightSideTop{
         display: flex;
-        height: 10vh;
+        height: 110px;
         // border: 1px solid blue;
         div{
             height: 100%;
@@ -299,7 +301,7 @@ body{
 
     #orderPageRightSideMid{
         display: flex;
-        height: 75vh;
+        height: 670px;
         // border: 1px solid blue;
         div{
             height: 100%;

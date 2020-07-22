@@ -75,7 +75,7 @@ span {
   transform: translateX(-50%);
   bottom: 30px; }
 
-able, td {
+table, td {
   border-collapse: collapse; }
 
 tr {

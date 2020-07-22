@@ -34,21 +34,19 @@
         <div class="topTab">
           <div class="toptabCaption">訂單<br />記錄</div>
         </div>
-      </a>
-    </div>
-    <!-- 以下為訂單 -->
-    <div class="kPageContainer" id="kPageContainer"></div>
+        <!-- 以下為訂單 -->
+        <div class="resScrollbar2 kPageContainer" id="resScrollbar2"></div>
 
-    <script>
-      // 判斷登入人員並顯示於頁面
-      window.addEventListener("load", function () {
-        let username = sessionStorage.getItem('name');
+        <script>
+          // 判斷登入人員並顯示於頁面
+          window.addEventListener("load", function () {
+            let username = sessionStorage.getItem('name');
 
-        let loginName = document.querySelector('.user');
-        loginName.innerHTML = `Hi! ${username}`;
-      })
-    </script>
-    <script src="./js/kitchen.js"></script>
+            let loginName = document.querySelector('.user');
+            loginName.innerHTML = `Hi! ${username}`;
+          })
+        </script>
+        <script src="./js/kitchen.js"></script>
 </body>
 
 </html>

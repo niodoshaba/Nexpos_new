@@ -1,13 +1,13 @@
 var tmpBackKitchen = [];
 //確認是否有後廚完成訂單，有渲染內用外帶訂單
 var tmpBackKitchenDone = [];
-let kitchenRowData = [];    
+let kitchenRowData = [];
 
 let orderNo = [];
 let orderNoDone = [];
 let orderNoDoneQ = [];
 let orderNoDoneFinal = [];
- 
+
 // var done_${orderNo} = [];
 
 // get 廚師做好的key, 如果localstorage沒有值就return
@@ -16,42 +16,42 @@ let orderNoDoneFinal = [];
 //     done_${orderNo} = [JSON.parse(localStorage.getItem('done_${orderNo}'))]
 // }
 // load()
-function getOrderData(){
-    for(var i = 0; i < localStorage.length; i++){
+function getOrderData() {
+    for (var i = 0; i < localStorage.length; i++) {
         orderNo.push(localStorage.key(i));
     }
 
-    for(j=0;j<orderNo.length;j++){
-        if(orderNo[j].includes('orderNo_')){
+    for (j = 0; j < orderNo.length; j++) {
+        if (orderNo[j].includes('orderNo_')) {
             orderNoDone.push(orderNo[j]);
         }
     }
 
-    
-    for(r=0;r<orderNoDone.length;r++){
-        orderNoDoneQ.push(parseInt(orderNoDone[r].substring(orderNoDone[r].indexOf('_')+1)));
+
+    for (r = 0; r < orderNoDone.length; r++) {
+        orderNoDoneQ.push(parseInt(orderNoDone[r].substring(orderNoDone[r].indexOf('_') + 1)));
     }
-   
-    orderNoDoneQ.sort(function(a,b){
-            return a-b;
+
+    orderNoDoneQ.sort(function (a, b) {
+        return a - b;
     });
 
 
-    for(k=0;k<orderNoDone.length;k++){
-        orderNoDoneFinal.push(JSON.parse(localStorage.getItem(`orderNo_${orderNoDoneQ[k]}`)));      
+    for (k = 0; k < orderNoDone.length; k++) {
+        orderNoDoneFinal.push(JSON.parse(localStorage.getItem(`orderNo_${orderNoDoneQ[k]}`)));
     }
 
-    
+
 }
 
 
 
-function backdoor(){
+function backdoor() {
     for (var i = 0; i < localStorage.length; i++) {
         tmpBackKitchen.push(localStorage.key(i));
     } //取到所有的key值
-    for (j = 0; j < tmpBackKitchen.length; j++){
-        if (tmpBackKitchen[j].includes('done_')){
+    for (j = 0; j < tmpBackKitchen.length; j++) {
+        if (tmpBackKitchen[j].includes('done_')) {
             tmpBackKitchenDone.push(localStorage.getItem(tmpBackKitchen[j]));
             // for(i=0;i<tmpBackKitchenDone.length;i++){
             //     tmpBackKitchenDone[i] = parseInt(tmpBackKitchenDone[i]);
@@ -63,47 +63,47 @@ function backdoor(){
 }
 
 
-function getrenderdata(){
-    for(i=0;i<orderNoDoneFinal.length;i++){
+function getrenderdata() {
+    for (i = 0; i < orderNoDoneFinal.length; i++) {
         kitchenRowData.push(orderNoDoneFinal[i][0].orderList);
     }
-    
+
 }
 
-function getArrEqual(arr1, arr2){
+function getArrEqual(arr1, arr2) {
     let newArr = [];
     for (let i = 0; i < arr2.length; i++) {
         for (let j = 0; j < arr1.length; j++) {
-            if(parseInt(arr1[j]) === parseInt(arr2[i])){
-               newArr.push(arr1[j]);
+            if (parseInt(arr1[j]) === parseInt(arr2[i])) {
+                newArr.push(arr1[j]);
             }
         }
     }
     return newArr;
-}    
+}
 
-window.addEventListener('load',function(){
+window.addEventListener('load', function () {
     backdoor();
     getOrderData();
     getrenderdata();
 
-    
-    
+
+
     //由小到大排序
-    var rendertest = getArrEqual(kitchenRowData,tmpBackKitchenDone);
-        rendertest.sort(function(a,b){
-            return a-b;
+    var rendertest = getArrEqual(kitchenRowData, tmpBackKitchenDone);
+    rendertest.sort(function (a, b) {
+        return a - b;
     });
     console.log(rendertest);
 
     for (i = 0; i < orderNoDoneFinal.length; i++) {
-       
-       
+
+
         var el3 = document.getElementById('resTable');
         var content3 = "";
         var content = "";
         var kHead = document.getElementById('kOrder');
-        
+
         //test 
         //先找出幾張單子
         for (let j = 0; j < rendertest.length; j++) {
@@ -114,15 +114,15 @@ window.addEventListener('load',function(){
                 orderNoDoneFinal[index][0]["inOrOut"] + '</td><td>' + orderNoDoneFinal[index][0]["pNum"] + '</td><td>Lily</td>';
             content3 += '</tr>'
         }
-        
+
         el3.innerHTML = content3;
-        
+
         //宣告點擊的該tr
 
         var clicktr = document.getElementsByClassName('clicktr');
         // console.log(clicktr);
         var test = document.getElementById('myForm');
-        
+
         el3.addEventListener('click', e => {
             const li = e.target.closest('tr');
             // console.log(Array.from(li.parentNode.children).indexOf(li));
@@ -132,19 +132,19 @@ window.addEventListener('load',function(){
             e.stopImmediatePropagation();
             // for (let i = 0; i < orderNoDoneFinal.length; i++) {
             // console.log(rendertest);    
-            
+
             //最外層html
             // content += '<div class="kContainer" id="kOrder"><div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div><div class="kHead"><div class="kHeadItem">';
             //取得餐點(第2層loop)
-            var tmpindex = rendertest[thisindex]-1;
-            
+            var tmpindex = rendertest[thisindex] - 1;
+
             console.log(orderNoDoneFinal[thisindex][1]["topping"]);
             for (let j = 0; j < orderNoDoneFinal.length; j++) {
-                
-                
+
+
                 //取得配菜陣列
                 if (j > 0) {
-                   
+
                     var item = orderNoDoneFinal[thisindex][j]["topping"];
                     var topping = "";
                     console.log(item);
@@ -152,7 +152,7 @@ window.addEventListener('load',function(){
                     for (k = 0; k < item.length; k++) {
                         topping += item[k].substring(0, item[k].indexOf(" ")) + ' ';
                     }
-                    
+
                     //底下菜項目名稱
                     content += ' <li><div class="kFoodTitle"><h1 class="kFoodValue"> ' + orderNoDoneFinal[thisindex][j]["PRO_ITEM_NAME"] +
                         '</h1><span class="kFoodValueTopping"> ' + topping +
@@ -180,6 +180,6 @@ window.addEventListener('load',function(){
 
     }
 
-    
-    
+
+
 });

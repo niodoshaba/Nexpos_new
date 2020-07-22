@@ -2,13 +2,14 @@ body {
   font-family: "jf-openhuninn-1.1";
   font-size: 20px;
   color: #959595;
-  max-width: 1440px; }
+  width: 1440px;
+  height: 900px; }
 
 .container-fluid {
   padding: 0; }
 
 #checkoutLeftside {
-  height: 100vh; }
+  height: 900px; }
 
 #checkoutLeftSideTop {
   font-size: 20px;
@@ -59,7 +60,7 @@ body {
   background-color: rgba(178, 221, 234, 0.35); }
 
 .checkoutScrollbar {
-  height: 55vh;
+  height: 495px;
   width: 100%;
   background: white;
   overflow-y: scroll;
@@ -97,10 +98,10 @@ body {
     padding: 10px 20px; }
 
 #checkoutMain {
-  height: 100vh; }
+  height: 900px; }
   #checkoutMain #checkoutMainTop {
-    height: 55vh;
-    margin-top: 5vh; }
+    height: 495px;
+    margin-top: 45px; }
     #checkoutMain #checkoutMainTop button {
       border: 2px solid #B2DDEA;
       border-radius: 30px;
@@ -112,7 +113,7 @@ body {
       margin-left: 10px;
       transform: translateX(140px); }
   #checkoutMain #checkoutMainBottom {
-    height: 35vh; }
+    height: 315px; }
   #checkoutMain .checkoutBigLetter {
     width: 350px;
     display: inline-block;
@@ -209,7 +210,9 @@ body {
   background-color: #F9F9F9;
   border-radius: 50px 0px 0px 0px;
   box-shadow: -1px -1px 3px #e6e6e6;
-  height: 100vh; }
+  height: 900px;
+  display: flex;
+  flex-direction: column; }
   #checkoutRightSide #checkoutRightSideTop {
     margin-top: 230px;
     text-align: center; }
@@ -230,8 +233,7 @@ body {
     width: 70%;
     margin: 15%;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap; }
+    justify-content: center; }
     #checkoutRightSide #checkoutRightSideMid button {
       font-size: 35px;
       color: #959595;
@@ -267,3 +269,48 @@ body {
       background-color: #FF9F4B;
       outline: none;
       display: none; }
+
+#checkOutDoneContainer {
+  border: 1px solid #dfdada;
+  width: 710px;
+  height: 844px;
+  margin: 0 auto;
+  border-radius: 35px; }
+  #checkOutDoneContainer h1 {
+    width: 468px;
+    padding: 50px 50px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 50px;
+    color: #959595; }
+  #checkOutDoneContainer #checkOutDoneBox {
+    padding: 10px 0px;
+    border-top: 1px solid #959595;
+    border-bottom: 1px solid #959595;
+    width: 468px;
+    margin: 0 auto 330px; }
+  #checkOutDoneContainer table {
+    margin: 50px auto;
+    width: 468px; }
+    #checkOutDoneContainer table tbody tr th, #checkOutDoneContainer table tbody tr td {
+      padding: 10px 20px;
+      font-size: 20px;
+      color: #959595; }
+    #checkOutDoneContainer table tbody tr td {
+      text-align: right; }
+  #checkOutDoneContainer .total td, #checkOutDoneContainer .total th {
+    font-size: 30px; }
+  #checkOutDoneContainer #checkOutDone {
+    margin: 0 auto;
+    width: 200px;
+    font-size: 40px;
+    color: #fff;
+    height: 90px;
+    border: 0;
+    border-radius: 35px;
+    background-color: #FF9F4B;
+    outline: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50px; }
