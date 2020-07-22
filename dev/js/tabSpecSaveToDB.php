@@ -9,8 +9,8 @@ try{
 
 
 
-    // require_once("generalConnectDB.php");
-    require_once("ordCon.php");
+    require_once("generalConnectDB.php");
+    // require_once("ordCon.php");
 
     // $pdo_1 = new PDO($dsn, $user, $password, $options);
 

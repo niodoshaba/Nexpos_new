@@ -7419,8 +7419,7 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   display: flex;
   flex: 1;
   flex-direction: column;
-  min-width: 0;
-  min-height: 100vh; }
+  min-width: 0; }
   .c-wrapper:not(.c-wrapper-fluid) .c-subheader-fixed {
     position: relative; }
   .c-wrapper:not(.c-wrapper-fluid) .c-header-fixed {

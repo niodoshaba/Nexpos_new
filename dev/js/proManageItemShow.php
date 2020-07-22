@@ -9,8 +9,8 @@ try{
 
 
 
-  // require_once("generalConnectDB.php");
-  require_once("ordCon.php");
+  require_once("generalConnectDB.php");
+  // require_once("ordCon.php");
 
   
   $sql = "SELECT PRODUCT_ITEM.PRO_ITEM_NO,PRODUCT_CATA.PRO_CATA_NAME,PRODUCT_ITEM.PRO_ITEM_NAME,PRODUCT_ITEM.PRO_ITEM_PRICE,PRODUCT_ITEM.PRO_ITEM_ONOFF

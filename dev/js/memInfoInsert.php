@@ -10,8 +10,8 @@ try{
   // $pdo = new PDO($dsn, $user, $password,$options);
 
 
-  // require_once("generalConnectDB.php");
-  require_once("ordCon.php");
+  require_once("generalConnectDB.php");
+  // require_once("ordCon.php");
   
   $CUS_LAST = $idPswInputData->CUS_LAST;
   $CUS_FIRST = $idPswInputData->CUS_FIRST;

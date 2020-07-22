@@ -8,8 +8,8 @@ try{
   // $pdo = new PDO($dsn, $user, $password,$options);
   
 
-  // require_once("generalConnectDB.php");
-  require_once("ordCon.php");
+  require_once("generalConnectDB.php");
+  // require_once("ordCon.php");
 
   //抓出店長資料
   $sql = "SELECT EMP_NO, EMP_TITLE, EMP_NAME, EMP_PHONE, EMP_PWD, EMP_STAT
