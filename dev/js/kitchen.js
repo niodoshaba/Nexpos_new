@@ -12,7 +12,7 @@
         var orderNo = [];
         var orderNoDone = [];
         var orderNoDoneFinal = [];
-        var el2 = document.getElementById('kPageContainer');
+        var el2 = document.getElementsByClassName('kPageContainer');
         var content = "";
 
         function getOrderData(){
@@ -78,11 +78,11 @@
                     //整張訂單基本資料
                     content += '<h1>訂單:<span>' + orderNoDoneFinal[i][j]["orderList"] + '</span></h1><span>' + orderNoDoneFinal[i][j]["date"] + '</span></div>' ;
                     content += ' <div class="kHeadItem"><h1>外帶/內用：'+orderNoDoneFinal[i][0]["inOrOut"]+'</h1><span>人數'+ orderNoDoneFinal[i][0]["pNum"] +'</span><span>店員：Lily</span></div></div>'
-                    content += ' <div class="kFood"><div class="kFoodBar">項 目</div><ul class="kFoodItem">';
+                    content += ' <div class="kFood"><div class="kFoodBar">項 目</div><div class="resScrollbar" id="resScrollstyle"><div class="resOverflow"><ul class="kFoodItem">';
                 }
 
             }
-            content += '</ul></div>';
+            content += '</ul></div></div></div>';
             content += '<button class="kButton" onclick="foodDone(this);">訂單完成</button></div>';
         }
         
@@ -92,7 +92,7 @@
                     let status = orderNoDoneFinal[i][j].status;
                     let state = orderNoDoneFinal[i][j].state;
                     if(status == 1 && state == 0){
-                        el2.innerHTML = content;
+                        el2[j].innerHTML = content;
                     }
                 }
             }

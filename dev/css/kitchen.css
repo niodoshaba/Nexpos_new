@@ -77,3 +77,44 @@ span {
   left: 50%;
   transform: translateX(-50%);
   bottom: 30px; }
+
+.resScrollbar {
+  /* border: 1px solid #e2e2e2; */
+  border-radius: 10px;
+  float: left;
+  height: 320px;
+  width: 300px;
+  overflow-y: scroll;
+  overflow-x: auto;
+  margin-bottom: 25px; }
+
+.resOverflow {
+  min-height: 600px; }
+
+#resScrollstyle::-webkit-scrollbar {
+  width: 10px; }
+
+#resScrollstyle::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #DDDDDD; }
+
+.resScrollbar2 {
+  margin-top: 40px;
+  /* border: 1px solid #e2e2e2; */
+  border-radius: 10px;
+  float: left;
+  height: 750px;
+  width: 1200px;
+  overflow-y: auto;
+  overflow-x: auto;
+  margin-bottom: 25px; }
+
+.resOverflow {
+  min-height: 600px; }
+
+#resScrollstyle2::-webkit-scrollbar {
+  width: 10px; }
+
+#resScrollstyle2::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #DDDDDD; }

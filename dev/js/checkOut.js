@@ -1,7 +1,8 @@
 window.addEventListener('load',function(){
     
-
-    let checkoutLeftSideMidItemTop = document.getElementsByClassName("checkoutLeftSideMidItemTop");
+    let checkoutLeftSideMid = document.getElementById('checkoutLeftSideMid');
+    let checkoutScrollbar = document.getElementsByClassName("checkoutScrollbar")[0];
+    let checkoutLeftSideMidItemTop =document.getElementsByClassName("checkoutLeftSideMidItemTop");
     let checkoutIfEachCheck = document.getElementById("checkoutIfEachCheck");
     let checkoutIfDiscount = document.getElementById("checkoutIfDiscount");
     let checkoutIfPoint = document.getElementById("checkoutIfPoint");
@@ -41,6 +42,7 @@ window.addEventListener('load',function(){
     let ppl;
 
     let sendDataToDB;
+    let checkOutDone = document.getElementById('checkOutDone');
     // console.log(checkoutLeftSideMidItemTop);
     //紀錄傳到點餐頁面的資訊
     var loadOrdListTips = JSON.parse(localStorage.getItem('ordlistTips'));
@@ -63,11 +65,30 @@ window.addEventListener('load',function(){
     var tmpBackKitchen = [];
     //確認是否有後廚完成訂單，有渲染內用外帶訂單
     var tmpBackKitchenDone = [];
-    var tabReceiveJson = (JSON.parse(localStorage.getItem("allData")));
+    var tabReceiveJson = JSON.parse(localStorage.getItem("allData"));
+
+    var tabEditColor = tabReceiveJson[0].selectEmptyColor;
+    var tabResColor = tabReceiveJson[0].selectResColor;
+    var tabCloseColor = tabReceiveJson[0].selectCloseColor;
+    var tabCleanColor = tabReceiveJson[0].selectCleanColor;
+    var tabEatColor = tabReceiveJson[0].selectEatColor;
     var ordPostBool = false;
     var ordCheckOutBool = false; 
 
+    let checkoutSendNo = document.getElementById('checkoutSendNo');
+    let checkoutSendPayNo = document.getElementById('checkoutSendPayNo');
+    let checkoutSendGetPrice = document.getElementById('checkoutSendGetPrice');
+    let checkoutSendCoin = document.getElementById('checkoutSendCoin');
+    let checkoutSendDiscount = document.getElementById('checkoutSendDiscount');
+    let checkoutSendBonus = document.getElementById('checkoutSendBonus');
+    let checkoutSendLastBonus = document.getElementById('checkoutSendLastBonus');
+    let checkoutSendTotalPrice = document.getElementById('checkoutSendTotalPrice');
+
+    let checkoutGetCash = document.getElementById('checkoutGetCash');
+    let checkoutChangeDiv = document.getElementById('checkoutChangeDiv').children[1];
+    
     checkoutOrderListNo.innerText = `訂單編號: ${ordlistTips.orderList}`;
+    
     
     if(ordlistTips.inOrOut == "in"){
         checkoutOrderInOrOut.innerText = "內用";
@@ -81,7 +102,7 @@ window.addEventListener('load',function(){
     //確認是否有後廚完成訂單，有渲染內用外帶訂單
     var tmpOrderManuDone = [];
 
-    function checkBackKitchenDone(){
+    function checkOrderDone(){
         for(var i = 0; i < localStorage.length; i++){
             tmpOrderManu.push(localStorage.key(i));
         }
@@ -89,6 +110,19 @@ window.addEventListener('load',function(){
         for(j=0;j<tmpOrderManu.length;j++){
             if(tmpOrderManu[j].includes('orderNo_')){
                 tmpOrderManuDone.push(tmpOrderManu[j]);
+            }
+        }
+    
+    }
+
+    function checkBackKitchenDone(){
+        for(var i = 0; i < localStorage.length; i++){
+            tmpBackKitchen.push(localStorage.key(i));
+        }
+    
+        for(j=0;j<tmpBackKitchen.length;j++){
+            if(tmpBackKitchen[j].includes('done_')){
+                tmpBackKitchenDone.push(tmpBackKitchen[j]);
             }
         }
     
@@ -115,7 +149,7 @@ window.addEventListener('load',function(){
                
             }
         }
-        xhr.open("post","../dev/js/checkOut.php",true);
+        xhr.open("post","./js/checkOut.php",true);
         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
         xhr.send(null);
         
@@ -152,7 +186,7 @@ window.addEventListener('load',function(){
                 
             }
         }
-        xhr.open("post","../dev/js/customerSearch.php",true);
+        xhr.open("post","./js/customerSearch.php",true);
         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
         xhr.send(`customer=${data}`);
         
@@ -192,14 +226,16 @@ window.addEventListener('load',function(){
     let checkoutDiscountPrice = document.getElementById('checkoutDiscountPrice');
     
     checkBackKitchenDone();
+    checkOrderDone();
+    
 
     
 
     ordHTML = "";
     checkoutLeftSideMidItemAll.innerHTML = "";
-    // console.log(tmpOrderManuDone);
+    
     let tmpcontent;
-    // console.log(tmpOrderManuDone[0].substring(tmpstr));
+   
     for(i=0;i<tmpOrderManuDone.length;i++){
         let tmpstr = tmpOrderManuDone[i].indexOf('_')+1;
         if(tmpOrderManuDone[i].substring(tmpstr) == ordlistTips.orderList){
@@ -207,6 +243,17 @@ window.addEventListener('load',function(){
             
         }
     }
+
+    function orderBlue(){
+      
+        // for(i=0;i<checkoutLeftSideMidItemTop.length;i++){
+        //     checkoutLeftSideMidItemTop[i].addEventListener("click",function(){
+        //         console.log(1);
+        //         $(this).toggleClass("-toblue");
+        //     });
+        // }
+    }
+   
 
     for (k = 1; k < tmpcontent.length; k++) {
         
@@ -227,7 +274,7 @@ window.addEventListener('load',function(){
 
                 ordHTML += `
                                 <div class="checkoutLeftSideMidItem" style="pointer-events:none; color:#ccc">
-                                    <div class="checkoutLeftSideMidItemTop">
+                                    <div class="checkoutLeftSideMidItemTop"  onclick='orderBlue()'>
                                         <span class="ordSele ${tmpcontent[k].PRO_CATA_NO}" data-itemno=${tmpcontent[k].PRO_ITEM_NO}>${tmpcontent[k].PRO_ITEM_NAME}</span>
                                         <span data-count=${k}>1</span>
                                     </div>
@@ -240,6 +287,9 @@ window.addEventListener('load',function(){
                                 </div>
                             `;
                             checkoutLeftSideMidItemAll.innerHTML = ordHTML;
+                            
+
+                            // setTimeout(orderBlue,0);
             } else {
                 
                 ordHTML += `
@@ -256,12 +306,50 @@ window.addEventListener('load',function(){
                         </div>
                     `;
                     checkoutLeftSideMidItemAll.innerHTML = ordHTML;
+
             };
         };
         
-        // checkoutLeftSideMidItemAll.insertAdjacentHTML("beforeend", `${ordHTML}`);
-
+        // checkoutLeftSideMidItemAll.insertAdjacentHTML("beforeend", `${ordHTML}`)
+               
     };
+    
+        checkoutScrollbar.addEventListener('click',function(e){
+            
+            const li = e.target.closest();
+            console.log(li);
+            const thisindex = Array.prototype.indexOf.call(li.parentNode.children, li);
+            // console.log(thisindex);
+            // for(i=0;i<li.length;i++){
+            //     li[i]
+            // }
+        
+        });  
+        // for(i=0;i<checkoutScrollbar.childElementCount;i++){
+        //     checkoutScrollbar.children[i].addEventListener('click',function(){
+        //         alert(123);
+        //     });
+        // }
+        
+        // const index = Array.prototype.indexOf.call(li.parentNode.children, li);
+        // console.log(index);
+    
+
+
+    // setTimeout(() => {
+       
+    //     checkoutLeftSideMidItemTop[0].addEventListener("click",function(){
+    //         // $(this).toggleClass("-toblue");
+    //     });
+    //     // for(i=0;i<tmpcontent.length-1;i++){
+    //     //     console.log(i);
+    //     //     checkoutLeftSideMidItemTop[i].addEventListener("click",function(){
+    //     //         console.log(1);
+    //     //         // $(this).toggleClass("-toblue");
+    //     //     });
+    //     // }
+    // }, 10);
+    
 
     
     //立即函式 
@@ -277,11 +365,8 @@ window.addEventListener('load',function(){
     
     
     // 點擊訂單項目反藍
-    for(i=0;i<checkoutLeftSideMidItemTop.length;i++){
-        checkoutLeftSideMidItemTop[i].addEventListener("click",function(){
-            $(this).toggleClass("-toblue")
-        })
-    }
+   
+    
 
     //切換三種結帳模式
     checkoutDiscountBtn.addEventListener("click",function(){
@@ -308,7 +393,17 @@ window.addEventListener('load',function(){
 
     //送資料給後端程式同時
     checkoutLastBtn.addEventListener('click',function(){   
-         
+        
+        checkoutSendNo.innerText = checkoutOrderListNo.innerText;
+        checkoutSendPayNo.innerText = "現金";  
+        checkoutSendGetPrice.innerText =  checkoutGetCash.value; 
+        checkoutSendCoin.innerText = checkoutChangeDiv.innerText;  
+        checkoutSendDiscount.innerText = checkoutDiscountTotalPrice.innerText;  
+        checkoutSendBonus.innerText =  checkoutGetPoint.value; 
+        checkoutSendLastBonus.innerText = parseInt(checkoutNowBouns)-parseInt(checkoutGetPoint.value);
+        checkoutSendTotalPrice.innerText =  checkOutTotalPrice; 
+
+
         //訂單編號
         // checkoutOrderListNo.innerText
 
@@ -328,6 +423,9 @@ window.addEventListener('load',function(){
         //checkOutTotalPriceSendToDB
 
         //日期
+        // console.log(ordlistTips.number);
+        // console.log(tabReceiveJson[2].number);
+        console.log(`orderNo_${ordlistTips.orderList}`);
         let tmpDate = `${cusNowDay.getFullYear()}-${cusNowDay.getMonth()+1}-${cusNowDay.getDate()}`;
         
         //人數
@@ -345,69 +443,79 @@ window.addEventListener('load',function(){
             tmpInOrOut = 1;
         }
 
-        sendDataToDB = [
+        sendDataToDB = {
             "ORDER_NO" : checkoutOrderListNo.innerText,
-            "CUS_PHONE_NUMBER" : cusPhoneNumber,
+            "CUS_PHONE" : cusPhoneNumber,
             "PAY_NO" : 1,
-            "EMP_NO" : 
+            "EMP_NO" : 1,
             "BONUS_NAME" : bonusRule,
             "ORDER_TAX_ID": "",
             "ORDER_DEVICE_NO" : "",
             "ORDER_INNOUT" : tmpInOrOut,
-            "ORDER_"
-        ]
+            "ORDER_NUM" : ppl,
+            "ORDER_TTL_PRICE" : checkOutTotalPriceSendToDB,
+            "ORDER_DATE" : tmpDate
+        }
 
+        checkoutSaveDataToDB(JSON.stringify(sendDataToDB));
         //點過結帳按鈕bool
          ordCheckOutBool = true;
          //關閉出餐按鈕bool
          ordPostBool = false;
-         saveDataToLocal("ordCheckOutBool",ordCheckOutBool);
+         localStorage.setItem("ordCheckOutBool",JSON.stringify(ordCheckOutBool));
+        //  saveDataToLocal("ordCheckOutBool",ordCheckOutBool);
          localStorage.setItem('ordPostBool',ordPostBool);
 
-         //判斷是要刪除內用訂單或外帶訂單
-         //刪除內用訂單
-         for(i=0;i<tabReceiveJson.length;i++){
-             if(tabReceiveJson[i].number == ordlistTips.number){
-                 tabReceiveJson[i].basicInfo.inOrOut = "";
-                 tabReceiveJson[i].basicInfo.orderList = "";
-                 //將餐桌改為清潔中
-                 tabReceiveJson[i].bgc = tabCleanColor;
-             }
-         }
-         saveDataToLocal("allData",tabReceiveJson);
+    });
 
-         //刪除外帶訂單
+    checkOutDone.addEventListener('click',function(){
+
+        console.log(tmpBackKitchenDone);
+        console.log(tmpOrderManuDone);
+        //刪除內用訂單
+        for(i=0;i<tabReceiveJson.length;i++){
+             
+            if(tabReceiveJson[i].number == ordlistTips.number){
+                tabReceiveJson[i].basicInfo.inOrOut = "";
+                tabReceiveJson[i].basicInfo.orderList = "";
+                //將餐桌改為清潔中
+                tabReceiveJson[i].bgc = tabCleanColor;
+            }
+        }
+        localStorage.setItem("allData",JSON.stringify(tabReceiveJson)); 
+        
+        //刪除外帶訂單
          if(toGoArr == undefined){
 
-         }else{
-             for(j=0;j<toGoArr.length;j++){
-                 if(toGoArr[j].orderList == ordlistTips.orderList){
-                     toGoArr.splice(j,1);
-                 
-                 }
-             }
-             localStorage.setItem('toGoArr',JSON.stringify(toGoArr));
+        }else{
+            for(j=0;j<toGoArr.length;j++){
+                if(toGoArr[j].orderList == ordlistTips.orderList){
+                    toGoArr.splice(j,1);
+                
+                }
+            }
+            localStorage.setItem('toGoArr',JSON.stringify(toGoArr));
 
-         }
-         
-         //刪除localstorage裡的done_訂單編號
-         for(k=0;k<tmpBackKitchenDone.length;k++){
-             let checktmpBack = tmpBackKitchenDone[k].substring(5,tmpBackKitchenDone[k].length);
-                 if(ordlistTips.orderList == checktmpBack){
-                     localStorage.removeItem(`done_${checktmpBack}`);
-                 } 
-         }
-         
-         //刪除點餐暫存資料
-         localStorage.removeItem(`ordSaveProdInCart_${ordlistTips.orderList}`);
-         localStorage.removeItem(`ordSaveProdInTempCart${ordlistTips.orderList}`);
-         localStorage.removeItem(`SavePpl${ordlistTips.orderList}`);
-         localStorage.removeItem(`ordSaveProdInCartOnHist${ordlistTips.orderList}`);
-         localStorage.removeItem(`orderNo${ordlistTips.orderList}`);
-
-
-
-        //  location.replace('http://localhost/phplab/Table0716/Table/html/posHomeTab.html');
+        }
+        
+        //刪除localstorage裡的done_訂單編號
+        for(k=0;k<tmpBackKitchenDone.length;k++){
+            let checktmpBack = tmpBackKitchenDone[k].substring(5,tmpBackKitchenDone[k].length);
+            
+                if(ordlistTips.orderList == checktmpBack){
+                    localStorage.removeItem(`done_${checktmpBack}`);
+                } 
+        }
+        
+        //刪除點餐暫存資料
+        localStorage.removeItem(`ordSaveProdInCart_${ordlistTips.orderList}`);
+        localStorage.removeItem(`ordSaveProdInTempCart${ordlistTips.orderList}`);
+        localStorage.removeItem(`SavePpl${ordlistTips.orderList}`);
+        localStorage.removeItem(`ordSaveProdInCartOnHist${ordlistTips.orderList}`);
+        localStorage.removeItem(`orderNo_${ordlistTips.orderList}`);
+        
+        
+        location.replace('http://localhost/G4_final/dev/posHomeTab.html');
     });
 
     //----- 拆帳 -----
