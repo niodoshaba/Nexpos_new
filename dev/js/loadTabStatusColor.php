@@ -6,9 +6,9 @@ try{
     // $password = "95123654";
     // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
     // $pdo = new PDO($dsn, $user, $password, $options);
-
-   // require_once("generalConnectDB.php");
-  require_once("ordCon.php");
+    
+    require_once("generalConnectDB.php");
+    // require_once("ordCon.php");
 
     $sql = "SELECT TAB_NAME,TAB_SHOW,TAB_STAT_NO
             FROM   tabstat;";

@@ -9,8 +9,8 @@ try{
   // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   // $pdo = new PDO($dsn, $user, $password, $options);
   
-  // require_once("generalConnectDB.php");
-  require_once("ordCon.php");
+  require_once("generalConnectDB.php");
+  // require_once("ordCon.php");
 
   $allDiscount = $allDisInputData->allDiscount * 0.1; //輸入的折扣金額
   $allDisName = $allDisInputData->allDisName; //活動名稱

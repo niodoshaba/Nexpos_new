@@ -8,8 +8,8 @@ try{
   // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   // $pdo = new PDO($dsn, $user, $password,$options);
 
-// require_once("generalConnectDB.php");
-require_once("ordCon.php");
+  require_once("generalConnectDB.php");
+  // require_once("ordCon.php");
 
   //抓出員工資料
   $sql = "SELECT CUS_PHONE, CUS_ID, CUS_STATE, CUS_LAST, CUS_FIRST, CUS_GEN, CUS_BIRTH, CUS_EMAIL, CUS_POINT
