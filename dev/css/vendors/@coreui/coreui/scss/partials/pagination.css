@@ -85,7 +85,7 @@ html:not([dir="rtl"]) .pagination-lg .page-item:last-child .page-link {
 
 .pagination-sm .page-link {
   padding: 0.25rem 0.5rem;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5; }
 
 html:not([dir="rtl"]) .pagination-sm .page-item:first-child .page-link {

@@ -1,4 +1,4 @@
-var testtttt = [];
+var checkedItem = [];
 
 var testDiscount = document.getElementById("testDiscount");
 window.addEventListener('load', function () {
@@ -66,7 +66,7 @@ window.addEventListener('load', function () {
         discountTable.innerHTML += str;
         edit()
         showCheckedItem();
-        testttttt();
+        checkedItemt();
       }
     }
     xhr.open("get", "./js/discountItemShow.php", true);
@@ -74,7 +74,7 @@ window.addEventListener('load', function () {
   }
 
 
-  function testttttt() {
+  function checkedItemt() {
     $('.show').click(function () {
       $(this).parent().parent()[0].childNodes[1].innerHTML
     })
@@ -171,6 +171,7 @@ window.addEventListener('load', function () {
           showRowDisItem();
           $('.addbtn').removeAttr('disabled');
           $('.edit').removeAttr('disabled');
+          alert('儲存成功');
         } else {
           // alert(xhr.status);
         };
@@ -258,6 +259,7 @@ window.addEventListener('load', function () {
             showRowDisItem();
             $('.addbtn').removeAttr('disabled');//恢復新增按鈕
             $('.edit').removeAttr('disabled');//恢復編輯按鈕
+            alert('儲存成功');
           } else {
             alert(xhr.status);
           };

@@ -107,6 +107,19 @@
             yoyo: true,
         })
     </script>
+    <script>
+        let checkDate = localStorage.getItem('date');
+        let today = new Date();
+        let todayDate = today.toLocaleDateString();
+
+        let loginFront = document.querySelector('.loginFront');
+        loginFront.addEventListener('click', function(){
+            if(checkDate == todayDate){
+                alert('今天已經關帳囉＾_＾!');
+                location.href="login.html";
+            }
+        })
+    </script>
 </body>
 
 </html>
