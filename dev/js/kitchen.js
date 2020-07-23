@@ -37,7 +37,7 @@ function getOrderData() {
 window.addEventListener('load', function () {
     getOrderData();
     rederOrdListIf();
-    console.log(orderNoDoneFinal);
+    
     //按下完成後，該單消失
     $('.kButton').on('click', function () {
         $(this).parent('.kContainer').css('display', 'none');
@@ -84,7 +84,7 @@ function rederOrdListIf() {
 
         }
         content += '</ul></div></div></div>';
-        content += '<button class="kButton" onclick="foodDone(this);">訂單完成</button></div>';
+        content += '<button type="button" class="kButton" onclick="foodDone(this);">訂單完成</button></div>';
     }
 
     
@@ -104,9 +104,9 @@ function rederOrdListIf() {
 
 
 
-function foodDone(obj) {
+function foodDone(obj,event) {
+
     let orderNo = obj.parentNode.querySelector('.kHeadItem h1 span').innerHTML;
-    console.log(orderNo);
     //state改值:1
     for (i = 0; i < orderNoDoneFinal.length; i++) {
         // orderNoDoneFinal[i][0]是訂單基本資料
@@ -116,6 +116,7 @@ function foodDone(obj) {
                 let state = orderNoDoneFinal[i][j].state;
                 if (status == 1 && state == 0) {
                     orderNoDoneFinal[i][j].state = 1;
+                    // localStorage.setItem(`${orderNoDone[i]}`,JSON.stringify(orderNoDoneFinal));
                 }
             }
             localStorage.setItem(`done_${orderNo}`, orderNo);
