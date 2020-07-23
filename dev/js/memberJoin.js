@@ -135,24 +135,25 @@ $(document).ready(function () {
 
       success: function (data) {
         alert("儲存成功！");
+        location.href = "../memberJoin.html";
         console.log(data);
       },
     });
   });
 });
 
-$("#butsave").click(function () {
-  $(".spot td input").each(function () {
-    $(this).val("");
-  });
-  // $(".regUpdateLastName").each(function(){
-  // 	$(this).val('');
-  // });
-  $(".regUpdateLastName").empty();
-  $(".regUpdateFirstName").empty();
-  $(".regUpdateCell").empty();
-  $(".regUpdateEmail").empty();
-});
+// $("#butsave").click(function () {
+//   $(".spot td input").each(function () {
+//     $(this).val("");
+//   });
+//   // $(".regUpdateLastName").each(function(){
+//   // 	$(this).val('');
+//   // });
+//   $(".regUpdateLastName").empty();
+//   $(".regUpdateFirstName").empty();
+//   $(".regUpdateCell").empty();
+//   $(".regUpdateEmail").empty();
+// });
 
 window.addEventListener("load", function () {
   // 判斷登入人員並顯示於頁面
