@@ -2,7 +2,7 @@
 .tablehead {
   margin-top: 20px;
   padding: 20px;
-  margin-left: 180px;
+  margin-left: 95px;
   width: 1040px;
   // border-bottom: 1px solid red;
   h1 {
@@ -84,27 +84,23 @@ select {
   padding: 5px;
   border-radius: 8px;
 }
-form {
-  width: 952px;
-  margin: 0 auto;
-  // border: 1px solid red;
-}
 
 .add {
-  margin-left: 50%;
+  margin-left: 55%;
   transform: translateX(-50%);
 }
 
 .resScrollbar {
-  margin-top: 70px; //before:40px;
+  // margin-top: 70px; //before:40px;
   border: 1px solid #e2e2e2;
   border-radius: 10px;
-  float: left;
+  // float: left;
   height: 600px;
-  width: 1070px; //before:1074px;
+  width: 1100px; //before:1074px;
   overflow-y: scroll;
   overflow-x: hidden;
   margin-bottom: 25px;
+  margin: 70px auto 0;
 }
 
 .resOverflow {
