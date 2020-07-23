@@ -4,7 +4,7 @@
 //----------GSAP第一屏的球球----------
 TweenMax.to('#fpBall_db',28, {
     bezier: function(){
-      return  [{x: 20,y: 30},{x: 10,y: 10,},{x: 15,y: 15,},{x: 20,y: 50},{x: 10,y: 60,}]
+      return  [{x: 20,y: 30},{x: 10,y: 15,},{x: 15,y: 15,},{x: 20,y: 50},{x: 10,y: 60,}]
     },
     repeat: -1,
     yoyo: true,
