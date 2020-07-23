@@ -97,6 +97,7 @@
 
 #resize-tabContainer li {
   text-align: center;
+  line-height: 30px;
   /* 要加不然interact js會跳警告 */
   touch-action: none;
   list-style: none;

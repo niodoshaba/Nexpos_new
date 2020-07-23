@@ -277,6 +277,17 @@
         <div class="fpCircle fpCircle7"></div>
     </section>
 
+    <div id="indexBlackBlock">
+    
+        <div id="indexBlackBlockText">
+            <p>請使用尺寸</p>
+            <p><span>1440 x 900</span> </p>
+            <p>享有最佳使用體驗</p>
+            <br>
+            <span id="indexBlackBlockBack">返回</span>
+        </div>
+    </div>
+
     <footer class="fpFooter">
         COPYRIGHT &copy; 2020 NEXPOS ALL RIGHT RESERVED
     </footer>
@@ -351,18 +362,61 @@
     </script>
 
     <script>
-        $(function () {
-            $('.fpBtn1').on('click', function (e) {
-                e.preventDefault();
-            })
-            $('.fpBtn1').click(function () {
-                $('.fpClickBall').addClass('active')
-                setTimeout(() => {
-                    location.href = "./login.html"
-                }, 1000);
+    let indexWidth = window.innerWidth
+    
+    console.log(indexWidth)
+    let indexBlackBlock = document.getElementById('indexBlackBlock')
+    let indexBlackBlockBack = document.getElementById('indexBlackBlockBack')
+    let windowFixed = document.getElementsByTagName('html')
 
-            });
-        })
+    $('.fpBtn1').on('click', function (event){
+        if(indexWidth < 767){
+        event.preventDefault();
+
+        indexBlackBlock.style.width="150vw"
+        indexBlackBlock.style.height="150vh"
+        indexBlackBlock.style.opacity="1"
+        windowFixed[0].classList.toggle("fixWindow")
+        }else{
+        event.preventDefault();
+        $('.fpClickBall').addClass('active')
+            setTimeout(() => {
+                location.href = "./login.html"
+            }, 1000);
+        }
+})
+$('.fpBtn4').on('click', function (event){
+        if(indexWidth < 767){
+        event.preventDefault();
+
+        indexBlackBlock.style.width="150vw"
+        indexBlackBlock.style.height="150vh"
+        indexBlackBlock.style.opacity="1"
+        windowFixed[0].classList.toggle("fixWindow")
+        }else{
+        event.preventDefault();
+        $('.fpClickBall').addClass('active')
+            setTimeout(() => {
+                location.href = "./login.html"
+            }, 1000);
+        }
+})
+$('#indexBlackBlockBack').on('click', function (){
+ 
+        indexBlackBlock.style.width="0vw"
+        indexBlackBlock.style.height="0vh"
+        indexBlackBlock.style.opacity="0"
+        windowFixed[0].classList.toggle("fixWindow")
+        
+})
+
+    </script>
+
+    <script>
+
+
+
+    
     </script>
 
 </body>
