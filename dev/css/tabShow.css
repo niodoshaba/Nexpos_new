@@ -2,12 +2,10 @@
   margin-top: 20px;
   padding: 20px;
   margin-left: 180px;
-  width: 1040px;
-}
+  width: 1040px; }
 
 .tablehead h1 {
-  font-size: 35px;
-}
+  font-size: 35px; }
 
 #showTableToResPage {
   display: flex;
@@ -16,12 +14,10 @@
   top: 10px;
   width: 1000px;
   height: 650px;
-  box-shadow: 0px 0px 10px #959595;
-}
-#showTableToResPage li {
-  text-align: center;
-  line-height: 40px;
-}
+  box-shadow: 0px 0px 10px #959595; }
+  #showTableToResPage li {
+    text-align: center;
+    line-height: 40px; }
 
 #tabResOrCloseSelect {
   margin-left: 200px;
@@ -31,8 +27,7 @@
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   width: 200px;
-  font-family: "jf-openhuninn";
-}
+  font-family: "jf-openhuninn"; }
 
 #tabCloseBtn {
   position: absolute;
@@ -45,5 +40,4 @@
   border-radius: 20px;
   color: white;
   outline: none;
-  font-size: 20px;
-}
+  font-size: 20px; }
