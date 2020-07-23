@@ -380,6 +380,11 @@ function ordProdOnOff() {
 // ordProdOnOff();
 
 
+
+
+
+
+
 console.log("位置", ordNavList.childNodes)
 
 // call ajax(sanInfo)
@@ -482,6 +487,7 @@ function ordReceivePasInfo() {
 
 function ordPasShow() {
     ordNavList.childNodes[2].addEventListener("click", function () {
+        document.getElementById("ordPas").setAttribute("class", "ordListPicked");
         ordReceivePasInfo();
         orderPageArrowDR.style.display = "none";
         orderPageArrowDL.style.display = "none";
