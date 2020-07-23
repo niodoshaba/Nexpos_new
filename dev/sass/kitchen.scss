@@ -28,16 +28,16 @@ span{
 }
 .kPageContainer{
     display: flex;
-    margin-left: 20px;
+    margin-left: 60px;
     .kContainer{
         width: 300px;
         height: 605px;
         background-color: #FDE8B3;
         position: relative;
         top: 62px;
-        left: 150px;
+        left: 60px;
         border-radius: 12px;
-        margin-left: 46px;
+        margin-left: 40px;
         .kpin{
             color: red;
             font-size: 30px;
@@ -138,15 +138,15 @@ span{
   
 //大div scrollbar
 .resScrollbar2{
-    margin-top: 40px; 
-    /* border: 1px solid #e2e2e2; */
+    margin: 40px auto 0; 
+    border: 1px solid #e2e2e2; 
     border-radius: 10px;
-    float: left;
-    height: 750px;
-    width: 1200px;
-    overflow-y: auto;
+    // float: left;
+    height: 720px;
+    width: 1150px;
+    // overflow-y: auto;
     overflow-x: auto;
-    margin-bottom: 25px;
+    // margin-bottom: 25px;
   }
   
   .resOverflow
