@@ -163,7 +163,7 @@ a {
         z-index: -10; }
 
 .c-wrapper {
-  margin-left: 140px;
+  margin-left: 227px;
   transition: margin 0.3s;
   display: -ms-flexbox;
   display: flex;
@@ -171,7 +171,7 @@ a {
   flex: 1;
   -ms-flex-direction: column;
   flex-direction: column;
-  width: 1300px;
+  width: 1213px;
   height: 900px;
   position: relative; }
   .c-wrapper .topFunc {

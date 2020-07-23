@@ -1159,14 +1159,14 @@ fieldset:disabled a.btn {
 
 .btn-sm, .btn-group-sm > .btn {
   padding: 0.25rem 0.5rem;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5;
   border-radius: 0.2rem; }
   .btn-sm i, .btn-group-sm > .btn i,
   .btn-sm .c-icon,
   .btn-group-sm > .btn .c-icon {
-    width: 0.76562rem;
-    height: 0.76562rem;
+    width: 0.76563rem;
+    height: 0.76563rem;
     margin: 0.19141rem 0; }
 
 .btn-block {
@@ -2416,7 +2416,7 @@ html:not([dir="rtl"]) .custom-switch {
   height: calc(1.5em + 0.5rem + 2px);
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  font-size: 0.76562rem; }
+  font-size: 0.76563rem; }
   html:not([dir="rtl"]) .custom-select-sm {
     padding-left: 0.5rem; }
   *[dir="rtl"] .custom-select-sm {
@@ -2670,7 +2670,7 @@ select.form-control:focus::-ms-value {
 .col-form-label-sm {
   padding-top: calc(0.25rem + 1px);
   padding-bottom: calc(0.25rem + 1px);
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5; }
 
 .form-control-plaintext {
@@ -2691,7 +2691,7 @@ select.form-control:focus::-ms-value {
 .form-control-sm {
   height: calc(1.5em + 0.5rem + 2px);
   padding: 0.25rem 0.5rem;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5;
   border-radius: 0.2rem; }
 
@@ -2781,7 +2781,7 @@ textarea.form-control {
   max-width: 100%;
   padding: 0.25rem 0.5rem;
   margin-top: .1rem;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5;
   color: #fff;
   background-color: rgba(46, 184, 92, 0.9);
@@ -2874,7 +2874,7 @@ html:not([dir="rtl"]) .was-validated textarea.form-control:valid, html:not([dir=
   max-width: 100%;
   padding: 0.25rem 0.5rem;
   margin-top: .1rem;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5;
   color: #fff;
   background-color: rgba(229, 83, 83, 0.9);
@@ -4202,7 +4202,7 @@ html:not([dir="rtl"]) .was-validated textarea.form-control:invalid, html:not([di
 .input-group-sm > .input-group-prepend > .btn,
 .input-group-sm > .input-group-append > .btn {
   padding: 0.25rem 0.5rem;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5;
   border-radius: 0.2rem; }
 
@@ -5078,7 +5078,7 @@ html:not([dir="rtl"]) .pagination-lg .page-item:last-child .page-link {
 
 .pagination-sm .page-link {
   padding: 0.25rem 0.5rem;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5; }
 
 html:not([dir="rtl"]) .pagination-sm .page-item:first-child .page-link {
@@ -5115,7 +5115,7 @@ html:not([dir="rtl"]) .pagination-sm .page-item:last-child .page-link {
   word-spacing: normal;
   white-space: normal;
   line-break: auto;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   word-wrap: break-word;
   background-clip: padding-box;
   border: 1px solid;
@@ -9588,7 +9588,7 @@ table {
   flex: 1;
   -ms-flex-direction: column;
   flex-direction: column;
-  width: 1300px;
+  width: 1213px;
   height: 900px;
   position: relative;
   background-color: #ffffff; }
@@ -9698,14 +9698,11 @@ form {
 .card {
   width: 1100px;
   height: 600px;
-  margin-left: 75px;
+  margin-left: 25px;
   margin-top: 30px; }
 
 .c-sidebar ul li.actives {
   color: #319d8e; }
-
-.c-sidebar {
-  width: 240px; }
 
 input.proCataNo,
 input.proItemName,
