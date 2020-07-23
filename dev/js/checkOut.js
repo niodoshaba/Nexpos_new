@@ -91,8 +91,7 @@ window.addEventListener('load', function () {
 
 
     checkoutOrderListNo.innerText = `訂單編號: ${ordlistTips.orderList}`;
-
-
+    
     if (ordlistTips.inOrOut == "in") {
         checkoutOrderInOrOut.innerText = "內用";
         checkoutTabNo.innerText = `桌號: ${ordlistTips.number}`;
@@ -172,7 +171,8 @@ window.addEventListener('load', function () {
                     checkoutLeftSideTopBtn.parentElement.children[0].value = "無會員資料";
                     checkoutLeftSideTopBtn.parentElement.children[0].style.color = "#E98E89";
                     checkoutLeftSideTopBtn.parentElement.children[0].style.fontSize = "25px";
-
+                    //非會員現有紅利=0
+                    checkoutNowBouns.innerText = 0;
                 } else {
                     checkoutLeftSideTopBtn.parentElement.children[1].style.display = "none";
                     checkoutLeftSideTopBtn.parentElement.children[0].style.padding = "0";
@@ -305,28 +305,27 @@ window.addEventListener('load', function () {
 
     };
 
-    console.log(checkoutLeftSideMidItemTop);
+    // console.log(checkoutLeftSideMidItemTop);
     
     for(i=0;i<checkoutLeftSideMidItemTop.length;i++){
         checkoutLeftSideMidItemTop[i].addEventListener("click",function(){
             $(this).toggleClass("-toblue");
         });
     }
-  
-
-
-    //立即函式 
-    //1. 計算總金額
+ 
+    
+    //計算總金額
     function checkOutSum() {
         for (i = 0; i < checkOutPrice.length; i++) {
             checkOutTotalPrice = checkOutTotalPrice + parseInt(checkOutPrice[i].innerText.substring(1, checkOutPrice[i].innerText.length));
         }
         checkOutTotalPriceSendToDB = checkOutTotalPrice;
+        checkoutGetCash.value = checkOutTotalPrice;
         checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkOutTotalPrice}</span>`;
     }
     checkOutSum();
 
-
+    // console.log(checkOutTotalPriceSendToDB);
     // 點擊訂單項目反藍
 
 
@@ -356,15 +355,26 @@ window.addEventListener('load', function () {
 
     //送資料給後端程式同時
     checkoutLastBtn.addEventListener('click', function () {
-
+        console.log(checkOutTotalPrice);
+        console.log(checkoutDiscountTotalPrice);
+        //訂單編號
         checkoutSendNo.innerText = checkoutOrderListNo.innerText;
+        //付款方式(寫死)
         checkoutSendPayNo.innerText = "現金";
-        checkoutSendGetPrice.innerText = checkoutGetCash.value;
-        checkoutSendCoin.innerText = checkoutChangeDiv.innerText;
-        checkoutSendDiscount.innerText = checkoutDiscountTotalPrice.innerText;
-        checkoutSendBonus.innerText = checkoutGetPoint.value;
-        checkoutSendLastBonus.innerText = parseInt(checkoutNowBouns) - parseInt(checkoutGetPoint.value);
-        checkoutSendTotalPrice.innerText = checkOutTotalPrice;
+        //收款金額
+        checkoutSendGetPrice.innerText = checkOutTotalPrice;
+        //折扣總計
+        console.log(checkoutSendDiscount.innerText == "");
+        typeof(checkoutDiscountTotalPrice) == "number" && isNaN(checkoutDiscountTotalPrice)? checkoutSendDiscount.innerText = 0 : document.getElementById('checkoutDiscountTotalPrice').innerText != ""?checkoutSendDiscount.innerText = document.getElementById('checkoutDiscountTotalPrice').innerText:checkoutSendDiscount.innerText=0;
+     
+        //紅利折抵
+        typeof(checkoutGetPoint) == "number"?checkoutSendBonus.innerText = checkoutGetPoint.value : checkoutSendBonus.innerText = 0;
+
+        //剩餘紅利
+        // if(checkoutNowBouns.innerText == 0)
+        // checkoutSendLastBonus.innerText = parseInt(checkoutNowBouns.innerText) - parseInt(checkoutGetPoint.value);
+        //總計
+        checkoutSendTotalPrice.innerText = checkOutTotalPrice - checkoutSendDiscount.innerText - checkoutSendBonus.innerText;
 
 
         //訂單編號
@@ -388,7 +398,6 @@ window.addEventListener('load', function () {
         //日期
         // console.log(ordlistTips.number);
         // console.log(tabReceiveJson[2].number);
-        console.log(`orderNo_${ordlistTips.orderList}`);
         let tmpDate = `${cusNowDay.getFullYear()}-${cusNowDay.getMonth() + 1}-${cusNowDay.getDate()}`;
 
         //人數
@@ -518,6 +527,11 @@ window.addEventListener('load', function () {
         var discount = checkOutDiscountInput.value;
         //清空總金額
         checkoutDiscountTotalPrice = parseInt(0);
+        console.log(discount);
+        let re = RegExp('^0.[0-9]{2}');
+        console.log(re);
+        re.test(discount) == false?discount = 1: discount = discount;
+        console.log(discount);
         // console.log(discount);
         for (i = 0; i < checkOutPrice.length; i++) {
             var x = parseInt(checkOutPrice[i].innerText.substring(1, checkOutPrice[i].innerText.length));
@@ -531,7 +545,8 @@ window.addEventListener('load', function () {
         checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkoutDiscountTotalPrice}</span>`;
         // var afterPrice = parseInt(document.getElementById('checkOutTotalPriceShow').innerText); 
         checkOutTotalPrice = checkoutDiscountTotalPrice;
-        console.log(checkOutTotalPrice);
+        //同步更新收款金額
+        checkoutGetCash.value = checkOutTotalPrice;
     });
 
     //----- 紅利 -----
@@ -561,7 +576,7 @@ window.addEventListener('load', function () {
 
             checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkOutTotalPrice - parseInt(getPoint / bonusExchange)}</span>`;
 
-            //
+            
             checkOutTotalPrice = checkOutTotalPrice - parseInt(getPoint / bonusExchange);
 
             //紅利折抵金額 用第一筆品項去扣
