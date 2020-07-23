@@ -67,6 +67,7 @@ var orderPageArrowDR = document.getElementById("orderPageArrowDR"); // 品項的
 
 // 把basicInfo存進localStorage
 function ordSaveBasicInfo() {
+    basicInfoGet.ppl = 0;
     localStorage.setItem("ordlistTips", JSON.stringify(basicInfoGet));
     // console.log("23", basicInfoGet);
 };
@@ -99,9 +100,10 @@ function ordReceiveBasicInfo() {
     // 輸入桌號
     number.innerHTML = basicInfoGet.number;
 
+    // 輸入人數
+    ordPplAmt.innerText = '0';
 };
 ordReceiveBasicInfo();
-
 
 
 
@@ -109,7 +111,6 @@ ordReceiveBasicInfo();
 function ordPplAdjust() {
     let ordPplAmtShow = 0;
 
-    // ordPplAmt.innerHTML = ordPplAmtShow;
 
     ordPplPlus.addEventListener("click", function () {
         ordPplAmtShow++;
@@ -118,7 +119,6 @@ function ordPplAdjust() {
 
         ordSaveBasicInfo();
         localStorage.setItem(`ordSavePpl_${ordList}`, JSON.stringify(ordPplAmtShow));
-
 
     });
     ordPplMinus.addEventListener("click", function () {
