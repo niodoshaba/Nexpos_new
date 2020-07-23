@@ -109,65 +109,66 @@ div.loading {
 section {
   height: 100vh; }
 
-section.login .loginLogo img {
-  width: 100%;
-  margin: 50px auto; }
-
-section.login .loginBlock {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
-  section.login .loginBlock input:focus {
-    outline: none; }
-  section.login .loginBlock .loginForm div {
-    margin: 20px; }
-  section.login .loginBlock .loginForm .loginInput {
-    margin-left: 50px; }
-  section.login .loginBlock .loginForm #loginId, section.login .loginBlock .loginForm #loginPassword {
-    padding-left: 10px;
-    margin-left: 20px;
-    border-radius: 15px;
-    background-color: none;
-    opacity: .8;
-    border: 1px solid #1c5b9d; }
-  section.login .loginBlock .loginBtn {
-    margin: 80px 0 50px 0;
-    display: flex;
-    justify-content: space-around;
-    font-size: 23px; }
-    section.login .loginBlock .loginBtn .loginSudo {
-      position: relative;
-      outline: none;
-      margin-top: 25px; }
-      section.login .loginBlock .loginBtn .loginSudo::before {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        width: 100px;
-        height: 100px;
-        background-color: #1c5b9d;
-        opacity: .8;
-        border-radius: 50%;
-        top: -30px;
-        left: 50px; }
-      section.login .loginBlock .loginBtn .loginSudo::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 3px;
-        background-color: #ff9c40;
-        bottom: -1px;
-        left: 0;
-        transition: transform 400ms ease-out;
-        transform: scaleX(0);
-        transform-origin: right; }
-      section.login .loginBlock .loginBtn .loginSudo:hover::after {
-        transform: scaleX(1);
-        transform-origin: left; }
-    section.login .loginBlock .loginBtn .loginFront, section.login .loginBlock .loginBtn .loginBack {
-      border: 0;
-      background: none; }
+section.login {
+  font-size: 25px; }
+  section.login .loginLogo img {
+    width: 100%;
+    margin: 50px auto; }
+  section.login .loginBlock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    section.login .loginBlock input:focus {
+      outline: none; }
+    section.login .loginBlock .loginForm div {
+      margin: 20px; }
+    section.login .loginBlock .loginForm .loginInput {
+      margin-left: 50px; }
+    section.login .loginBlock .loginForm #loginId, section.login .loginBlock .loginForm #loginPassword {
+      padding-left: 10px;
+      margin: 0 0 20px 20px;
+      border-radius: 20px;
+      background-color: none;
+      opacity: .8;
+      border: 1px solid #1c5b9d; }
+    section.login .loginBlock .loginBtn {
+      margin: 80px 0 50px 0;
+      display: flex;
+      justify-content: space-around;
+      font-size: 23px; }
+      section.login .loginBlock .loginBtn .loginSudo {
+        position: relative;
+        outline: none;
+        margin-top: 25px; }
+        section.login .loginBlock .loginBtn .loginSudo::before {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          border: 3px solid #1c5b9d;
+          width: 80px;
+          height: 80px;
+          opacity: .8;
+          border-radius: 50%;
+          top: -30px;
+          left: 70px; }
+        section.login .loginBlock .loginBtn .loginSudo::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          background-color: #ff9c40;
+          bottom: -1px;
+          left: 0;
+          transition: transform 400ms ease-out;
+          transform: scaleX(0);
+          transform-origin: right; }
+        section.login .loginBlock .loginBtn .loginSudo:hover::after {
+          transform: scaleX(1);
+          transform-origin: left; }
+      section.login .loginBlock .loginBtn .loginFront, section.login .loginBlock .loginBtn .loginBack {
+        border: 0;
+        background: white; }
 
 section.fpHomepage1 .fpLogo {
   position: relative; }

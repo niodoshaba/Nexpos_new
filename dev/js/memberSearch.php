@@ -38,7 +38,7 @@ if(isset($_GET['s'])){
                 <td>生日</td>
                 <td>e-mail</td>
                 <td style='width: 75px'>身份</td>
-                <td style='width: 75px'>狀態</td>
+                <td style='width: 80px'>狀態</td>
                 <td>點數</td>
             </tr>
 
@@ -51,8 +51,8 @@ if(isset($_GET['s'])){
             echo "<td>" . $value['CUS_PHONE'] . "</td>";
             echo "<td>" . $value['CUS_BIRTH'] . "</td>"; 
             echo "<td>" . $value['CUS_EMAIL'] . "</td>";
-            echo "<td>" . $value['CUS_ID'] . "</td>";
-            echo "<td>" . $value['CUS_STATE'] . "</td>";
+            echo "<td class='cusIdTd'>" . $value['CUS_ID'] . "</td>";
+            echo "<td class='cusStateTd'>" . $value['CUS_STATE'] . "</td>";
             echo "<td>" . $value['CUS_POINT'] . "</td>";
             echo "</tr>";
         }
@@ -63,20 +63,20 @@ if(isset($_GET['s'])){
     <table>
             <tr>
                 <td>姓</td>
-                <td style='width: 7px'>名</td>
+                <td style='width: 75px'>名</td>
                 <td style='width: 75px'>性別</td>
                 <td>手機</td>
                 <td>生日</td>
                 <td>e-mail</td>
                 <td style='width: 75px'>身份</td>
-                <td style='width: 75px'>狀態</td>
+                <td style='width: 80px'>狀態</td>
                 <td>點數</td>
             </tr>
 
     ";
 
     
-    $sql =  "SELECT * FROM CUSTOMER";
+    $sql =  "SELECT * FROM CUSTOMER WHERE CUS_ID= '1'";
     $member = $pdo->prepare($sql);
     $member -> execute();
     $customer = $member->fetchAll(PDO::FETCH_ASSOC);
@@ -89,8 +89,8 @@ if(isset($_GET['s'])){
         echo "<td>" . $value['CUS_PHONE'] . "</td>";
         echo "<td>" . $value['CUS_BIRTH'] . "</td>"; 
         echo "<td>" . $value['CUS_EMAIL'] . "</td>";
-        echo "<td>" . $value['CUS_ID'] . "</td>";
-        echo "<td>" . $value['CUS_STATE'] . "</td>";
+        echo "<td class='cusIdTd'>" . $value['CUS_ID'] . "</td>";
+        echo "<td class='cusStateTd'>" . $value['CUS_STATE'] . "</td>";
         echo "<td>" . $value['CUS_POINT'] . "</td>";
         echo "</tr>";
     }

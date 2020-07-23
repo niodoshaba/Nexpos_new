@@ -71,6 +71,7 @@ window.addEventListener('load', function () {
           $('tr.input').remove();
           showRow();
           $('.addBtn').removeAttr('disabled');//恢復新增按鈕
+          alert('儲存成功');
         }
         else {
           // alert(xhr.status);
@@ -145,6 +146,7 @@ window.addEventListener('load', function () {
           if (xhr.status == 200) {
             showRow();
             $('.addBtn').removeAttr('disabled');//恢復新增按鈕
+            alert('儲存成功');
           } else {
             // alert(xhr.status);
           }

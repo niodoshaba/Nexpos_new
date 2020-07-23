@@ -68,6 +68,7 @@ window.addEventListener('load', function () {
         if (xhr.status == 200) {
           $('tr.input').remove();
           showRowManager();
+          alert('儲存成功');
         } else {
           // alert(xhr.status);
         }
@@ -139,6 +140,7 @@ window.addEventListener('load', function () {
         xhr.onload = function () {
           if (xhr.status == 200) {
             showRowManager();
+            alert('儲存成功');
           } else {
             // alert(xhr.status);
           }
