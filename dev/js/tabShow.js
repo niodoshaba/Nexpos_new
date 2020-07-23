@@ -185,4 +185,5 @@ tabCloseBtn.addEventListener('click', function (e) {
     }
 
     saveAllDataToJson(tabReceiveJson);
+    alert ("儲存成功")
 });

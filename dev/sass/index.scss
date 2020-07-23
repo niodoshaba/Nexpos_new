@@ -165,6 +165,7 @@ section{
     height: 100vh;
 }
 section.login{
+    font-size: 25px;
     .loginLogo img{
         width: 100%;
         margin: 50px auto;
@@ -183,8 +184,8 @@ section.login{
             }
             #loginId, #loginPassword{
                 padding-left: 10px;
-                margin-left:20px;
-                border-radius: 15px;
+                margin:0 0 20px 20px;
+                border-radius: 20px;
                 background-color: none;
                 opacity: .8;
                 border: 1px solid $primary_db;
@@ -203,13 +204,14 @@ section.login{
                 content:"";
                 position: absolute;
                 z-index: -1;
-                width: 100px;
-                height:100px;
+
                 background-color: $primary_db;
+                width: 80px;
+                height:80px;
                 opacity: .8;
                 border-radius: 50%;
                 top: -30px; //before: -40px
-                left: 50px;
+                left: 70px;
                 }
             &::after{
                 content: "";
@@ -230,7 +232,8 @@ section.login{
             }  
             .loginFront, .loginBack{
                 border: 0;
-                background: none;
+                background-color: initial;
+   
             }
         }
        
