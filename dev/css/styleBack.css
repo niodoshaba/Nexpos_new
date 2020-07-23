@@ -9524,6 +9524,7 @@ table {
   top: 0;
   bottom: 0;
   z-index: 1030;
+  border: 1px solid #28569A;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   height: 900px;
@@ -9574,7 +9575,7 @@ table {
         display: block;
         position: absolute;
         top: -29px;
-        left: 22px;
+        left: 9px;
         z-index: -10; }
 
 .c-wrapper {

@@ -95,13 +95,13 @@
         &::after {
           content: "";
           background-image: url("../assets/Union8.svg");
-          width: 219px;
+          width: 227px;
           height: 120px;
 
           display: block;
           position: absolute;
           top: -29px;
-          left: 22px; //before:8px;
+          left: 9px; //before:8px;
           z-index: -10;
         }
       }

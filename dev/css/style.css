@@ -154,12 +154,12 @@ a {
       .c-sidebar ul li:hover::after, .c-sidebar ul li.actives::after {
         content: "";
         background-image: url("../assets/Union8.svg");
-        width: 219px;
+        width: 227px;
         height: 120px;
         display: block;
         position: absolute;
         top: -29px;
-        left: 22px;
+        left: 9px;
         z-index: -10; }
 
 .c-wrapper {
