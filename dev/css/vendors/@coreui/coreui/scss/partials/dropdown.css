@@ -297,7 +297,7 @@ html:not([dir="rtl"]) .dropleft .dropdown-toggle:empty::after {
   display: block;
   padding: 0.5rem 1.25rem;
   margin-bottom: 0;
-  font-size: 0.76563rem;
+  font-size: 0.76562rem;
   white-space: nowrap;
   color: #8a93a2; }
 

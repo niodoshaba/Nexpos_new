@@ -526,6 +526,40 @@ section.fpHomepage4 {
         height: 200px;
         padding: 1px; }
 
+html.fixWindow {
+  position: fixed;
+  width: 100%; }
+
+#indexBlackBlock {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 0vw;
+  height: 0vh;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.9);
+  text-align: center;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.5s linear; }
+  #indexBlackBlock #indexBlackBlockText {
+    margin-top: 50%; }
+    #indexBlackBlock #indexBlackBlockText p {
+      color: white;
+      font-size: 30px; }
+    #indexBlackBlock #indexBlackBlockText span {
+      color: white;
+      font-size: 50px; }
+    #indexBlackBlock #indexBlackBlockText #indexBlackBlockBack {
+      border: 3px solid white;
+      color: white;
+      background-color: black;
+      font-size: 30px;
+      border-radius: 20px;
+      padding: 10px 20px;
+      cursor: pointer; }
+
 @media screen and (min-width: 577px) and (max-width: 768px) {
   .fpSlogan h1 {
     font-size: 25px; }

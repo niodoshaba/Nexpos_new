@@ -22,6 +22,9 @@ try{
 
   $fillingStatus = $pdo->prepare( $sql );
   $fillingStatus->execute();
+
+  header("location:../fillingCata.html");
+
 }catch(PDOException $e){
   echo "錯誤行號", $e->getLine(), "<br>";
   echo "錯誤原因", $e->getMessage();

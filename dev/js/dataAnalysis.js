@@ -131,7 +131,7 @@ window.addEventListener('load', function () {
                     data: {
                         labels: DateList, //項目
                         datasets: [{
-                            label: '預約人數', //圖表標題
+                            
                             data: NumList, //資料內容
                             backgroundColor: gogoColors(DateList.length),
                             borderWidth: 0,
@@ -160,12 +160,12 @@ window.addEventListener('load', function () {
                         },
                         title: {  //標題設定
                             display: true,
-                            text: '預約報表',
+                            text: '預約報表( 預約人數 / 預約日期 )',
                             fontSize: 25,
                             position: 'top'
                         },
                         legend: {  //小標題設定
-                            display: true,
+                            display: false,
                             position: 'right',
                             labels: {
                                 fontColor: 'black'
@@ -262,12 +262,12 @@ window.addEventListener('load', function () {
                         },
                         title: {  //標題設定
                             display: true,
-                            text: '營收報表',
+                            text: '營收報表( 訂單金額 / 訂單日期 )',
                             fontSize: 25,
                             position: 'top'
                         },
                         legend: {  //小標題設定
-                            display: true,
+                            display: false,
                             position: 'right',
                             labels: {
                                 fontColor: 'black'
@@ -362,12 +362,12 @@ window.addEventListener('load', function () {
                         },
                         title: {  //標題設定
                             display: true,
-                            text: '客流報表',
+                            text: '客流報表( 訂單日期 / 總訂單人數 )',
                             fontSize: 25,
                             position: 'top'
                         },
                         legend: {  //小標題設定
-                            display: true,
+                            display: false,
                             position: 'right',
                             labels: {
                                 fontColor: 'black'
@@ -453,8 +453,21 @@ window.addEventListener('load', function () {
                         scales: {
                             yAxes: [{
                                 ticks: {
-                                    beginAtZero: true
-                                }
+                                    beginAtZero: true,
+                                    display: false
+                                },
+                                gridLines: {
+                                    display: false,
+                                },
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    display: false
+                                },
+                                gridLines: {
+                                    display: false,
+                                },
                             }]
                         },
                         title: {  //標題設定
@@ -465,16 +478,16 @@ window.addEventListener('load', function () {
                         },
                         legend: {  //小標題設定
                             display: true,
-                            position: 'right',
+                            position: 'bottom',
                             labels: {
                                 fontColor: 'black'
                             }
                         },
                         layout: {  //整塊圖表範圍的調整
                             padding: {
-                                left: 0,
-                                right: 0,
-                                bottom: 0,
+                                left: 30,
+                                right: 30,
+                                bottom: 30,
                                 top: 30
                             }
                         },

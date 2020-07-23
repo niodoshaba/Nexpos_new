@@ -6,7 +6,8 @@
   .tablehead h1 {
     font-size: 35px; }
 
-table, td {
+table,
+td {
   border-bottom: 1px solid #cfcecd;
   border-collapse: collapse; }
 
@@ -39,7 +40,7 @@ td {
 
 .success {
   font-size: 10px;
-  color: #319D8E;
+  color: #319d8e;
   position: absolute;
   top: 64px;
   left: 15px; }
@@ -55,7 +56,8 @@ td:last-child {
 img {
   cursor: pointer; }
 
-input, select {
+input,
+select {
   border: 0.5px solid #bdbdbd;
   padding: 5px;
   border-radius: 8px; }
@@ -69,12 +71,12 @@ form {
   transform: translateX(-50%); }
 
 .resScrollbar {
-  margin-top: 40px;
+  margin-top: 70px;
   border: 1px solid #e2e2e2;
   border-radius: 10px;
   float: left;
   height: 600px;
-  width: 1074px;
+  width: 1070px;
   overflow-y: scroll;
   overflow-x: hidden;
   margin-bottom: 25px; }
@@ -88,4 +90,4 @@ form {
 
 #resScrollstyle::-webkit-scrollbar-thumb {
   border-radius: 50px;
-  background-color: #DDDDDD; }
+  background-color: #dddddd; }

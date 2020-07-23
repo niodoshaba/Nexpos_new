@@ -88,6 +88,7 @@
 
 #resize-tabContainer li {
   text-align: center;
+  line-height: 30px;
   /* 要加不然interact js會跳警告 */
   touch-action: none;
   list-style: none; }
@@ -109,12 +110,11 @@
   margin-top: -5px; }
 
 #tabToolTipBtn {
-  margin-left: 80px;
-  margin-right: 20px; }
+  margin-left: 150px; }
 
 #tabSaveBtn {
   background-color: #ff9f4b;
-  margin-left: 60%; }
+  margin-left: 650px; }
 
 #tabAddBtn {
   display: inline-block;

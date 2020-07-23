@@ -22,7 +22,7 @@
     justify-content: flex-end;
     width: 500px;
     position: absolute;
-    left: 700px; //
+    left: 615px; //befroe:700px;
 
     .topTablink {
       #topTabactives {
@@ -52,7 +52,8 @@
       }
       .toptabCaption {
         margin: 0 auto;
-        margin-top: 22px;
+        margin-top: 15px;
+        font-size: 20px;
       }
     }
   }
@@ -62,7 +63,7 @@
 .tablehead {
   margin-top: 20px;
   padding: 20px;
-  margin-left: 180px;
+  margin-left: 95px; //befroe:180px;
   width: 1040px;
   // border-bottom: 1px solid red;
   h1 {

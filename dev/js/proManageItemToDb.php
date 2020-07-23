@@ -25,7 +25,9 @@ try{
   $proItemStatus->execute();
   
   //同時重整頁面
-  header("location= ../proManageItem.html");
+  echo "<script> alert('送出成功');
+      location.href='../proManageItem.html'
+</script>" ;
 
   
 }catch(PDOException $e){
