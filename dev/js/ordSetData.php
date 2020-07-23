@@ -10,18 +10,18 @@ try {
 
         $PRO_ITEM_NO = $value->PRO_ITEM_NO;
         settype($PRO_ITEM_NO, "int");
-        // echo gettype($PRO_ITEM_NO);
+        echo $PRO_ITEM_NO;
 
         $PRO_ITEM_PRICE = $value->PRO_ITEM_PRICE;
         settype($PRO_ITEM_PRICE, "int");
-        // echo gettype($PRO_ITEM_PRICE);
+        echo $PRO_ITEM_PRICE;
 
 
-        $sql = "INSERT INTO `ORDER_ITEM` VALUES (NULL , 100001, $PRO_ITEM_NO, 1, $PRO_ITEM_PRICE)";
+        // $sql = "INSERT INTO `ORDER_ITEM` VALUES (NULL , 100001, $PRO_ITEM_NO, 1, $PRO_ITEM_PRICE)";
         
 
-        $ordProdIntoDb = $pdo->prepare($sql);
-        $ordProdIntoDb->execute();
+        // $ordProdIntoDb = $pdo->prepare($sql);
+        // $ordProdIntoDb->execute();
 
        
 
