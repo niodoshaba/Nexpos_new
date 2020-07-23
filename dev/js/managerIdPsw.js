@@ -47,7 +47,7 @@ window.addEventListener('load', function () {
   //按下新增鈕出現input表單欄位
   $('.addBtn').click(function () {
 
-    $(this).attr('disabled', true);//disabled新增鈕
+    $('.addBtn').attr('disabled', true);//disabled新增鈕
     $('.edit').attr('disabled', true);//disabled編輯鈕
     //顯示input表單欄位
     $('.title').after(`
@@ -69,6 +69,7 @@ window.addEventListener('load', function () {
           $('tr.input').remove();
           showRowManager();
           alert('儲存成功');
+          $('.addBtn').removeAttr('disabled');//恢復新增按鈕
         } else {
           // alert(xhr.status);
         }
@@ -140,6 +141,7 @@ window.addEventListener('load', function () {
         xhr.onload = function () {
           if (xhr.status == 200) {
             showRowManager();
+            $('.addBtn').removeAttr('disabled');//恢復新增按鈕
             alert('儲存成功');
           } else {
             // alert(xhr.status);

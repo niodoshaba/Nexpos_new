@@ -138,7 +138,7 @@ window.addEventListener("load", function () {
           }
         };
         let allDisUpdateData = {};
-        allDisUpdateData.allDisNo = $("td:eq(0)").text();
+        allDisUpdateData.allDisNo = tr.find('td:eq(0)').text();
         allDisUpdateData.allDisName = $(".allDisName").val();
         allDisUpdateData.allDisStart = $(".allDisStart").val();
         allDisUpdateData.allDisEnd = $(".allDisEnd").val();

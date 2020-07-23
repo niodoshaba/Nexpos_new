@@ -46,7 +46,7 @@
         <div class="container-fluid" style="margin: 0;">
           <div id="ui-view">
             <div class="card">
-              <div class="card-body" style="min-height: 600px;">
+              <div class="card-body resScrollbar resOverflow" id="resScrollstyle">
                 <table class="table table-responsive-sm" id="table">
                   <thead>
                     <tr class="title">
@@ -61,12 +61,7 @@
                   </thead>
                   <tbody class="discountTable" id="testDiscount">
                     <tr>
-                      <!-- <td>D01</td>
-                            <td>端午節限定優惠</td>
-                            <td>2020/06/01</td>
-                            <td>2020/06/30</td> -->
                       <td>
-                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">查看</button> -->
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                           aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -86,8 +81,6 @@
                                     <th>名稱</th>
                                     <th>價格($)</th>
                                   </tr>
-                                  <!-- <tbody>
-                                        </tbody> -->
                                 </table>
                               </div>
                               <div class="modal-footer">
@@ -98,10 +91,7 @@
                           </div>
                         </div>
                       </td>
-                      <!-- <td>9折</td> -->
                       <td>
-                        <!-- Button trigger modal -->
-                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">編輯</button> -->
 
                         <!-- 編輯鈕的燈箱Modal -->
                         <!-- <form action="" method="" style="width: 100%;"> -->
@@ -112,16 +102,6 @@
                               <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalScrollableTitle" style="max-width: 640px;">
                                   <table style="width: 640px;">
-                                    <!-- <tbody>
-                                                <tr style="border: hidden;">
-                                                  <td>優惠名稱 <input name="activeName" type="text" style="width: 160px;"/></td>
-                                                  <td>優惠折扣 <input name="discount" type="text" style="width: 160px;"/></td>
-                                                </tr>
-                                                <tr style="border: hidden;">
-                                                  <td>優惠期間(起)<input name="timeStart" type="date" style="width: 180px;"/></td>
-                                                  <td>優惠期間(迄) <input name="timeEnd" type="date" style="width: 180px;"/></td>
-                                                </tr>
-                                              </tbody> -->
                                   </table>
                                 </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -138,19 +118,15 @@
                                     <th>價格($)</th>
                                     <th>選擇</th>
                                   </tr>
-                                  <!-- <tbody>
-                                            </tbody> -->
                                 </table>
                               </div>
 
-                              <div class="modal-footer">
+                              <div class="modal-footer" style="display: inline-block;">
                                 <button type="button" class="btn btn-primary confirm" data-dismiss="modal">確認</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <!-- </form> -->
                       </td>
                     </tr>
                   </tbody>
