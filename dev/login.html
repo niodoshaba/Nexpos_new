@@ -111,14 +111,19 @@
         let checkDate = localStorage.getItem('date');
         let today = new Date();
         let todayDate = today.toLocaleDateString();
+        console.log(todayDate);
 
         let loginFront = document.querySelector('.loginFront');
-        loginFront.addEventListener('click', function(){
+        
+        let gogo = function(e){
+            
             if(checkDate == todayDate){
                 alert('今天已經關帳囉＾_＾!');
-                location.href="login.html";
+                e.preventDefault();
+                // location.href="login.html";
             }
-        })
+        }
+        loginFront.addEventListener('click',gogo);
     </script>
 </body>
 
