@@ -1,18 +1,18 @@
-let el = document.querySelector('.date');
-let Today = new Date();
-el.textContent = Today.getFullYear() + " / " + (Today.getMonth() + 1) + " / " + Today.getDate();
+// let el = document.querySelector('.date');
+// let Today = new Date();
+// el.textContent = Today.getFullYear() + " / " + (Today.getMonth() + 1) + " / " + Today.getDate();
 
-let dt = document.querySelector('.clock');
+// let dt = document.querySelector('.clock');
 
-TodayHours = Today.getHours() < 10 ? '0' + Today.getHours() : Today.getHours();
-TodayMinutes = Today.getMinutes() < 10 ? '0' + Today.getMinutes() : Today.getMinutes();
-dt.textContent = TodayHours + " : " + TodayMinutes;
+// TodayHours = Today.getHours() < 10 ? '0' + Today.getHours() : Today.getHours();
+// TodayMinutes = Today.getMinutes() < 10 ? '0' + Today.getMinutes() : Today.getMinutes();
+// dt.textContent = TodayHours + " : " + TodayMinutes;
 
 
 var orderNo = [];
 var orderNoDone = [];
 var orderNoDoneFinal = [];
-var el2 = document.getElementsByClassName('kPageContainer');
+var el2 = document.getElementsByClassName('kPageContainer')[0];
 var content = "";
 
 function getOrderData() {
@@ -47,8 +47,9 @@ window.addEventListener('load', function () {
 
 
 function rederOrdListIf() {
+    
     for (let i = 0; i < orderNoDoneFinal.length; i++) {
-
+        
         //最外層html
         content += '<div class="kContainer" id="kOrder"><div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div><div class="kHead"><div class="kHeadItem">';
         //取得餐點(第2層loop)
@@ -86,13 +87,14 @@ function rederOrdListIf() {
         content += '<button class="kButton" onclick="foodDone(this);">訂單完成</button></div>';
     }
 
+    
     //渲染 status = 1, state = 0的在廚房待做訂單上
     for (i = 0; i < orderNoDoneFinal.length; i++) {
         for (j = 0; j < orderNoDoneFinal[i].length; j++) {
             let status = orderNoDoneFinal[i][j].status;
             let state = orderNoDoneFinal[i][j].state;
             if (status == 1 && state == 0) {
-                el2[j].innerHTML = content;
+                el2.innerHTML = content;
             }
         }
     }
