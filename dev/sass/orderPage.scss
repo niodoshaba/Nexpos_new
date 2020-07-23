@@ -279,8 +279,8 @@ body{
                 li{
                     // width: 16.66%;
                     font-size: 25px;
-                    margin-right: 55px;
-                    padding: 0;
+                    margin-right: 45px;
+                    padding: 0 5px;
                     // margin: 5px;
                     border-bottom: 3px solid #E98E89;
                     border-radius: 5px;
@@ -403,4 +403,9 @@ body{
             }
         }
     }
+}
+
+.ordListPicked{
+    background-color: #E98E89;
+    color: white;   
 }
