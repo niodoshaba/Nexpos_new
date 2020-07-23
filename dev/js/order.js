@@ -1255,7 +1255,6 @@ ordTotOrderProdAll = JSON.parse(localStorage.getItem(`orderNo_${ordList}`));
 
 function ordSentInfotoDb() {
 
-
     // Creating a XHR object 
     let ordTotOrderProdToDb = new XMLHttpRequest();
     let url = "./js/ordSetData.php";
@@ -1273,8 +1272,9 @@ function ordSentInfotoDb() {
     // 測試有php有沒有接到資料
     ordTotOrderProdToDb.onload = function () {
         if (this.readyState == 4 && this.status == 200) {
-            ordReceiveOrder = JSON.parse(this.responseText);
-            console.log(ordReceiveOrder); // for debugging
+            console.log(this.responseText);
+            // ordReceiveOrder = JSON.parse(this.responseText);
+            // console.log(ordReceiveOrder); // for debugging
         };
     };
 };
