@@ -1,15 +1,8 @@
 <?php
 
 try{
-  // $dsn = "mysql:host=localhost; port=3306; dbname=G4_nexpos; charset=utf8";
-  // $user = "root";
-  // $password = "lily12345";
-  // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-  // $pdo = new PDO($dsn, $user, $password, $options);
-  
-  // require_once("generalConnectDB.php");
-  require_once("ordCon.php");
-  
+  require_once("generalConnectDB.php");
+   
 
 //抓出所有商品資訊
 $sql = "SELECT A2.PRO_ITEM_NO ItemNo, A1.PRO_CATA_NAME CataName, A2.PRO_ITEM_NAME ItemName, A2.PRO_ITEM_PRICE ItemPrice

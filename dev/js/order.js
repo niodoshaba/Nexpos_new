@@ -1251,20 +1251,45 @@ orderPageRightSideBottomBtn3.addEventListener("click", function () {
     // location.replace('./checkOut.html');
 });
 
+
+// function ordSentInfotoDb() {
+//     // Creating a XHR object 
+//     let ordTotOrderProd = new XMLHttpRequest();
+//     let url = "ordSetData.php";
+//     // open a connection 
+//     ordTotOrderProd.open("POST", url, true);
+//     // Set the request header i.e. which type of content you are sending 
+//     ordTotOrderProd.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+//     // 傳送資料去php
+//     ordTotOrderProd.send("ordTotOrder=" + JSON.stringify(ordProdCartOn));
+//     // 測試傳送的陣列內是否有資料
+//     console.log(ordProdCartOn);
+
+
+//     // 測試有php有沒有接到資料
+//     ordTotOrderProd.onload = function () {
+//         if (this.readyState == 4 && this.status == 200) {
+//             ordReceiveOrder = JSON.parse(this.responseText);
+//             console.log(ordReceiveOrder); // for debugging
+//         };
+//     };
+// };
+
 function ordSentInfotoDb() {
     // Creating a XHR object 
-    let ordProdCartToDb = new XMLHttpRequest();
+    let ordTotOrderProd = new XMLHttpRequest();
     let url = "./js/ordSetData.php";
     // open a connection 
-    ordProdCartToDb.open("POST", url, true);
+    ordTotOrderProd.open("POST", url, true);
     // Set the request header i.e. which type of content you are sending 
-    ordProdCartToDb.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    ordTotOrderProd.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 
     ordProdCartToDb = JSON.parse(localStorage.getItem(`orderNo_${ordList}`));
 
     // 傳送資料去php
-    ordProdCartToDb.send("ordTotOrder=" + JSON.stringify(ordProdCartToDb));
+    ordTotOrderProd.send("ordTotOrder=" + JSON.stringify(ordProdCartToDb));
     // 測試傳送的陣列內是否有資料
     console.log(ordProdCartToDb);
 

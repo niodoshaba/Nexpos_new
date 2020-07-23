@@ -6,15 +6,8 @@ $idPswUpdateData = json_decode($_POST['idPswUpdateData']);
 // $idPswUpdateData = json_decode('{"CUS_LAST":"高","CUS_FIRST":"斯特","CUS_GEN":"1","CUS_BIRTH":"1996-09-02","CUS_PHONE":"0934728938","CUS_EMAIL":"bangbangwei@gmail.com","CUS_POINT":"300","CUS_ID":"1","CUS_STATE":"1"}');
 // echo json_encode($idPswUpdateData);
 try{
-  // $dsn = "mysql:host=localhost; port=8889; dbname=G4_nexpos; cahrest=utf8;";
-  // $user = "root";
-  // $password = "lily12345";
-  // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-  // $pdo = new PDO($dsn, $user, $password,$options);
-
-
-  // require_once("generalConnectDB.php");
-  require_once("ordCon.php");
+  require_once("generalConnectDB.php");
+   
   
   $CUS_LAST = $idPswUpdateData->CUS_LAST;
   $CUS_FIRST = $idPswUpdateData->CUS_FIRST;

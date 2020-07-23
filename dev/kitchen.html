@@ -16,73 +16,73 @@
 <body>
   <!-- 複製以下功能列 -->
   <div class="header c-sidebar">
-  <nav id="sideMenu">
-    <div class="light">
-      <i class="fa fa-circle" aria-hidden="true"></i>
-    </div>
-    <ul>
-      <a href="./posHomeTab.html">
-        <li class="@@nav0">
-          <i class="fa fa-home" aria-hidden="true"></i>主畫面
-        </li>
-      </a>
-      </a>
-      <a href="./reservationCalendar.html">
-        <li class="@@nav1">
-          <i class="fa fa-list-alt" aria-hidden="true"></i>訂位管理
-        </li>
-      </a>
-      <a href="./memberJoin.html">
-        <li class="@@nav2">
-          <i class="fa fa-users" aria-hidden="true"></i>會員管理
-        </li>
-      </a>
-      <a href="./orderRecord.html">
-        <li class="@@nav3">
-          <i class="fa fa-calendar" aria-hidden="true"></i>歷史訂單
-        </li>
-      </a>
-      <div class="func">
-        <div class="user"></div>
-        <div class="date">2020/6/17</div>
-        <div class="clock">10 : 35</div>
+    <nav id="sideMenu">
+      <div class="light">
+        <i class="fa fa-circle" aria-hidden="true"></i>
       </div>
-      <a href="./tabShow.html">
-        <li class="@@nav4">
-          <i class="fa fa-times-circle" aria-hidden="true"></i>關閉餐桌
-        </li>
-      </a>
-      <a href="./kitchen.html">
-        <li class="actives">
-          <i class="fa fa-cutlery" aria-hidden="true"></i>出餐管理
-        </li>
-      </a>
-      <a href="./dailyStatementLogIn.html">
-        <li class="@@nav6">
-          <i class="fa fa-calculator" aria-hidden="true"></i>日結
-        </li>
-      </a>
-      <a href="./login.html" class="signOutBtn">
-        <li><i class="fa fa-sign-out" aria-hidden="true"></i>登出</li>
-      </a>
-    </ul>
-  </nav>
-</div>
+      <ul>
+        <a href="./posHomeTab.html">
+          <li class="@@nav0">
+            <i class="fa fa-home" aria-hidden="true"></i>主畫面
+          </li>
+        </a>
+        </a>
+        <a href="./reservationCalendar.html">
+          <li class="@@nav1">
+            <i class="fa fa-list-alt" aria-hidden="true"></i>訂位管理
+          </li>
+        </a>
+        <a href="./memberJoin.html">
+          <li class="@@nav2">
+            <i class="fa fa-users" aria-hidden="true"></i>會員管理
+          </li>
+        </a>
+        <a href="./orderRecord.html">
+          <li class="@@nav3">
+            <i class="fa fa-calendar" aria-hidden="true"></i>歷史訂單
+          </li>
+        </a>
+        <div class="func">
+          <div class="user"></div>
+          <div class="date">2020/6/17</div>
+          <div class="clock">10 : 35</div>
+        </div>
+        <a href="./tabShow.html">
+          <li class="@@nav4">
+            <i class="fa fa-times-circle" aria-hidden="true"></i>關閉餐桌
+          </li>
+        </a>
+        <a href="./kitchen.html">
+          <li class="actives">
+            <i class="fa fa-cutlery" aria-hidden="true"></i>出餐管理
+          </li>
+        </a>
+        <a href="./dailyStatementLogIn.html">
+          <li class="@@nav6">
+            <i class="fa fa-calculator" aria-hidden="true"></i>日結
+          </li>
+        </a>
+        <a href="./login.html" class="signOutBtn">
+          <li><i class="fa fa-sign-out" aria-hidden="true"></i>登出</li>
+        </a>
+      </ul>
+    </nav>
+  </div>
 
 
-<script>
-  let el = document.querySelector('.date');
-  let Today = new Date();
-  el.textContent = Today.getFullYear() + " / " + (Today.getMonth() + 1) + " / " + Today.getDate();
+  <script>
+    let el = document.querySelector('.date');
+    let Today = new Date();
+    el.textContent = Today.getFullYear() + " / " + (Today.getMonth() + 1) + " / " + Today.getDate();
 
-  let dt = document.querySelector('.clock');
+    let dt = document.querySelector('.clock');
 
-  TodayHours = Today.getHours() < 10 ? '0' + Today.getHours() : Today.getHours();
-  TodayMinutes = Today.getMinutes() < 10 ? '0' + Today.getMinutes() : Today.getMinutes();
-  dt.textContent = TodayHours + " : " + TodayMinutes;
+    TodayHours = Today.getHours() < 10 ? '0' + Today.getHours() : Today.getHours();
+    TodayMinutes = Today.getMinutes() < 10 ? '0' + Today.getMinutes() : Today.getMinutes();
+    dt.textContent = TodayHours + " : " + TodayMinutes;
 
-</script>
-<script src="./js/signOut.js"></script>
+  </script>
+  <script src="./js/signOut.js"></script>
   <!-- 複製以上功能列 -->
   <!-- 以下為各分頁內容 -->
   <div class="c-wrapper">
@@ -94,17 +94,17 @@
         <div class="topTab" id="topTabactives">
           <div class="toptabCaption" onclick="window.location.href='./kitchen.html'">出餐<br />管理</div>
         </div>
-      </a>  
+      </a>
       <a class="topTablink" style="text-decoration: none;">
         <div class="topTab">
           <div class="toptabCaption" onclick="window.location.href = './kitchenRecord.html'">訂單<br />記錄</div>
-        </div>  
-      </a>  
+        </div>
+      </a>
     </div>
     <!-- 以下為訂單 -->
     <div class="resScrollbar2 kPageContainer" id="resScrollbar2"></div>
 
-    <!-- <script>
+    <script>
       // 判斷登入人員並顯示於頁面
       window.addEventListener("load", function () {
         let username = sessionStorage.getItem('name');
@@ -112,7 +112,7 @@
         let loginName = document.querySelector('.user');
         loginName.innerHTML = `Hi! ${username}`;
       })
-    </script> -->
+    </script>
     <script src="./js/kitchen.js"></script>
 </body>
 
