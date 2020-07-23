@@ -24,13 +24,13 @@
           <div class="modal-header">
               <h5 class="modal-title" style="margin-left: 110px;">請輸入帳號、密碼</h5>
               <p class="remainText"></p>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+              <!-- <span aria-hidden="true">&times;</span>
+            </button> -->
           </div>
           <div class="modal-body" style="margin: 0 auto;">
             <form class="form" method="POST" action="./js/dailyStatementLogin.php">
-              帳號 :<input type="text" name="memId" id="memId" placeholder="" pattern="[0-9]{6}" title="請輸入正確的帳號" required
+              帳號 :<input type="text" name="memId" class="inputId" id="memId" placeholder="" pattern="[0-9]{6}" title="請輸入正確的帳號" required
                 style="
                   border-radius: 10px;
                   border: white;
@@ -40,7 +40,7 @@
                   margin: 5px;
                 ">
               <br />
-              密碼 :<input type="password" name="memPsw" id="memPsw" placeholder="" pattern="[A-Za-z0-9]{6}"
+              密碼 :<input type="password" name="memPsw" class="inputPsw" id="memPsw" placeholder="" pattern="[A-Za-z0-9]{6}"
                 title="請輸入正確的密碼" required style="
                   border-radius: 10px;
                   border: white;
@@ -55,8 +55,8 @@
             <a href="./dailyStatement.html" style="text-decoration: none; color: #ffffff;">確定
               <input type="submit" class="btn btn-primary" name="" style="width: 80px; margin: 5px;">
             </a>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal"
-              style="width: 80px; margin: 5px;">取消</button>
+              <button type="button" class="btn btn-secondary cancel" data-dismiss="modal"
+                style="width: 80px; margin: 5px;">取消</button>
             </form>
 
           </div>
@@ -72,11 +72,17 @@
       let username = sessionStorage.getItem('name');
 
       let loginName = document.querySelector('.user');
-      loginName.innerHTML = `Hi! ${username}`;
+      loginName.innerHTML = `Hi! ${username}`;      
+    })
+    //取消鈕
+    let cancel = document.querySelector('.cancel');
+    let inputId = document.querySelector('.inputId');
+    let inputPsw = document.querySelector('.inputPsw');
+    cancel.addEventListener('click', function(){
+      inputId.value="";
+      inputPsw.value="";
     })
   </script>
 
-  </script>
 </body>
-
 </html>
