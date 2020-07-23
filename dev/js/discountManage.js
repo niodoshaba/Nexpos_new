@@ -52,12 +52,6 @@ window.addEventListener('load', function () {
         <td><button class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td>
       </tr>
     `);
-    // let disInput = $('.allDiscount').val();
-    // $('.disInput').keyup(function(){
-    //   if(disInput > 9 || disInput < 0) {
-    //     alert ('請輸入正確折數');
-    //   }
-    // })
     //按下儲存
     $('.save').click(function () {
       let xhr = new XMLHttpRequest();
@@ -66,6 +60,7 @@ window.addEventListener('load', function () {
           $('tr.input').remove();
           showRowAllDis();
           $('.addBtn').removeAttr('disabled');//恢復新增按鈕
+          alert('儲存成功')
         }
         else {
           // alert(xhr.status);
@@ -133,6 +128,7 @@ window.addEventListener('load', function () {
           if (xhr.status == 200) {
             showRowAllDis();
             $('.addBtn').removeAttr('disabled');//恢復新增按鈕
+            alert('儲存成功');
           } else {
             // alert(xhr.status);
           }
