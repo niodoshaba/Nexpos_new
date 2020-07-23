@@ -21,6 +21,13 @@ try{
   
   //將資料寫入折扣活動資料庫
   $sql = "DELETE FROM DIS_ITEM WHERE DIS_NO = '$disNo';" ;
+  
+  $discountsql = $pdo->prepare($sql);
+  $discountsql->execute();
+
+  $sql = "UPDATE DISCOUNT 
+          SET DIS_CATA_NO = '1' ,DIS_PCTALL = '$discount', DIS_NAME = '$activeName', DIS_START = '$timeStart', DIS_END = '$timeEnd'
+          WHERE DIS_NO = '$disNo';" ;
 
   
   $discountsql = $pdo->prepare($sql);
