@@ -204,7 +204,8 @@ section.login{
                 content:"";
                 position: absolute;
                 z-index: -1;
-                border: 3px solid $primary_db;
+
+                background-color: $primary_db;
                 width: 80px;
                 height:80px;
                 opacity: .8;
@@ -231,7 +232,8 @@ section.login{
             }  
             .loginFront, .loginBack{
                 border: 0;
-                background: white;
+                background-color: initial;
+   
             }
         }
        
