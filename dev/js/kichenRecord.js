@@ -94,7 +94,7 @@ window.addEventListener('load', function () {
     rendertest.sort(function (a, b) {
         return a - b;
     });
-    console.log(rendertest);
+   
 
     for (i = 0; i < orderNoDoneFinal.length; i++) {
 
@@ -120,7 +120,6 @@ window.addEventListener('load', function () {
         //宣告點擊的該tr
 
         var clicktr = document.getElementsByClassName('clicktr');
-        // console.log(clicktr);
         var test = document.getElementById('myForm');
 
         el3.addEventListener('click', e => {
@@ -130,24 +129,26 @@ window.addEventListener('load', function () {
             content = '';
             e.preventDefault();
             e.stopImmediatePropagation();
+
+            // console.log(thisindex);
             // for (let i = 0; i < orderNoDoneFinal.length; i++) {
-            // console.log(rendertest);    
 
             //最外層html
             // content += '<div class="kContainer" id="kOrder"><div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div><div class="kHead"><div class="kHeadItem">';
             //取得餐點(第2層loop)
             var tmpindex = rendertest[thisindex] - 1;
-
-            console.log(orderNoDoneFinal[thisindex][1]["topping"]);
-            for (let j = 0; j < orderNoDoneFinal.length; j++) {
+            // console.log(tmpindex);
+            // console.log(orderNoDoneFinal[0].length);
+            // console.log(orderNoDoneFinal[thisindex][1]["topping"]);
+            for (let j = 0; j < orderNoDoneFinal[thisindex].length; j++) {
 
 
                 //取得配菜陣列
                 if (j > 0) {
-
+                    
                     var item = orderNoDoneFinal[thisindex][j]["topping"];
                     var topping = "";
-                    console.log(item);
+                    
                     //將配菜塞入html(第3層loop)
                     for (k = 0; k < item.length; k++) {
                         topping += item[k].substring(0, item[k].indexOf(" ")) + ' ';
@@ -159,12 +160,19 @@ window.addEventListener('load', function () {
                         '</span></div><div class="kFoodNum">X1</div><div class="kFoodStatus"><i class="fa fa-check" aria-hidden="true"></i></div></li>';
 
                 } else {
+                    
+                    let tmp = orderNoDoneFinal[thisindex][j]["inOrOut"];
+                    if(tmp == "in"){
+                        tmp = "內用";
+                    }else{
+                        tmp = "外帶"
+                    }
                     //整張訂單
                     content +=
                         '<div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div><div class="kHead"><div class="kHeadItem"><h1>訂單：' +
                         orderNoDoneFinal[thisindex][j]["orderList"] + ' </h1><span>' + orderNoDoneFinal[thisindex][j]["date"] + '</span></div>';
                     content +=
-                        ' <div class="kHeadItem"><h1>外帶：008</h1><span>人數：3</span><span>店員：Lily</span></div></div>'
+                        `<div class="kHeadItem"><h1>${tmp}</h1><span>人數：3</span><span>店員：Lily</span></div></div>`;
                     content +=
                         ' <div class="kFood"><div class="kFoodBar">項 目</div><ul class="kFoodItem">';
                 }
@@ -175,6 +183,7 @@ window.addEventListener('load', function () {
             // content += '<button class="kButton" onclick="foodDone();">訂單完成</button></div>';
             // }
             kOrder.innerHTML = content;
+            
         });
 
 

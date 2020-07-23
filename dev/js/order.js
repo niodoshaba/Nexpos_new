@@ -302,10 +302,10 @@ function ordProdOnOff() {
     let ordSanTitle = "";
 
     if (ordProdSan[0].PRO_CATA_ONOFF == 1) {
-        ordSanTitle = `<li id="ordSan">${ordProdSan[0].PRO_CATA_NAME}</li>`;
+        ordSanTitle = `<li id="ordSan" class="ordTitle ordListPicked">${ordProdSan[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordSanTitle);
     } else {
-        ordSanTitle = `<li id="ordSan" style="display:none">${ordProdSan[0].PRO_CATA_NAME}</li>`;
+        ordSanTitle = `<li id="ordSan" class="ordTitle" style="display:none">${ordProdSan[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordSanTitle);
     }
 
@@ -314,10 +314,10 @@ function ordProdOnOff() {
     ordProdPas = JSON.parse(localStorage.getItem("ordSavePasInfo"));
     let ordPasTitle = "";
     if (ordProdPas[0].PRO_CATA_ONOFF == 1) {
-        ordPasTitle = `<li id="ordPas">${ordProdPas[0].PRO_CATA_NAME}</li>`;
+        ordPasTitle = `<li id="ordPas"  class="ordTitle">${ordProdPas[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordPasTitle);
     } else {
-        ordPasTitle = `<li id="ordPas" style="display:none">${ordProdPas[0].PRO_CATA_NAME}</li>`;
+        ordPasTitle = `<li id="ordPas" class="ordTitle" style="display:none">${ordProdPas[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordPasTitle);
     };
 
@@ -325,10 +325,10 @@ function ordProdOnOff() {
     ordProdHam = JSON.parse(localStorage.getItem("ordSaveHamInfo"));
     let ordHamTitle = "";
     if (ordProdHam[0].PRO_CATA_ONOFF == 1) {
-        ordHamTitle = `<li id="ordHam">${ordProdHam[0].PRO_CATA_NAME}</li>`;
+        ordHamTitle = `<li id="ordHam"  class="ordTitle">${ordProdHam[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordHamTitle);
     } else {
-        ordHamTitle = `<li id="ordHam" style="display:none">${ordProdHam[0].PRO_CATA_NAME}</li>`;
+        ordHamTitle = `<li id="ordHam" class="ordTitle" style="display:none">${ordProdHam[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordHamTitle);
     };
 
@@ -336,10 +336,10 @@ function ordProdOnOff() {
     ordProMuf = JSON.parse(localStorage.getItem("ordSaveMufInfo"));
     let ordMufTitle = "";
     if (ordProMuf[0].PRO_CATA_ONOFF == 1) {
-        ordMufTitle = `<li id="ordMuf">${ordProMuf[0].PRO_CATA_NAME}</li>`;
+        ordMufTitle = `<li id="ordMuf"  class="ordTitle">${ordProMuf[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordMufTitle);
     } else {
-        ordMufTitle = `<li id="ordMuf" style="display:none">${ordProMuf[0].PRO_CATA_NAME}</li>`;
+        ordMufTitle = `<li id="ordMuf" class="ordTitle" style="display:none">${ordProMuf[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordMufTitle);
     };
 
@@ -347,10 +347,10 @@ function ordProdOnOff() {
     ordProSwe = JSON.parse(localStorage.getItem("ordSaveSweInfo"));
     let ordSweTitle = "";
     if (ordProSwe[0].PRO_CATA_ONOFF == 1) {
-        ordSweTitle = `<li id="ordSwe">${ordProSwe[0].PRO_CATA_NAME}</li>`;
+        ordSweTitle = `<li id="ordSwe" class="ordTitle">${ordProSwe[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordSweTitle);
     } else {
-        ordSweTitle = `<li id="ordSwe" style="display:none">${ordProSwe[0].PRO_CATA_NAME}</li>`;
+        ordSweTitle = `<li id="ordSwe" class="ordTitle" style="display:none">${ordProSwe[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordSweTitle);
     };
 
@@ -358,10 +358,10 @@ function ordProdOnOff() {
     ordProCof = JSON.parse(localStorage.getItem("ordSaveCofInfo"));
     let ordCofTitle = "";
     if (ordProCof[0].PRO_CATA_ONOFF == 1) {
-        ordCofTitle = `<li id="ordCof">${ordProCof[0].PRO_CATA_NAME}</li>`;
+        ordCofTitle = `<li id="ordCof" class="ordTitle">${ordProCof[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordCofTitle);
     } else {
-        ordCofTitle = `<li id="ordCof" style="display:none">${ordProCof[0].PRO_CATA_NAME}</li>`;
+        ordCofTitle = `<li id="ordCof" class="ordTitle" style="display:none">${ordProCof[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordCofTitle);
     };
 
@@ -370,22 +370,47 @@ function ordProdOnOff() {
     ordProDri = JSON.parse(localStorage.getItem("ordSaveDriInfo"));
     let ordDriTitle = "";
     if (ordProDri[0].PRO_CATA_ONOFF == 1) {
-        ordDriTitle = `<li id="ordDri">${ordProDri[0].PRO_CATA_NAME}</li>`;
+        ordDriTitle = `<li id="ordDri" class="ordTitle">${ordProDri[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordDriTitle);
     } else {
-        ordDriTitle = `<li id="ordDri" style="display:none">${ordProDri[0].PRO_CATA_NAME}</li>`;
+        ordDriTitle = `<li id="ordDri" class="ordTitle" style="display:none">${ordProDri[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordDriTitle);
     };
+    setAttr();
 }
 // ordProdOnOff();
 
+var ordNavList = document.getElementById("ordNavList");
+
+var oreTitleLi = document.getElementsByClassName("ordTitle");
+console.log("位置", oreTitleLi.length);
+
+function setAttr() {
+    setTimeout(() => {
+        // console.log(document.getElementsByClassName("ordTitle").length)
+        for (i = 0; i < oreTitleLi.length; i++) {
+            // console.log(document.getElementsByClassName("ordTitle")[i])
+            oreTitleLi[i].addEventListener("click", function (e) {
+                console.log(i)
+                for (j = 0; j < oreTitleLi.length; j++) {
+                    oreTitleLi[j].classList.remove('ordListPicked')
+                }
+                document.getElementById(`${e.target.id}`).classList.add('ordListPicked')
+
+            })
+        }
+    }, 1)
+
+}
 
 
 
+// let li = ordNavList.querySelectorAll('li')
+
+// setAttr();
 
 
 
-console.log("位置", ordNavList.childNodes)
 
 // call ajax(sanInfo)
 function ordReceiveSanInfo() {
@@ -487,7 +512,6 @@ function ordReceivePasInfo() {
 
 function ordPasShow() {
     ordNavList.childNodes[2].addEventListener("click", function () {
-        document.getElementById("ordPas").setAttribute("class", "ordListPicked");
         ordReceivePasInfo();
         orderPageArrowDR.style.display = "none";
         orderPageArrowDL.style.display = "none";
