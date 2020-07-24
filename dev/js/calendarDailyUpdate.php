@@ -11,13 +11,15 @@ try{
   $resFormPeopleCount = $_POST["resFormPeopleCount"];
   $resFormTextArea = $_POST["resFormTextArea"];
 
+  $sql="SELECT * FROM g4_nexpos.customer
+  Where CUS_PHONE = $resFormPhone;
+  ";
 
+  $findRows = $pdo ->query($sql);
 
-  //更新當日可預約人數
-  $sql = "UPDATE DAILY_RES SET DAILY_NUM = DAILY_NUM + '$resFormPeopleCount' WHERE DAILY_DATE = '$calendarPickDate'";
+    
+  if($findRows->rowCount()==0){
 
-  $daily_state = $pdo->prepare( $sql );
-  $daily_state->execute();
 
     //預約手機進入顧客表單
 
@@ -25,8 +27,30 @@ try{
 
     $daily_state = $pdo->prepare( $sql );
     $daily_state->execute();
+
+  // 更新當日可預約人數
+    $sql = "UPDATE DAILY_RES SET DAILY_NUM = DAILY_NUM + '$resFormPeopleCount' WHERE DAILY_DATE = '$calendarPickDate'";
+    
+    $daily_state = $pdo->prepare( $sql );
+    $daily_state->execute();
+
   
 
+  }else{
+
+    $sql ="UPDATE DAILY_RES SET DAILY_NUM = DAILY_NUM + '$resFormPeopleCount' WHERE DAILY_DATE = '$calendarPickDate'";
+      
+    $daily_state = $pdo->prepare( $sql );
+    $daily_state->execute();
+
+    $sql= "UPDATE `customer` SET `CUS_ID` = '1', `CUS_STATE` = '1', `CUS_LAST` = '$resFormLastName', `CUS_FIRST` = '$resFormFirstName', `CUS_GEN` = '$sex' WHERE (`CUS_PHONE` = '$resFormPhone');";
+
+
+    $daily_state = $pdo->prepare( $sql );
+    $daily_state->execute();
+
+    
+  }
 
 
   $sql = "INSERT into RESERVATION value ('$resFormPhone','$calendarPickDate',$resFormPeopleCount,'$resFormTextArea')";
