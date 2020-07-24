@@ -16,12 +16,12 @@ try{
   $CUS_PHONE = $idPswUpdateData->CUS_PHONE;
   $CUS_EMAIL = $idPswUpdateData->CUS_EMAIL;
   $CUS_POINT = $idPswUpdateData->CUS_POINT;
-  $CUS_ID = $idPswUpdateData->CUS_ID;
+  // $CUS_ID = $idPswUpdateData->CUS_ID;
   $CUS_STATE = $idPswUpdateData->CUS_STATE;
 
 
   $sql = "UPDATE CUSTOMER
-          SET CUS_LAST = '$CUS_LAST', CUS_FIRST = '$CUS_FIRST', CUS_GEN = '$CUS_GEN', CUS_BIRTH = '$CUS_BIRTH',  CUS_EMAIL = '$CUS_EMAIL', CUS_POINT = '$CUS_POINT', CUS_ID = '$CUS_ID', CUS_STATE = '$CUS_STATE'
+          SET CUS_LAST = '$CUS_LAST', CUS_FIRST = '$CUS_FIRST', CUS_GEN = '$CUS_GEN', CUS_BIRTH = '$CUS_BIRTH',  CUS_EMAIL = '$CUS_EMAIL', CUS_POINT = '$CUS_POINT', CUS_STATE = '$CUS_STATE'
           WHERE CUS_PHONE = '$CUS_PHONE';"  ;
 echo $sql, "<br>";
   $emp = $pdo->prepare($sql);

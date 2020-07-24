@@ -35,14 +35,14 @@ td {
   font-size: 10px;
   color: rgba(255, 0, 0, 0.6);
   position: absolute;
-  top: 64px;
+  top: 52px;
   left: 15px; }
 
 .success {
   font-size: 10px;
   color: #319d8e;
   position: absolute;
-  top: 64px;
+  top: 52px;
   left: 15px; }
 
 td:last-child {
@@ -50,7 +50,6 @@ td:last-child {
 
 .save {
   border: none;
-  margin-bottom: 10px;
   vertical-align: sub; }
 
 img {

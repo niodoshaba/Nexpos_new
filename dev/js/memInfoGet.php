@@ -11,13 +11,13 @@ try{
   $CUS_PHONE = $_POST["CUS_PHONE"];
   $CUS_EMAIL = $_POST["CUS_EMAIL"];
   $CUS_POINT = $_POST["CUS_POINT"];
-  $CUS_ID = $_POST["CUS_ID"];
+  // $CUS_ID = $_POST["CUS_ID"];
   $CUS_STATE = $_POST["CUS_STATE"];
  
 
   //send data to db
   $sql = "INSERT INTO CUSTOMER
-          VALUES ('$CUS_LAST','$CUS_FIRST','$CUS_GEN','$CUS_BIRTH','$CUS_PHONE','$CUS_EMAIL','$CUS_POINT''$CUS_ID','$CUS_STATE',);";
+          VALUES ('$CUS_LAST','$CUS_FIRST','$CUS_GEN','$CUS_BIRTH','$CUS_PHONE','$CUS_EMAIL','$CUS_POINT','$CUS_STATE');";
 
   $proStatus = $pdo->prepare( $sql );
   $proStatus->execute();
