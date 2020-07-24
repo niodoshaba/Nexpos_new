@@ -166,8 +166,8 @@ window.addEventListener('load', function (e) {
     //撈資料庫訂單編號
     loadOrderList();
     bonusRuleGetData();
-    //撈資料庫紅利折抵
-    posHomeOrderList == undefined ? posHomePageOrd = 0: posHomePageOrd = posHomeOrderList;
+    //undefined改成用isNaN判斷
+    isNaN(posHomeOrderList) ? posHomePageOrd = 0: posHomePageOrd = posHomeOrderList;
     console.log(posHomePageOrd);
     console.log(posHomeOrderList);
 
