@@ -9667,10 +9667,6 @@ form {
   width: 952px;
   margin: 0 auto; }
 
-.add {
-  margin-left: 50%;
-  transform: translateX(-50%); }
-
 .resScrollbar {
   margin-top: 40px;
   border: 1px solid #e2e2e2;
@@ -9718,7 +9714,7 @@ input.proPic {
   overflow-x: hidden; }
 
 #calendarPickDateTop {
-  margin-left: 135px; }
+  margin-left: 90px; }
 
 .resOverflow {
   min-height: 600px;
@@ -9746,4 +9742,9 @@ input.proPic {
   margin: auto;
   background-color: white;
   border: unset;
-  outline: none; }
+  outline: none;
+  width: 1213px;
+  margin: 0 auto; }
+
+.table td {
+  vertical-align: inherit; }

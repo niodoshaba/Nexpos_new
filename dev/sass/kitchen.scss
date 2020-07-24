@@ -1,31 +1,32 @@
 .tablehead {
-    margin-top: 20px;
-    padding: 20px;
-    margin-left: 180px;
-    width: 1040px;
-    h1{
-        font-size: 35px;
-        }
+  margin-top: 20px;
+  padding: 20px;
+  margin-left: 95px;
+  width: 1040px;
+  h1 {
+    font-size: 35px;
+  }
 }
 
-.kHead{
-    padding: 20px;
+.kHead {
+  padding: 20px;
+  display: flex;
+  .kHeadItem {
     display: flex;
-    .kHeadItem{
-        display: flex;
-    }
+  }
 }
 
-.kFoodItem{
-   padding: 5px 20px 5px 20px;
-   &:first-child {
-       padding-top: 20px;
-   }
+.kFoodItem {
+  padding: 5px 20px 5px 20px;
+  &:first-child {
+    padding-top: 20px;
+  }
 }
 
-span{
-    font-size: 10px;
+span {
+  font-size: 10px;
 }
+<<<<<<< HEAD
 .kPageContainer{
     display: flex;
     margin-left: 60px;
@@ -44,99 +45,112 @@ span{
             position: relative;
             top: -16px;
             left: 138px;
-        }
-        .kHead{
-            
-            .kHeadItem {
-                width: 48%;
-                display: inline-block;
-            }
-        }
-        .kFood{
-            .kFoodBar{
-            background-color: #E4E4E4;
-            text-align: center;
-            padding: 2px;
-            margin-bottom: 20px;
-            }
-            li{
-                margin-bottom:10px;
-            }
-            .kFoodItem{
-                
-                width: 100%;
-                .kFoodTitle {
-                    display: inline-block;
-                    width: 170px;
-                } 
-                .kFoodStatus {
-                    display: inline-block;
-                }
-
-                .kFoodNum{
-                    vertical-align: top;
-                    display: inline-block;
-                }
-                .kFoodStatus{
-                    vertical-align: top;
-                    display: inline-block;
-                    color: greenyellow;
-                    margin-left: 26px;
-                }
-
-            }
-        }
+=======
+.kPageContainer {
+  display: flex;
+  margin-left: 20px;
+  .kContainer {
+    width: 300px;
+    height: 605px;
+    background-color: #fde8b3;
+    position: relative;
+    top: 62px;
+    left: 150px;
+    border-radius: 12px;
+    margin-left: 46px;
+    .kpin {
+      color: red;
+      font-size: 30px;
+      position: relative;
+      top: -16px;
+      left: 138px;
     }
-    .kFoodMain{
-        display: flex;
+    .kHead {
+      .kHeadItem {
+        width: 48%;
+        display: inline-block;
+      }
     }
+    .kFood {
+      .kFoodBar {
+        background-color: #e4e4e4;
+        text-align: center;
+        padding: 2px;
+        margin-bottom: 20px;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      .kFoodItem {
+        width: 100%;
+        .kFoodTitle {
+          display: inline-block;
+          width: 170px;
+>>>>>>> dev_lily
+        }
+        .kFoodStatus {
+          display: inline-block;
+        }
+
+        .kFoodNum {
+          vertical-align: top;
+          display: inline-block;
+        }
+        .kFoodStatus {
+          vertical-align: top;
+          display: inline-block;
+          color: greenyellow;
+          margin-left: 26px;
+        }
+      }
+    }
+  }
+  .kFoodMain {
+    display: flex;
+  }
 }
 
-.kButton{
-    cursor: pointer;
-    padding: 12px;
-    border-radius: 20px;
-    background-color: #EFA25F;
-    color: white;
-    border: none;
-    position: absolute;;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 30px;
+.kButton {
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 20px;
+  background-color: #efa25f;
+  color: white;
+  border: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
 }
 
 //訂單的scroll bar
-.resScrollbar{
-    // margin-top: 40px; 
-    /* border: 1px solid #e2e2e2; */
-    border-radius: 10px;
-    float: left;
-    height: 320px;
-    width: 300px;
-    overflow-y: scroll;
-    overflow-x: auto;
-    margin-bottom: 25px;
-  }
-  
-  .resOverflow
-  {
-      min-height: 600px;
-  }
-  
-  
-  #resScrollstyle::-webkit-scrollbar
-  {
-      width: 10px;
-  
-  }
-  
-  #resScrollstyle::-webkit-scrollbar-thumb
-  {
-    border-radius:50px;
-      background-color: #DDDDDD;
-  }
-  
+.resScrollbar {
+  // margin-top: 40px;
+  /* border: 1px solid #e2e2e2; */
+  border-radius: 10px;
+  float: left;
+  height: 320px;
+  width: 300px;
+  overflow-y: scroll;
+  overflow-x: auto;
+  margin-bottom: 25px;
+}
+
+.resOverflow {
+  min-height: 600px;
+}
+
+#resScrollstyle::-webkit-scrollbar {
+  width: 10px;
+}
+
+#resScrollstyle::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #dddddd;
+}
+
 //大div scrollbar
+<<<<<<< HEAD
 .resScrollbar2{
     margin: 40px auto 0; 
     border: 1px solid #e2e2e2; 
@@ -167,3 +181,29 @@ span{
       background-color: #DDDDDD;
   }
   
+=======
+.resScrollbar2 {
+  margin-top: 40px;
+  /* border: 1px solid #e2e2e2; */
+  border-radius: 10px;
+  float: left;
+  height: 750px;
+  width: 1200px;
+  overflow-y: auto;
+  overflow-x: auto;
+  margin-bottom: 25px;
+}
+
+.resOverflow {
+  min-height: 600px;
+}
+
+#resScrollstyle2::-webkit-scrollbar {
+  width: 10px;
+}
+
+#resScrollstyle2::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #dddddd;
+}
+>>>>>>> dev_lily

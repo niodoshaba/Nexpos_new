@@ -36,7 +36,7 @@ input.proPic {
 }
 
 #calendarPickDateTop {
-  margin-left: 135px;
+  margin-left: 90px;
 }
 
 .resOverflow {
@@ -74,4 +74,10 @@ input.proPic {
   background-color: white;
   border: unset;
   outline: none;
+  width: 1213px;
+  margin: 0 auto;
+}
+
+.table td {
+  vertical-align: inherit;
 }

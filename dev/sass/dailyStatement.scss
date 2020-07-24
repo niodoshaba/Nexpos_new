@@ -1,7 +1,7 @@
 body {
   font-family: "jf-openhuninn-1.1";
   font-size: 20px;
-  color: #959595;
+  color: #494949;
 }
 
 .container-fluid {
@@ -102,8 +102,8 @@ body {
   #orderPageRightSideTop {
     display: flex;
     justify-content: center;
-    margin: 10px auto;
-    height: 90px; // before: 10vh
+    margin: 50px auto 0;
+    height: 160px; // before: 10vh
     width: 980px; // 修改
     border-radius: 10px;
     box-shadow: 4px 4px 3px rgba(20%, 20%, 40%, 0.2);
@@ -128,8 +128,9 @@ body {
     // height: 75vh;
     // border: 1px solid blue;
     div {
-      height: 100%;
-      margin: 10px auto;
+      width: 1100px;
+      height: 500px;
+      margin: 50px auto 0;
       // border: 1px solid blue;
       border-radius: 10px;
       box-shadow: 4px 4px 3px rgba(20%, 20%, 20%, 0.2);
@@ -179,7 +180,7 @@ body {
         color: white;
         outline: none;
         padding: 5px 30px;
-        margin: 8px auto;
+        margin: 50px auto;
       }
     }
   }

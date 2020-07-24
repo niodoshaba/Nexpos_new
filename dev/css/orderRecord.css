@@ -1,7 +1,7 @@
 .tablehead {
   margin-top: 20px;
   padding: 20px;
-  margin-left: 180px;
+  margin-left: 95px;
   width: 1040px; }
   .tablehead h1 {
     font-size: 35px; }
@@ -22,12 +22,11 @@ span {
   .kPageContainer .kContainer {
     width: 300px;
     height: 605px;
-    background-color: #FDE8B3;
+    background-color: #fde8b3;
     position: relative;
     top: 62px;
-    left: 100px;
-    border-radius: 12px;
-    margin-left: 46px; }
+    left: 119px;
+    border-radius: 12px; }
     .kPageContainer .kContainer .kpin {
       color: red;
       font-size: 30px;
@@ -38,7 +37,7 @@ span {
       width: 48%;
       display: inline-block; }
     .kPageContainer .kContainer .kFood .kFoodBar {
-      background-color: #E4E4E4;
+      background-color: #e4e4e4;
       text-align: center;
       padding: 2px;
       margin-bottom: 20px; }
@@ -65,7 +64,7 @@ span {
 .kButton {
   padding: 12px;
   border-radius: 20px;
-  background-color: #EFA25F;
+  background-color: #efa25f;
   color: white;
   border: none;
   position: absolute;
@@ -74,14 +73,15 @@ span {
   bottom: 30px;
   cursor: pointer; }
 
-table, td {
+table,
+td {
   border-collapse: collapse; }
 
 tr {
   vertical-align: middle; }
 
 tr:nth-child(even) {
-  background: #F3F8FF; }
+  background: #f3f8ff; }
 
 tr:nth-child(odd) {
   background-color: #ffffff; }
@@ -104,7 +104,8 @@ td {
 img {
   cursor: pointer; }
 
-input, select {
+input,
+select {
   border: 0.5px solid #bdbdbd;
   padding: 5px;
   border-radius: 8px; }
@@ -136,4 +137,4 @@ form {
 
 #resScrollstyle::-webkit-scrollbar-thumb {
   border-radius: 50px;
-  background-color: #DDDDDD; }
+  background-color: #dddddd; }
