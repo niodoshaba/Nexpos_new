@@ -134,8 +134,8 @@ $(document).ready(function () {
       // cache: false,
 
       success: function (data) {
-        alert("儲存成功！");
-        location.href = "../memberJoin.html";
+        alert("儲存成功~~！");
+        location.href = "./memberJoin.html";
         console.log(data);
       },
     });

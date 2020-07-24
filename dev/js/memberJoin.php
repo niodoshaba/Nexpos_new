@@ -19,10 +19,10 @@ try {
 	$memInfo = $pdo->prepare ($sql);
     $memInfo->execute();
 
-    echo 
-    "<script> alert('送出成功');
-    location.href='../../dest/memberJoin.html';
-    </script>";
+    // echo 
+    // "<script> alert('送出成功');
+   
+    // </script>";
 
 } catch (PDOException $e) {
 	// echo "系統暫時無法提供服務, 請通知系統維護人員<br>";
