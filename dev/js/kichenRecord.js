@@ -8,6 +8,29 @@ let orderNoDone = [];
 let orderNoDoneQ = [];
 let orderNoDoneFinal = [];
 
+let newDate = new Date();
+let ThisDate = `${newDate.getFullYear()}-${(newDate.getMonth()+1)<10?0:''}${newDate.getMonth()+1}-${(newDate.getDate()+1)<10?0:''}${newDate.getDate()}`;
+
+
+console.log(ThisDate);
+
+//紀錄傳到點餐頁面的資訊
+var loadOrdListTips = JSON.parse(localStorage.getItem('ordlistTips'));
+var ordlistTips = {
+    orderList: ' ',
+    inOrOut: ' ',
+    number: ' '
+};
+
+if (loadOrdListTips == undefined) {
+    ordlistTips = {
+        orderList: ' ',
+        inOrOut: ' ',
+        number: ' '
+    };
+} else {
+    ordlistTips = loadOrdListTips;
+}
 // var done_${orderNo} = [];
 
 // get 廚師做好的key, 如果localstorage沒有值就return
@@ -110,8 +133,8 @@ window.addEventListener('load', function () {
             let index = kitchenRowData.indexOf(rendertest[j]);
             content3 += '<tr class="clicktr">';
             var item = orderNoDoneFinal[index][0];
-            content3 += '<td>' + orderNoDoneFinal[index][0]["date"] + '</td><td>' + orderNoDoneFinal[index][0]["orderList"] + ' </td><td>' +
-                orderNoDoneFinal[index][0]["inOrOut"] + '</td><td>' + orderNoDoneFinal[index][0]["pNum"] + '</td><td>Lily</td>';
+            content3 += '<td>' + ThisDate + '</td><td>' + orderNoDoneFinal[index][0]["orderList"] + ' </td><td>' +
+                orderNoDoneFinal[index][0]["inOrOut"] + '</td><td>' + ordlistTips.ppl + '</td><td>Lily</td>';
             content3 += '</tr>'
         }
 
@@ -170,9 +193,9 @@ window.addEventListener('load', function () {
                     //整張訂單
                     content +=
                         '<div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div><div class="kHead"><div class="kHeadItem"><h1>訂單：' +
-                        orderNoDoneFinal[thisindex][j]["orderList"] + ' </h1><span>' + orderNoDoneFinal[thisindex][j]["date"] + '</span></div>';
+                        orderNoDoneFinal[thisindex][j]["orderList"] + ' </h1><span>' + ThisDate + '</span></div>';
                     content +=
-                        `<div class="kHeadItem"><h1>${tmp}</h1><span>人數：3</span><span>店員：Lily</span></div></div>`;
+                        `<div class="kHeadItem"><h1>${tmp}</h1><span>人數：${ordlistTips.ppl}</span><span>店員：Lily</span></div></div>`;
                     content +=
                         ' <div class="kFood"><div class="kFoodBar">項 目</div><ul class="kFoodItem">';
                 }

@@ -1,7 +1,7 @@
 <?php
  
 try{ 
-    require_once("ordCon.php");
+    // require_once("ordCon.php");
     $dsn = "mysql:host=localhost;post=3306;dbname=g4_nexpos;charset=utf8";
     $user = "root";
     $password = "1u3ru894jo4SPUR";

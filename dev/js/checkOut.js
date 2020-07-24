@@ -157,6 +157,22 @@ window.addEventListener('load', function () {
 
     }
     bonusRuleGetData();
+
+    function insertCustomerData(data){
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let result = xhr.responseText;
+                console.log(result);
+            }
+        }
+
+
+        xhr.open("post", "./js/insertCustomerData.php", true);
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xhr.send(`customerData=${data}`);
+    }
     function checkCustomer(data) {
 
         let xhr = new XMLHttpRequest();
@@ -173,6 +189,7 @@ window.addEventListener('load', function () {
                     checkoutLeftSideTopBtn.parentElement.children[0].style.fontSize = "25px";
                     //非會員現有紅利=0
                     checkoutNowBouns.innerText = 0;
+                    insertCustomerData(data);
                 } else {
                     checkoutLeftSideTopBtn.parentElement.children[1].style.display = "none";
                     checkoutLeftSideTopBtn.parentElement.children[0].style.padding = "0";
@@ -194,6 +211,8 @@ window.addEventListener('load', function () {
         xhr.send(`customer=${data}`);
 
     }
+
+    
 
     function checkoutSaveDataToDB(Data) {
         let xhr = new XMLHttpRequest();
@@ -398,7 +417,8 @@ window.addEventListener('load', function () {
         //日期
         // console.log(ordlistTips.number);
         // console.log(tabReceiveJson[2].number);
-        let tmpDate = `${cusNowDay.getFullYear()}-${cusNowDay.getMonth() + 1}-${cusNowDay.getDate()}`;
+        let newDate = new Date();
+        let ThisDate = `${newDate.getFullYear()}-${(newDate.getMonth()+1)<10?0:''}${newDate.getMonth()+1}-${(newDate.getDate()+1)<10?0:''}${newDate.getDate()}`;
 
         //人數
         if (ordlistTips.ppl == undefined) {
@@ -414,21 +434,21 @@ window.addEventListener('load', function () {
         } else {
             tmpInOrOut = 1;
         }
-
+        console.log(typeof(cusPhoneNumber));
         sendDataToDB = {
-            "ORDER_NO": checkoutOrderListNo.innerText,
+            "ORDER_NO": ordlistTips.orderList,
             "CUS_PHONE": cusPhoneNumber,
             "PAY_NO": 1,
-            "EMP_NO": 1,
+            "EMP_NO": 100003,
             "BONUS_NAME": bonusRule,
             "ORDER_TAX_ID": "",
             "ORDER_DEVICE_NO": "",
             "ORDER_INNOUT": tmpInOrOut,
             "ORDER_NUM": ppl,
-            "ORDER_TTL_PRICE": checkOutTotalPriceSendToDB,
-            "ORDER_DATE": tmpDate
+            "ORDER_TTL_PRICE": checkOutTotalPrice - checkoutSendDiscount.innerText - checkoutSendBonus.innerText,
+            "ORDER_DATE": ThisDate
         }
-
+        console.log(sendDataToDB);
         checkoutSaveDataToDB(JSON.stringify(sendDataToDB));
         //點過結帳按鈕bool
         ordCheckOutBool = true;
