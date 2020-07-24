@@ -26,26 +26,6 @@
 span {
   font-size: 10px;
 }
-<<<<<<< HEAD
-.kPageContainer{
-    display: flex;
-    margin-left: 60px;
-    .kContainer{
-        width: 300px;
-        height: 605px;
-        background-color: #FDE8B3;
-        position: relative;
-        top: 62px;
-        left: 60px;
-        border-radius: 12px;
-        margin-left: 40px;
-        .kpin{
-            color: red;
-            font-size: 30px;
-            position: relative;
-            top: -16px;
-            left: 138px;
-=======
 .kPageContainer {
   display: flex;
   margin-left: 20px;
@@ -86,7 +66,6 @@ span {
         .kFoodTitle {
           display: inline-block;
           width: 170px;
->>>>>>> dev_lily
         }
         .kFoodStatus {
           display: inline-block;
@@ -150,38 +129,6 @@ span {
 }
 
 //大div scrollbar
-<<<<<<< HEAD
-.resScrollbar2{
-    margin: 40px auto 0; 
-    border: 1px solid #e2e2e2; 
-    border-radius: 10px;
-    // float: left;
-    height: 720px;
-    width: 1150px;
-    // overflow-y: auto;
-    overflow-x: auto;
-    // margin-bottom: 25px;
-  }
-  
-  .resOverflow
-  {
-      min-height: 600px;
-  }
-  
-  
-  #resScrollstyle2::-webkit-scrollbar
-  {
-      width: 10px;
-  
-  }
-  
-  #resScrollstyle2::-webkit-scrollbar-thumb
-  {
-    border-radius:50px;
-      background-color: #DDDDDD;
-  }
-  
-=======
 .resScrollbar2 {
   margin-top: 40px;
   /* border: 1px solid #e2e2e2; */
@@ -206,4 +153,3 @@ span {
   border-radius: 50px;
   background-color: #dddddd;
 }
->>>>>>> dev_lily
