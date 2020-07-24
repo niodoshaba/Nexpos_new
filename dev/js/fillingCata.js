@@ -108,4 +108,12 @@ window.addEventListener("load", function () {
     });
   }
   //按下編輯按鈕更新資料-end
+
+  
+    //判斷登入若為店長則只可瀏覽前三行
+    let usertitle = sessionStorage.getItem("title");
+
+    if (usertitle == "店長") {
+      $("li").slice(3, 8).css("visibility", "hidden");
+    }
 });

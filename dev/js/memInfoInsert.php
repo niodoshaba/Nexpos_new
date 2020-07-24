@@ -3,15 +3,8 @@ session_start();
 
 $idPswInputData = json_decode($_POST['idPswInputData']);
 try{
-  // $dsn = "mysql:host=localhost; port=8889; dbname=G4_nexpos; cahrest=utf8;";
-  // $user = "root";
-  // $password = "lily12345";
-  // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-  // $pdo = new PDO($dsn, $user, $password,$options);
-
-
-  // require_once("generalConnectDB.php");
-  require_once("ordCon.php");
+  require_once("generalConnectDB.php");
+   
   
   $CUS_LAST = $idPswInputData->CUS_LAST;
   $CUS_FIRST = $idPswInputData->CUS_FIRST;

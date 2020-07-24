@@ -86,8 +86,10 @@ select {
 }
 
 .add {
-  margin-left: 55%;
+  margin-left: 50%;
   transform: translateX(-50%);
+  position: absolute;
+  bottom: 30px;
 }
 
 .resScrollbar {

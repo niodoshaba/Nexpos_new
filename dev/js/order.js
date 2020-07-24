@@ -686,12 +686,12 @@ function ordReload() {
                 if (ordGetProd[k].topping.length > 0) {
                     // 把裝配料的容器清空
                     let ordtoppingReloadHTML = '';
-                    let ordToppingTtlNum = 0;
-                    for (let s = 0; s < ordGetProd[k].topping.length; s++) {
-                        ordtoppingReloadHTML += `<span class="ordToppingSec"> ${ordGetProd[k].topping[s]}</span>`;
-                        // 把配料的價錢將加算出總價
-                        ordToppingTtlNum += parseInt(ordGetProd[k].topping[s].split("$")[1]);
-                    };
+                    // let ordToppingTtlNum = 0;
+                    // for (let s = 0; s < ordGetProd[k].topping.length; s++) {
+                    //     ordtoppingReloadHTML += `<span class="ordToppingSec"> ${ordGetProd[k].topping[s]}</span>`;
+                    //     // 把配料的價錢將加算出總價
+                    //     ordToppingTtlNum += parseInt(ordGetProd[k].topping[s].split("$")[1]);
+                    // };
                     ordReloadHTML += `
                                     <div class="orderPageLeftSideMidItem" style="pointer-events:none; color:#ccc">
                                         <div class="orderPageLeftSideMidItemTop">
@@ -702,7 +702,7 @@ function ordReload() {
                                             <div class="orderPageLeftSideMidToppings" data-sec=${k}>
                                             ${ordtoppingReloadHTML}
                                             </div>
-                                            <span class="ordItemPr" data-itempr=${ordGetProd[k].PRO_ITEM_PRICE}>$${parseInt(ordGetProd[k].PRO_ITEM_PRICE) + ordToppingTtlNum}</span>
+                                            <span class="ordItemPr" data-itempr=${ordGetProd[k].PRO_ITEM_PRICE}>$${ordGetProd[k].PRO_ITEM_PRICE}</span>
                                         </div> 
                                     </div>
                                 `;
@@ -1207,16 +1207,12 @@ function ordTotProdAmt() {
     let ordItemTtlNum = "";
 
     for (let p = 0; p < ordItemPr.length; p++) {
-        console.log("dji", ordItemPr[p].innerText);
         ordItemTtlNum = ordItemPr[p].innerText;
-
         // 因為切割字串之後會變成陣列，[1]是為了選到數字
         ordItemTtlNum = parseInt(ordItemTtlNum.split("$")[1]);
         ordTotAmt += ordItemTtlNum;
-        console.log("!!!!???", ordTotAmt)
     };
     ordTotAmtShow.innerText = ordTotAmt;
-    // console.log("LLLLLLLLLLL", typeof (ordTotAmt))
 };
 
 
@@ -1245,35 +1241,40 @@ orderPageRightSideBottomBtn1.addEventListener("click", function () {
 
 // 結帳
 orderPageRightSideBottomBtn3.addEventListener("click", function () {
-    // 把左側餐點顯示清空
-    orderPageLeftSideMidItemAll.innerHTML = " ";
-
     // 把點餐資訊輸入資料庫
     ordSentInfotoDb();
 
+    // 把左側餐點顯示清空
+    orderPageLeftSideMidItemAll.innerHTML = " ";
+
     // 前往結帳頁面
-    // location.replace('./checkOut.html');
+    location.replace('./checkOut.html');
 });
 
+ordTotOrderProdAll = JSON.parse(localStorage.getItem(`orderNo_${ordList}`));
+
 function ordSentInfotoDb() {
+
     // Creating a XHR object 
-    let ordTotOrderProd = new XMLHttpRequest();
+    let ordTotOrderProdToDb = new XMLHttpRequest();
     let url = "./js/ordSetData.php";
     // open a connection 
-    ordTotOrderProd.open("POST", url, true);
+    ordTotOrderProdToDb.open("POST", url, true);
     // Set the request header i.e. which type of content you are sending 
-    ordTotOrderProd.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    ordTotOrderProdToDb.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     // 傳送資料去php
-    ordTotOrderProd.send("ordTotOrder=" + JSON.stringify(ordProdCartOn));
+    ordTotOrderProdToDb.send("ordTotOrder=" + JSON.stringify(ordTotOrderProdAll));
     // 測試傳送的陣列內是否有資料
-    console.log(ordProdCartOn);
+    console.log("412", ordTotOrderProdAll);
+
 
     // 測試有php有沒有接到資料
-    ordTotOrderProd.onload = function () {
+    ordTotOrderProdToDb.onload = function () {
         if (this.readyState == 4 && this.status == 200) {
-            ordReceiveOrder = JSON.parse(this.responseText);
-            console.log(ordReceiveOrder); // for debugging
+            console.log(this.responseText);
+            // ordReceiveOrder = JSON.parse(this.responseText);
+            // console.log(ordReceiveOrder); // for debugging
         };
     };
 };

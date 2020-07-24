@@ -25,7 +25,7 @@ input.proPic {
   overflow-x: hidden; }
 
 #calendarPickDateTop {
-  margin-left: 135px; }
+  margin-left: 90px; }
 
 .resOverflow {
   min-height: 600px;
@@ -53,4 +53,8 @@ input.proPic {
   margin: auto;
   background-color: white;
   border: unset;
-  outline: none; }
+  outline: none;
+  margin: 0 auto; }
+
+.table td {
+  vertical-align: inherit; }

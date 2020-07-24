@@ -1,131 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/browse/@coreui/coreui@2.1.16/dist/css/coreui.min.css" /> -->
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <!-- <link rel="stylesheet" href="https://unpkg.com/browse/@coreui/coreui@2.1.16/dist/css/coreui.min.css" /> -->
-  <!-- <link rel="stylesheet" href="css/style.css" /> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+    <link rel="stylesheet" href="./css/styleBack.css" />
 
+    <style>
+      .chartDiv {
+        width: 850px;
+        height: 800px;
+        margin-left: 15%;
+        margin-top: 5%;
+      }
 
-  <link rel="stylesheet" href="./css/styleBack.css" />
+      .calendarPickDate {
+        width: 200px;
+        margin-right: 10px;
+        border: none;
+        border-bottom: 1px solid gray;
+        border-radius: 0px;
+        outline: none;
+        text-align: center;
+      }
 
-  <style>
-    .chartDiv {
-      width: 850px;
-      height: 800px;
-      margin-left: 15%;
-      margin-top: 5%;
-    }
+      .anaBtnAll {
+        font-size: 20px;
+        border-style: none;
+        background-color: #fe9f4b;
+        border-radius: 50px;
+        color: white;
+        outline: none;
+        padding: 5px 10px;
+      }
 
+      #nanDateStartPosition {
+        margin-left: 70px;
+      }
 
-    .calendarPickDate {
-      width: 200px;
-      margin-right: 10px;
-      border: none;
-      border-bottom: 1px solid gray;
-      border-radius: 0px;
-      outline: none;
-      text-align: center;
-    }
+      #anaForm {
+        margin-top: 20px;
+        margin-left: 20px;
+      }
+    </style>
 
-    .anaBtnAll {
-      font-size: 20px;
-      border-style: none;
-      background-color: #FE9F4B;
-      border-radius: 50px;
-      color: white;
-      outline: none;
-      padding: 5px 10px
-    }
+    <title>數據分析管理</title>
+  </head>
 
-    #nanDateStartPosition {
-      margin-left: 70px;
-    }
+  <body>
+    <!-- 複製以下功能列 -->
+    @@include('app/headerBack.html',{"nav7":"actives"})
+    <!-- 複製以上功能列 -->
+    <!-- 以下為各分頁內容 -->
+    <div class="c-wrapper">
+      <div class="tablehead">
+        <h1>數據分析管理</h1>
+      </div>
 
-    #anaForm {
-      margin-top: 20px;
-    }
-  </style>
-
-  <title>數據分析管理</title>
-</head>
-
-<body>
-  <!-- 複製以下功能列 -->
-  @@include('app/headerBack.html',{"nav7":"actives"})
-  <!-- 複製以上功能列 -->
-  <!-- 以下為各分頁內容 -->
-  <div class="c-wrapper">
-    <div class="tablehead">
-      <h1>數據分析管理</h1>
-    </div>
-
-    <div class="topFunc">
-      <a href="#" class="topTablink" style="text-decoration: none;" id="resAnaTag">
-        <div class="topTab" id="topTabactives">
-          <div class="toptabCaption">預約<br />報表</div>
-        </div>
-      </a>
-      <a href="#" class="topTablink" style="text-decoration: none;" id="moneyAnaTag">
-        <div class="topTab">
-          <div class="toptabCaption">營收<br />報表</div>
-        </div>
-      </a>
-      <a href="#" class="topTablink" style="text-decoration: none;" id="peopleAnaTag">
-        <div class="topTab">
-          <div class="toptabCaption">客流<br />報表</div>
-        </div>
-      </a>
-      <a href="#" class="topTablink" style="text-decoration: none;" id="proAnaTag">
-        <div class="topTab">
-          <div class="toptabCaption">銷貨<br />報表</div>
-        </div>
-      </a>
-    </div>
-
-    <div class="c-body">
-      <main class="c-main">
-        <div class="container-fluid">
-          <div id="ui-view">
-
-            <form action="./js/dataAnalysis.php" method="POST" id="anaForm">
-
-              <span id="nanDateStartPosition">開始：</span><input type="date" name="anaStart" id="anaStart"
-                calendarLabel="picked" class="calendarPickDate">
-
-
-              結束：<input type="date" name="anaEnd" id="anaEnd" calendarLabel="picked" class="calendarPickDate">
-
-
-              <input type="button" id="anaResBtn" class="anaBtnAll" value="送出">
-              <input type="button" id="anaMoneyBtn" class="anaBtnAll" style="display: none;" value="送出">
-              <input type="button" id="anaPeopleBtn" class="anaBtnAll" style="display: none;" value="送出">
-              <input type="button" id="anaProBtn" class="anaBtnAll" style="display: none;" value="送出">
-
-            </form>
-
-            <div class="chartDiv" id="chartDiv">
-              <canvas id="myChart1"></canvas>
-              <canvas id="myChart2"></canvas>
-              <canvas id="myChart3"></canvas>
-              <canvas id="myChart4"></canvas>
-              <!-- 一定要 canvas 的標籤才能使用getContext('2d'); -->
-            </div>
-
+      <div class="topFunc">
+        <a
+          href="#"
+          class="topTablink"
+          style="text-decoration: none;"
+          id="resAnaTag"
+        >
+          <div class="topTab" id="topTabactives">
+            <div class="toptabCaption">預約<br />報表</div>
           </div>
-        </div>
-      </main>
+        </a>
+        <a
+          href="#"
+          class="topTablink"
+          style="text-decoration: none;"
+          id="moneyAnaTag"
+        >
+          <div class="topTab">
+            <div class="toptabCaption">營收<br />報表</div>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="topTablink"
+          style="text-decoration: none;"
+          id="peopleAnaTag"
+        >
+          <div class="topTab">
+            <div class="toptabCaption">客流<br />報表</div>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="topTablink"
+          style="text-decoration: none;"
+          id="proAnaTag"
+        >
+          <div class="topTab">
+            <div class="toptabCaption">銷貨<br />報表</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="c-body">
+        <main class="c-main">
+          <div class="container-fluid">
+            <div id="ui-view">
+              <form action="./js/dataAnalysis.php" method="POST" id="anaForm">
+                <span id="nanDateStartPosition">開始：</span
+                ><input
+                  type="date"
+                  name="anaStart"
+                  id="anaStart"
+                  calendarLabel="picked"
+                  class="calendarPickDate"
+                />
+
+                結束：<input
+                  type="date"
+                  name="anaEnd"
+                  id="anaEnd"
+                  calendarLabel="picked"
+                  class="calendarPickDate"
+                />
+
+                <input
+                  type="button"
+                  id="anaResBtn"
+                  class="anaBtnAll"
+                  value="送出"
+                />
+                <input
+                  type="button"
+                  id="anaMoneyBtn"
+                  class="anaBtnAll"
+                  style="display: none;"
+                  value="送出"
+                />
+                <input
+                  type="button"
+                  id="anaPeopleBtn"
+                  class="anaBtnAll"
+                  style="display: none;"
+                  value="送出"
+                />
+                <input
+                  type="button"
+                  id="anaProBtn"
+                  class="anaBtnAll"
+                  style="display: none;"
+                  value="送出"
+                />
+              </form>
+
+              <div class="chartDiv" id="chartDiv">
+                <canvas id="myChart1"></canvas>
+                <canvas id="myChart2"></canvas>
+                <canvas id="myChart3"></canvas>
+                <canvas id="myChart4"></canvas>
+                <!-- 一定要 canvas 的標籤才能使用getContext('2d'); -->
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
-  </div>
 
-  <script src="./js/dataAnalysis.js"></script>
-  <!-- <script src="./js/calendarSmall.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-
-</body>
-
+    <script src="./js/dataAnalysis.js"></script>
+    <!-- <script src="./js/calendarSmall.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  </body>
 </html>

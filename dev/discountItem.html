@@ -1,173 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/browse/@coreui/coreui@2.1.16/dist/css/coreui.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/minty/bootstrap.min.css"
+    />
+    <link
+      href="https://www.jqueryscript.net/css/jquerysctipttop.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="./css/styleBack.css" />
+    <link rel="stylesheet" href="./css/styleForRightContent.css" />
+    <title>折扣管理</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/browse/@coreui/coreui@2.1.16/dist/css/coreui.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/minty/bootstrap.min.css" />
-  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="./css/styleBack.css" />
-  <link rel="stylesheet" href="./css/styleForRightContent.css" />
-  <title>折扣管理</title>
-</head>
-
-<body>
-  <!-- 複製以下功能列 -->
-  @@include('app/headerBack.html',{"nav6":"actives"})
-  <!-- 複製以上功能列 -->
-  <!-- 以下為各分頁內容 -->
-  <div class="c-wrapper">
-    <div class="tablehead">
-      <h1>限定商品折扣</h1>
-    </div>
-
-    <div class="topFunc">
-      <a href="./discountManage.html" class="topTablink" style="text-decoration: none;">
-        <div class="topTab">
-          <div class="toptabCaption">全館<br />折扣</div>
-        </div>
-      </a>
-      <a href="./discountItem.html" class="topTablink" style="text-decoration: none;">
-        <div class="topTab" id="topTabactives">
-          <div class="toptabCaption">限定<br />商品<br />折扣</div>
-        </div>
-      </a>
-      <a href="./bonusRule.html" class="topTablink" style="text-decoration: none;">
-        <div class="topTab">
-          <div class="toptabCaption">點數<br />折扣<br />管理</div>
-        </div>
-      </a>
-    </div>
-
-    <div class="c-body">
-      <main class="c-main">
-        <div class="container-fluid" style="margin: 0;">
-          <div id="ui-view">
-            <div class="card">
-              <div class="card-body" style="min-height: 600px;">
-                <table class="table table-responsive-sm" id="table">
-                  <thead>
-                    <tr class="title">
-                      <th>編號</th>
-                      <th>優惠名稱</th>
-                      <th>優惠期間(起)</th>
-                      <th>優惠期間(迄)</th>
-                      <th>優惠品項</th>
-                      <th>優惠折扣</th>
-                      <th>修改</th>
-                    </tr>
-                  </thead>
-                  <tbody class="discountTable" id="testDiscount">
-                    <tr>
-                      <!-- <td>D01</td>
-                            <td>端午節限定優惠</td>
-                            <td>2020/06/01</td>
-                            <td>2020/06/30</td> -->
-                      <td>
-                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">查看</button> -->
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                          <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                <table class="showChecked" style="width: 480px; margin: 0;">
-                                  <tr class="title">
-                                    <th>折扣編號</th>
-                                    <th>編號</th>
-                                    <th>類別</th>
-                                    <th>名稱</th>
-                                    <th>價格($)</th>
-                                  </tr>
-                                  <!-- <tbody>
-                                        </tbody> -->
-                                </table>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">確認</button>
-                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <!-- <td>9折</td> -->
-                      <td>
-                        <!-- Button trigger modal -->
-                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">編輯</button> -->
-
-                        <!-- 編輯鈕的燈箱Modal -->
-                        <!-- <form action="" method="" style="width: 100%;"> -->
-                        <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-                          aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                          <div class="modal-dialog modal-dialog-scrollable" role="document" style="max-width: 700px;">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalScrollableTitle" style="max-width: 640px;">
-                                  <table style="width: 640px;">
-                                    <!-- <tbody>
-                                                <tr style="border: hidden;">
-                                                  <td>優惠名稱 <input name="activeName" type="text" style="width: 160px;"/></td>
-                                                  <td>優惠折扣 <input name="discount" type="text" style="width: 160px;"/></td>
-                                                </tr>
-                                                <tr style="border: hidden;">
-                                                  <td>優惠期間(起)<input name="timeStart" type="date" style="width: 180px;"/></td>
-                                                  <td>優惠期間(迄) <input name="timeEnd" type="date" style="width: 180px;"/></td>
-                                                </tr>
-                                              </tbody> -->
-                                  </table>
-                                </h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-
-                              <div class="modal-body">
-                                <table class="pro" style="width: 640px; margin: 0;">
-                                  <tr>
-                                    <th>品項編號</th>
-                                    <th>類別</th>
-                                    <th>名稱</th>
-                                    <th>價格($)</th>
-                                    <th>選擇</th>
-                                  </tr>
-                                  <!-- <tbody>
-                                            </tbody> -->
-                                </table>
-                              </div>
-
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-primary confirm" data-dismiss="modal">確認</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- </form> -->
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <button class="addbtn addBtn" style="display: block; margin: auto; background-color: white; border: unset;">
-              <img src="./assets/add.png">
-            </button>
+  <body>
+    <!-- 複製以下功能列 -->
+    @@include('app/headerBack.html',{"nav6":"actives"})
+    <!-- 複製以上功能列 -->
+    <!-- 以下為各分頁內容 -->
+    <div class="c-wrapper">
+      <div class="tablehead">
+        <h1>限定商品折扣</h1>
+      </div>
+  
+      <div class="topFunc">
+        <a href="./discountManage.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab">
+            <div class="toptabCaption">全館<br />折扣</div>
           </div>
-        </div>
-      </main>
+        </a>
+        <a href="./discountItem.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab" id="topTabactives">
+            <div class="toptabCaption">限定<br />商品<br />折扣</div>
+          </div>
+        </a>
+        <a href="./bonusRule.html" class="topTablink" style="text-decoration: none;">
+          <div class="topTab">
+            <div class="toptabCaption">點數<br />折扣<br />管理</div>
+          </div>
+        </a>
+      </div>
+  
+      <div class="c-body">
+        <main class="c-main">
+          <div class="container-fluid" style="margin: 0;">
+            <div id="ui-view">
+              <div class="card">
+                <div class="card-body resScrollbar resOverflow" id="resScrollstyle">
+                  <table class="table table-responsive-sm" id="table">
+                    <thead>
+                      <tr class="title">
+                        <th>編號</th>
+                        <th>優惠名稱</th>
+                        <th>優惠期間(起)</th>
+                        <th>優惠期間(迄)</th>
+                        <th>優惠品項</th>
+                        <th>優惠折扣</th>
+                        <th>修改</th>
+                      </tr>
+                    </thead>
+                    <tbody class="discountTable" id="testDiscount">
+                      <tr>
+                        <td>
+                          <!-- Modal -->
+                          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <table class="showChecked" style="width: 480px; margin: 0;">
+                                    <tr class="title">
+                                      <th>折扣編號</th>
+                                      <th>編號</th>
+                                      <th>類別</th>
+                                      <th>名稱</th>
+                                      <th>價格($)</th>
+                                    </tr>
+                                  </table>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">確認</button>
+                                  <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+  
+                          <!-- 編輯鈕的燈箱Modal -->
+                          <!-- <form action="" method="" style="width: 100%;"> -->
+                          <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable" role="document" style="max-width: 700px;">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalScrollableTitle" style="max-width: 640px;">
+                                    <table style="width: 640px;">
+                                    </table>
+                                  </h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+  
+                                <div class="modal-body">
+                                  <table class="pro" style="width: 640px; margin: 0;">
+                                    <tr>
+                                      <th>品項編號</th>
+                                      <th>類別</th>
+                                      <th>名稱</th>
+                                      <th>價格($)</th>
+                                      <th>選擇</th>
+                                    </tr>
+                                  </table>
+                                </div>
+  
+                                <div class="modal-footer" style="display: inline-block;">
+                                  <button type="button" class="btn btn-primary confirm" data-dismiss="modal">確認</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <button class="addbtn addBtn" style="display: block; margin: auto; background-color: white; border: unset;">
+                <img src="./assets/add.png">
+              </button>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-  <script src="./js/discountItem.js"></script>
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/discountItem.js"></script>
+  </body>
 </html>
