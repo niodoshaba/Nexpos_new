@@ -38,11 +38,11 @@ html {
 #showTableToResPage {
   display: flex;
   position: relative;
-  left: 188px;
   top: 150px;
   width: 1000px;
   height: 650px;
-  box-shadow: 0px 0px 10px #959595; }
+  box-shadow: 0px 0px 10px #959595;
+  margin: 0 auto; }
   #showTableToResPage li {
     color: white;
     text-align: center;

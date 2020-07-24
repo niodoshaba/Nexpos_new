@@ -1,7 +1,7 @@
 .tablehead {
   margin-top: 20px;
   padding: 20px;
-  margin-left: 180px;
+  margin-left: 95px;
   width: 1040px; }
 
 .tablehead h1 {
@@ -10,17 +10,17 @@
 #showTableToResPage {
   display: flex;
   position: relative;
-  left: 195px;
   top: 10px;
   width: 1000px;
   height: 650px;
-  box-shadow: 0px 0px 10px #959595; }
+  box-shadow: 0px 0px 10px #959595;
+  margin: 0 auto; }
   #showTableToResPage li {
     text-align: center;
     line-height: 40px; }
 
 #tabResOrCloseSelect {
-  margin-left: 200px;
+  margin-left: 120px;
   margin-top: 10px;
   padding: 5px;
   font-size: 20px;
@@ -32,7 +32,7 @@
 #tabCloseBtn {
   position: absolute;
   bottom: 25px;
-  left: 650px;
+  left: 557px;
   padding: 15px;
   width: 100px;
   border-style: none;

@@ -1,8 +1,9 @@
 .tablehead {
   margin-top: 20px;
   padding: 20px;
-  margin-left: 180px;
-  width: 1040px; }
+  margin-left: 95px;
+  width: 1040px;
+  height: 75px; }
   .tablehead h1 {
     font-size: 35px; }
 
@@ -43,23 +44,18 @@ select {
   padding: 5px;
   border-radius: 8px; }
 
-form {
-  width: 952px;
-  margin: 0 auto; }
-
 .add {
   margin-left: 50%;
   transform: translateX(-50%); }
 
 .resScrollbar {
-  margin-top: 40px;
   border: 1px solid #e2e2e2;
   border-radius: 10px;
-  float: left;
   height: 600px;
-  width: 1040px;
+  width: 1100px;
   overflow-y: scroll;
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  margin: 70px auto 0; }
 
 .resOverflow {
   min-height: 600px; }
@@ -70,9 +66,6 @@ form {
 #resScrollstyle::-webkit-scrollbar-thumb {
   border-radius: 50px;
   background-color: #dddddd; }
-
-#search_result {
-  margin-left: 180px; }
 
 input#search-bar {
   position: relative;

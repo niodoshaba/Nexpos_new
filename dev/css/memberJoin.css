@@ -64,7 +64,8 @@ select {
 
 .add {
   margin-left: 55%;
-  transform: translateX(-50%); }
+  transform: translateX(-50%);
+  position: absolute; }
 
 .resScrollbar {
   border: 1px solid #e2e2e2;
