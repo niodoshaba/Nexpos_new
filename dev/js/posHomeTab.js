@@ -188,7 +188,7 @@ window.addEventListener('load', function (e) {
             //已出餐未結帳
             let ordlist = checkOutOrdSvg.cloneNode(true);
 
-            newlist.style.setProperty("display", "inline-block");
+            newlist.style.setProperty("display", "block");
             ordlist.style.setProperty("display", "inline-block");
             tabConstrainZone.childNodes[i].appendChild(newlist);
             //0708-------產生餐桌的訂單改為用餐中
@@ -210,7 +210,7 @@ window.addEventListener('load', function (e) {
                             // console.log(tabConstrainZone.childNodes[i].childNodes[0].nextSibling);
                             tabConstrainZone.childNodes[i].removeChild(tabConstrainZone.childNodes[i].childNodes[0].nextSibling);
                             let ordlist = checkOutOrdSvg.cloneNode(true);
-                            ordlist.style.setProperty("display", "inline-block");
+                            ordlist.style.setProperty("display", "block");
                             tabConstrainZone.childNodes[i].appendChild(ordlist);
                             tabConstrainZone.childNodes[i].style.backgroundColor = tabEatColor;
                             tabReceiveJson[i].bgc = tabEatColor;
@@ -218,7 +218,7 @@ window.addEventListener('load', function (e) {
                         } else {
 
                             let ordlist = checkOutOrdSvg.cloneNode(true);
-                            ordlist.style.setProperty("display", "inline-block");
+                            ordlist.style.setProperty("display", "block");
                             tabConstrainZone.childNodes[i].appendChild(ordlist);
                             tabConstrainZone.childNodes[i].style.backgroundColor = tabEatColor;
                             tabReceiveJson[i].bgc = tabEatColor;
