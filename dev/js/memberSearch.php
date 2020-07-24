@@ -26,16 +26,30 @@ if(isset($_GET['s'])){
         echo 1;
     }else{
         // 表頭
+        // echo "
+        // <table>
+        //     <tr>
+        //         <td>姓</td>
+        //         <td style='width: 75px'>名</td>
+        //         <td style='width: 75px'>性別</td>
+        //         <td>手機</td>
+        //         <td>生日</td>
+        //         <td>e-mail</td>
+        //         <td style='width: 75px'>身份</td>
+        //         <td style='width: 80px'>狀態</td>
+        //         <td>點數</td>
+        //     </tr>
+
+        // ";
         echo "
         <table>
             <tr>
-                <td>姓</td>
-                <td style='width: 75px'>名</td>
-                <td style='width: 75px'>性別</td>
+                
+                <td style='width: 100px'>姓名</td>
+                <td style='width: 70px'>性別</td>
                 <td>手機</td>
                 <td>生日</td>
                 <td>e-mail</td>
-                <td style='width: 75px'>身份</td>
                 <td style='width: 80px'>狀態</td>
                 <td>點數</td>
             </tr>
@@ -43,13 +57,13 @@ if(isset($_GET['s'])){
         ";
         foreach ($customer as $key => $value) {
             echo "<tr>";
-            echo "<td>" . $value['CUS_LAST'] . "</td>";
-            echo "<td>" . $value['CUS_FIRST'] . "</td>";
+            echo "<td>" . $value['CUS_LAST'] . $value['CUS_FIRST'] . "</td>";
+            // echo "<td>" . $value['CUS_FIRST'] . "</td>";
             echo "<td>" . $value['CUS_GEN'] . "</td>";
             echo "<td>" . $value['CUS_PHONE'] . "</td>";
             echo "<td>" . $value['CUS_BIRTH'] . "</td>"; 
             echo "<td>" . $value['CUS_EMAIL'] . "</td>";
-            echo "<td class='cusIdTd'>" . $value['CUS_ID'] . "</td>";
+            // echo "<td class='cusIdTd'>" . $value['CUS_ID'] . "</td>";
             echo "<td class='cusStateTd'>" . $value['CUS_STATE'] . "</td>";
             echo "<td>" . $value['CUS_POINT'] . "</td>";
             echo "</tr>";
@@ -57,21 +71,36 @@ if(isset($_GET['s'])){
     }
 }else{
     // 表頭
+    // echo "
+    // <table>
+    //         <tr>
+                
+    //             <td style='width: 83px'>姓名</td>
+    //             <td style='width: 70px'>性別</td>
+    //             <td>手機</td>
+    //             <td>生日</td>
+    //             <td>e-mail</td>
+    //             <td style='width: 75px'>身份</td>
+    //             <td style='width: 80px'>狀態</td>
+    //             <td>點數</td>
+    //         </tr>
+
+    // ";
     echo "
     <table>
             <tr>
-                <td>姓</td>
-                <td style='width: 75px'>名</td>
-                <td style='width: 75px'>性別</td>
+                
+                <td style='width: 100px'>姓名</td>
+                <td style='width: 70px'>性別</td>
                 <td>手機</td>
                 <td>生日</td>
                 <td>e-mail</td>
-                <td style='width: 75px'>身份</td>
                 <td style='width: 80px'>狀態</td>
                 <td>點數</td>
             </tr>
 
     ";
+
 
     
     $sql =  "SELECT * FROM CUSTOMER WHERE CUS_ID= '1'";
@@ -81,13 +110,13 @@ if(isset($_GET['s'])){
     // echo json_encode($customer);
     foreach ($customer as $key => $value) {
         echo "<tr>";
-        echo "<td>" . $value['CUS_LAST'] . "</td>";
-        echo "<td>" . $value['CUS_FIRST'] . "</td>";
+        // echo "<td>" . $value['CUS_LAST'] . "</td>";
+        echo "<td>" . $value['CUS_LAST'].$value['CUS_FIRST'] . "</td>";
         echo "<td>" . $value['CUS_GEN'] . "</td>";
         echo "<td>" . $value['CUS_PHONE'] . "</td>";
         echo "<td>" . $value['CUS_BIRTH'] . "</td>"; 
         echo "<td>" . $value['CUS_EMAIL'] . "</td>";
-        echo "<td class='cusIdTd'>" . $value['CUS_ID'] . "</td>";
+        // echo "<td class='cusIdTd'>" . $value['CUS_ID'] . "</td>";
         echo "<td class='cusStateTd'>" . $value['CUS_STATE'] . "</td>";
         echo "<td>" . $value['CUS_POINT'] . "</td>";
         echo "</tr>";

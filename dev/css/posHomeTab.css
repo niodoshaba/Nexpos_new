@@ -46,6 +46,7 @@ html {
   #showTableToResPage li {
     color: white;
     text-align: center;
+    cursor: pointer;
     line-height: 30px; }
 
 .topTunc {
