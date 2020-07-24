@@ -28,10 +28,10 @@ span {
     height: 605px;
     background-color: #fde8b3;
     position: relative;
-    top: 62px;
-    left: 150px;
+    top: 48px;
+    left: 50px;
     border-radius: 12px;
-    margin-left: 46px; }
+    margin-right: 50px; }
     .kPageContainer .kContainer .kpin {
       color: red;
       font-size: 30px;
@@ -79,7 +79,6 @@ span {
   bottom: 30px; }
 
 .resScrollbar {
-  /* border: 1px solid #e2e2e2; */
   border-radius: 10px;
   float: left;
   height: 320px;
@@ -99,15 +98,15 @@ span {
   background-color: #dddddd; }
 
 .resScrollbar2 {
-  margin-top: 40px;
-  /* border: 1px solid #e2e2e2; */
+  border: 1px solid #e2e2e2;
   border-radius: 10px;
   float: left;
-  height: 750px;
-  width: 1200px;
+  height: 700px;
+  width: 1100px;
   overflow-y: auto;
   overflow-x: auto;
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  margin: 70px auto 0; }
 
 .resOverflow {
   min-height: 600px; }
