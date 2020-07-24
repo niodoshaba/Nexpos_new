@@ -1,80 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/browse/@coreui/coreui@2.1.16/dist/css/coreui.min.css"
+    />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="./css/styleBack.css" />
+    <title>全館折扣</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/browse/@coreui/coreui@2.1.16/dist/css/coreui.min.css" />
-  <!-- <link rel="stylesheet" href="css/style.css" /> -->
-  <link rel="stylesheet" href="./css/styleBack.css" />
-  <title>折扣管理</title>
-</head>
+  <body>
+    <!-- 複製以下功能列 -->
+    @@include('app/headerBack.html',{"nav6":"actives"})
+    <!-- 複製以上功能列 -->
+    <!-- 以下為各分頁內容 -->
+    <div class="c-wrapper">
+      <div class="tablehead">
+        <h1>全館折扣</h1>
+      </div>
 
-<body>
-  <!-- 複製以下功能列 -->
-  @@include('app/headerBack.html',{"nav6":"actives"})
-  <!-- 複製以上功能列 -->
-  <!-- 以下為各分頁內容 -->
-  <div class="c-wrapper">
-    <div class="tablehead">
-      <h1>全館折扣</h1>
-    </div>
+      <div class="topFunc">
+        <a
+          href="./discountManage.html"
+          class="topTablink"
+          style="text-decoration: none;"
+        >
+          <div class="topTab" id="topTabactives">
+            <div class="toptabCaption">全館<br />折扣</div>
+          </div>
+        </a>
+        <a
+          href="./discountItem.html"
+          class="topTablink"
+          style="text-decoration: none;"
+        >
+          <div class="topTab">
+            <div class="toptabCaption">限定<br />商品<br />折扣</div>
+          </div>
+        </a>
+        <a
+          href="./bonusRule.html"
+          class="topTablink"
+          style="text-decoration: none;"
+        >
+          <div class="topTab">
+            <div class="toptabCaption">點數<br />折扣<br />管理</div>
+          </div>
+        </a>
+      </div>
 
-    <div class="topFunc">
-      <a href="./discountManage.html" class="topTablink" style="text-decoration: none;">
-        <div class="topTab" id="topTabactives">
-          <div class="toptabCaption">全館<br />折扣</div>
-        </div>
-      </a>
-      <a href="./discountItem.html" class="topTablink" style="text-decoration: none;">
-        <div class="topTab">
-          <div class="toptabCaption">限定<br />商品<br />折扣</div>
-        </div>
-      </a>
-      <a href="./bonusRule.html" class="topTablink" style="text-decoration: none;">
-        <div class="topTab">
-          <div class="toptabCaption">點數<br />折扣<br />管理</div>
-        </div>
-      </a>
-    </div>
-
-    <div class="c-body">
-      <main class="c-main">
-        <div class="container-fluid" style="margin: 0;">
-          <div id="ui-view">
-            <div class="card">
-              <div class="card-body" style="min-height: 600px;">
-
-                <table class="table table-responsive-sm allItem" id="table">
-                  <thead>
-                    <tr class="title">
-                      <th>編號</th>
-                      <th>優惠名稱</th>
-                      <th>優惠期間(起)</th>
-                      <th>優惠期間(迄)</th>
-                      <th>優惠品項</th>
-                      <th>優惠折扣</th>
-                      <th>修改</th>
-                    </tr>
-                  </thead>
-                </table>
-
+      <div class="c-body">
+        <main class="c-main">
+          <div class="container-fluid" style="margin: 0;">
+            <div id="ui-view">
+              <div class="card">
+                <div class="card-body" style="min-height: 600px;">
+                  <table class="table table-responsive-sm allItem" id="table">
+                    <thead>
+                      <tr class="title">
+                        <th>編號</th>
+                        <th>優惠名稱</th>
+                        <th>優惠期間(起)</th>
+                        <th>優惠期間(迄)</th>
+                        <th>優惠品項</th>
+                        <th>優惠折扣</th>
+                        <th>修改</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+              <div style="text-align: center;">
+                <button class="addBtn">
+                  <img src="./assets/add.png" />
+                </button>
               </div>
             </div>
-            <div style="text-align:center">
-              <button class="addBtn">
-                <img src="./assets/add.png">
-              </button>
-            </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-  <script src="./js/discountManage.js"></script>
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/discountManage.js"></script>
+  </body>
 </html>

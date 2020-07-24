@@ -27,7 +27,7 @@
     // $user = "root";
     // $password = "1u3ru894jo4SPUR";
     // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-    // $pdo = new PDO($dsn, $user, $password, $options);
+	// $pdo = new PDO($dsn, $user, $password, $options);
     
 	  
 	$dsn = "mysql:host=localhost; port=3306; dbname=G4_nexpos; cahrest=utf8;";

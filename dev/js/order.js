@@ -66,7 +66,7 @@ var oreTitleLi = document.getElementsByClassName("ordTitle"); // 品項分類li
 
 // 把basicInfo存進localStorage
 function ordSaveBasicInfo() {
-    basicInfoGet.ppl = 0;
+    // basicInfoGet.ppl = 0;
     localStorage.setItem("ordlistTips", JSON.stringify(basicInfoGet));
     // console.log("23", basicInfoGet);
 };

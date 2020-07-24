@@ -7,13 +7,31 @@
 // TodayHours = Today.getHours() < 10 ? '0' + Today.getHours() : Today.getHours();
 // TodayMinutes = Today.getMinutes() < 10 ? '0' + Today.getMinutes() : Today.getMinutes();
 // dt.textContent = TodayHours + " : " + TodayMinutes;
-
+let newDate = new Date();
+let ThisDate = `${newDate.getFullYear()}-${(newDate.getMonth()+1)<10?0:''}${newDate.getMonth()+1}-${(newDate.getDate()+1)<10?0:''}${newDate.getDate()}`;
 
 var orderNo = [];
 var orderNoDone = [];
 var orderNoDoneFinal = [];
 var el2 = document.getElementsByClassName('kPageContainer')[0];
 var content = "";
+
+var loadOrdListTips = JSON.parse(localStorage.getItem('ordlistTips'));
+var ordlistTips = {
+    orderList: ' ',
+    inOrOut: ' ',
+    number: ' '
+};
+
+if (loadOrdListTips == undefined) {
+    ordlistTips = {
+        orderList: ' ',
+        inOrOut: ' ',
+        number: ' '
+    };
+} else {
+    ordlistTips = loadOrdListTips;
+}
 
 function getOrderData() {
     for (var i = 0; i < localStorage.length; i++) {
@@ -77,8 +95,8 @@ function rederOrdListIf() {
 
             } else {//j==0
                 //整張訂單基本資料
-                content += '<h1>訂單:<span>' + orderNoDoneFinal[i][j]["orderList"] + '</span></h1><span>' + orderNoDoneFinal[i][j]["date"] + '</span></div>';
-                content += ' <div class="kHeadItem"><h1>外帶/內用：' + orderNoDoneFinal[i][0]["inOrOut"] + '</h1><span>人數' + orderNoDoneFinal[i][0]["pNum"] + '</span><span>店員：Lily</span></div></div>'
+                content += '<h1>訂單:<span>' + orderNoDoneFinal[i][j]["orderList"] + '</span></h1><span>' + ThisDate + '</span></div>';
+                content += ' <div class="kHeadItem"><h1>外帶/內用：' + orderNoDoneFinal[i][0]["inOrOut"] + '</h1><span>人數:' + ordlistTips.ppl + '</span><span>店員：Lily</span></div></div>'
                 content += ' <div class="kFood"><div class="kFoodBar">項 目</div><div class="resScrollbar" id="resScrollstyle"><div class="resOverflow"><ul class="kFoodItem">';
             }
 

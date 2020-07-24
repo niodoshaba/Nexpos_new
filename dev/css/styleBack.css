@@ -9747,3 +9747,8 @@ input.proPic {
 
 .table td {
   vertical-align: inherit; }
+
+.save,
+.cancel {
+  display: block;
+  margin: 5px auto; }
