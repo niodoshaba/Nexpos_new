@@ -273,14 +273,14 @@ window.addEventListener('load', function () {
                 // 把裝配料的容器清空
 
                 let ordtoppingReloadHTML = '';
-                let ordToppingTtlNum = 0;
+                // let ordToppingTtlNum = 0;
 
-                for (let s = 0; s < tmpcontent[k].topping.length; s++) {
+                // for (let s = 0; s < tmpcontent[k].topping.length; s++) {
 
-                    ordtoppingReloadHTML += `<span class="ordToppingSec"> ${tmpcontent[k].topping[s]}</span>`;
-                    // 把配料的價錢將加算出總價
-                    ordToppingTtlNum += parseInt(tmpcontent[k].topping[s].split("$")[1]);
-                };
+                //     ordtoppingReloadHTML += `<span class="ordToppingSec"> ${tmpcontent[k].topping[s]}</span>`;
+                //     // 把配料的價錢將加算出總價
+                //     ordToppingTtlNum += parseInt(tmpcontent[k].topping[s].split("$")[1]);
+                // };
 
                 ordHTML += `
                                 <div class="checkoutLeftSideMidItem" color:#ccc">
@@ -292,7 +292,7 @@ window.addEventListener('load', function () {
                                         <div class="checkoutLeftSideMidToppings" data-sec=${k}>
                                         ${ordtoppingReloadHTML}
                                         </div>
-                                        <span class="checkOutPrice" data-itempr=${tmpcontent[k].PRO_ITEM_PRICE}>$${parseInt(tmpcontent[k].PRO_ITEM_PRICE) + ordToppingTtlNum}</span>
+                                        <span class="checkOutPrice" data-itempr=${tmpcontent[k].PRO_ITEM_PRICE}>$${parseInt(tmpcontent[k].PRO_ITEM_PRICE)}</span>
                                     </div> 
                                 </div>
                             `;
