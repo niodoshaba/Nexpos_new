@@ -41,7 +41,7 @@ window.addEventListener('load', function(){
         
       }
     }
-    xhr.open("get", "./dailyStatement.php", true);
+    xhr.open("get", "./js/dailyStatement.php", true);
     xhr.send(null);
   }
 
@@ -58,7 +58,7 @@ window.addEventListener('load', function(){
         totalPrice[1].innerHTML = `總營業額：${dailyTotal[0].TotalPrice}`;
       }
     }
-    xhr.open("get", "./dailyTotal.php", true);
+    xhr.open("get", "./js/dailyTotal.php", true);
     xhr.send(null);
   }
 
@@ -76,7 +76,7 @@ window.addEventListener('load', function(){
         cash[1].innerHTML = `現金：${dailyCash[0].Price}`;
       }
     }
-    xhr.open("get", "./dailyCash.php", true);
+    xhr.open("get", "./js/dailyCash.php", true);
     xhr.send(null);
   }
 
@@ -94,7 +94,7 @@ window.addEventListener('load', function(){
           card[1].innerHTML = `信用卡：${dailyCard[0].Price}`;
         }
       }
-      xhr.open("get", "./dailyCard.php", true);
+      xhr.open("get", "./js/dailyCard.php", true);
       xhr.send(null);
   }
 
@@ -112,7 +112,7 @@ window.addEventListener('load', function(){
           electro[1].innerHTML = `電子支付：${dailyElectro[0].Price}`;
         }
       }
-      xhr.open("get", "./dailyElectro.php", true);
+      xhr.open("get", "./js/dailyElectro.php", true);
       xhr.send(null);
   }
 
