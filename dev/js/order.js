@@ -1235,7 +1235,7 @@ orderPageRightSideBottomBtn1.addEventListener("click", function () {
     localStorage.setItem(`orderNo_${ordList}`, JSON.stringify(ordToKitchen));
 
     // 跳轉回餐桌頁面
-    // location.replace('./posHomeTab.html');
+    location.replace('./posHomeTab.html');
 });
 
 
@@ -1248,7 +1248,7 @@ orderPageRightSideBottomBtn3.addEventListener("click", function () {
     orderPageLeftSideMidItemAll.innerHTML = " ";
 
     // 前往結帳頁面
-    // location.replace('./checkOut.html');
+    location.replace('./checkOut.html');
 });
 
 ordTotOrderProdAll = JSON.parse(localStorage.getItem(`orderNo_${ordList}`));
