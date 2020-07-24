@@ -1,81 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/browse/@coreui/coreui@2.1.16/dist/css/coreui.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.9.19/interact.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <link rel="stylesheet" href="./css/tabEdit.css" />
+    <link rel="stylesheet" href="./css/styleBack.css" />
+    <title>餐桌訂單狀態</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/browse/@coreui/coreui@2.1.16/dist/css/coreui.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.9.19/interact.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-  <link rel="stylesheet" href="./css/tabEdit.css">
-  <link rel="stylesheet" href="./css/styleBack.css" />
-  <title>餐桌訂單狀態</title>
-</head>
+  <body>
+    <!-- 複製以下功能列 -->
+    @@include('app/headerBack.html',{"nav5":"actives"})
+    <!-- 複製以上功能列 -->
+    <!-- 以下為各分頁內容 -->
+    <div class="c-wrapper">
+      <div class="tablehead">
+        <h1>餐桌排列管理</h1>
+      </div>
 
-<body>
-  <!-- 複製以下功能列 -->
-  @@include('app/headerBack.html',{"nav5":"actives"})
-  <!-- 複製以上功能列 -->
-  <!-- 以下為各分頁內容 -->
-  <div class="c-wrapper">
-    <div class="tablehead">
-      <h1>餐桌排列管理</h1>
-    </div>
-
-    <div class="topFunc">
-      <a href="./tableOrderStatus.html" class="topTablink" style="text-decoration: none;">
-        <div class="topTab" id="topTabactives">
-          <div class="toptabCaption">餐桌<br />排列<br />管理</div>
-        </div>
-      </a>
-      <a href="./tableStatus.html" class="topTablink" style="text-decoration: none;">
-        <div class="topTab">
-          <div class="toptabCaption">餐桌<br />狀態<br />顯示</div>
-        </div>
-      </a>
-
-    </div>
-
-    <div class="c-body">
-      <main class="c-main">
-        <div class="container-fluid">
-          <div id="ui-view">
-
-            <div id="tabEditDiv">
-              <ul id="resize-tabContainer"></ul>
-              <div class="dropzone" user-select: none;>
-                <img src="assets/trashcan.png" alt="">
+      <div class="c-body">
+        <main class="c-main">
+          <div class="container-fluid">
+            <div id="ui-view">
+              <div id="tabEditDiv">
+                <ul id="resize-tabContainer"></ul>
+                <div class="dropzone" user-select: none;>
+                  <img src="assets/trashcan.png" alt="" />
+                </div>
               </div>
+              <div id="tabEditToolTip" style="display: none;">
+                <p>請選擇餐桌樣式及輸入桌號</p>
+
+                <select id="tabShapeSelect">
+                  <option
+                    selected
+                    disabled
+                    hidden
+                    style="display: none;"
+                    value=""
+                    >請選擇</option
+                  >
+                  <option value="tabSquare">正方形(小)</option>
+                  <option value="tabSquareBig">正方形(大)</option>
+                  <option value="tabRectangle">長方形(小)</option>
+                  <option value="tabRectangleBig">長方形(大)</option>
+                  <option value="tabCircle">圓形(小)</option>
+                  <option value="tabCircleBig">圓形(大)</option>
+                </select>
+
+                桌號：<input
+                  type="text"
+                  id="tabNumber"
+                  pattern="^[A-Za-z0-9]+$"
+                  required
+                  size="5"
+                />
+                <button id="tabAddBtn">新增餐桌</button>
+              </div>
+
+              <button id="tabToolTipBtn" style="display: inline-block;">
+                新增
+              </button>
+
+              <button id="tabSaveBtn" style="display: inline-block;">
+                儲存
+              </button>
             </div>
-            <div id="tabEditToolTip" style="display: none;">
-              <p>請選擇餐桌樣式及輸入桌號</p>
-
-              <select id="tabShapeSelect">
-                <option selected disabled hidden style="display:none" value="">請選擇</option>
-                <option value="tabSquare">正方形(小)</option>
-                <option value="tabSquareBig">正方形(大)</option>
-                <option value="tabRectangle">長方形(小)</option>
-                <option value="tabRectangleBig">長方形(大)</option>
-                <option value="tabCircle">圓形(小)</option>
-                <option value="tabCircleBig">圓形(大)</option>
-
-              </select>
-
-              桌號：<input type="text" id="tabNumber" pattern="^[A-Za-z0-9]+$" required size="5">
-              <button id="tabAddBtn">新增餐桌</button>
-
-            </div>
-
-            <button id="tabToolTipBtn" style="display: inline-block;">新增</button>
-
-            <button id="tabSaveBtn" style="display: inline-block;">儲存</button>
           </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
-  </div>
-  <script src="./js/tabEdit.js"></script>
-</body>
-
+    <script src="./js/tabEdit.js"></script>
+  </body>
 </html>
