@@ -246,7 +246,7 @@ section.fpHomepage2 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); }
+    transform: translate(-50%, -25%); }
   section.fpHomepage2 .fpTabsUl {
     margin: 0 auto;
     position: absolute;
@@ -690,7 +690,8 @@ html.fixWindow {
 @media screen and (max-width: 576px) {
   section.fpHomepage1 svg {
     z-index: -1;
-    opacity: 0.7; }
+    opacity: 0.7;
+    position: relative; }
   section.fpHomepage1 .fpSlogan {
     text-align: center; }
     section.fpHomepage1 .fpSlogan h1 {

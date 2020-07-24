@@ -78,6 +78,9 @@ var tmpBackKitchen = [];
 //確認是否有後廚完成訂單，有渲染內用外帶訂單
 var tmpBackKitchenDone = [];
 
+//記資料庫中的紅利折抵規則
+let bonusRule;
+
 function checkBackKitchenDone() {
     for (var i = 0; i < localStorage.length; i++) {
         tmpBackKitchen.push(localStorage.key(i));
@@ -117,7 +120,31 @@ function loadOrderList(){
     xhr.send(null);
 }
 
-//新訂單寫入資料庫0723
+//撈資料庫裡的紅利折抵規則
+function bonusRuleGetData() {
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            let result = xhr.responseText;
+            bonusRule = result;
+
+
+            let bounsCom = parseInt(bonusRule.substring(bonusRule.indexOf('費') + 1, bonusRule.indexOf('元')));
+            let bonusExchange = parseInt(bonusRule.substring(bonusRule.indexOf('每') + 1, bonusRule.lastIndexOf('點')));
+
+
+        }
+    }
+    xhr.open("post", "./js/checkOut.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send(null);
+
+}
+
+
+
+//新訂單寫入資料庫
 function posHomeInsertDataAjax(data){
     let xhr = new XMLHttpRequest();
 
@@ -136,9 +163,11 @@ function posHomeInsertDataAjax(data){
 
 window.addEventListener('load', function (e) {
     loadEditTab();
-    //撈資料庫
+    //撈資料庫訂單編號
     loadOrderList();
-    posHomeOrderList == undefined ? posHomePageOrd = 0: posHomePageOrd = posHomeOrderList;
+    bonusRuleGetData();
+    //undefined改成用isNaN判斷
+    isNaN(posHomeOrderList) ? posHomePageOrd = 0: posHomePageOrd = posHomeOrderList;
     console.log(posHomePageOrd);
     console.log(posHomeOrderList);
 
@@ -159,7 +188,7 @@ window.addEventListener('load', function (e) {
             //已出餐未結帳
             let ordlist = checkOutOrdSvg.cloneNode(true);
 
-            newlist.style.setProperty("display", "inline-block");
+            newlist.style.setProperty("display", "block");
             ordlist.style.setProperty("display", "inline-block");
             tabConstrainZone.childNodes[i].appendChild(newlist);
             //0708-------產生餐桌的訂單改為用餐中
@@ -181,7 +210,7 @@ window.addEventListener('load', function (e) {
                             // console.log(tabConstrainZone.childNodes[i].childNodes[0].nextSibling);
                             tabConstrainZone.childNodes[i].removeChild(tabConstrainZone.childNodes[i].childNodes[0].nextSibling);
                             let ordlist = checkOutOrdSvg.cloneNode(true);
-                            ordlist.style.setProperty("display", "inline-block");
+                            ordlist.style.setProperty("display", "block");
                             tabConstrainZone.childNodes[i].appendChild(ordlist);
                             tabConstrainZone.childNodes[i].style.backgroundColor = tabEatColor;
                             tabReceiveJson[i].bgc = tabEatColor;
@@ -189,7 +218,7 @@ window.addEventListener('load', function (e) {
                         } else {
 
                             let ordlist = checkOutOrdSvg.cloneNode(true);
-                            ordlist.style.setProperty("display", "inline-block");
+                            ordlist.style.setProperty("display", "block");
                             tabConstrainZone.childNodes[i].appendChild(ordlist);
                             tabConstrainZone.childNodes[i].style.backgroundColor = tabEatColor;
                             tabReceiveJson[i].bgc = tabEatColor;
@@ -375,8 +404,7 @@ tabConstrainZone.addEventListener('click', e => {
                     "CUS_PHONE": "0947382934",
                     "PAY_NO": 1,
                     "EMP_NO": 100003,
-                    "BONUS_NAME": "消費500元累積1點，每300點可折抵1元",
-                    "ORDER_FEEDBACK": "",
+                    "BONUS_NAME": bonusRule,
                     "ORDER_TAX_ID": "",
                     "ORDER_DEVICE_NO": "",
                     "ORDER_INNOUT": 0,
@@ -426,7 +454,7 @@ tabConstrainZone.addEventListener('click', e => {
                     "CUS_PHONE": "0947382934",
                     "PAY_NO": 1,
                     "EMP_NO": 100003,
-                    "BONUS_NAME": "消費500元累積1點，每300點可折抵1元",
+                    "BONUS_NAME": bonusRule,
                     "ORDER_FEEDBACK": "",
                     "ORDER_TAX_ID": "",
                     "ORDER_DEVICE_NO": "",
@@ -492,7 +520,7 @@ topTabToGo.addEventListener('click', e => {
         "CUS_PHONE": "0947382934",
         "PAY_NO": 1,
         "EMP_NO": 100003,
-        "BONUS_NAME": "消費500元累積1點，每300點可折抵1元",
+        "BONUS_NAME": bonusRule,
         "ORDER_FEEDBACK": "",
         "ORDER_TAX_ID": "",
         "ORDER_DEVICE_NO": "",

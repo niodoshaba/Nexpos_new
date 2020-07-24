@@ -1,80 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/browse/@coreui/coreui@2.1.16/dist/css/coreui.min.css"
+    />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="./css/styleBack.css" />
+    <link rel="stylesheet" href="./css/styleForRightContentBack.css" />
+    <title>配料品項</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/browse/@coreui/coreui@2.1.16/dist/css/coreui.min.css" />
-  <!-- <link rel="stylesheet" href="css/style.css" /> -->
-  <link rel="stylesheet" href="./css/styleBack.css" />
-  <link rel="stylesheet" href="./css/styleForRightContentBack.css" />
-  <title>商品管理</title>
-</head>
-
-<body>
-  <!-- 複製以下功能列 -->
-  @@include('app/headerBack.html',{"nav0":"actives"})
-  <!-- 複製以上功能列 -->
-  <!-- 以下為各分頁內容 -->
-  <div class="c-wrapper">
-    <div class="tablehead">
-      <h1>配料品項管理</h1>
-    </div>
-    <div class="topFunc">
-      <a href="proManage.html" class="topTablink" style="text-decoration: none;">
-        <div class="topTab">
-          <div class="toptabCaption">種<br />類</div>
-        </div>
-      </a>
-      <a href="proManageItem.html" class="topTablink" style="text-decoration: none;">
-        <div class="topTab">
-          <div class="toptabCaption">品<br />項</div>
-        </div>
-      </a>
-      <a href="fillingCata.html" class="topTablink" style="text-decoration: none;">
-        <div class="topTab">
-          <div class="toptabCaption">配料<br />類別</div>
-        </div>
-      </a>
-      <a href="fillingItem.html" class="topTablink" style="text-decoration: none;">
-        <div class="topTab" id="topTabactives">
-          <div class="toptabCaption">配料<br />品項</div>
-        </div>
-      </a>
-    </div>
-
-    <div class="c-body">
-      <main class="c-main">
-        <div class="container-fluid">
-          <div id="ui-view">
-            <div class="card">
-              <div class="card-body proManage resScrollbar resOverflow" id="resScrollstyle">
-                <table class="table table-responsive-sm fillingItem">
-                  <thead>
-                    <tr class="title">
-                      <th>配料品項編號</th>
-                      <th>配料類別名稱</th>
-                      <th>名稱</th>
-                      <th>價格 ($)</th>
-                      <th>上下架狀態</th>
-                      <th>修改</th>
-                    </tr>
-                  </thead>
-                </table>
-              </div>
-            </div>
-            <button class="addBtn">
-              <img class="add" src="./assets/add.png" />
-            </button>
+  <body>
+    <!-- 複製以下功能列 -->
+    @@include('app/headerBack.html',{"nav0":"actives"})
+    <!-- 複製以上功能列 -->
+    <!-- 以下為各分頁內容 -->
+    <div class="c-wrapper">
+      <div class="tablehead">
+        <h1>配料品項管理</h1>
+      </div>
+      <div class="topFunc">
+        <a
+          href="proManage.html"
+          class="topTablink"
+          style="text-decoration: none;"
+        >
+          <div class="topTab">
+            <div class="toptabCaption">種<br />類</div>
           </div>
-        </div>
-      </main>
-    </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-  <script src="./js/fillingItem.js"></script>
-</body>
+        </a>
+        <a
+          href="proManageItem.html"
+          class="topTablink"
+          style="text-decoration: none;"
+        >
+          <div class="topTab">
+            <div class="toptabCaption">品<br />項</div>
+          </div>
+        </a>
+        <a
+          href="fillingCata.html"
+          class="topTablink"
+          style="text-decoration: none;"
+        >
+          <div class="topTab">
+            <div class="toptabCaption">配料<br />類別</div>
+          </div>
+        </a>
+        <a
+          href="fillingItem.html"
+          class="topTablink"
+          style="text-decoration: none;"
+        >
+          <div class="topTab" id="topTabactives">
+            <div class="toptabCaption">配料<br />品項</div>
+          </div>
+        </a>
+      </div>
 
+      <div class="c-body">
+        <main class="c-main">
+          <div class="container-fluid">
+            <div id="ui-view">
+              <div class="card">
+                <div
+                  class="card-body proManage resScrollbar resOverflow"
+                  id="resScrollstyle"
+                >
+                  <table class="table table-responsive-sm fillingItem">
+                    <thead>
+                      <tr class="title">
+                        <th>配料品項編號</th>
+                        <th>配料類別名稱</th>
+                        <th>名稱</th>
+                        <th>價格 ($)</th>
+                        <th>上下架狀態</th>
+                        <th>修改</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+              <button class="addBtn">
+                <img class="add" src="./assets/add.png" />
+              </button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/fillingItem.js"></script>
+  </body>
 </html>

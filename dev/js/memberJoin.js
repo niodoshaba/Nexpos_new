@@ -23,9 +23,9 @@ function removeSpot(e) {
   resTable.removeChild(e.target.parentNode.parentNode);
 }
 
-window.addEventListener("load", function () {
-  $id("btnAddSpot").onclick = addSpot;
-});
+// window.addEventListener("load", function () {
+//   $id("btnAddSpot").onclick = addSpot;
+// });
 
 //正規表達式
 //name
@@ -134,7 +134,7 @@ $(document).ready(function () {
       // cache: false,
 
       success: function (data) {
-        alert("儲存成功~~！");
+        alert("儲存成功~~");
         location.href = "./memberJoin.html";
         console.log(data);
       },
