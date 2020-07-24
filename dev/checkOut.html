@@ -111,7 +111,8 @@
                         </div>
                         <div class="checkoutBlueLine1"></div>
                         <div id="checkoutDiscount">
-                            <div><span>折扣%數：</span> <input type="text" id="checkOutDiscountInput" pattern="^0.[0-9][0-9]$" title="請輸入正確的折扣%數(例如:0.56)" maxlength="4" required></div>
+                            <div><span>折扣%數：</span> <input type="text" id="checkOutDiscountInput"
+                                    pattern="^0.[0-9][0-9]$" title="請輸入正確的折扣%數(例如:0.56)" maxlength="4" required></div>
                         </div>
                     </div>
                     <!-- 這裡是折扣會出現的內容 -->
@@ -260,7 +261,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <script src="./js/checkOut.js"></script>
-    <script>
+    <!-- <script>
     //判斷登入人員並顯示於頁面
         window.addEventListener("load", function(){
            let username = sessionStorage.getItem('name');
@@ -268,7 +269,7 @@
            let loginName = document.querySelector('.user');
            loginName.innerHTML = `Hi! ${username}`;
        })
-    </script>
+    </script> -->
 </body>
 
 </html>
