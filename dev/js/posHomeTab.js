@@ -25,15 +25,20 @@ var tabConstrainZone = document.getElementById('showTableToResPage');
 
 //---------------------------------
 //記訂單    
-var posHomePageOrd = 0;
+let posHomePageOrd = 0;
+let posHomeOrderList;
+// let ttt = localStorage.getItem('posHomePageOrd');
+// //產生訂單編號，要下ajax
+// if (ttt == undefined) {
+//     posHomePageOrd = 0;
+// } else {
+//     posHomePageOrd = ttt;
+// }
 
-var ttt = localStorage.getItem('posHomePageOrd');
-//產生訂單編號，要下ajax
-if (ttt == undefined) {
-    posHomePageOrd = 0;
-} else {
-    posHomePageOrd = ttt;
-}
+let posHomeInsert;
+
+let newDate = new Date();
+let ThisDate = `${newDate.getFullYear()}-${(newDate.getMonth()+1)<10?0:''}${newDate.getMonth()+1}-${(newDate.getDate()+1)<10?0:''}${newDate.getDate()}`;
 
 //----------------------------
 //紀錄傳到點餐頁面的資訊
@@ -95,8 +100,48 @@ function rgbToHex(r, g, b) {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
+function loadOrderList(){
+    let xhr = new XMLHttpRequest();
+
+    xhr.onload = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        let result = JSON.parse(xhr.responseText);
+       
+        posHomeOrderList = parseInt(result.ORDER_NO);
+        console.log(posHomeOrderList);
+      }
+  
+    }
+    xhr.open("post", "./js/loadOrderList.php", false);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send(null);
+}
+
+//新訂單寫入資料庫0723
+function posHomeInsertDataAjax(data){
+    let xhr = new XMLHttpRequest();
+
+    xhr.onload = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        let result = JSON.parse(xhr.responseText);
+        console.log(result);
+        
+      }
+  
+    }
+    xhr.open("post", "./js/posHomeInsertDataAjax.php", false);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send(`data=${JSON.stringify(data)}`);
+}
+
 window.addEventListener('load', function (e) {
     loadEditTab();
+    //撈資料庫
+    loadOrderList();
+    posHomeOrderList == undefined ? posHomePageOrd = 0: posHomePageOrd = posHomeOrderList;
+    console.log(posHomePageOrd);
+    console.log(posHomeOrderList);
+
     //確認是否有後廚完成訂單
     checkBackKitchenDone();
 
@@ -314,8 +359,31 @@ tabConstrainZone.addEventListener('click', e => {
             } else {
                 //產生新訂單編號
                 posHomePageOrd++;
-                //把訂單編號次數寫入localstorage
-                localStorage.setItem('posHomePageOrd', posHomePageOrd);
+                //日期 ThisDate
+                //顧客手機 0911123456
+                //付款方式編號 1
+                //員工編號 100003
+                //紅利折抵名稱 "消費500元累積1點，每300點可折抵1元" 
+                //顧客意見 null
+                //統一編號 null
+                //載具編號 null
+                //內用外帶 "in"
+                //人數 1
+                //總金額 0
+                posHomeInsert = { 
+                    "ORDER_NO":posHomePageOrd,
+                    "CUS_PHONE": "0947382934",
+                    "PAY_NO": 1,
+                    "EMP_NO": 100003,
+                    "BONUS_NAME": "消費500元累積1點，每300點可折抵1元",
+                    "ORDER_FEEDBACK": "",
+                    "ORDER_TAX_ID": "",
+                    "ORDER_DEVICE_NO": "",
+                    "ORDER_INNOUT": 0,
+                    "ORDER_NUM": 1,
+                    "ORDER_TTL_PRICE": 100, 
+                    "ORDER_DATE": ThisDate
+                                }
                 //餐桌綁訂單
                 li.basicInfo.orderList = posHomePageOrd;
                 li.basicInfo.inOrOut = "in";
@@ -326,6 +394,12 @@ tabConstrainZone.addEventListener('click', e => {
                 ordlistTips.inOrOut = "in";
                 ordlistTips.number = li.basicInfo.number;
                 saveDataToLocal('ordlistTips', ordlistTips);
+
+                //生成新訂單寫入資料庫
+                posHomeInsertDataAjax(posHomeInsert);
+                //把訂單編號次數寫入localstorage
+                localStorage.setItem('posHomePageOrd', posHomePageOrd);
+            
                 //跳轉頁面
                 location.replace('./orderPage.html');
             }
@@ -346,6 +420,24 @@ tabConstrainZone.addEventListener('click', e => {
                 location.replace('./orderPage.html');
             } else {
                 posHomePageOrd++;
+                
+                posHomeInsert = { 
+                    "ORDER_NO":posHomePageOrd,
+                    "CUS_PHONE": "0947382934",
+                    "PAY_NO": 1,
+                    "EMP_NO": 100003,
+                    "BONUS_NAME": "消費500元累積1點，每300點可折抵1元",
+                    "ORDER_FEEDBACK": "",
+                    "ORDER_TAX_ID": "",
+                    "ORDER_DEVICE_NO": "",
+                    "ORDER_INNOUT": 0,
+                    "ORDER_NUM": 1,
+                    "ORDER_TTL_PRICE": 100, 
+                    "ORDER_DATE": ThisDate
+                                }
+                
+                // ThisDate
+                posHomeInsertDataAjax(posHomeInsert);
                 //把訂單編號次數寫入localstorage
                 // saveDataToLocal('posHomePageOrd',posHomePageOrd);
                 localStorage.setItem('posHomePageOrd', posHomePageOrd);
@@ -360,6 +452,8 @@ tabConstrainZone.addEventListener('click', e => {
                 ordlistTips.inOrOut = "in";
                 ordlistTips.number = li.basicInfo.number;
                 saveDataToLocal('ordlistTips', ordlistTips);
+                
+                
                 //跳轉頁面
                 location.replace('./orderPage.html');
             }
@@ -392,6 +486,24 @@ topTabToGo.addEventListener('click', e => {
 
     //訂單編號+1
     posHomePageOrd++;
+    console.log(posHomePageOrd);
+    posHomeInsert = { 
+        "ORDER_NO":posHomePageOrd,
+        "CUS_PHONE": "0947382934",
+        "PAY_NO": 1,
+        "EMP_NO": 100003,
+        "BONUS_NAME": "消費500元累積1點，每300點可折抵1元",
+        "ORDER_FEEDBACK": "",
+        "ORDER_TAX_ID": "",
+        "ORDER_DEVICE_NO": "",
+        "ORDER_INNOUT": 1,
+        "ORDER_NUM": 1,
+        "ORDER_TTL_PRICE": 100, 
+        "ORDER_DATE": ThisDate
+                    }
+
+    // ThisDate
+    posHomeInsertDataAjax(posHomeInsert);
     //把訂單編號次數寫入localstorage
     // saveDataToLocal('posHomePageOrd',posHomePageOrd);
     localStorage.setItem('posHomePageOrd', posHomePageOrd);

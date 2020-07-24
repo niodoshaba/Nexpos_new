@@ -12,7 +12,7 @@ window.addEventListener('load', function () {
 
       for (i = 0; i < len; i++) {
         var content = ` <tr>
-                          <td>${resAllData[i].CUS_FIRST}${resAllData[i].CUS_LAST}</td>
+                          <td>${resAllData[i].CUS_LAST}${resAllData[i].CUS_FIRST}</td>
                           <td>${resAllData[i].CUS_GEN}</td>
                           <td>${resAllData[i].CUS_PHONE}</td>
                           <td>${resAllData[i].RES_NUM}</td>

@@ -1,133 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- <link rel="stylesheet" href="css/style.css" /> -->
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/memberJoin.css" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>會員資料新增</title>
-  </head>
-  <style>
-    /* 整個日曆 */
-    .S_calendarAll {
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      position: absolute;
-      width: 16%;
-      top: 282px;
-      right: 31%;
-    }
-  </style>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- <link rel="stylesheet" href="css/style.css" /> -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/memberJoin.css" />
 
-  <body>
-    <!-- 複製以下功能列 -->
-    @@include('./app/header.html', { "nav2" : "actives" })
-    <!-- 複製以上功能列 -->
-    <!-- 以下為各分頁內容 -->
-    <div class="c-wrapper">
-      <div class="tablehead">
-        <h1>會員資料新增</h1>
-      </div>
-      <div class="topFunc">
-        <a
-          href="memberSearch.html"
-          class="topTablink"
-          style="text-decoration: none;"
-        >
-          <div class="topTab">
-            <div class="toptabCaption">會員<br />查詢</div>
-          </div>
-        </a>
-        <a
-          href="memberJoin.html"
-          class="topTablink"
-          style="text-decoration: none;"
-        >
-          <div class="topTab" id="topTabactives">
-            <div class="toptabCaption">會員<br />新增</div>
-          </div>
-        </a>
-      </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>會員資料新增</title>
+</head>
+<style>
+  /* 整個日曆 */
+  .S_calendarAll {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    width: 16%;
+    top: 282px;
+    right: 31%;
+  }
+</style>
 
-      <form method="post" action="memberJoin.php" id="myForm" name="form1">
-        <div class="resScrollbar" id="resScrollstyle">
-          <div class="resOverflow">
-            <table id="resTable">
-              <div>
-                <tr>
-                  <td>姓</td>
-                  <td>名</td>
-                  <td>性別</td>
-                  <td>手機</td>
-                  <td>生日</td>
-                  <td>email</td>
-                  <td>身份</td>
-                  <td>狀態</td>
-                  <td>點數</td>
-                  <td></td>
-                </tr>
+<body>
+  <!-- 複製以下功能列 -->
+  @@include('./app/header.html', { "nav2" : "actives" })
+  <!-- 複製以上功能列 -->
+  <!-- 以下為各分頁內容 -->
+  <div class="c-wrapper">
+    <div class="tablehead">
+      <h1>會員資料新增</h1>
+    </div>
+    <div class="topFunc">
+      <a href="memberSearch.html" class="topTablink" style="text-decoration: none;">
+        <div class="topTab">
+          <div class="toptabCaption">會員<br />查詢</div>
+        </div>
+      </a>
+      <a href="memberJoin.html" class="topTablink" style="text-decoration: none;">
+        <div class="topTab" id="topTabactives">
+          <div class="toptabCaption">會員<br />新增</div>
+        </div>
+      </a>
+    </div>
 
-                <tr class="spot">
-                  <td>
-                    <input
-                      type="text"
-                      class="lastname"
-                      id="CUS_LAST"
-                      name="CUS_LAST"
-                      placeholder=""
-                      size="5"
-                      required
-                    />
-                    <span class="regUpdateLastName"></span>
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      class="firstname"
-                      id="CUS_FIRST"
-                      name="CUS_FIRST"
-                      placeholder=""
-                      size="8"
-                      required
-                    />
-                    <span class="regUpdateFirstName"></span>
-                  </td>
-                  <td>
-                    <select id="CUS_GEN" name="CUS_GEN">
-                      <option value="女">女</option>
-                      <option value="男">男</option>
-                    </select>
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      class="cell"
-                      id="CUS_PHONE"
-                      name="CUS_PHONE"
-                      placeholder=""
-                      size="10"
-                      required
-                    />
-                    <span class="regUpdateCell"></span>
-                  </td>
-                  <td>
-                    <input
-                      type="date"
-                      id="CUS_BIRTH"
-                      name="CUS_BIRTH"
-                      placeholder=""
-                      size="7"
-                      required
-                    />
-                    <!--這裡是要填入日期的地方,calendarLabel="picked" class="calendarPickDate"都是必須-->
-                  </td>
-                  <!-- <div class="S_calendarAll" style="display:none">
+    <form method="post" action="memberJoin.php" id="myForm" name="form1">
+      <div class="resScrollbar" id="resScrollstyle">
+        <div class="resOverflow">
+          <table id="resTable">
+            <div>
+              <tr>
+                <td>姓</td>
+                <td>名</td>
+                <td>性別</td>
+                <td>手機</td>
+                <td>生日</td>
+                <td>email</td>
+                <td>身份</td>
+                <td>狀態</td>
+                <td>點數</td>
+                <td></td>
+              </tr>
+
+              <tr class="spot">
+                <td>
+                  <input type="text" class="lastname" id="CUS_LAST" name="CUS_LAST" placeholder="" size="5" required />
+                  <span class="regUpdateLastName"></span>
+                </td>
+                <td>
+                  <input type="text" class="firstname" id="CUS_FIRST" name="CUS_FIRST" placeholder="" size="8"
+                    required />
+                  <span class="regUpdateFirstName"></span>
+                </td>
+                <td>
+                  <select id="CUS_GEN" name="CUS_GEN">
+                    <option value="女">女</option>
+                    <option value="男">男</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="text" class="cell" id="CUS_PHONE" name="CUS_PHONE" placeholder="" size="10" required />
+                  <span class="regUpdateCell"></span>
+                </td>
+                <td>
+                  <input type="date" id="CUS_BIRTH" name="CUS_BIRTH" placeholder="" size="7" required />
+                  <!--這裡是要填入日期的地方,calendarLabel="picked" class="calendarPickDate"都是必須-->
+                </td>
+                <!-- <div class="S_calendarAll" style="display:none">
                   <div class="yearPickScrollBar" id="yearCalendarSelect"></div>
                   <div class="S_calendarHeader">
                     <button type="button" class="S_calendarTopBtn" calendarToggle="previous"> < </button>
@@ -203,15 +163,17 @@
             </table>
           </div>
         </div>
-        <img class="add" src="./assets/add.png" id="btnAddSpot" />
-        <!-- <input type="submit" value="submit"> -->
-      </form>
-    </div>
-    <script
-      src="/Public/js/jquery-1.8.3.min.js"
-      type="text/javascript"
-      charset="utf-8"
-    ></script>
-    <script src="./js/memberJoin.js"></script>
-  </body>
+      </div>
+      <img class="add" src="./assets/add.png" id="btnAddSpot" />
+      <!-- <input type="submit" value="submit"> -->
+    </form>
+  </div>
+  <script>
+    src = "/Public/js/jquery-1.8.3.min.js"
+    type = "text/javascript"
+    charset = "utf-8"
+  </script>
+  <script src="./js/memberJoin.js"></script>
+</body>
+
 </html>

@@ -3,13 +3,15 @@
 try{
     // $dsn = "mysql:host=localhost;post=3306;dbname=g4_nexpos;charset=utf8";
     // $user = "root";
-    // $password = "lily12345";
+    // $password = "1u3ru894jo4SPUR";
     // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
     // $pdo = new PDO($dsn, $user, $password, $options);
 
+    require_once("ordCon.php");
+
 
     // require_once("generalConnectDB.php");
-    require_once("ordCon.php");
+    // require_once("ordCon.php");
 
     // $pdo_1 = new PDO($dsn, $user, $password, $options);
 

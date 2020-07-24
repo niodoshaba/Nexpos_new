@@ -76,9 +76,9 @@ function inputToOrder() {
           } else {
             orderListRecordJSON[i].ORDER_INNOUT = "內用"
           }
-          if (orderListRecordJSON[i].FILLING_ITEM_NAME == null) {
-            orderListRecordJSON[i].FILLING_ITEM_NAME = "&nbsp;"
-          }
+          // if (orderListRecordJSON[i].FILLING_ITEM_NAME == null) {
+          //   orderListRecordJSON[i].FILLING_ITEM_NAME = "&nbsp;"
+          // }
 
           kHead[0].innerHTML = `
         <div class="kHeadItem">
@@ -96,12 +96,12 @@ function inputToOrder() {
     <li class="kFoodItem">
         <div class="kFoodTitle">
         <h1>${orderListRecordJSON[i].PRO_ITEM_NAME}</h1>
-        <span class="kFoodListFill">${orderListRecordJSON[i].FILLING_ITEM_NAME}</span>
+        
         </div>
         <div class="kFoodNum">x ${orderListRecordJSON[i].ORD_PRO_ITEM_NUM}</div>
     </li>
     `
-
+{/* <span class="kFoodListFill">${orderListRecordJSON[i].FILLING_ITEM_NAME}</span> */}
 
           console.log(content);
           str += content;

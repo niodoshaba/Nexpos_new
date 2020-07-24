@@ -19,7 +19,6 @@ var ordSeasoningCart = [];
 // 裝有basicInfo的購物車
 var ordProdCartWithBasicInfo = [];
 
-
 // 裝三明治容器
 var ordSanCart = [];
 // 裝義大利麵容器
@@ -34,8 +33,6 @@ var ordSweCart = [];
 var ordCofCart = [];
 // 裝飲料容器
 var ordDriCart = [];
-
-
 
 // 菜單區域
 var orderPageItemDivAll = document.getElementById("orderPageItemDivAll");
@@ -61,6 +58,8 @@ var number = document.getElementById("number"); //桌號
 var orderPageArrowDL = document.getElementById("orderPageArrowDL"); // 品項的左箭頭
 var orderPageArrowDR = document.getElementById("orderPageArrowDR"); // 品項的右箭頭
 
+var ordNavList = document.getElementById("ordNavList"); // 品項分類ul
+var oreTitleLi = document.getElementsByClassName("ordTitle"); // 品項分類li
 
 
 // =========================
@@ -111,7 +110,6 @@ ordReceiveBasicInfo();
 function ordPplAdjust() {
     let ordPplAmtShow = 0;
 
-
     ordPplPlus.addEventListener("click", function () {
         ordPplAmtShow++;
         ordPplAmt.innerHTML = ordPplAmtShow;
@@ -157,8 +155,6 @@ ordReloadPpl();
 
 
 var ordNavList = document.querySelector(".ordNavList");
-// console.log(ordNavList)
-
 
 // call ajax(all prodInfo)
 function ordReceiveProdInfo() {
@@ -292,7 +288,7 @@ function ordReceiveToppingInfo() {
 };
 ordReceiveToppingInfo();
 ordProdSan = JSON.parse(localStorage.getItem("ordSaveSanInfo"));
-console.log("5378465", ordProdSan);
+// console.log("5378465", ordProdSan);
 
 
 // 當大種類被下架時
@@ -380,11 +376,8 @@ function ordProdOnOff() {
 }
 // ordProdOnOff();
 
-var ordNavList = document.getElementById("ordNavList");
 
-var oreTitleLi = document.getElementsByClassName("ordTitle");
-console.log("位置", oreTitleLi.length);
-
+// 品項分類的區域被點擊後會變色
 function setAttr() {
     setTimeout(() => {
         // console.log(document.getElementsByClassName("ordTitle").length)
@@ -396,20 +389,10 @@ function setAttr() {
                     oreTitleLi[j].classList.remove('ordListPicked')
                 }
                 document.getElementById(`${e.target.id}`).classList.add('ordListPicked')
-
             })
         }
     }, 1)
-
 }
-
-
-
-// let li = ordNavList.querySelectorAll('li')
-
-// setAttr();
-
-
 
 
 // call ajax(sanInfo)
@@ -688,12 +671,8 @@ function ordDriShow() {
 // ordDriShow();
 
 
-
-
-
 // 當頁面重新整理的時候，已經存在localStorage的資料會被重新撈出與印在頁面上
 function ordReload() {
-
     if (localStorage.getItem(`ordSaveProdInCart_${ordList}`)) {
         orderPageRightSideBottomBtn2.style.pointerEvents = "none";
         orderPageRightSideBottomBtn2.style.backgroundColor = "#ccc";
@@ -707,14 +686,12 @@ function ordReload() {
                 if (ordGetProd[k].topping.length > 0) {
                     // 把裝配料的容器清空
                     let ordtoppingReloadHTML = '';
-                    let ordToppingTtlNum = 0;
-
-                    for (let s = 0; s < ordGetProd[k].topping.length; s++) {
-                        ordtoppingReloadHTML += `<span class="ordToppingSec"> ${ordGetProd[k].topping[s]}</span>`;
-                        // 把配料的價錢將加算出總價
-                        ordToppingTtlNum += parseInt(ordGetProd[k].topping[s].split("$")[1]);
-                    };
-
+                    // let ordToppingTtlNum = 0;
+                    // for (let s = 0; s < ordGetProd[k].topping.length; s++) {
+                    //     ordtoppingReloadHTML += `<span class="ordToppingSec"> ${ordGetProd[k].topping[s]}</span>`;
+                    //     // 把配料的價錢將加算出總價
+                    //     ordToppingTtlNum += parseInt(ordGetProd[k].topping[s].split("$")[1]);
+                    // };
                     ordReloadHTML += `
                                     <div class="orderPageLeftSideMidItem" style="pointer-events:none; color:#ccc">
                                         <div class="orderPageLeftSideMidItemTop">
@@ -725,7 +702,7 @@ function ordReload() {
                                             <div class="orderPageLeftSideMidToppings" data-sec=${k}>
                                             ${ordtoppingReloadHTML}
                                             </div>
-                                            <span class="ordItemPr" data-itempr=${ordGetProd[k].PRO_ITEM_PRICE}>$${parseInt(ordGetProd[k].PRO_ITEM_PRICE) + ordToppingTtlNum}</span>
+                                            <span class="ordItemPr" data-itempr=${ordGetProd[k].PRO_ITEM_PRICE}>$${ordGetProd[k].PRO_ITEM_PRICE}</span>
                                         </div> 
                                     </div>
                                 `;
@@ -749,10 +726,8 @@ function ordReload() {
 
             // 把資訊存入購物車On中
             ordAddProdItemToCartOn();
-
             // 計算購物車裡商品數量
             ordAllProdNumInCart();
-
             // 計算金額
             ordTotProdAmt();
         };
@@ -894,9 +869,7 @@ let ordToppingTtlPr = parseInt(0);
 function ordToppingSecShow() {
     ordAddToList();
     orderPageLeftSideMidItemAll.addEventListener("click", function (e) {
-
         ordProdInfo = JSON.parse(localStorage.getItem("ordSaveProdInfo"));
-
         if (e.target.nodeName == 'DIV') {
             $(ordToppingSec).toggle(); // orderPageLeftSideMid
             $(e.target).toggleClass("lightblue"); // orderPageLeftSideMidItemTop
@@ -954,24 +927,24 @@ function ordToppingSecShow() {
                                 e.preventDefault();
                                 e.stopImmediatePropagation();
                                 // 渲染進品項下面的空間
-                                document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordAsideCart[s].FILLING_ITEM_NAME} $${ordAsideCart[s].FILLING_ITEM_PRICE}</span>`;
+                                document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordAsideCart[s].FILLING_ITEM_NAME}</span>`;
 
                                 let ordLightBlueNum = parseInt(document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].dataset.sec);
 
-                                ordProdCart[ordLightBlueNum].topping.push(`${ordAsideCart[s].FILLING_ITEM_NAME} $${ordAsideCart[s].FILLING_ITEM_PRICE}`);
+                                ordProdCart[ordLightBlueNum].topping.push(`${ordAsideCart[s].FILLING_ITEM_NAME}`);
 
-                                // 單獨抓出配料的錢
-                                ordToppingTtlPr += parseInt(ordAsideCart[s].FILLING_ITEM_PRICE);
-                                // 把商品的價錢轉換為數字
-                                let ordPrdoItemPr = Number(ordProdCart[ordLightBlueNum].PRO_ITEM_PRICE);
-                                // 用一個容器來裝配料與商品加總的總數
-                                let ordProdnToppingPr = ordPrdoItemPr + ordToppingTtlPr;
-                                // console.log("價錢", ordProdCart[ordLightBlueNum].PRO_ITEM_PRICE)
+                                // // 單獨抓出配料的錢
+                                // ordToppingTtlPr += parseInt(ordAsideCart[s].FILLING_ITEM_PRICE);
+                                // // 把商品的價錢轉換為數字
+                                // let ordPrdoItemPr = Number(ordProdCart[ordLightBlueNum].PRO_ITEM_PRICE);
+                                // // 用一個容器來裝配料與商品加總的總數
+                                // let ordProdnToppingPr = ordPrdoItemPr + ordToppingTtlPr;
+                                // // console.log("價錢", ordProdCart[ordLightBlueNum].PRO_ITEM_PRICE)
 
-                                // 讓總數加到該商品內
-                                document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[3].innerHTML = "$" + ordProdnToppingPr;
+                                // // 讓總數加到該商品內
+                                // document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[3].innerHTML = "$" + ordProdnToppingPr;
 
-                                ordTotProdAmt();
+                                // ordTotProdAmt();
 
                                 // 存入購物車
                                 ordSaveProdInCartHist();
@@ -1007,11 +980,11 @@ function ordToppingSecShow() {
                                 e.preventDefault();
                                 e.stopImmediatePropagation();
                                 // 渲染進品項下面的空間
-                                document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordSeasoningCart[s].FILLING_ITEM_NAME} $${ordSeasoningCart[s].FILLING_ITEM_PRICE}</span>`;
+                                document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordSeasoningCart[s].FILLING_ITEM_NAME}</span>`;
 
                                 let ordLightBlueNum = parseInt(document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].dataset.sec);
 
-                                ordProdCart[ordLightBlueNum].topping.push(`${ordSeasoningCart[s].FILLING_ITEM_NAME} $${ordSeasoningCart[s].FILLING_ITEM_PRICE}`);
+                                ordProdCart[ordLightBlueNum].topping.push(`${ordSeasoningCart[s].FILLING_ITEM_NAME}`);
 
                                 // 存入購物車
                                 ordSaveProdInCartHist();
@@ -1078,11 +1051,11 @@ function ordToppingSecShow() {
                                 e.preventDefault();
                                 e.stopImmediatePropagation();
                                 // 渲染進品項下面的空間
-                                document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordSugarCart[s].FILLING_ITEM_NAME} $${ordSugarCart[s].FILLING_ITEM_PRICE}</span>`;
+                                document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordSugarCart[s].FILLING_ITEM_NAME}</span>`;
 
                                 let ordLightBlueNum = parseInt(document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].dataset.sec);
 
-                                ordProdCart[ordLightBlueNum].topping.push(`${ordSugarCart[s].FILLING_ITEM_NAME} $${ordSugarCart[s].FILLING_ITEM_PRICE}`);
+                                ordProdCart[ordLightBlueNum].topping.push(`${ordSugarCart[s].FILLING_ITEM_NAME}`);
 
                                 // 存入購物車
                                 ordSaveProdInCartHist();
@@ -1234,16 +1207,12 @@ function ordTotProdAmt() {
     let ordItemTtlNum = "";
 
     for (let p = 0; p < ordItemPr.length; p++) {
-        // console.log("dji", ordItemPr[p].innerText);
         ordItemTtlNum = ordItemPr[p].innerText;
-
         // 因為切割字串之後會變成陣列，[1]是為了選到數字
         ordItemTtlNum = parseInt(ordItemTtlNum.split("$")[1]);
         ordTotAmt += ordItemTtlNum;
-        // console.log("!!!!???", ordTotAmt)
     };
     ordTotAmtShow.innerText = ordTotAmt;
-    // console.log("LLLLLLLLLLL", typeof (ordTotAmt))
 };
 
 
@@ -1266,45 +1235,49 @@ orderPageRightSideBottomBtn1.addEventListener("click", function () {
     localStorage.setItem(`orderNo_${ordList}`, JSON.stringify(ordToKitchen));
 
     // 跳轉回餐桌頁面
-    location.replace('./posHomeTab.html');
+    // location.replace('./posHomeTab.html');
 });
 
 
 // 結帳
 orderPageRightSideBottomBtn3.addEventListener("click", function () {
+    // 把點餐資訊輸入資料庫
+    ordSentInfotoDb();
+
     // 把左側餐點顯示清空
     orderPageLeftSideMidItemAll.innerHTML = " ";
 
-    // 把點餐資訊輸入資料庫
-    // ordSentInfotoDb();
-
     // 前往結帳頁面
-    location.replace('./checkOut.html');
+    // location.replace('./checkOut.html');
 });
 
-// function ordSentInfotoDb() {
-//     // Creating a XHR object 
-//     let ordTotOrderProd = new XMLHttpRequest();
-//     let url = "./js/ordSetData.php";
-//     // open a connection 
-//     ordTotOrderProd.open("POST", url, true);
-//     // Set the request header i.e. which type of content you are sending 
-//     ordTotOrderProd.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+ordTotOrderProdAll = JSON.parse(localStorage.getItem(`orderNo_${ordList}`));
 
-//     // 傳送資料去php
-//     ordTotOrderProd.send("ordTotOrder=" + JSON.stringify(ordProdCartOn));
-//     // 測試傳送的陣列內是否有資料
-//     console.log(ordProdCartOn);
+function ordSentInfotoDb() {
+
+    // Creating a XHR object 
+    let ordTotOrderProdToDb = new XMLHttpRequest();
+    let url = "./js/ordSetData.php";
+    // open a connection 
+    ordTotOrderProdToDb.open("POST", url, true);
+    // Set the request header i.e. which type of content you are sending 
+    ordTotOrderProdToDb.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    // 傳送資料去php
+    ordTotOrderProdToDb.send("ordTotOrder=" + JSON.stringify(ordTotOrderProdAll));
+    // 測試傳送的陣列內是否有資料
+    console.log("412", ordTotOrderProdAll);
 
 
-//     // 測試有php有沒有接到資料
-//     ordTotOrderProd.onload = function () {
-//         if (this.readyState == 4 && this.status == 200) {
-//             ordReceiveOrder = JSON.parse(this.responseText);
-//             console.log(ordReceiveOrder); // for debugging
-//         };
-//     };
-// };
+    // 測試有php有沒有接到資料
+    ordTotOrderProdToDb.onload = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            // ordReceiveOrder = JSON.parse(this.responseText);
+            // console.log(ordReceiveOrder); // for debugging
+        };
+    };
+};
 
 
 // 把購物車資訊存進localStorage

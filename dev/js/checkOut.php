@@ -1,17 +1,8 @@
 <?php
  
 try{ 
-    // require_once("ordCon.php");
-    // $dsn = "mysql:host=localhost;post=3306;dbname=g4_nexpos;charset=utf8";
-    // $user = "root";
-    // $password = "lily12345";
-    // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-    // $pdo = new PDO($dsn, $user, $password, $options);
-    
-
-    // require_once("generalConnectDB.php");
-    require_once("ordCon.php");
-
+    require_once("generalConnectDB.php");
+   
     //搜尋紅利規則
     $bonusRule_sql = "SELECT BONUS_NAME 
                       FROM bonus_rule;";

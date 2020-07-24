@@ -145,7 +145,7 @@ section.login {
           content: "";
           position: absolute;
           z-index: -1;
-          border: 3px solid #1c5b9d;
+          background-color: #1c5b9d;
           width: 80px;
           height: 80px;
           opacity: .8;
@@ -168,7 +168,7 @@ section.login {
           transform-origin: left; }
       section.login .loginBlock .loginBtn .loginFront, section.login .loginBlock .loginBtn .loginBack {
         border: 0;
-        background: white; }
+        background-color: initial; }
 
 section.fpHomepage1 .fpLogo {
   position: relative; }
