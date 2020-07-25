@@ -14,9 +14,7 @@ try {
     $CUS_EMAIL = $_POST["CUS_EMAIL"];
     $CUS_POINT = $_POST["CUS_POINT"];
 
-    $sql="SELECT * FROM g4_nexpos.customer
-    Where CUS_PHONE = $CUS_PHONE;
-    ";
+    $sql="SELECT * FROM customer Where CUS_PHONE = $CUS_PHONE;";
 
     $findRows = $pdo ->query($sql);
 
