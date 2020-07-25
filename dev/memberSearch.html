@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/memberSearch.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <title>會員資料查詢</title>
+    <title>NEX POS-前台</title>
+    <link rel="icon" href="./assets/LOGO.ico" type="image/x-icon" />
   </head>
   <style>
     .search-container {
@@ -78,6 +79,7 @@
         </div>
       </div>
     </div>
+    <script src="./js/login.js"></script>
     <script>
       // jquery 開始
       $(document).ready(function () {
@@ -135,14 +137,6 @@
             }
           }
         }
-      });
-
-      // 判斷登入人員並顯示於頁面
-      window.addEventListener("load", function () {
-        let username = sessionStorage.getItem("name");
-
-        let loginName = document.querySelector(".user");
-        loginName.innerHTML = `Hi! ${username}`;
       });
     </script>
   </body>

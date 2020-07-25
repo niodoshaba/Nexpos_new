@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="https://www.jqueryscript.net/css/jquerysctipttop.css" />
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/dailyStatement.css" />
-  <title>dailyStatementLogIn</title>
+  <title>NEX POS-前台</title>
+  <link rel="icon" href="./assets/LOGO.ico" type="image/x-icon" />
 </head>
 
 <body>
@@ -66,14 +67,8 @@
   </div> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/tabShow.js"></script>
   <script>
-    // 判斷登入人員並顯示於頁面
-    window.addEventListener("load", function () {
-      let username = sessionStorage.getItem('name');
-
-      let loginName = document.querySelector('.user');
-      loginName.innerHTML = `Hi! ${username}`;      
-    })
     //取消鈕
     let cancel = document.querySelector('.cancel');
     let inputId = document.querySelector('.inputId');

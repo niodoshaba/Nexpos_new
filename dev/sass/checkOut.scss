@@ -339,10 +339,11 @@ body{
 
 //燈箱
 #checkOutDoneContainer{
+    // top:28px;
     border:1px solid rgb(223, 218, 218);
-    width: 710px;
-    height:844px;
-    margin: 0 auto;
+    width: 686px;
+    height:830px;
+    margin-left:-94px;
     border-radius: 35px;
 
     h1{
@@ -359,7 +360,7 @@ body{
         border-top: 1px solid #959595;
         border-bottom: 1px solid #959595;
         width: 468px;
-        margin: 0 auto 330px;
+        margin: 0 auto 230px;
     }
     table{
         margin: 50px auto;
@@ -400,5 +401,3 @@ body{
 
     
 }
-
-       
