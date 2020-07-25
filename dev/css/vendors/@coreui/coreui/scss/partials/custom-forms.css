@@ -178,7 +178,7 @@ html:not([dir="rtl"]) .custom-switch {
   height: calc(1.5em + 0.5rem + 2px);
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  font-size: 0.76562rem; }
+  font-size: 0.76563rem; }
   html:not([dir="rtl"]) .custom-select-sm {
     padding-left: 0.5rem; }
   *[dir="rtl"] .custom-select-sm {
