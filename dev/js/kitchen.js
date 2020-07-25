@@ -33,6 +33,8 @@ if (loadOrdListTips == undefined) {
     ordlistTips = loadOrdListTips;
 }
 
+let tmpRenderList = [];
+
 function getOrderData() {
     for (var i = 0; i < localStorage.length; i++) {
         orderNo.push(localStorage.key(i));
@@ -54,7 +56,15 @@ function getOrderData() {
 
 window.addEventListener('load', function () {
     getOrderData();
-    rederOrdListIf();
+
+    for(i=0;i<orderNoDoneFinal.length;i++){
+        for(j=1;j<orderNoDoneFinal[i].length;j++){
+            orderNoDoneFinal[i][j].status == 1 && orderNoDoneFinal[i][j].state == 0 ? tmpRenderList.push(i) : tmpRenderList;
+        }
+    }
+    let resultQ = [...(new Set(tmpRenderList))];
+
+    rederOrdListIf(resultQ);
     
     //按下完成後，該單消失
     $('.kButton').on('click', function () {
@@ -64,9 +74,9 @@ window.addEventListener('load', function () {
 
 
 
-function rederOrdListIf() {
+function rederOrdListIf(data) {
     
-    for (let i = 0; i < orderNoDoneFinal.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         
         //最外層html
         content += '<div class="kContainer" id="kOrder"><div class="kpin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div><div class="kHead"><div class="kHeadItem">';
@@ -107,7 +117,7 @@ function rederOrdListIf() {
 
     
     //渲染 status = 1, state = 0的在廚房待做訂單上
-    for (i = 0; i < orderNoDoneFinal.length; i++) {
+    for (i = 0; i < data.length; i++) {
         for (j = 0; j < orderNoDoneFinal[i].length; j++) {
             let status = orderNoDoneFinal[i][j].status;
             let state = orderNoDoneFinal[i][j].state;
@@ -134,7 +144,7 @@ function foodDone(obj,event) {
                 let state = orderNoDoneFinal[i][j].state;
                 if (status == 1 && state == 0) {
                     orderNoDoneFinal[i][j].state = 1;
-                    // localStorage.setItem(`${orderNoDone[i]}`,JSON.stringify(orderNoDoneFinal));
+                    localStorage.setItem(`orderNo_${orderNoDoneFinal[i][0].orderList}`,JSON.stringify(orderNoDoneFinal[i]));
                 }
             }
             localStorage.setItem(`done_${orderNo}`, orderNo);

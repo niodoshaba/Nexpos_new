@@ -8,7 +8,8 @@
   <!-- <link rel="stylesheet" href="css/style.css" /> -->
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/kitchenRecord.css">
-  <title>廚房訂單記錄</title>
+  <title>NEX POS-前台</title>
+  <link rel="icon" href="./assets/LOGO.ico" type="image/x-icon" />
 </head>
 
 <body>
@@ -146,16 +147,7 @@
       </form>
 
     </div>
-
-    <script>
-      // 判斷登入人員並顯示於頁面
-      window.addEventListener("load", function () {
-        let username = sessionStorage.getItem('name');
-
-        let loginName = document.querySelector('.user');
-        loginName.innerHTML = `Hi! ${username}`;
-      });
-    </script>
+    <script src="./js/tabShow.js"></script>
     <script src="./js/kichenRecord.js"></script>
 </body>
 
