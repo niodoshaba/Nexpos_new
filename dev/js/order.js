@@ -253,7 +253,7 @@ function ordReceiveToppingInfo() {
             // 糖份
             let ordToppingSuSec = "";
             ordToppingSuSec = `<div class="ordToppingSecSu">
-                                <button class="ordFillBtn" id="ordSugar" data-timer=0>${ordSugarCart[0].FILLING_CATA_NAME}</button>
+                                <button class="ordFillBtn" id="ordSugar" data-timer=0 style="cursor: pointer">${ordSugarCart[0].FILLING_CATA_NAME}</button>
                                 <div id="ordSugarAll">
                                 </div>
                             </div>`;
@@ -262,7 +262,7 @@ function ordReceiveToppingInfo() {
             // 冰塊
             let ordToppingIceSec = "";
             ordToppingIceSec = `<div class="ordToppingSecIce">
-                                <button class="ordFillBtn" id="ordIce" data-timer=0>${ordIceCart[0].FILLING_CATA_NAME}</button>
+                                <button class="ordFillBtn" id="ordIce" data-timer=0 style="cursor: pointer">${ordIceCart[0].FILLING_CATA_NAME}</button>
                                 <div id="ordIceAll">
                                 </div>
                             </div>`;
@@ -270,7 +270,7 @@ function ordReceiveToppingInfo() {
             // 配料
             let ordToppingAsideSec = "";
             ordToppingAsideSec = `<div class="ordToppingSecAside">
-                                <button class="ordFillBtn" id="ordAside" data-timer=0>${ordAsideCart[0].FILLING_CATA_NAME}</button>
+                                <button class="ordFillBtn" id="ordAside" data-timer=0 style="cursor: pointer">${ordAsideCart[0].FILLING_CATA_NAME}</button>
                                 <div id="ordAsideAll">
                                 </div>
                             </div>`;
@@ -278,7 +278,7 @@ function ordReceiveToppingInfo() {
             // 調味
             let ordToppingSeasoningSec = "";
             ordToppingSeasoningSec = `<div class="ordToppingSecSeasoning">
-                                <button class="ordFillBtn" id="ordSeasoning" data-timer=0>${ordSeasoningCart[0].FILLING_CATA_NAME}</button>
+                                <button class="ordFillBtn" id="ordSeasoning" data-timer=0 style="cursor: pointer">${ordSeasoningCart[0].FILLING_CATA_NAME}</button>
                                 <div id="ordSeasoningAll">
                                 </div>
                             </div>`;
@@ -298,7 +298,7 @@ function ordProdOnOff() {
     let ordSanTitle = "";
 
     if (ordProdSan[0].PRO_CATA_ONOFF == 1) {
-        ordSanTitle = `<li id="ordSan" class="ordTitle ordListPicked">${ordProdSan[0].PRO_CATA_NAME}</li>`;
+        ordSanTitle = `<li id="ordSan" class="ordTitle ordListPicked" style="cursor: pointer">${ordProdSan[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordSanTitle);
     } else {
         ordSanTitle = `<li id="ordSan" class="ordTitle" style="display:none">${ordProdSan[0].PRO_CATA_NAME}</li>`;
@@ -310,7 +310,7 @@ function ordProdOnOff() {
     ordProdPas = JSON.parse(localStorage.getItem("ordSavePasInfo"));
     let ordPasTitle = "";
     if (ordProdPas[0].PRO_CATA_ONOFF == 1) {
-        ordPasTitle = `<li id="ordPas"  class="ordTitle">${ordProdPas[0].PRO_CATA_NAME}</li>`;
+        ordPasTitle = `<li id="ordPas"  class="ordTitle" style="cursor: pointer">${ordProdPas[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordPasTitle);
     } else {
         ordPasTitle = `<li id="ordPas" class="ordTitle" style="display:none">${ordProdPas[0].PRO_CATA_NAME}</li>`;
@@ -321,7 +321,7 @@ function ordProdOnOff() {
     ordProdHam = JSON.parse(localStorage.getItem("ordSaveHamInfo"));
     let ordHamTitle = "";
     if (ordProdHam[0].PRO_CATA_ONOFF == 1) {
-        ordHamTitle = `<li id="ordHam"  class="ordTitle">${ordProdHam[0].PRO_CATA_NAME}</li>`;
+        ordHamTitle = `<li id="ordHam"  class="ordTitle" style="cursor: pointer">${ordProdHam[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordHamTitle);
     } else {
         ordHamTitle = `<li id="ordHam" class="ordTitle" style="display:none">${ordProdHam[0].PRO_CATA_NAME}</li>`;
@@ -332,7 +332,7 @@ function ordProdOnOff() {
     ordProMuf = JSON.parse(localStorage.getItem("ordSaveMufInfo"));
     let ordMufTitle = "";
     if (ordProMuf[0].PRO_CATA_ONOFF == 1) {
-        ordMufTitle = `<li id="ordMuf"  class="ordTitle">${ordProMuf[0].PRO_CATA_NAME}</li>`;
+        ordMufTitle = `<li id="ordMuf"  class="ordTitle" style="cursor: pointer">${ordProMuf[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordMufTitle);
     } else {
         ordMufTitle = `<li id="ordMuf" class="ordTitle" style="display:none">${ordProMuf[0].PRO_CATA_NAME}</li>`;
@@ -343,7 +343,7 @@ function ordProdOnOff() {
     ordProSwe = JSON.parse(localStorage.getItem("ordSaveSweInfo"));
     let ordSweTitle = "";
     if (ordProSwe[0].PRO_CATA_ONOFF == 1) {
-        ordSweTitle = `<li id="ordSwe" class="ordTitle">${ordProSwe[0].PRO_CATA_NAME}</li>`;
+        ordSweTitle = `<li id="ordSwe" class="ordTitle" style="cursor: pointer">${ordProSwe[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordSweTitle);
     } else {
         ordSweTitle = `<li id="ordSwe" class="ordTitle" style="display:none">${ordProSwe[0].PRO_CATA_NAME}</li>`;
@@ -354,7 +354,7 @@ function ordProdOnOff() {
     ordProCof = JSON.parse(localStorage.getItem("ordSaveCofInfo"));
     let ordCofTitle = "";
     if (ordProCof[0].PRO_CATA_ONOFF == 1) {
-        ordCofTitle = `<li id="ordCof" class="ordTitle">${ordProCof[0].PRO_CATA_NAME}</li>`;
+        ordCofTitle = `<li id="ordCof" class="ordTitle" style="cursor: pointer">${ordProCof[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordCofTitle);
     } else {
         ordCofTitle = `<li id="ordCof" class="ordTitle" style="display:none">${ordProCof[0].PRO_CATA_NAME}</li>`;
@@ -366,7 +366,7 @@ function ordProdOnOff() {
     ordProDri = JSON.parse(localStorage.getItem("ordSaveDriInfo"));
     let ordDriTitle = "";
     if (ordProDri[0].PRO_CATA_ONOFF == 1) {
-        ordDriTitle = `<li id="ordDri" class="ordTitle">${ordProDri[0].PRO_CATA_NAME}</li>`;
+        ordDriTitle = `<li id="ordDri" class="ordTitle" style="cursor: pointer">${ordProDri[0].PRO_CATA_NAME}</li>`;
         ordNavList.insertAdjacentHTML("beforeend", ordDriTitle);
     } else {
         ordDriTitle = `<li id="ordDri" class="ordTitle" style="display:none">${ordProDri[0].PRO_CATA_NAME}</li>`;
@@ -412,7 +412,7 @@ function ordReceiveSanInfo() {
             ordDisCount = "border: 5px solid #319D8E; Box-sizing: border-box;"
         } else { };
         // 渲染商品進HTML頁面
-        ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
+        ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}; cursor: pointer">
                                                 <img src="./assets/${ordProdSan[g].PRO_ITEM_NO}.jpg" alt="">
                                                 <div class="orderPageItemDivBottomBlack">
                                                     <span class="ordProdName" id="${ordProdSan[g].PRO_ITEM_NO}">${ordProdSan[g].PRO_ITEM_NAME}</span>
@@ -442,7 +442,7 @@ function ordSanShow() {
                 ordDisCount = ""
             };
             // 渲染商品進HTML頁面
-            ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
+            ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}; cursor: pointer">
                                         <img src="./assets/${ordProdSan[g].PRO_ITEM_NO}.jpg" alt="">
                                         <div class="orderPageItemDivBottomBlack">
                                             <span class="ordProdName" id="${ordProdSan[g].PRO_ITEM_NO}">${ordProdSan[g].PRO_ITEM_NAME}</span>
@@ -483,7 +483,7 @@ function ordReceivePasInfo() {
             ordDisCount = ""
         };
         // 渲染商品進HTML頁面
-        ordProdItemDiv = `<div class="orderPageItemDiv"  style="${ordDisCount}">
+        ordProdItemDiv = `<div class="orderPageItemDiv"  style="${ordDisCount}; cursor: pointer">
                                             <img src="./assets/${ordPasCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordPasCart[g].PRO_ITEM_NO}">${ordPasCart[g].PRO_ITEM_NAME}</span>
@@ -516,7 +516,7 @@ function ordReceiveHamInfo() {
             ordDisCount = "border: 5px solid #319D8E; Box-sizing: border-box;"
         } else { };
         // 渲染商品進HTML頁面
-        ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
+        ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}; cursor: pointer">
                                             <img src="./assets/${ordHamCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordHamCart[g].PRO_ITEM_NO}">${ordHamCart[g].PRO_ITEM_NAME}</span>
@@ -549,7 +549,7 @@ function ordReceiveMufInfo() {
             ordDisCount = "border: 5px solid #319D8E; Box-sizing: border-box;"
         } else { };
         // 渲染商品進HTML頁面
-        ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
+        ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}; cursor: pointer">
                                             <img src="./assets/${ordMufCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordMufCart[g].PRO_ITEM_NO}">${ordMufCart[g].PRO_ITEM_NAME}</span>
@@ -581,7 +581,7 @@ function ordReceiveSweInfo() {
             ordDisCount = "border: 5px solid #319D8E; Box-sizing: border-box;"
         } else { };
         // 渲染商品進HTML頁面
-        ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
+        ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}; cursor: pointer">
                                             <img src="./assets/${ordSweCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordSweCart[g].PRO_ITEM_NO}">${ordSweCart[g].PRO_ITEM_NAME}</span>
@@ -615,7 +615,7 @@ function ordReceiveCofInfo() {
             ordDisCount = "border: 5px solid #319D8E; Box-sizing: border-box;"
         } else { };
         // 渲染商品進HTML頁面
-        ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
+        ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount} ; cursor: pointer">
                                             <img src="./assets/${ordCofCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordCofCart[g].PRO_ITEM_NO}">${ordCofCart[g].PRO_ITEM_NAME}</span>
@@ -650,7 +650,7 @@ function ordReceiveDriInfo() {
             ordDisCount = "border: 5px solid #319D8E; Box-sizing: border-box;"
         } else { };
         // 渲染商品進HTML頁面
-        ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}">
+        ordProdItemDiv = `<div class="orderPageItemDiv" style="${ordDisCount}; cursor: pointer">
                                             <img src="./assets/${ordDriCart[g].PRO_ITEM_NO}.jpg" alt="">
                                             <div class="orderPageItemDivBottomBlack">
                                                 <span class="ordProdName" id="${ordDriCart[g].PRO_ITEM_NO}">${ordDriCart[g].PRO_ITEM_NAME}</span>
