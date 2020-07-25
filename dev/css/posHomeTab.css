@@ -46,6 +46,7 @@ html {
   #showTableToResPage li {
     color: white;
     text-align: center;
+    cursor: pointer;
     line-height: 30px; }
 
 .topTunc {
@@ -53,3 +54,9 @@ html {
 
 .topTablink.topTabToGo {
   position: absolute; }
+
+#showTableToResPage > li {
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  line-height: 30px; }
