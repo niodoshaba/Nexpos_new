@@ -162,16 +162,7 @@
 
     <!-- <script src="calendar.js" type="text/javascript"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/login.js"></script>
     <script src="./js/calendar.js"></script>
-
-    <script>
-      // 判斷登入人員並顯示於頁面
-      window.addEventListener("load", function () {
-        let username = sessionStorage.getItem("name");
-
-        let loginName = document.querySelector(".user");
-        loginName.innerHTML = `Hi! ${username}`;
-      });
-    </script>
   </body>
 </html>
