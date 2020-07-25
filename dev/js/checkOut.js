@@ -236,9 +236,9 @@ window.addEventListener('load', function () {
     let checkoutGetPoint = document.getElementById('checkoutGetPoint');
     //每筆品項金額
     let checkOutPrice = document.getElementsByClassName('checkOutPrice');
-    //總金額
+    //總金額 折扣/紅利/拆帳都會用到
     let checkOutTotalPrice = 0;
-    //紀錄總金額 不變動的金額
+    //紀錄總金額 只有在折扣和紅利會變動變動的金額
     let checkOutTotalPriceSendToDB = 0;
     //折扣總金額
     let checkoutDiscountTotalPrice = 0;
@@ -393,7 +393,7 @@ window.addEventListener('load', function () {
         // if(checkoutNowBouns.innerText == 0)
         // checkoutSendLastBonus.innerText = parseInt(checkoutNowBouns.innerText) - parseInt(checkoutGetPoint.value);
         //總計
-        checkoutSendTotalPrice.innerText = checkOutTotalPrice - checkoutSendDiscount.innerText - checkoutSendBonus.innerText;
+        checkoutSendTotalPrice.innerText = checkOutTotalPriceSendToDB - checkoutSendDiscount.innerText - checkoutSendBonus.innerText;
 
 
         //訂單編號
@@ -445,7 +445,7 @@ window.addEventListener('load', function () {
             "ORDER_DEVICE_NO": "",
             "ORDER_INNOUT": tmpInOrOut,
             "ORDER_NUM": ppl,
-            "ORDER_TTL_PRICE": checkOutTotalPrice - checkoutSendDiscount.innerText - checkoutSendBonus.innerText,
+            "ORDER_TTL_PRICE": checkOutTotalPriceSendToDB - checkoutSendDiscount.innerText - checkoutSendBonus.innerText,
             "ORDER_DATE": ThisDate
         }
         console.log(sendDataToDB);
@@ -563,8 +563,9 @@ window.addEventListener('load', function () {
         //寫回折扣總價
         document.getElementById('checkoutDiscountTotalPrice').innerText = checkOutTotalPrice - checkoutDiscountTotalPrice;
         checkoutTotal.innerHTML = `<span>總計：</span> <span>${checkoutDiscountTotalPrice}</span>`;
-        // var afterPrice = parseInt(document.getElementById('checkOutTotalPriceShow').innerText); 
         checkOutTotalPrice = checkoutDiscountTotalPrice;
+        //只有在折扣或紅利時需修改checkOutTotalPriceSendToDB的值
+        checkOutTotalPriceSendToDB = checkoutDiscountTotalPrice;
         //同步更新收款金額
         checkoutGetCash.value = checkOutTotalPrice;
     });
@@ -598,7 +599,8 @@ window.addEventListener('load', function () {
 
             
             checkOutTotalPrice = checkOutTotalPrice - parseInt(getPoint / bonusExchange);
-
+            //只有在折扣或紅利時需修改checkOutTotalPriceSendToDB的值
+            checkOutTotalPriceSendToDB = checkOutTotalPrice;
             //紅利折抵金額 用第一筆品項去扣
             checkOutPrice[0].innerText = "$" + (firstItem - parseInt(getPoint / bonusExchange));
         }
