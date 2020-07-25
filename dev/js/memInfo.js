@@ -13,6 +13,14 @@ window.addEventListener("load", function () {
 
         let idPsw = document.querySelector(".idPsw");
         let str = "";
+        
+       
+
+        for (i = 0; i < empIdPsw.length; i++) {
+          if (empIdPsw[i].CUS_EMAIL == null) {
+            empIdPsw[i].CUS_EMAIL = " ";
+          } 
+        }
         // for (i = 0; i < empIdPsw.length; i++) {
         //   let idPsw = `<tr>
         //           <td>${empIdPsw[i].CUS_LAST}</td>
@@ -45,7 +53,7 @@ window.addEventListener("load", function () {
         idPsw.innerHTML += str;
         edit();
       }
-      let memId = document.querySelectorAll(".memId");
+      // let memId = document.querySelectorAll(".memId");
 
       // console.log(status);
       // for (i = 0; i < memId.length; i++) {
@@ -64,6 +72,8 @@ window.addEventListener("load", function () {
           memStatus[i].innerHTML = "黑名單";
         }
       }
+
+    
     };
     xhr.open("get", "./js/memInfoShow.php", true);
     xhr.send(null);
