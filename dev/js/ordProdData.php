@@ -3,7 +3,6 @@ try {
     require_once("generalConnectDB.php");
    
 
-
     // 先看看日期內有沒有折扣活動
     $sql_dis = "SELECT DIS_NO, DIS_CATA_NO, DIS_PCTALL
     FROM DISCOUNT
@@ -43,13 +42,13 @@ try {
             echo json_encode($ordProdInfo);
     
         }elseif($DIS_CATA_NO == 1){
-            $sql_partProd = "SELECT  DISCOUNT.DIS_NO, DISCOUNT.DIS_PCTALL, DIS_ITEM.PRO_ITEM_NUMBER, PRODUCT_CATA.PRO_CATA_NO, PRODUCT_CATA.PRO_CATA_ONOFF, PRODUCT_CATA.PRO_CATA_NAME, PRODUCT_ITEM.PRO_ITEM_NO, PRODUCT_ITEM.PRO_CATA_NO, PRODUCT_ITEM.PRO_ITEM_NAME,PRODUCT_ITEM.PRO_ITEM_ONOFF, PRODUCT_ITEM.PRO_ITEM_PRICE AS 'before',
+            $sql_partProd = "SELECT DISCOUNT.DIS_NO, DISCOUNT.DIS_PCTALL, DIS_ITEM.PRO_ITEM_NUMBER, PRODUCT_CATA.PRO_CATA_NO, PRODUCT_CATA.PRO_CATA_ONOFF, PRODUCT_CATA.PRO_CATA_NAME, PRODUCT_ITEM.PRO_ITEM_NO, PRODUCT_ITEM.PRO_CATA_NO, PRODUCT_ITEM.PRO_ITEM_NAME,PRODUCT_ITEM.PRO_ITEM_ONOFF, PRODUCT_ITEM.PRO_ITEM_PRICE AS 'before',
             ifnull(ROUND(PRODUCT_ITEM.PRO_ITEM_PRICE*DISCOUNT.DIS_PCTALL, 0) , ROUND(PRODUCT_ITEM.PRO_ITEM_PRICE*1, 0)) AS 'PRO_ITEM_PRICE'
             FROM DISCOUNT  JOIN DIS_ITEM 
             ON DISCOUNT.DIS_NO = DIS_ITEM.DIS_NO
             right JOIN PRODUCT_ITEM
             ON PRO_ITEM_NUMBER = PRO_ITEM_NO
-            AND DISCOUNT.DIS_NO = `$DIS_NO`
+            AND DISCOUNT.DIS_NO = $DIS_NO
             JOIN PRODUCT_CATA
             ON PRODUCT_CATA.PRO_CATA_NO = PRODUCT_ITEM.PRO_CATA_NO
             WHERE PRO_ITEM_ONOFF = 1;";
@@ -61,8 +60,7 @@ try {
             $ordProdInfo[] = $row;
             };
 
-            echo json_encode($ordProdInfo);
-    
+            echo json_encode($ordProdInfo); 
         };
     }else{
         //如果沒有折扣，則顯示原價

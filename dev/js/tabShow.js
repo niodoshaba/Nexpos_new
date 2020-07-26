@@ -18,7 +18,7 @@ console.log(tabCloseColor);
 console.log(tabCleanColor);
 console.log(tabEatColor);
 
-var tabStatus = document.querySelector('option').innerText;
+// var tabStatus = document.querySelector('option').innerText;
 var tabResOrCloseSelect = document.querySelector('#tabResOrCloseSelect');
 //判斷燈號，拿來取代無法判斷背景色 <= 要寫在編輯餐桌的頁面
 var tabCloseBtn = document.getElementById('tabCloseBtn');
@@ -185,5 +185,5 @@ tabCloseBtn.addEventListener('click', function (e) {
     }
 
     saveAllDataToJson(tabReceiveJson);
-    alert ("儲存成功")
+    alert("儲存成功")
 });

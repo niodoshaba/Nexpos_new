@@ -277,7 +277,7 @@ tabSaveBtn.addEventListener('click', function () {
     saveAllDataToJson(positionArr);
     tabEditSave(JSON.stringify(positionArr));
 
-    alert ("儲存成功")
+    alert("儲存成功")
   }
 
 });

@@ -38,7 +38,7 @@ let posHomeOrderList;
 let posHomeInsert;
 
 let newDate = new Date();
-let ThisDate = `${newDate.getFullYear()}-${(newDate.getMonth()+1)<10?0:''}${newDate.getMonth()+1}-${(newDate.getDate()+1)<10?0:''}${newDate.getDate()}`;
+let ThisDate = `${newDate.getFullYear()}-${(newDate.getMonth() + 1) < 10 ? 0 : ''}${newDate.getMonth() + 1}-${(newDate.getDate() + 1) < 10 ? 0 : ''}${newDate.getDate()}`;
 
 //----------------------------
 //紀錄傳到點餐頁面的資訊
@@ -103,17 +103,17 @@ function rgbToHex(r, g, b) {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
-function loadOrderList(){
+function loadOrderList() {
     let xhr = new XMLHttpRequest();
 
     xhr.onload = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        let result = JSON.parse(xhr.responseText);
-       
-        posHomeOrderList = parseInt(result.ORDER_NO);
-        console.log(posHomeOrderList);
-      }
-  
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            let result = JSON.parse(xhr.responseText);
+
+            posHomeOrderList = parseInt(result.ORDER_NO);
+            console.log(posHomeOrderList);
+        }
+
     }
     xhr.open("post", "./js/loadOrderList.php", false);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
@@ -145,16 +145,16 @@ function bonusRuleGetData() {
 
 
 //新訂單寫入資料庫
-function posHomeInsertDataAjax(data){
+function posHomeInsertDataAjax(data) {
     let xhr = new XMLHttpRequest();
 
     xhr.onload = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        let result = JSON.parse(xhr.responseText);
-        console.log(result);
-        
-      }
-  
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            let result = JSON.parse(xhr.responseText);
+            console.log(result);
+
+        }
+
     }
     xhr.open("post", "./js/posHomeInsertDataAjax.php", false);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
@@ -167,7 +167,7 @@ window.addEventListener('load', function (e) {
     loadOrderList();
     bonusRuleGetData();
     //undefined改成用isNaN判斷
-    isNaN(posHomeOrderList) ? posHomePageOrd = 0: posHomePageOrd = posHomeOrderList;
+    isNaN(posHomeOrderList) ? posHomePageOrd = 0 : posHomePageOrd = posHomeOrderList;
     console.log(posHomePageOrd);
     console.log(posHomeOrderList);
 
@@ -298,7 +298,7 @@ window.addEventListener('load', function (e) {
         toGoZone.addEventListener('click', e => {
             const li = e.target.closest('li');
             //ES6 可用
-            console.log(Array.from(li.parentNode.children).indexOf(li));
+            // console.log(Array.from(li.parentNode.children).indexOf(li));
             //不支援ES6語法可用
             console.log(Array.prototype.indexOf.call(li.parentNode.children, li));
             ordlistTips.orderList = toGoArr[Array.prototype.indexOf.call(li.parentNode.children, li)].orderList;
@@ -399,8 +399,8 @@ tabConstrainZone.addEventListener('click', e => {
                 //內用外帶 "in"
                 //人數 1
                 //總金額 0
-                posHomeInsert = { 
-                    "ORDER_NO":posHomePageOrd,
+                posHomeInsert = {
+                    "ORDER_NO": posHomePageOrd,
                     "CUS_PHONE": "0947382934",
                     "PAY_NO": 1,
                     "EMP_NO": 100003,
@@ -409,9 +409,9 @@ tabConstrainZone.addEventListener('click', e => {
                     "ORDER_DEVICE_NO": "",
                     "ORDER_INNOUT": 0,
                     "ORDER_NUM": 1,
-                    "ORDER_TTL_PRICE": 100, 
+                    "ORDER_TTL_PRICE": 100,
                     "ORDER_DATE": ThisDate
-                                }
+                }
                 //餐桌綁訂單
                 li.basicInfo.orderList = posHomePageOrd;
                 li.basicInfo.inOrOut = "in";
@@ -427,7 +427,7 @@ tabConstrainZone.addEventListener('click', e => {
                 posHomeInsertDataAjax(posHomeInsert);
                 //把訂單編號次數寫入localstorage
                 localStorage.setItem('posHomePageOrd', posHomePageOrd);
-            
+
                 //跳轉頁面
                 location.replace('./orderPage.html');
             }
@@ -448,9 +448,9 @@ tabConstrainZone.addEventListener('click', e => {
                 location.replace('./orderPage.html');
             } else {
                 posHomePageOrd++;
-                
-                posHomeInsert = { 
-                    "ORDER_NO":posHomePageOrd,
+
+                posHomeInsert = {
+                    "ORDER_NO": posHomePageOrd,
                     "CUS_PHONE": "0947382934",
                     "PAY_NO": 1,
                     "EMP_NO": 100003,
@@ -460,10 +460,10 @@ tabConstrainZone.addEventListener('click', e => {
                     "ORDER_DEVICE_NO": "",
                     "ORDER_INNOUT": 0,
                     "ORDER_NUM": 1,
-                    "ORDER_TTL_PRICE": 100, 
+                    "ORDER_TTL_PRICE": 100,
                     "ORDER_DATE": ThisDate
-                                }
-                
+                }
+
                 // ThisDate
                 posHomeInsertDataAjax(posHomeInsert);
                 //把訂單編號次數寫入localstorage
@@ -480,8 +480,8 @@ tabConstrainZone.addEventListener('click', e => {
                 ordlistTips.inOrOut = "in";
                 ordlistTips.number = li.basicInfo.number;
                 saveDataToLocal('ordlistTips', ordlistTips);
-                
-                
+
+
                 //跳轉頁面
                 location.replace('./orderPage.html');
             }
@@ -515,8 +515,8 @@ topTabToGo.addEventListener('click', e => {
     //訂單編號+1
     posHomePageOrd++;
     console.log(posHomePageOrd);
-    posHomeInsert = { 
-        "ORDER_NO":posHomePageOrd,
+    posHomeInsert = {
+        "ORDER_NO": posHomePageOrd,
         "CUS_PHONE": "0947382934",
         "PAY_NO": 1,
         "EMP_NO": 100003,
@@ -526,9 +526,9 @@ topTabToGo.addEventListener('click', e => {
         "ORDER_DEVICE_NO": "",
         "ORDER_INNOUT": 1,
         "ORDER_NUM": 1,
-        "ORDER_TTL_PRICE": 100, 
+        "ORDER_TTL_PRICE": 100,
         "ORDER_DATE": ThisDate
-                    }
+    }
 
     // ThisDate
     posHomeInsertDataAjax(posHomeInsert);
