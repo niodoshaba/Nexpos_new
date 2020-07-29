@@ -11,7 +11,7 @@ try{
   $resFormPeopleCount = $_POST["resFormPeopleCount"];
   $resFormTextArea = $_POST["resFormTextArea"];
 
-  $sql="SELECT * FROM g4_nexpos.customer
+  $sql="SELECT * FROM customer
   Where CUS_PHONE = $resFormPhone;
   ";
 
