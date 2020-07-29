@@ -687,11 +687,11 @@ function ordReload() {
                     // 把裝配料的容器清空
                     let ordtoppingReloadHTML = '';
                     // let ordToppingTtlNum = 0;
-                    // for (let s = 0; s < ordGetProd[k].topping.length; s++) {
-                    //     ordtoppingReloadHTML += `<span class="ordToppingSec"> ${ordGetProd[k].topping[s]}</span>`;
-                    //     // 把配料的價錢將加算出總價
-                    //     ordToppingTtlNum += parseInt(ordGetProd[k].topping[s].split("$")[1]);
-                    // };
+                    for (let s = 0; s < ordGetProd[k].topping.length; s++) {
+                        ordtoppingReloadHTML += `<span class="ordToppingSec"> ${ordGetProd[k].topping[s]}</span>`;
+                        //     // 把配料的價錢將加算出總價
+                        //     ordToppingTtlNum += parseInt(ordGetProd[k].topping[s].split("$")[1]);
+                    };
                     ordReloadHTML += `
                                     <div class="orderPageLeftSideMidItem" style="pointer-events:none; color:#ccc">
                                         <div class="orderPageLeftSideMidItemTop">
