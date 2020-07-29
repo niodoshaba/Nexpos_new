@@ -18,7 +18,7 @@ try{
   $empRow = $EMP->fetch(PDO::FETCH_ASSOC);
   $useInfo = "EMP_TITLE={$empRow["EMP_TITLE"]}&EMP_NAME={$empRow["EMP_NAME"]}";
 
-  if($_POST['loginFront']){
+  if(isset($_POST['loginFront'])){
     if($EMP->rowCount()==0){
       echo "<script>
               alert('請輸入正確的帳號、密碼>_<');
@@ -38,7 +38,7 @@ try{
   $empRow = $EMP->fetch(PDO::FETCH_ASSOC);
   $useInfo = "EMP_TITLE={$empRow["EMP_TITLE"]}&EMP_NAME={$empRow["EMP_NAME"]}";
    
-  if($_POST['loginBack']){
+  if(isset($_POST['loginBack'])){
     if($EMP->rowCount()==0){
       echo "<script>
               alert('請輸入正確的帳號、密碼>_<');
