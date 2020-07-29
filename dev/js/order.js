@@ -1233,6 +1233,7 @@ orderPageRightSideBottomBtn1.addEventListener("click", function () {
 
     ordToKitchen = basicInfoArr.concat(ordGetOnProd);
     localStorage.setItem(`orderNo_${ordList}`, JSON.stringify(ordToKitchen));
+    localStorage.removeItem(`done_${ordList}`);
 
     // 跳轉回餐桌頁面
     location.replace('./posHomeTab.html');

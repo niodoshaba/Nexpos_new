@@ -381,7 +381,7 @@ window.addEventListener('load', function () {
         //付款方式(寫死)
         checkoutSendPayNo.innerText = "現金";
         //收款金額
-        checkoutSendGetPrice.innerText = checkOutTotalPrice;
+        checkoutSendGetPrice.innerText = checkOutTotalPriceSendToDB;
         //折扣總計
         console.log(checkoutSendDiscount.innerText == "");
         typeof(checkoutDiscountTotalPrice) == "number" && isNaN(checkoutDiscountTotalPrice)? checkoutSendDiscount.innerText = 0 : document.getElementById('checkoutDiscountTotalPrice').innerText != ""?checkoutSendDiscount.innerText = document.getElementById('checkoutDiscountTotalPrice').innerText:checkoutSendDiscount.innerText=0;

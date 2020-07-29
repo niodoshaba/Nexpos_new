@@ -45,12 +45,12 @@ if(isset($_GET['s'])){
         <table>
             <tr>
                 
-                <td style='width: 100px'>姓名</td>
+                <td style='width: 104px'>姓名</td>
                 <td style='width: 70px'>性別</td>
                 <td>手機</td>
                 <td>生日</td>
                 <td>e-mail</td>
-                <td style='width: 80px'>狀態</td>
+                <td style='width: 84px'>狀態</td>
                 <td>點數</td>
             </tr>
 
@@ -90,12 +90,12 @@ if(isset($_GET['s'])){
     <table>
             <tr>
                 
-                <td style='width: 100px'>姓名</td>
+                <td style='width: 104px'>姓名</td>
                 <td style='width: 70px'>性別</td>
                 <td>手機</td>
                 <td>生日</td>
                 <td>e-mail</td>
-                <td style='width: 80px'>狀態</td>
+                <td style='width: 84px'>狀態</td>
                 <td>點數</td>
             </tr>
 
