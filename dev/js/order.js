@@ -1092,11 +1092,11 @@ function ordToppingSecShow() {
                                 e.preventDefault();
                                 e.stopImmediatePropagation();
                                 // 渲染進品項下面的空間
-                                document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordIceCart[s].FILLING_ITEM_NAME} $${ordIceCart[s].FILLING_ITEM_PRICE}</span>`;
+                                document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].innerHTML += `<span class="ordToppingSec"> ${ordIceCart[s].FILLING_ITEM_NAME}</span>`;
 
                                 let ordLightBlueNum = parseInt(document.querySelector('.orderPageLeftSideMidItemTop.lightblue').nextElementSibling.childNodes[1].dataset.sec);
 
-                                ordProdCart[ordLightBlueNum].topping.push(`${ordIceCart[s].FILLING_ITEM_NAME} $${ordIceCart[s].FILLING_ITEM_PRICE}`);
+                                ordProdCart[ordLightBlueNum].topping.push(`${ordIceCart[s].FILLING_ITEM_NAME}`);
 
                                 // 存入購物車
                                 ordSaveProdInCartHist();
